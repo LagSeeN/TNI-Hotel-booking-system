@@ -7,6 +7,7 @@ public class HelloWorld {
 		System.out.println("Hello Yossapon");
 		System.out.println("Hello Danupol");
 		System.out.println("Hello Pokemon");
+		System.out.println("Hello Pokemon2");
 	}
 
 }
