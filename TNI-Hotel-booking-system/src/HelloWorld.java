@@ -9,6 +9,8 @@ public class HelloWorld {
 		System.out.println("Hello Pokemon");
 		System.out.println("Hello Pokemon2");
 		System.out.println("Hello Pokemon3");
+		System.out.println("Hello Pokemon4");
+		
 	}
 
 }
