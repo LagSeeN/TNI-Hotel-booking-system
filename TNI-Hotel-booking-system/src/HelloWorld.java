@@ -12,6 +12,7 @@ public class HelloWorld {
 		System.out.println("Hello Pokemon4");
 		System.out.println("Hello Pokemon5");
 		System.out.println("Hello Pokemon7");
+		System.out.println("Hello Pokemon6");
 	}
 
 }
