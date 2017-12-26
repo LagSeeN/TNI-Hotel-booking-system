@@ -14,6 +14,7 @@ public class HelloWorld {
 		System.out.println("Hello Pokemon7");
 		System.out.println("Hello Pokemon6");
 		System.out.println("Test");
+		System.out.println("Test2*2");
 	}
 
 }
