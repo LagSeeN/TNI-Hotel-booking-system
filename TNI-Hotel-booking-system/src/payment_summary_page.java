@@ -16,7 +16,7 @@ public class payment_summary_page {
 	/**
 	 * Launch the application.
 	 */
-	public void NewScreen() {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -18,7 +18,7 @@ public class login_page {
 	/**
 	 * Launch the application.
 	 */
-	public void NewScreen() {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -69,7 +69,7 @@ public class login_page {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				menu_page menu = new menu_page();
-				menu.NewScreen();
+				//menu.NewScreen();
 				login.setVisible(false);
 
 			}
