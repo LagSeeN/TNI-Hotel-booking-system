@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 
 public class menu_page {
 
-	private JFrame HotelBookingSystem;
+	private JFrame frmHotelBookingSystem;
 
 	/**
 	 * Launch the application.
@@ -19,7 +19,7 @@ public class menu_page {
 			public void run() {
 				try {
 					menu_page window = new menu_page();
-					window.HotelBookingSystem.setVisible(true);
+					window.frmHotelBookingSystem.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,15 +38,15 @@ public class menu_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		HotelBookingSystem = new JFrame();
-		HotelBookingSystem.setResizable(false);
-		HotelBookingSystem.setTitle("Hotel Booking System");
-		HotelBookingSystem.setBounds(100, 100, 640, 480);
-		HotelBookingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		HotelBookingSystem.getContentPane().setLayout(null);
+		frmHotelBookingSystem = new JFrame();
+		frmHotelBookingSystem.setResizable(false);
+		frmHotelBookingSystem.setTitle("Hotel Booking System");
+		frmHotelBookingSystem.setBounds(100, 100, 640, 480);
+		frmHotelBookingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmHotelBookingSystem.getContentPane().setLayout(null);
 
 		JMenuBar menuBar = new JMenuBar();
-		HotelBookingSystem.setJMenuBar(menuBar);
+		frmHotelBookingSystem.setJMenuBar(menuBar);
 
 		JMenu mnMenu = new JMenu("Menu");
 		menuBar.add(mnMenu);

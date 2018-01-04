@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class payment_method_page {
 
@@ -12,7 +14,7 @@ public class payment_method_page {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -53,6 +55,13 @@ public class payment_method_page {
 		frmPaymentMethod.getContentPane().add(btnCash);
 		
 		JButton btnCreditCard = new JButton("[2] Credit Card");
+		btnCreditCard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				payment_credit_card_page credit = new payment_credit_card_page();
+				credit.NewScreen();
+				frmPaymentMethod.setVisible(false);
+			}
+		});
 		btnCreditCard.setBounds(10, 70, 194, 23);
 		frmPaymentMethod.getContentPane().add(btnCreditCard);
 		

@@ -25,7 +25,7 @@ public class payment_credit_card_page {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
