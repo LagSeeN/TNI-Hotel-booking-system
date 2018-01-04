@@ -2,7 +2,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
-import javax.swing.JTabbedPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
@@ -40,8 +39,9 @@ public class menu_page {
 	 */
 	private void initialize() {
 		frmHotelBookingSystem = new JFrame();
+		frmHotelBookingSystem.setResizable(false);
 		frmHotelBookingSystem.setTitle("Hotel Booking System");
-		frmHotelBookingSystem.setBounds(100, 100, 450, 300);
+		frmHotelBookingSystem.setBounds(100, 100, 640, 480);
 		frmHotelBookingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmHotelBookingSystem.getContentPane().setLayout(null);
 		
