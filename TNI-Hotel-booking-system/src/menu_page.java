@@ -6,10 +6,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JButton;
 
-public class menu_page  extends JFrame{
+public class menu_page {
 
-	private JFrame frmHotelBookingSystem;
+	private JFrame HotelBookingSystem;
 
 	/**
 	 * Launch the application.
@@ -19,7 +20,7 @@ public class menu_page  extends JFrame{
 			public void run() {
 				try {
 					menu_page window = new menu_page();
-					window.frmHotelBookingSystem.setVisible(true);
+					window.HotelBookingSystem.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,19 +39,23 @@ public class menu_page  extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmHotelBookingSystem = new JFrame();
-		frmHotelBookingSystem.setResizable(false);
-		frmHotelBookingSystem.setTitle("Hotel Booking System");
-		frmHotelBookingSystem.setBounds(100, 100, 640, 480);
-		frmHotelBookingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmHotelBookingSystem.getContentPane().setLayout(null);
+		HotelBookingSystem = new JFrame();
+		HotelBookingSystem.setResizable(false);
+		HotelBookingSystem.setTitle("Hotel Booking System");
+		HotelBookingSystem.setBounds(100, 100, 640, 480);
+		HotelBookingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		HotelBookingSystem.getContentPane().setLayout(null);
 		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(226, 191, 89, 23);
+		HotelBookingSystem.getContentPane().add(btnNewButton);
+
 		JMenuBar menuBar = new JMenuBar();
-		frmHotelBookingSystem.setJMenuBar(menuBar);
-		
+		HotelBookingSystem.setJMenuBar(menuBar);
+
 		JMenu mnMenu = new JMenu("Menu");
 		menuBar.add(mnMenu);
-		
+
 		JMenuItem mntmLogout = new JMenuItem("Logout");
 		mntmLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -58,16 +63,16 @@ public class menu_page  extends JFrame{
 			}
 		});
 		mnMenu.add(mntmLogout);
-		
+
 		JMenu mnCustomer = new JMenu("Customer");
 		menuBar.add(mnCustomer);
-		
+
 		JMenuItem mntmAddCustomer = new JMenuItem("Add customer");
 		mnCustomer.add(mntmAddCustomer);
-		
+
 		JMenuItem mntmRoomList = new JMenuItem("Room list");
 		mnCustomer.add(mntmRoomList);
-		
+
 		JMenu mnReport = new JMenu("Report");
 		menuBar.add(mnReport);
 	}

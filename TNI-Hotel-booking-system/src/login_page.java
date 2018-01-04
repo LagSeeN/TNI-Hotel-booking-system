@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 
 public class login_page {
 
-	private JFrame frame;
+	private JFrame login;
 	private JTextField textField;
 	private JPasswordField passwordField;
 
@@ -23,7 +23,7 @@ public class login_page {
 			public void run() {
 				try {
 					login_page window = new login_page();
-					window.frame.setVisible(true);
+					window.login.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -42,42 +42,38 @@ public class login_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setEnabled(false);
-		frame.getContentPane().setLayout(null);
-		
+		login = new JFrame();
+		login.getContentPane().setEnabled(false);
+		login.getContentPane().setLayout(null);
+
 		JLabel lblUsername = new JLabel("USERNAME : ");
 		lblUsername.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblUsername.setBounds(57, 87, 89, 14);
-		frame.getContentPane().add(lblUsername);
-		
+		login.getContentPane().add(lblUsername);
+
 		JLabel lblPassword = new JLabel("PASSWORD : ");
 		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPassword.setBounds(57, 112, 89, 14);
-		frame.getContentPane().add(lblPassword);
-		
+		login.getContentPane().add(lblPassword);
+
 		textField = new JTextField();
 		textField.setBounds(156, 84, 155, 20);
-		frame.getContentPane().add(textField);
+		login.getContentPane().add(textField);
 		textField.setColumns(10);
-		
+
 		passwordField = new JPasswordField();
 		passwordField.setBounds(156, 109, 155, 20);
-		frame.getContentPane().add(passwordField);
-		
+		login.getContentPane().add(passwordField);
+
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//frame.dispose();
-				//menu_page menu = new menu_page();
-				//menu.setVisible(true);
-				
-				
+
 			}
 		});
 		btnLogin.setBounds(106, 137, 89, 23);
-		frame.getContentPane().add(btnLogin);
-		
+		login.getContentPane().add(btnLogin);
+
 		JButton btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -85,8 +81,8 @@ public class login_page {
 			}
 		});
 		btnExit.setBounds(202, 137, 89, 23);
-		frame.getContentPane().add(btnExit);
-		frame.setBounds(100, 100, 400, 210);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		login.getContentPane().add(btnExit);
+		login.setBounds(100, 100, 400, 210);
+		login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
