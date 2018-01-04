@@ -68,6 +68,9 @@ public class login_page {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				menu_page menu = new menu_page();
+				menu.NewScreen();
+				login.setVisible(false);
 
 			}
 		});
