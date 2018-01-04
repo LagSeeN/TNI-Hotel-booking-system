@@ -45,10 +45,6 @@ public class menu_page {
 		HotelBookingSystem.setBounds(100, 100, 640, 480);
 		HotelBookingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		HotelBookingSystem.getContentPane().setLayout(null);
-		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(226, 191, 89, 23);
-		HotelBookingSystem.getContentPane().add(btnNewButton);
 
 		JMenuBar menuBar = new JMenuBar();
 		HotelBookingSystem.setJMenuBar(menuBar);
