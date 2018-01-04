@@ -6,7 +6,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JButton;
 
 public class menu_page {
 
@@ -15,7 +14,7 @@ public class menu_page {
 	/**
 	 * Launch the application.
 	 */
-	public static void NewScreen() {
+	public void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
