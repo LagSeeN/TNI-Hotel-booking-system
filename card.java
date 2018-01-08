@@ -54,7 +54,7 @@ public class Card {
 
 		int[] array = new int[digits.size()];
 		for (int i = 0; i < array.length; i++) {
-			//แปลง เลขจาก char เป็น  int เพื่อนำไปคำนวณ
+			//แปลง เลขจาก int<list> เป็น  int[] เพื่อนำไปคำนวณ
 			array[i] = Integer.valueOf(digits.get(i));
 		}
 		boolean valid = check(array);
