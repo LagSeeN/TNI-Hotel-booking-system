@@ -20,6 +20,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
@@ -35,6 +37,8 @@ public class menu_page {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					//เปลี่ยนธีม java เป็นแบบ  windows
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					menu_page window = new menu_page();
 					window.frmHotelBookingSystem.setVisible(true);
 				} catch (Exception e) {

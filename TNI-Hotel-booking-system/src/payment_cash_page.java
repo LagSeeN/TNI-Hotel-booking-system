@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -20,6 +21,7 @@ public class payment_cash_page {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					payment_cash_page window = new payment_cash_page();
 					window.frmCashHotel.setVisible(true);
 				} catch (Exception e) {

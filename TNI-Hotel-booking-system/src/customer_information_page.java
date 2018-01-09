@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 public class customer_information_page {
 
@@ -24,6 +25,7 @@ public class customer_information_page {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					customer_information_page window = new customer_information_page();
 					window.frmCustomerInformation.setVisible(true);
 				} catch (Exception e) {

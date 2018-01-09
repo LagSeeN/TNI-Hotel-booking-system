@@ -6,6 +6,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+
 import java.awt.Font;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -29,6 +31,7 @@ public class payment_credit_card_page {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
 					payment_credit_card_page window = new payment_credit_card_page();
 					window.frmCreditCardPayment.setVisible(true);
 				} catch (Exception e) {
