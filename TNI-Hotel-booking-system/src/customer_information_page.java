@@ -47,13 +47,13 @@ public class customer_information_page {
 		frmCustomerInformation = new JFrame();
 		frmCustomerInformation.setTitle("Customer Information | Hotel Booking System");
 		frmCustomerInformation.setResizable(false);
-		frmCustomerInformation.setBounds(100, 100, 567, 357);
+		frmCustomerInformation.setBounds(100, 100, 567, 335);
 		frmCustomerInformation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCustomerInformation.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(0, 71, 560, 260);
+		panel.setBounds(0, 50, 561, 260);
 		frmCustomerInformation.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -116,14 +116,15 @@ public class customer_information_page {
 		panel.add(btnCacel);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 0, 561, 71);
+		panel_1.setBounds(0, 0, 561, 50);
 		panel_1.setBackground(new Color(124, 180, 212));
 		frmCustomerInformation.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblCustomerInformation = new JLabel("Customer Information");
+		lblCustomerInformation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCustomerInformation.setForeground(new Color(0, 0, 0));
-		lblCustomerInformation.setBounds(173, 21, 212, 27);
+		lblCustomerInformation.setBounds(0, 0, 561, 50);
 		lblCustomerInformation.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		panel_1.add(lblCustomerInformation);
 	}

@@ -56,7 +56,7 @@ public class payment_method_page {
 		panel.setLayout(null);
 		
 		JLabel lblPressSelectPayment = new JLabel("Press select Payment method");
-		lblPressSelectPayment.setBounds(0, 11, 374, 27);
+		lblPressSelectPayment.setBounds(0, 0, 374, 50);
 		panel.add(lblPressSelectPayment);
 		lblPressSelectPayment.setForeground(Color.BLACK);
 		lblPressSelectPayment.setFont(new Font("Tahoma", Font.PLAIN, 22));
