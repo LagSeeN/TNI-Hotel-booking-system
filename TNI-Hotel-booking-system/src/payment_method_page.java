@@ -45,25 +45,26 @@ public class payment_method_page {
 		frmPaymentMethod.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		frmPaymentMethod.setResizable(false);
 		frmPaymentMethod.setTitle("Payment Method | Hotel Booking System");
-		frmPaymentMethod.setBounds(100, 100, 380, 152);
+		frmPaymentMethod.setBounds(100, 100, 380, 155);
 		frmPaymentMethod.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPaymentMethod.getContentPane().setLayout(null);
 		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(124, 180, 212));
+		panel.setBounds(0, 0, 374, 50);
+		frmPaymentMethod.getContentPane().add(panel);
+		panel.setLayout(null);
+		
 		JLabel lblPressSelectPayment = new JLabel("Press select Payment method");
+		lblPressSelectPayment.setBounds(0, 11, 374, 27);
+		panel.add(lblPressSelectPayment);
 		lblPressSelectPayment.setForeground(Color.BLACK);
 		lblPressSelectPayment.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblPressSelectPayment.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPressSelectPayment.setBounds(10, 11, 354, 24);
-		frmPaymentMethod.getContentPane().add(lblPressSelectPayment);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(124, 180, 212));
-		panel.setBounds(0, 0, 374, 45);
-		frmPaymentMethod.getContentPane().add(panel);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(0, 45, 374, 82);
+		panel_1.setBounds(0, 47, 374, 82);
 		frmPaymentMethod.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
