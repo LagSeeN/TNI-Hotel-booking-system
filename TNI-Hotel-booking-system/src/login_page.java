@@ -13,6 +13,7 @@ import java.awt.Font;
 import java.awt.Window.Type;
 import javax.swing.JPanel;
 import java.awt.Color;
+import javax.swing.JProgressBar;
 
 public class login_page {
 

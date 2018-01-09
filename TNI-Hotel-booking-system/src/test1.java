@@ -5,6 +5,8 @@ import javax.swing.UIManager;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.JProgressBar;
+import javax.swing.JSlider;
+import java.awt.Color;
 
 public class test1 {
 
@@ -48,8 +50,13 @@ public class test1 {
 		frame.getContentPane().add(button);
 		
 		JProgressBar progressBar = new JProgressBar();
-		progressBar.setBounds(40, 72, 302, 14);
+		progressBar.setIndeterminate(true);
+		progressBar.setBounds(40, 72, 297, 14);
 		frame.getContentPane().add(progressBar);
-		progressBar.setValue(75);
+		progressBar.setValue(50);
+		
+		JSlider slider = new JSlider();
+		slider.setBounds(81, 97, 200, 26);
+		frame.getContentPane().add(slider);
 	}
 }
