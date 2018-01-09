@@ -48,45 +48,48 @@ public class payment_credit_card_page {
 		frmCreditCardPayment = new JFrame();
 		frmCreditCardPayment.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		frmCreditCardPayment.setTitle("Credit Card Payment");
-		frmCreditCardPayment.setBounds(100, 100, 330, 150);
+		frmCreditCardPayment.setBounds(100, 100, 500, 180);
 		frmCreditCardPayment.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCreditCardPayment.getContentPane().setLayout(null);
 
 		JLabel lblCardNumber = new JLabel("Card Number : ");
-		lblCardNumber.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblCardNumber.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblCardNumber.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCardNumber.setBounds(10, 22, 82, 14);
+		lblCardNumber.setBounds(10, 22, 167, 27);
 		frmCreditCardPayment.getContentPane().add(lblCardNumber);
 
 		textField = new JTextField();
-		textField.setBounds(102, 19, 150, 20);
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textField.setBounds(187, 22, 202, 27);
 		frmCreditCardPayment.getContentPane().add(textField);
 		textField.setColumns(10);
 
 		lblName = new JLabel("Name : ");
-		lblName.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblName.setBounds(20, 47, 70, 14);
+		lblName.setBounds(27, 60, 150, 27);
 		frmCreditCardPayment.getContentPane().add(lblName);
 
 		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		textField_1.setColumns(10);
-		textField_1.setBounds(102, 47, 150, 20);
+		textField_1.setBounds(187, 60, 202, 27);
 		frmCreditCardPayment.getContentPane().add(textField_1);
 
 		btnPay = new JButton("Pay");
-		btnPay.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnPay.setBounds(64, 78, 89, 23);
+		btnPay.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnPay.setBounds(259, 98, 130, 27);
 		frmCreditCardPayment.getContentPane().add(btnPay);
 
 		btnCancel = new JButton("Cancel");
-		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnCancel.setBounds(184, 78, 89, 23);
+		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnCancel.setBounds(116, 98, 130, 27);
 		frmCreditCardPayment.getContentPane().add(btnCancel);
 
 		lblVisa = new JLabel("VISA");
+		lblVisa.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblVisa.setIcon(new ImageIcon(this.getClass().getResource("visa.jpg")));
-		lblVisa.setBounds(254, 15, 50, 28);
+		lblVisa.setBounds(424, 21, 50, 28);
 		frmCreditCardPayment.getContentPane().add(lblVisa);
 	}
 }
