@@ -71,6 +71,13 @@ public class payment_method_page {
 		panel_1.setLayout(null);
 		
 		JButton btnCash = new JButton("Cash");
+		btnCash.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmPaymentMethod.setVisible(false);
+				payment_cash_page cash = new payment_cash_page();
+				cash.NewScreen();
+			}
+		});
 		btnCash.setBounds(10, 11, 169, 27);
 		panel_1.add(btnCash);
 		btnCash.setFont(new Font("Tahoma", Font.PLAIN, 18));

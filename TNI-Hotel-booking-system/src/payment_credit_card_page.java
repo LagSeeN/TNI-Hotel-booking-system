@@ -11,6 +11,8 @@ import javax.swing.UIManager;
 import java.awt.Font;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class payment_credit_card_page {
 
@@ -60,18 +62,6 @@ public class payment_credit_card_page {
 		frmCreditCardPayment.setBounds(100, 100, 484, 230);
 		frmCreditCardPayment.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCreditCardPayment.getContentPane().setLayout(null);
-
-		JLabel lblCardNumber = new JLabel("Card Number : ");
-		lblCardNumber.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblCardNumber.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCardNumber.setBounds(10, 70, 167, 27);
-		frmCreditCardPayment.getContentPane().add(lblCardNumber);
-
-		lblName = new JLabel("Name : ");
-		lblName.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblName.setBounds(27, 108, 150, 27);
-		frmCreditCardPayment.getContentPane().add(lblName);
 		
 		panel = new JPanel();
 		panel.setLayout(null);
@@ -110,6 +100,13 @@ public class payment_credit_card_page {
 								btnPay.setFont(new Font("Tahoma", Font.PLAIN, 18));
 								
 										btnCancel = new JButton("Cancel");
+										btnCancel.addActionListener(new ActionListener() {
+											public void actionPerformed(ActionEvent e) {
+												frmCreditCardPayment.setVisible(false);
+												payment_method_page payment = new payment_method_page();
+												//payment.NewScreen();
+											}
+										});
 										btnCancel.setBounds(116, 90, 130, 27);
 										panel_1.add(btnCancel);
 										btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -119,5 +116,17 @@ public class payment_credit_card_page {
 												panel_1.add(lblVisa);
 												lblVisa.setFont(new Font("Tahoma", Font.PLAIN, 22));
 												lblVisa.setIcon(new ImageIcon(this.getClass().getResource("visa.jpg")));
+												
+														JLabel lblCardNumber = new JLabel("Card Number : ");
+														lblCardNumber.setBounds(10, 14, 167, 27);
+														panel_1.add(lblCardNumber);
+														lblCardNumber.setFont(new Font("Tahoma", Font.PLAIN, 18));
+														lblCardNumber.setHorizontalAlignment(SwingConstants.RIGHT);
+														
+																lblName = new JLabel("Name : ");
+																lblName.setBounds(27, 52, 150, 27);
+																panel_1.add(lblName);
+																lblName.setFont(new Font("Tahoma", Font.PLAIN, 18));
+																lblName.setHorizontalAlignment(SwingConstants.RIGHT);
 	}
 }

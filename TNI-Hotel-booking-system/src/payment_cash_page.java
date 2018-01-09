@@ -11,6 +11,8 @@ import javax.swing.JFormattedTextField;
 import java.awt.Window.Type;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class payment_cash_page {
 
@@ -19,7 +21,7 @@ public class payment_cash_page {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -122,6 +124,13 @@ public class payment_cash_page {
 		btnAccept.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JButton btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmCashHotel.setVisible(false);
+				payment_method_page payment = new payment_method_page();
+				//payment.NewScreen();
+			}
+		});
 		btnCancel.setBounds(206, 116, 151, 27);
 		panel_1.add(btnCancel);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
