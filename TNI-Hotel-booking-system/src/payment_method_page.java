@@ -6,6 +6,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class payment_method_page {
 
@@ -39,22 +40,26 @@ public class payment_method_page {
 	 */
 	private void initialize() {
 		frmPaymentMethod = new JFrame();
+		frmPaymentMethod.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		frmPaymentMethod.setResizable(false);
 		frmPaymentMethod.setTitle("Payment Method | Hotel Booking System");
-		frmPaymentMethod.setBounds(100, 100, 220, 185);
+		frmPaymentMethod.setBounds(100, 100, 230, 140);
 		frmPaymentMethod.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPaymentMethod.getContentPane().setLayout(null);
 		
 		JLabel lblPressSelectPayment = new JLabel("Press select Payment method");
+		lblPressSelectPayment.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblPressSelectPayment.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPressSelectPayment.setBounds(10, 11, 194, 14);
 		frmPaymentMethod.getContentPane().add(lblPressSelectPayment);
 		
-		JButton btnCash = new JButton("[1] Cash");
-		btnCash.setBounds(10, 36, 194, 23);
+		JButton btnCash = new JButton("Cash");
+		btnCash.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnCash.setBounds(10, 36, 100, 23);
 		frmPaymentMethod.getContentPane().add(btnCash);
 		
-		JButton btnCreditCard = new JButton("[2] Credit Card");
+		JButton btnCreditCard = new JButton("Credit Card");
+		btnCreditCard.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnCreditCard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				payment_credit_card_page credit = new payment_credit_card_page();
@@ -62,11 +67,12 @@ public class payment_method_page {
 				frmPaymentMethod.setVisible(false);
 			}
 		});
-		btnCreditCard.setBounds(10, 70, 194, 23);
+		btnCreditCard.setBounds(114, 36, 100, 23);
 		frmPaymentMethod.getContentPane().add(btnCreditCard);
 		
 		JButton btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(10, 104, 194, 23);
+		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnCancel.setBounds(10, 70, 204, 23);
 		frmPaymentMethod.getContentPane().add(btnCancel);
 	}
 
