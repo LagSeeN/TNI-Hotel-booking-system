@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Window.Type;
+import javax.swing.JPanel;
+import java.awt.Color;
 
 public class login_page {
 
@@ -47,56 +49,76 @@ public class login_page {
 	 */
 	private void initialize() {
 		login = new JFrame();
+		login.setTitle("Login | Hotel Booking System");
 		login.setResizable(false);
 		login.getContentPane().setEnabled(false);
 		login.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBackground(new Color(124, 180, 212));
+		panel.setBounds(0, 0, 394, 50);
+		login.getContentPane().add(panel);
+		
+		JLabel lblAccount = new JLabel("Login");
+		lblAccount.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAccount.setForeground(Color.BLACK);
+		lblAccount.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblAccount.setBounds(0, 0, 394, 50);
+		panel.add(lblAccount);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBounds(0, 50, 394, 141);
+		login.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+				JLabel lblUsername = new JLabel("USERNAME : ");
+				lblUsername.setBounds(50, 27, 115, 17);
+				panel_1.add(lblUsername);
+				lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				lblUsername.setHorizontalAlignment(SwingConstants.RIGHT);
+				
+						JLabel lblPassword = new JLabel("PASSWORD : ");
+						lblPassword.setBounds(50, 58, 115, 17);
+						panel_1.add(lblPassword);
+						lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
+						
+								textField = new JTextField();
+								textField.setBounds(175, 24, 155, 23);
+								panel_1.add(textField);
+								textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+								textField.setColumns(10);
+								
+										passwordField = new JPasswordField();
+										passwordField.setBounds(175, 55, 155, 20);
+										panel_1.add(passwordField);
+										passwordField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+										
+												JButton btnLogin = new JButton("Login");
+												btnLogin.setBounds(125, 95, 89, 24);
+												panel_1.add(btnLogin);
+												btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 18));
+												
+														JButton btnExit = new JButton("Exit");
+														btnExit.setBounds(221, 95, 89, 24);
+														panel_1.add(btnExit);
+														btnExit.setFont(new Font("Tahoma", Font.PLAIN, 18));
+														btnExit.addActionListener(new ActionListener() {
+															public void actionPerformed(ActionEvent e) {
+																System.exit(JFrame.EXIT_ON_CLOSE);
+															}
+														});
+												btnLogin.addActionListener(new ActionListener() {
+													public void actionPerformed(ActionEvent e) {
+														menu_page menu = new menu_page();
+														//menu.NewScreen();
+														login.setVisible(false);
 
-		JLabel lblUsername = new JLabel("USERNAME : ");
-		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblUsername.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblUsername.setBounds(57, 87, 89, 14);
-		login.getContentPane().add(lblUsername);
-
-		JLabel lblPassword = new JLabel("PASSWORD : ");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPassword.setBounds(57, 112, 89, 14);
-		login.getContentPane().add(lblPassword);
-
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		textField.setBounds(156, 84, 155, 20);
-		login.getContentPane().add(textField);
-		textField.setColumns(10);
-
-		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		passwordField.setBounds(156, 109, 155, 20);
-		login.getContentPane().add(passwordField);
-
-		JButton btnLogin = new JButton("Login");
-		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				menu_page menu = new menu_page();
-				//menu.NewScreen();
-				login.setVisible(false);
-
-			}
-		});
-		btnLogin.setBounds(106, 137, 89, 23);
-		login.getContentPane().add(btnLogin);
-
-		JButton btnExit = new JButton("Exit");
-		btnExit.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(JFrame.EXIT_ON_CLOSE);
-			}
-		});
-		btnExit.setBounds(202, 137, 89, 23);
-		login.getContentPane().add(btnExit);
-		login.setBounds(100, 100, 400, 210);
+													}
+												});
+		login.setBounds(100, 100, 400, 220);
 		login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

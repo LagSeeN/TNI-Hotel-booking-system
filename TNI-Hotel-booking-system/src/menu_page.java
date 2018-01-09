@@ -86,8 +86,8 @@ public class menu_page {
 		JMenuItem mntmAddCustomer = new JMenuItem("Add customer");
 		mnCustomer.add(mntmAddCustomer);
 
-		JMenu mnReport = new JMenu("Report");
-		menuBar.add(mnReport);
+		JMenu mnHelp = new JMenu("Help");
+		menuBar.add(mnHelp);
 		frmHotelBookingSystem.getContentPane().setLayout(null);
 		
 		JPanel panel_roomlist_sum = new JPanel();

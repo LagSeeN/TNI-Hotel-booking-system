@@ -23,6 +23,7 @@ public class payment_credit_card_page {
 	private JLabel lblVisa;
 	private JPanel panel;
 	private JLabel lblCreditCardInformation;
+	private JPanel panel_1;
 
 	/**
 	 * Launch the application.
@@ -53,9 +54,10 @@ public class payment_credit_card_page {
 	 */
 	private void initialize() {
 		frmCreditCardPayment = new JFrame();
+		frmCreditCardPayment.setResizable(false);
 		frmCreditCardPayment.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		frmCreditCardPayment.setTitle("Credit Card Payment");
-		frmCreditCardPayment.setBounds(100, 100, 500, 251);
+		frmCreditCardPayment.setTitle("Payment (Credit Card) | Hotel Booking System");
+		frmCreditCardPayment.setBounds(100, 100, 484, 230);
 		frmCreditCardPayment.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCreditCardPayment.getContentPane().setLayout(null);
 
@@ -65,51 +67,57 @@ public class payment_credit_card_page {
 		lblCardNumber.setBounds(10, 70, 167, 27);
 		frmCreditCardPayment.getContentPane().add(lblCardNumber);
 
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textField.setBounds(187, 70, 202, 27);
-		frmCreditCardPayment.getContentPane().add(textField);
-		textField.setColumns(10);
-
 		lblName = new JLabel("Name : ");
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblName.setBounds(27, 108, 150, 27);
 		frmCreditCardPayment.getContentPane().add(lblName);
-
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textField_1.setColumns(10);
-		textField_1.setBounds(187, 108, 202, 27);
-		frmCreditCardPayment.getContentPane().add(textField_1);
-
-		btnPay = new JButton("Pay");
-		btnPay.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnPay.setBounds(259, 146, 130, 27);
-		frmCreditCardPayment.getContentPane().add(btnPay);
-
-		btnCancel = new JButton("Cancel");
-		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnCancel.setBounds(116, 146, 130, 27);
-		frmCreditCardPayment.getContentPane().add(btnCancel);
-
-		lblVisa = new JLabel("VISA");
-		lblVisa.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblVisa.setIcon(new ImageIcon(this.getClass().getResource("visa.jpg")));
-		lblVisa.setBounds(424, 69, 50, 28);
-		frmCreditCardPayment.getContentPane().add(lblVisa);
 		
 		panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBackground(new Color(124, 180, 212));
-		panel.setBounds(0, 0, 484, 50);
+		panel.setBounds(0, 0, 478, 50);
 		frmCreditCardPayment.getContentPane().add(panel);
 		
 		lblCreditCardInformation = new JLabel("Credit Card Information");
 		lblCreditCardInformation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCreditCardInformation.setForeground(Color.BLACK);
 		lblCreditCardInformation.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblCreditCardInformation.setBounds(0, 0, 484, 50);
+		lblCreditCardInformation.setBounds(0, 0, 480, 50);
 		panel.add(lblCreditCardInformation);
+		
+		panel_1 = new JPanel();
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBounds(0, 51, 478, 150);
+		frmCreditCardPayment.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+				textField = new JTextField();
+				textField.setBounds(187, 14, 202, 27);
+				panel_1.add(textField);
+				textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				textField.setColumns(10);
+				
+						textField_1 = new JTextField();
+						textField_1.setBounds(187, 52, 202, 27);
+						panel_1.add(textField_1);
+						textField_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+						textField_1.setColumns(10);
+						
+								btnPay = new JButton("Pay");
+								btnPay.setBounds(259, 90, 130, 27);
+								panel_1.add(btnPay);
+								btnPay.setFont(new Font("Tahoma", Font.PLAIN, 18));
+								
+										btnCancel = new JButton("Cancel");
+										btnCancel.setBounds(116, 90, 130, 27);
+										panel_1.add(btnCancel);
+										btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+										
+												lblVisa = new JLabel("VISA");
+												lblVisa.setBounds(399, 11, 50, 28);
+												panel_1.add(lblVisa);
+												lblVisa.setFont(new Font("Tahoma", Font.PLAIN, 22));
+												lblVisa.setIcon(new ImageIcon(this.getClass().getResource("visa.jpg")));
 	}
 }
