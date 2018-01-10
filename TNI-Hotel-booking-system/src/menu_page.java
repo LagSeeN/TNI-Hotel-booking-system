@@ -101,11 +101,11 @@ public class menu_page {
 		panel_roomlist_sum.add(lblTotalRoom);
 		lblTotalRoom.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
-		JLabel label = new JLabel("[00]");
-		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		label.setBounds(25, 290, 117, 23);
-		panel_roomlist_sum.add(label);
-		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		JLabel lbltotalroom = new JLabel("[TOTALROOM]");
+		lbltotalroom.setHorizontalAlignment(SwingConstants.RIGHT);
+		lbltotalroom.setBounds(25, 290, 117, 23);
+		panel_roomlist_sum.add(lbltotalroom);
+		lbltotalroom.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JLabel lblRooms = new JLabel("Room(s)");
 		lblRooms.setBounds(152, 290, 71, 23);
