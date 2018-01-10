@@ -119,7 +119,7 @@ public class payment_cash_page {
 		label_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JButton btnAccept = new JButton("Accept");
-		btnAccept.setBounds(45, 116, 151, 27);
+		btnAccept.setBounds(206, 116, 151, 27);
 		panel_1.add(btnAccept);
 		btnAccept.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
@@ -131,7 +131,7 @@ public class payment_cash_page {
 				payment.NewScreen();
 			}
 		});
-		btnCancel.setBounds(206, 116, 151, 27);
+		btnCancel.setBounds(45, 116, 151, 27);
 		panel_1.add(btnCancel);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
