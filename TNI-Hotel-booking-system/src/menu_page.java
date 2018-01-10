@@ -92,6 +92,19 @@ public class menu_page {
 
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
+		
+		JMenuItem mntmAbout = new JMenuItem("About");
+		mntmAbout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Develop by:"
+						+ "\n 60121002-4 Sec.2 Yossapon Jantarote"
+						+ "\n 60121053-7 Sec.2 Danupol Intranurux"
+						+ "\n 60121045-3 Sec.1 Thanapat Chanprasert"
+						+ "\n 60121075-0 Sec.2 Prachya Khongwichayakupe"
+						,"About", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		mnHelp.add(mntmAbout);
 		frmHotelBookingSystem.getContentPane().setLayout(null);
 		
 		JPanel panel_roomlist_sum = new JPanel();
