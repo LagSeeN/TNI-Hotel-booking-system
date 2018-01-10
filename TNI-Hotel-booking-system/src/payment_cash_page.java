@@ -28,6 +28,7 @@ public class payment_cash_page {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					payment_cash_page window = new payment_cash_page();
 					window.frmCashHotel.setVisible(true);
+					window.frmCashHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

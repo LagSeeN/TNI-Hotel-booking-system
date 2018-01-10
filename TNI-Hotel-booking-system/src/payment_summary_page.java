@@ -28,6 +28,7 @@ public class payment_summary_page {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					payment_summary_page window = new payment_summary_page();
 					window.frmSummaryHotel.setVisible(true);
+					window.frmSummaryHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.JButton;
@@ -25,8 +26,10 @@ public class payment_method_page {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					payment_method_page window = new payment_method_page();
 					window.frmPaymentMethod.setVisible(true);
+					window.frmPaymentMethod.setLocationRelativeTo(null);
 				} catch (Exception e) {
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, e.toString(),"Error",JOptionPane.ERROR_MESSAGE);
+					//e.printStackTrace();
 				}
 			}
 		});

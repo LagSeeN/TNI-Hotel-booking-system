@@ -37,6 +37,7 @@ public class payment_credit_card_page {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
 					payment_credit_card_page window = new payment_credit_card_page();
 					window.frmCreditCardPayment.setVisible(true);
+					window.frmCreditCardPayment.setLocationRelativeTo(null);;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

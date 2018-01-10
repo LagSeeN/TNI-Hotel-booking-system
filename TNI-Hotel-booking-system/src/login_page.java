@@ -31,6 +31,8 @@ public class login_page {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					login_page window = new login_page();
 					window.login.setVisible(true);
+					//windows set to centra
+					window.login.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -28,6 +28,7 @@ public class customer_information_page {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					customer_information_page window = new customer_information_page();
 					window.frmCustomerInformation.setVisible(true);
+					window.frmCustomerInformation.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

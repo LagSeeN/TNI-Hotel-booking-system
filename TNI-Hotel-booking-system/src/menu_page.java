@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Window.Type;
@@ -29,6 +31,7 @@ import java.awt.SystemColor;
 public class menu_page {
 
 	private JFrame frmHotelBookingSystem;
+	private JLabel imgbanner;
 
 	/**
 	 * Launch the application.
@@ -41,6 +44,7 @@ public class menu_page {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					menu_page window = new menu_page();
 					window.frmHotelBookingSystem.setVisible(true);
+					window.frmHotelBookingSystem.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -124,6 +128,12 @@ public class menu_page {
 		lbltotalprice.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JButton btnNewButton = new JButton("Pay");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//เปลี่ยนรูปภาพ
+				imgbanner.setIcon(new ImageIcon(this.getClass().getResource("banner02.jpg")));
+			}
+		});
 		btnNewButton.setBounds(25, 377, 198, 31);
 		panel_roomlist_sum.add(btnNewButton);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -133,6 +143,18 @@ public class menu_page {
 		panel_roomlist.setBounds(250, 50, 771, 668);
 		frmHotelBookingSystem.getContentPane().add(panel_roomlist);
 		panel_roomlist.setLayout(null);
+		
+		JPanel panel_banner = new JPanel();
+		panel_banner.setBackground(Color.WHITE);
+		panel_banner.setBounds(0, 0, 771, 304);
+		panel_roomlist.add(panel_banner);
+		panel_banner.setLayout(null);
+		
+		imgbanner = new JLabel("");
+		imgbanner.setHorizontalAlignment(SwingConstants.CENTER);
+		imgbanner.setIcon(new ImageIcon(this.getClass().getResource("banner01.jpg")));
+		imgbanner.setBounds(0, 0, 771, 304);
+		panel_banner.add(imgbanner);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(90, 315, 46, 20);
