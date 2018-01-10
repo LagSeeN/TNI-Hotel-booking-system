@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -15,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
+import core.credit_card;
 
 public class payment_credit_card_page {
 
@@ -121,6 +124,17 @@ public class payment_credit_card_page {
 		Name.setColumns(10);
 
 		btnPay = new JButton("Pay");
+		btnPay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// Pay
+				credit_card check = new credit_card();
+				if (!(check.checkName(Name.getText()))) {
+					JOptionPane.showMessageDialog(null, "ERROR");
+					Name.setText(null);
+				} else
+					JOptionPane.showMessageDialog(null, "PASS");
+			}
+		});
 		btnPay.setBounds(259, 90, 130, 27);
 		card_input.add(btnPay);
 		btnPay.setFont(new Font("Tahoma", Font.PLAIN, 18));
