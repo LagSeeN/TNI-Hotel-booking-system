@@ -45,7 +45,7 @@ public class test1 {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton button = new JButton("555");
+		JButton button = new JButton("5555");
 		button.setBounds(81, 181, 95, 25);
 		frame.getContentPane().add(button);
 		
