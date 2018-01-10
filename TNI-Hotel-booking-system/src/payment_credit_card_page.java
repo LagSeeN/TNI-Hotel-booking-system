@@ -105,7 +105,7 @@ public class payment_credit_card_page {
 											public void actionPerformed(ActionEvent e) {
 												frmCreditCardPayment.setVisible(false);
 												payment_method_page payment = new payment_method_page();
-												//payment.NewScreen();
+												payment.NewScreen();
 											}
 										});
 										btnCancel.setBounds(116, 90, 130, 27);

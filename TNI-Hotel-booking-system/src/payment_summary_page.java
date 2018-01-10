@@ -21,7 +21,7 @@ public class payment_summary_page {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -112,11 +112,25 @@ public class payment_summary_page {
 		frmSummaryHotel.getContentPane().add(btnUseCoupon);
 		
 		JButton btnNext = new JButton("Next");
+		btnNext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmSummaryHotel.setVisible(false);
+				payment_method_page payment = new payment_method_page();
+				payment.NewScreen();
+			}
+		});
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		btnNext.setBounds(360, 171, 143, 27);
 		frmSummaryHotel.getContentPane().add(btnNext);
 		
 		JButton btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmSummaryHotel.setVisible(false);
+				menu_page menu = new menu_page();
+				menu.NewScreen();
+			}
+		});
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		btnCancel.setBounds(54, 171, 143, 27);
 		frmSummaryHotel.getContentPane().add(btnCancel);

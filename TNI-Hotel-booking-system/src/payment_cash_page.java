@@ -5,7 +5,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import java.awt.Window.Type;
@@ -129,7 +128,7 @@ public class payment_cash_page {
 			public void actionPerformed(ActionEvent e) {
 				frmCashHotel.setVisible(false);
 				payment_method_page payment = new payment_method_page();
-				//payment.NewScreen();
+				payment.NewScreen();
 			}
 		});
 		btnCancel.setBounds(206, 116, 151, 27);

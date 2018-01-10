@@ -9,6 +9,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class customer_information_page {
 
@@ -21,7 +23,7 @@ public class customer_information_page {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -114,6 +116,11 @@ public class customer_information_page {
 		panel.add(btnSave);
 		
 		JButton btnCacel = new JButton("Cancel");
+		btnCacel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmCustomerInformation.setVisible(false);
+			}
+		});
 		btnCacel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnCacel.setBounds(173, 198, 121, 45);
 		panel.add(btnCacel);

@@ -19,7 +19,7 @@ public class payment_method_page {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -91,6 +91,13 @@ public class payment_method_page {
 		btnCreditCard.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JButton btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmPaymentMethod.setVisible(false);
+				payment_summary_page summary = new payment_summary_page();
+				summary.NewScreen();
+			}
+		});
 		btnCancel.setBounds(10, 45, 354, 27);
 		panel_1.add(btnCancel);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));

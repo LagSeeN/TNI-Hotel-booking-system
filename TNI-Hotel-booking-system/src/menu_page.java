@@ -36,7 +36,7 @@ public class menu_page {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -88,6 +88,12 @@ public class menu_page {
 		menuBar.add(mnCustomer);
 
 		JMenuItem mntmAddCustomer = new JMenuItem("Add customer");
+		mntmAddCustomer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				customer_information_page customer = new customer_information_page();
+				customer.NewScreen();
+			}
+		});
 		mnCustomer.add(mntmAddCustomer);
 
 		JMenu mnHelp = new JMenu("Help");
@@ -145,6 +151,10 @@ public class menu_page {
 			public void actionPerformed(ActionEvent e) {
 				//เปลี่ยนรูปภาพ
 				imgbanner.setIcon(new ImageIcon(this.getClass().getResource("banner02.jpg")));
+				payment_summary_page summary = new payment_summary_page();
+				summary.NewScreen();
+				frmHotelBookingSystem.setVisible(false);
+				
 			}
 		});
 		btnNewButton.setBounds(25, 377, 198, 31);
