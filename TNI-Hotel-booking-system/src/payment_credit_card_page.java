@@ -109,8 +109,11 @@ public class payment_credit_card_page {
 						CardNumber.setBackground(new Color(255, 0, 51));
 						lblCardError.setVisible(true);
 						btnPay.setEnabled(false);
-					} else
+					} else {
 						CardNumber.setBackground(new Color(51, 204, 51));
+						lblCardError.setVisible(false);
+						btnPay.setEnabled(true);
+					}
 				}
 				if (CardNumber.getText().length() < 16) {
 					CardNumber.setBackground(new Color(255, 255, 255));
@@ -162,10 +165,17 @@ public class payment_credit_card_page {
 		btnPay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Pay
-				if (Name.getText().isEmpty() || CardNumber.getText().isEmpty())
-					JOptionPane.showMessageDialog(null, "Please enter Name or Card", "Request Name or Card",
-							JOptionPane.WARNING_MESSAGE);
-				else if (!(check.checkName(Name.getText()))) {
+				if (Name.getText().isEmpty() && CardNumber.getText().isEmpty()) {
+					if (Name.getText().isEmpty())
+						JOptionPane.showMessageDialog(null, "Please enter Name", "Request Name",
+								JOptionPane.WARNING_MESSAGE);
+					else if (CardNumber.getText().isEmpty())
+						JOptionPane.showMessageDialog(null, "Please enter Card", "Request Card",
+								JOptionPane.WARNING_MESSAGE);
+					else
+						JOptionPane.showMessageDialog(null, "Please enter Name or Card", "Request Name or Card",
+								JOptionPane.WARNING_MESSAGE);
+				} else if (!(check.checkName(Name.getText()))) {
 					JOptionPane.showMessageDialog(null, "Name is incorrect" + "\nPlease try again", "Name incoorect",
 							JOptionPane.WARNING_MESSAGE);
 					Name.setText(null);
