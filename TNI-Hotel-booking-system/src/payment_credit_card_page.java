@@ -27,7 +27,7 @@ public class payment_credit_card_page {
 	private JTextField Name;
 	private JButton btnPay;
 	private JButton btnCancel;
-	private JLabel lblVisa;
+	private JLabel lblCardicon;
 	private JPanel title;
 	private JLabel lblCreditCardInformation;
 	private JPanel card_input;
@@ -90,17 +90,27 @@ public class payment_credit_card_page {
 		card_input.setLayout(null);
 
 		CardNumber = new JTextField();
+		credit_card card = new credit_card();
 		CardNumber.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent evt) {
 				if (!(Character.isDigit(evt.getKeyChar()) || (evt.getKeyChar() == KeyEvent.VK_DELETE)
 						|| (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)))
 					evt.consume();
-				// Old code i don't need
-				// if(!(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9'))
-				// evt.consume();
-				if (CardNumber.getText().length() >= 16)
+				if (CardNumber.getText().length() == 16)
 					evt.consume();
+				if (CardNumber.getText().startsWith(""))
+					lblCardicon.setVisible(false);
+				if (CardNumber.getText().startsWith("4")) {
+					lblCardicon.setVisible(true);
+					lblCardicon.setIcon(new ImageIcon(this.getClass().getResource("visa.jpeg")));
+				}
+				if (CardNumber.getText().startsWith("51") || CardNumber.getText().startsWith("52")
+						|| CardNumber.getText().startsWith("53") || CardNumber.getText().startsWith("54")
+						|| CardNumber.getText().startsWith("55")) {
+					lblCardicon.setVisible(true);
+					lblCardicon.setIcon(new ImageIcon(this.getClass().getResource("master.jpeg")));
+				}
 			}
 		});
 		CardNumber.setBounds(187, 14, 202, 27);
@@ -129,9 +139,11 @@ public class payment_credit_card_page {
 				// Pay
 				credit_card check = new credit_card();
 				if (!(check.checkName(Name.getText()))) {
-					JOptionPane.showMessageDialog(null, "ERROR");
+					JOptionPane.showMessageDialog(null, "ERROR Name");
 					Name.setText(null);
-				} else
+				} else if (!(card.checkCard(CardNumber.getText())))
+					JOptionPane.showMessageDialog(null, "ERROR Card"+CardNumber.getText());
+				else
 					JOptionPane.showMessageDialog(null, "PASS");
 			}
 		});
@@ -151,11 +163,11 @@ public class payment_credit_card_page {
 		card_input.add(btnCancel);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		lblVisa = new JLabel("VISA");
-		lblVisa.setBounds(399, 11, 50, 28);
-		card_input.add(lblVisa);
-		lblVisa.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblVisa.setIcon(new ImageIcon(this.getClass().getResource("visa.jpg")));
+		lblCardicon = new JLabel("");
+		lblCardicon.setBounds(399, 11, 50, 28);
+		card_input.add(lblCardicon);
+		lblCardicon.setVisible(false);
+		lblCardicon.setFont(new Font("Tahoma", Font.PLAIN, 22));
 
 		JLabel lblCardNumber = new JLabel("Card Number : ");
 		lblCardNumber.setBounds(10, 14, 167, 27);
