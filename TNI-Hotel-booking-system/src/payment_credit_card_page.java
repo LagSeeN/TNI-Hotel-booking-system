@@ -142,9 +142,12 @@ public class payment_credit_card_page {
 					JOptionPane.showMessageDialog(null, "ERROR Name");
 					Name.setText(null);
 				} else if (!(card.checkCard(CardNumber.getText())))
-					JOptionPane.showMessageDialog(null, "ERROR Card"+CardNumber.getText());
+					JOptionPane.showMessageDialog(null, "ERROR Card" + CardNumber.getText());
 				else
-					JOptionPane.showMessageDialog(null, "PASS");
+					JOptionPane.showConfirmDialog(null, "This card Number : " + CardNumber.getText().substring(0, 4) + "-"+ CardNumber.getText().substring(4, 8)+"-"+ CardNumber.getText().substring(8, 12)+"-"+CardNumber.getText().substring(12, 16)+" is valid"
+							+ "\nTotal Price : 0.00"
+							+ "\nPlease continue at EDC machine.\n\nPayment success?",
+							"Please continue at EDC machine", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnPay.setBounds(259, 90, 130, 27);
