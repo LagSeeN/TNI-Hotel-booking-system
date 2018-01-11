@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import core.credit_card;
+import core.Credit_card;
 
 public class payment_credit_card_page {
 
@@ -62,7 +62,7 @@ public class payment_credit_card_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		credit_card check = new credit_card();
+		Credit_card check = new Credit_card();
 
 		frmCreditCardPayment = new JFrame();
 		frmCreditCardPayment.setResizable(false);
