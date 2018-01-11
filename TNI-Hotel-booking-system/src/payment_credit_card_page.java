@@ -31,6 +31,7 @@ public class payment_credit_card_page {
 	private JPanel title;
 	private JLabel lblCreditCardInformation;
 	private JPanel card_input;
+	private JLabel lblCardError;
 
 	/**
 	 * Launch the application.
@@ -43,7 +44,6 @@ public class payment_credit_card_page {
 					payment_credit_card_page window = new payment_credit_card_page();
 					window.frmCreditCardPayment.setVisible(true);
 					window.frmCreditCardPayment.setLocationRelativeTo(null);
-					;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -62,6 +62,8 @@ public class payment_credit_card_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		credit_card check = new credit_card();
+
 		frmCreditCardPayment = new JFrame();
 		frmCreditCardPayment.setResizable(false);
 		frmCreditCardPayment.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -90,7 +92,6 @@ public class payment_credit_card_page {
 		card_input.setLayout(null);
 
 		CardNumber = new JTextField();
-		credit_card card = new credit_card();
 		CardNumber.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent evt) {
@@ -99,18 +100,42 @@ public class payment_credit_card_page {
 					evt.consume();
 				if (CardNumber.getText().length() == 16)
 					evt.consume();
+			}
+
+			@Override
+			public void keyReleased(KeyEvent evt) {
+				if (CardNumber.getText().length() == 16) {
+					if (!(check.checkCard(CardNumber.getText()))) {
+						CardNumber.setBackground(new Color(255, 0, 51));
+						lblCardError.setVisible(true);
+						btnPay.setEnabled(false);
+					} else
+						CardNumber.setBackground(new Color(51, 204, 51));
+				}
+				if (CardNumber.getText().length() < 16) {
+					CardNumber.setBackground(new Color(255, 255, 255));
+					lblCardError.setVisible(false);
+					btnPay.setEnabled(true);
+				}
 				if (CardNumber.getText().startsWith(""))
 					lblCardicon.setVisible(false);
 				if (CardNumber.getText().startsWith("4")) {
 					lblCardicon.setVisible(true);
-					lblCardicon.setIcon(new ImageIcon(this.getClass().getResource("visa.jpeg")));
+					lblCardicon.setIcon(new ImageIcon(this.getClass().getResource("visa.png")));
 				}
 				if (CardNumber.getText().startsWith("51") || CardNumber.getText().startsWith("52")
 						|| CardNumber.getText().startsWith("53") || CardNumber.getText().startsWith("54")
 						|| CardNumber.getText().startsWith("55")) {
 					lblCardicon.setVisible(true);
-					lblCardicon.setIcon(new ImageIcon(this.getClass().getResource("master.jpeg")));
+					lblCardicon.setIcon(new ImageIcon(this.getClass().getResource("master.png")));
 				}
+			}
+
+			@Override
+			public void keyPressed(KeyEvent evt) {
+				if (!(Character.isDigit(evt.getKeyChar()) || (evt.getKeyChar() == KeyEvent.VK_DELETE)
+						|| (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)))
+					evt.consume();
 			}
 		});
 		CardNumber.setBounds(187, 14, 202, 27);
@@ -137,17 +162,18 @@ public class payment_credit_card_page {
 		btnPay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Pay
-				credit_card check = new credit_card();
-				if (!(check.checkName(Name.getText()))) {
-					JOptionPane.showMessageDialog(null, "ERROR Name");
+				if (Name.getText().isEmpty() || CardNumber.getText().isEmpty())
+					JOptionPane.showMessageDialog(null, "Please enter Name or Card", "Request Name or Card",
+							JOptionPane.WARNING_MESSAGE);
+				else if (!(check.checkName(Name.getText()))) {
+					JOptionPane.showMessageDialog(null, "Name is incorrect" + "\nPlease try again", "Name incoorect",
+							JOptionPane.WARNING_MESSAGE);
 					Name.setText(null);
-				} else if (!(card.checkCard(CardNumber.getText())))
-					JOptionPane.showMessageDialog(null, "ERROR Card" + CardNumber.getText());
-				else
-					JOptionPane.showConfirmDialog(null, "This card Number : " + CardNumber.getText().substring(0, 4) + "-"+ CardNumber.getText().substring(4, 8)+"-"+ CardNumber.getText().substring(8, 12)+"-"+CardNumber.getText().substring(12, 16)+" is valid"
-							+ "\nTotal Price : 0.00"
-							+ "\nPlease continue at EDC machine.\n\nPayment success?",
-							"Please continue at EDC machine", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+				} else
+					JOptionPane.showConfirmDialog(null,
+							"Total Price : 0.00" + "\nPlease continue at EDC machine.\n\nPayment success?",
+							"Please continue at EDC machine", JOptionPane.YES_NO_OPTION,
+							JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnPay.setBounds(259, 90, 130, 27);
@@ -156,6 +182,7 @@ public class payment_credit_card_page {
 
 		btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				frmCreditCardPayment.setVisible(false);
 				payment_method_page payment = new payment_method_page();
@@ -183,5 +210,13 @@ public class payment_credit_card_page {
 		card_input.add(lblName);
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
+
+		lblCardError = new JLabel("ERROR: Credit Card is invalid, Please check credit card and try again.");
+		lblCardError.setForeground(new Color(204, 0, 0));
+		lblCardError.setVisible(false);
+		lblCardError.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCardError.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblCardError.setBounds(27, 125, 422, 14);
+		card_input.add(lblCardError);
 	}
 }
