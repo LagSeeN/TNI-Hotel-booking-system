@@ -1,19 +1,19 @@
 package core;
 
-public class room {
+public class Room {
 	private String ID;
 	private String bedtype;
 	private double price;
 	private boolean status;
 
-	public room() {
+	public Room() {
 		this.ID = "";
 		this.bedtype = "";
 		this.price = 0.0;
 		this.status = false;
 	}
 
-	public room(String ID, String bedtype, double price, boolean status) {
+	public Room(String ID, String bedtype, double price, boolean status) {
 		this.ID = ID;
 		this.bedtype = bedtype;
 		this.price = price;
