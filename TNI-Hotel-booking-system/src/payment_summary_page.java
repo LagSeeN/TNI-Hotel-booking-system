@@ -6,6 +6,8 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
+import core.Summary;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -13,12 +15,15 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.JPanel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class payment_summary_page {
 
 	private JFrame frmSummaryHotel;
 	private JTextField NameField;
-
+	private JLabel labelPrice;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -48,7 +53,15 @@ public class payment_summary_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		Summary summary = new Summary();
+		
 		frmSummaryHotel = new JFrame();
+		frmSummaryHotel.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent evt) {
+				labelPrice.setText(summary.getPricetoString());
+			}
+		});
 		frmSummaryHotel.setResizable(false);
 		frmSummaryHotel.setTitle("Summary | Hotel Booking System");
 		frmSummaryHotel.setBounds(100, 100, 540, 290);
@@ -80,7 +93,7 @@ public class payment_summary_page {
 		lblRoomPrice.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblRoomPrice.setHorizontalAlignment(SwingConstants.RIGHT);
 		
-		JLabel labelPrice = new JLabel("0.00");
+		labelPrice = new JLabel("0.00");
 		labelPrice.setBounds(205, 58, 143, 27);
 		summaryPane.add(labelPrice);
 		labelPrice.setFont(new Font("Tahoma", Font.PLAIN, 18));

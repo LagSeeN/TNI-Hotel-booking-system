@@ -4,29 +4,24 @@ import java.text.DecimalFormat;
 
 public class Cash {
 
-	private double price;
 	private Summary summary;
 
 	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
 	public Cash() {
-		this.price = 5000;
+		this.summary = new Summary();
 	}
 
-	public Cash(double price) {
-		this.price = price;
-	}
-
-	public String getPrice() {
-		return frm.format(price);
+	public String getPricetoString() {
+		return frm.format(summary.getTotal());
 	}
 
 	public boolean checkMoney(int money) {
-		return (money >= price);
+		return (money >= (summary.getTotal()));
 	}
 
-	public String getChange(int money) {
-		return frm.format((money - price));
+	public String getChangetoString(int money) {
+		return frm.format((money - summary.getTotal()));
 	}
 
 }

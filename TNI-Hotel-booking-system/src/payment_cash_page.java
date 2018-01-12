@@ -74,7 +74,7 @@ public class payment_cash_page {
 						lblChangeMoney.setText("Free");
 						btnAccept.setEnabled(true);
 					} else
-						lblTotalMoney.setText(cash.getPrice());
+						lblTotalMoney.setText(cash.getPricetoString());
 				}
 			}
 		});
@@ -88,7 +88,7 @@ public class payment_cash_page {
 		JPanel titlePanel = new JPanel();
 		titlePanel.setLayout(null);
 		titlePanel.setBackground(new Color(124, 180, 212));
-		titlePanel.setBounds(0, 0, 407, 50);
+		titlePanel.setBounds(0, 0, 409, 50);
 		frmCashHotel.getContentPane().add(titlePanel);
 
 		JLabel lblCash = new JLabel("Cash");
@@ -203,10 +203,10 @@ public class payment_cash_page {
 					if (accept_money.getText().isEmpty())
 						return;
 					else if (cash.checkMoney(Integer.parseInt(accept_money.getText()))) {
-						lblChangeMoney.setText(cash.getChange(Integer.parseInt(accept_money.getText())));
+						lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
 						btnAccept.setEnabled(true);
 					} else {
-						lblChangeMoney.setText(cash.getChange(Integer.parseInt(accept_money.getText())));
+						lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
 						btnAccept.setEnabled(false);
 					}
 				}
