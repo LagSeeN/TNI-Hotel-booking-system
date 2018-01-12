@@ -74,7 +74,7 @@ public class payment_cash_page {
 						lblChangeMoney.setText("Free");
 						btnAccept.setEnabled(true);
 					} else
-						lblTotalMoney.setText(cash.getPricetoString());
+						lblTotalMoney.setText(cash.getPrice());
 				}
 			}
 		});
@@ -203,10 +203,10 @@ public class payment_cash_page {
 					if (accept_money.getText().isEmpty())
 						return;
 					else if (cash.checkMoney(Integer.parseInt(accept_money.getText()))) {
-						lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
+						lblChangeMoney.setText(cash.getChange(Integer.parseInt(accept_money.getText())));
 						btnAccept.setEnabled(true);
 					} else {
-						lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
+						lblChangeMoney.setText(cash.getChange(Integer.parseInt(accept_money.getText())));
 						btnAccept.setEnabled(false);
 					}
 				}

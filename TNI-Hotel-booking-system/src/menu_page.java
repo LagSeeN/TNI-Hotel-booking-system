@@ -9,14 +9,8 @@ import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Window.Type;
 import java.awt.Font;
-import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
-import java.awt.CardLayout;
-import javax.swing.JSplitPane;
-import javax.swing.JDesktopPane;
-import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;

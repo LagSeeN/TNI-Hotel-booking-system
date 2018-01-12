@@ -7,34 +7,53 @@ public class Summary {
 	private double price;
 	private String coupon;
 	private double total;
+	private double discount;
 
 	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
-	
 	public Summary() {
-		this.price = 2000;
+		this.price = 0;
 		this.coupon = "";
-		this.total = 5000;
+		this.total = 0;
+	}
+
+	public Summary(double price) {
+		this.price = price;
+		this.coupon = "";
+		this.total = price;
+	}
+	
+	public double getTotal() {
+		return total;
 	}
 
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
-	public double getTotal() {
-		return total;
-	}
-	
-	public double getPrice() {
-		return price;
-	}
-	
 	public String getPricetoString() {
 		return frm.format(price);
 	}
-	
+
 	public String getTotaltoString() {
 		return frm.format(total);
 	}
 
+	public String getDiscounttoString() {
+		return "-" + frm.format(discount);
+	}
+
+	public boolean checkCoupon(String coupon) {
+		String[] coupon_list = { "FREE", "FREE1R", "40SELL" };
+		int[] coupon_discount = { (int) price, 700, (int) ((int) (price * 40 / 100)) };
+		for (int i = 0; i < coupon_list.length; i++) {
+			if (coupon.equalsIgnoreCase(coupon_list[i])) {
+				total -= coupon_discount[i];
+				discount = coupon_discount[i];
+				return true;
+			}
+
+		}
+		return false;
+	}
 }
