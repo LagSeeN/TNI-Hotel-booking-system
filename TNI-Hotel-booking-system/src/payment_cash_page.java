@@ -203,10 +203,10 @@ public class payment_cash_page {
 					if (accept_money.getText().isEmpty())
 						return;
 					else if (cash.checkMoney(Integer.parseInt(accept_money.getText()))) {
-						lblChangeMoney.setText(cash.getChange(Double.parseDouble(accept_money.getText())));
+						lblChangeMoney.setText(cash.getChange(Integer.parseInt(accept_money.getText())));
 						btnAccept.setEnabled(true);
 					} else {
-						lblChangeMoney.setText(cash.getChange(Double.parseDouble(accept_money.getText())));
+						lblChangeMoney.setText(cash.getChange(Integer.parseInt(accept_money.getText())));
 						btnAccept.setEnabled(false);
 					}
 				}

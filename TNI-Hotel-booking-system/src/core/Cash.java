@@ -3,7 +3,9 @@ package core;
 import java.text.DecimalFormat;
 
 public class Cash {
+
 	private double price;
+	private Summary summary;
 
 	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
@@ -19,11 +21,11 @@ public class Cash {
 		return frm.format(price);
 	}
 
-	public boolean checkMoney(double money) {
+	public boolean checkMoney(int money) {
 		return (money >= price);
 	}
 
-	public String getChange(double money) {
+	public String getChange(int money) {
 		return frm.format((money - price));
 	}
 
