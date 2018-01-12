@@ -189,7 +189,6 @@ public class payment_cash_page {
 				if (accept_money.getText().isEmpty() || evt.getKeyChar() == KeyEvent.VK_BACK_SPACE) {
 					lblChangeMoney.setText("0.00");
 					btnAccept.setEnabled(false);
-					return;
 				}
 				if (accept_money.getText().startsWith("0")) {
 					lblChangeMoney.setText("0.00");
