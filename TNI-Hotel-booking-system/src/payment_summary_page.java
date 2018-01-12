@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class payment_summary_page {
 
 	private JFrame frmSummaryHotel;
-	private JTextField textField;
+	private JTextField NameField;
 
 	/**
 	 * Launch the application.
@@ -55,75 +55,75 @@ public class payment_summary_page {
 		frmSummaryHotel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSummaryHotel.getContentPane().setLayout(null);
 		
-		JPanel panel_title = new JPanel();
-		panel_title.setLayout(null);
-		panel_title.setBackground(new Color(124, 180, 212));
-		panel_title.setBounds(0, 0, 534, 50);
-		frmSummaryHotel.getContentPane().add(panel_title);
+		JPanel titlePane = new JPanel();
+		titlePane.setLayout(null);
+		titlePane.setBackground(new Color(124, 180, 212));
+		titlePane.setBounds(0, 0, 534, 50);
+		frmSummaryHotel.getContentPane().add(titlePane);
 		
 		JLabel lblSummary = new JLabel("Summary");
 		lblSummary.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSummary.setForeground(Color.BLACK);
 		lblSummary.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblSummary.setBounds(0, 0, 534, 50);
-		panel_title.add(lblSummary);
+		titlePane.add(lblSummary);
 		
-		JPanel panel_item = new JPanel();
-		panel_item.setBackground(Color.WHITE);
-		panel_item.setBounds(0, 51, 534, 210);
-		frmSummaryHotel.getContentPane().add(panel_item);
-		panel_item.setLayout(null);
+		JPanel summaryPane = new JPanel();
+		summaryPane.setBackground(Color.WHITE);
+		summaryPane.setBounds(0, 51, 534, 210);
+		frmSummaryHotel.getContentPane().add(summaryPane);
+		summaryPane.setLayout(null);
 		
 		JLabel lblRoomPrice = new JLabel("Room Price : ");
 		lblRoomPrice.setBounds(12, 58, 183, 27);
-		panel_item.add(lblRoomPrice);
+		summaryPane.add(lblRoomPrice);
 		lblRoomPrice.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblRoomPrice.setHorizontalAlignment(SwingConstants.RIGHT);
 		
-		JLabel label = new JLabel("0.00");
-		label.setBounds(205, 58, 143, 27);
-		panel_item.add(label);
-		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		label.setHorizontalAlignment(SwingConstants.RIGHT);
+		JLabel labelPrice = new JLabel("0.00");
+		labelPrice.setBounds(205, 58, 143, 27);
+		summaryPane.add(labelPrice);
+		labelPrice.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		labelPrice.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JLabel lblBaht = new JLabel("Baht.");
 		lblBaht.setBounds(358, 58, 143, 27);
-		panel_item.add(lblBaht);
+		summaryPane.add(lblBaht);
 		lblBaht.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JLabel lblCoupon = new JLabel("Coupon : ");
 		lblCoupon.setBounds(12, 96, 185, 27);
-		panel_item.add(lblCoupon);
+		summaryPane.add(lblCoupon);
 		lblCoupon.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCoupon.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JLabel lblCouponStatus = new JLabel("(not use)");
 		lblCouponStatus.setBounds(205, 96, 143, 27);
-		panel_item.add(lblCouponStatus);
+		summaryPane.add(lblCouponStatus);
 		lblCouponStatus.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCouponStatus.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JLabel lblTotalPrice = new JLabel("Total Price : ");
 		lblTotalPrice.setBounds(10, 134, 185, 27);
-		panel_item.add(lblTotalPrice);
+		summaryPane.add(lblTotalPrice);
 		lblTotalPrice.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTotalPrice.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
-		JLabel label_5 = new JLabel("0.00");
-		label_5.setBounds(205, 134, 143, 27);
-		panel_item.add(label_5);
-		label_5.setForeground(Color.RED);
-		label_5.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_5.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		JLabel lblTotal = new JLabel("0.00");
+		lblTotal.setBounds(205, 134, 143, 27);
+		summaryPane.add(lblTotal);
+		lblTotal.setForeground(Color.RED);
+		lblTotal.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblTotal.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JLabel label_6 = new JLabel("Baht.");
 		label_6.setBounds(358, 134, 64, 27);
-		panel_item.add(label_6);
+		summaryPane.add(label_6);
 		label_6.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JButton btnUseCoupon = new JButton("Add");
 		btnUseCoupon.setBounds(358, 98, 143, 27);
-		panel_item.add(btnUseCoupon);
+		summaryPane.add(btnUseCoupon);
 		btnUseCoupon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showInputDialog("Input Coupon Code :");
@@ -133,7 +133,7 @@ public class payment_summary_page {
 		
 		JButton btnNext = new JButton("Next");
 		btnNext.setBounds(358, 172, 143, 27);
-		panel_item.add(btnNext);
+		summaryPane.add(btnNext);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
@@ -145,7 +145,7 @@ public class payment_summary_page {
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(52, 172, 143, 27);
-		panel_item.add(btnCancel);
+		summaryPane.add(btnCancel);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
@@ -157,19 +157,19 @@ public class payment_summary_page {
 		
 		JLabel lblCustomerName = new JLabel("Customer Name : ");
 		lblCustomerName.setBounds(10, 20, 185, 27);
-		panel_item.add(lblCustomerName);
+		summaryPane.add(lblCustomerName);
 		lblCustomerName.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCustomerName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
-		textField = new JTextField();
-		textField.setBounds(205, 20, 143, 27);
-		panel_item.add(textField);
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textField.setColumns(10);
+		NameField = new JTextField();
+		NameField.setBounds(205, 20, 143, 27);
+		summaryPane.add(NameField);
+		NameField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		NameField.setColumns(10);
 		
 		JButton btnCheck = new JButton("Check");
 		btnCheck.setBounds(358, 20, 143, 27);
-		panel_item.add(btnCheck);
+		summaryPane.add(btnCheck);
 		btnCheck.setFont(new Font("Tahoma", Font.PLAIN, 18));
 	}
 }
