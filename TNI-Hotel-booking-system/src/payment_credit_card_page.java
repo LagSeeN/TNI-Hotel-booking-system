@@ -166,11 +166,11 @@ public class payment_credit_card_page {
 			public void actionPerformed(ActionEvent arg0) {
 				// Pay
 				if (Name.getText().isEmpty() || CardNumber.getText().isEmpty()) {
-					if (Name.getText().isEmpty())
-						JOptionPane.showMessageDialog(null, "Please enter Name", "Request Name",
-								JOptionPane.WARNING_MESSAGE);
-					else if (CardNumber.getText().isEmpty())
+					if (CardNumber.getText().isEmpty())
 						JOptionPane.showMessageDialog(null, "Please enter Card", "Request Card",
+								JOptionPane.WARNING_MESSAGE);
+					else if (Name.getText().isEmpty())
+						JOptionPane.showMessageDialog(null, "Please enter Name", "Request Name",
 								JOptionPane.WARNING_MESSAGE);
 					else
 						JOptionPane.showMessageDialog(null, "Please enter Name or Card", "Request Name or Card",
