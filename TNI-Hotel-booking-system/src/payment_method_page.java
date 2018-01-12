@@ -51,26 +51,26 @@ public class payment_method_page {
 		frmPaymentMethod.setBounds(100, 100, 380, 155);
 		frmPaymentMethod.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPaymentMethod.getContentPane().setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(124, 180, 212));
 		panel.setBounds(0, 0, 374, 50);
 		frmPaymentMethod.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		JLabel lblPressSelectPayment = new JLabel("Press select Payment method");
 		lblPressSelectPayment.setBounds(0, 0, 374, 50);
 		panel.add(lblPressSelectPayment);
 		lblPressSelectPayment.setForeground(Color.BLACK);
 		lblPressSelectPayment.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblPressSelectPayment.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
 		panel_1.setBounds(0, 47, 374, 82);
 		frmPaymentMethod.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
-		
+
 		JButton btnCash = new JButton("Cash");
 		btnCash.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -82,12 +82,12 @@ public class payment_method_page {
 		btnCash.setBounds(10, 11, 169, 27);
 		panel_1.add(btnCash);
 		btnCash.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		
+
 		JButton btnCreditCard = new JButton("Credit Card");
 		btnCreditCard.setBounds(195, 11, 169, 27);
 		panel_1.add(btnCreditCard);
 		btnCreditCard.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		
+
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

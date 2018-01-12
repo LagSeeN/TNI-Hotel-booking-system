@@ -5,24 +5,16 @@ import java.text.DecimalFormat;
 public class Summary {
 
 	private double price;
-	private String coupon;
 	private double total;
 	private double discount;
 
 	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
-	public Summary() {
-		this.price = 0;
-		this.coupon = "";
-		this.total = 0;
-	}
-
 	public Summary(double price) {
 		this.price = price;
-		this.coupon = "";
 		this.total = price;
 	}
-	
+
 	public double getTotal() {
 		return total;
 	}

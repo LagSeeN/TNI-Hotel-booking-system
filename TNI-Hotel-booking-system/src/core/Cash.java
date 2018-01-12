@@ -8,15 +8,11 @@ public class Cash {
 
 	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
-	public Cash() {
-		this.price = 0;
-	}
-
 	public Cash(double price) {
 		this.price = price;
 	}
 
-	public String getPrice() {
+	public String getPricetoString() {
 		return frm.format(price);
 	}
 
@@ -24,7 +20,7 @@ public class Cash {
 		return (money >= price);
 	}
 
-	public String getChange(double money) {
+	public String getChangetoString(double money) {
 		return frm.format((money - price));
 	}
 
