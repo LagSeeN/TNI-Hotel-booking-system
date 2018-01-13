@@ -10,17 +10,26 @@ public class Summary {
 
 	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
+	public Summary() {
+		this.price = 0;
+		this.total = 0;
+	}
+
 	public Summary(double price) {
 		this.price = price;
 		this.total = price;
 	}
 
 	public double getTotal() {
-		return total;
+		return total - discount;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
 	}
 
 	public String getPricetoString() {
@@ -28,7 +37,7 @@ public class Summary {
 	}
 
 	public String getTotaltoString() {
-		return frm.format(total);
+		return frm.format(getTotal());
 	}
 
 	public String getDiscounttoString() {
@@ -40,7 +49,6 @@ public class Summary {
 		int[] coupon_discount = { (int) price, 700, (int) ((int) (price * 40 / 100)) };
 		for (int i = 0; i < coupon_list.length; i++) {
 			if (coupon.equalsIgnoreCase(coupon_list[i])) {
-				total -= coupon_discount[i];
 				discount = coupon_discount[i];
 				return true;
 			}

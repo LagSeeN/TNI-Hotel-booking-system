@@ -24,6 +24,8 @@ public class payment_summary_page {
 	private JTextField NameField;
 	private JLabel lblPrice;
 	private JLabel lblTotal;
+	private JLabel lblCouponStatus;
+	private double discount;
 
 	/**
 	 * Launch the application.
@@ -33,7 +35,7 @@ public class payment_summary_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_summary_page window = new payment_summary_page();
+					payment_summary_page window = new payment_summary_page(discount);
 					window.frmSummaryHotel.setVisible(true);
 					window.frmSummaryHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -50,6 +52,11 @@ public class payment_summary_page {
 		initialize();
 	}
 
+	public payment_summary_page(double discount) {
+		this.discount = discount;
+		initialize();
+	}
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -60,7 +67,13 @@ public class payment_summary_page {
 		frmSummaryHotel.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent evt) {
-				lblPrice.setText(summary.getPricetoString());
+				if (discount == 0) {
+					lblPrice.setText(summary.getPricetoString());
+				} else {
+					summary.setDiscount(discount);
+					lblPrice.setText(summary.getPricetoString());
+					lblCouponStatus.setText(summary.getDiscounttoString());
+				}
 				lblTotal.setText(summary.getTotaltoString());
 			}
 		});
@@ -112,7 +125,7 @@ public class payment_summary_page {
 		lblCoupon.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCoupon.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JLabel lblCouponStatus = new JLabel("(not use)");
+		lblCouponStatus = new JLabel("(not use)");
 		lblCouponStatus.setBounds(205, 96, 143, 27);
 		summaryPane.add(lblCouponStatus);
 		lblCouponStatus.setHorizontalAlignment(SwingConstants.CENTER);
@@ -158,7 +171,7 @@ public class payment_summary_page {
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
-				payment_method_page payment = new payment_method_page();
+				payment_method_page payment = new payment_method_page(summary.getTotal(), summary.getDiscount());
 				payment.NewScreen();
 			}
 		});

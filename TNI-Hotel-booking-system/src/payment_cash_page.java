@@ -31,6 +31,8 @@ public class payment_cash_page {
 	private JFormattedTextField accept_money;
 	private JButton btnAccept;
 
+	private double total;
+
 	/**
 	 * Launch the application.
 	 */
@@ -39,7 +41,7 @@ public class payment_cash_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_cash_page window = new payment_cash_page();
+					payment_cash_page window = new payment_cash_page(total);
 					window.frmCashHotel.setVisible(true);
 					window.frmCashHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -52,7 +54,8 @@ public class payment_cash_page {
 	/**
 	 * Create the application.
 	 */
-	public payment_cash_page() {
+	public payment_cash_page(double total) {
+		this.total = total;
 		initialize();
 	}
 
@@ -60,8 +63,7 @@ public class payment_cash_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		Cash cash = new Cash(1400);
-
+		Cash cash = new Cash(total);
 		frmCashHotel = new JFrame();
 		frmCashHotel.addWindowListener(new WindowAdapter() {
 			@Override
@@ -163,7 +165,7 @@ public class payment_cash_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCashHotel.setVisible(false);
-				payment_method_page payment = new payment_method_page();
+				payment_method_page payment = new payment_method_page(total);
 				payment.NewScreen();
 			}
 		});

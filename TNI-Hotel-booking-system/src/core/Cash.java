@@ -8,6 +8,10 @@ public class Cash {
 
 	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
+	public Cash() {
+		this.price = 0;
+	}
+
 	public Cash(double price) {
 		this.price = price;
 	}

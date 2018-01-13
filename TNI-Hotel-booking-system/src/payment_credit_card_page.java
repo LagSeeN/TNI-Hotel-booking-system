@@ -32,6 +32,7 @@ public class payment_credit_card_page {
 	private JLabel lblCreditCardInformation;
 	private JPanel card_input;
 	private JLabel lblCardError;
+	private double total;
 
 	/**
 	 * Launch the application.
@@ -41,7 +42,7 @@ public class payment_credit_card_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_credit_card_page window = new payment_credit_card_page();
+					payment_credit_card_page window = new payment_credit_card_page(total);
 					window.frmCreditCardPayment.setVisible(true);
 					window.frmCreditCardPayment.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -54,7 +55,8 @@ public class payment_credit_card_page {
 	/**
 	 * Create the application.
 	 */
-	public payment_credit_card_page() {
+	public payment_credit_card_page(double total) {
+		this.total = total;
 		initialize();
 	}
 
@@ -181,7 +183,7 @@ public class payment_credit_card_page {
 					Name.setText(null);
 				} else
 					JOptionPane.showConfirmDialog(null,
-							"Total Price : 0.00" + "\nPlease continue at EDC machine.\n\nPayment success?",
+							"Total Price : " + (total) + "\nPlease continue at EDC machine.\n\nPayment success?",
 							"Please continue at EDC machine", JOptionPane.YES_NO_OPTION,
 							JOptionPane.INFORMATION_MESSAGE);
 			}
@@ -195,7 +197,7 @@ public class payment_credit_card_page {
 
 			public void actionPerformed(ActionEvent e) {
 				frmCreditCardPayment.setVisible(false);
-				payment_method_page payment = new payment_method_page();
+				payment_method_page payment = new payment_method_page(total);
 				payment.NewScreen();
 			}
 		});

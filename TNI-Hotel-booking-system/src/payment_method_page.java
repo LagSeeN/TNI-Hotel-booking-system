@@ -14,6 +14,8 @@ import java.awt.Color;
 public class payment_method_page {
 
 	private JFrame frmPaymentMethod;
+	private double total;
+	private double discount;
 
 	/**
 	 * Launch the application.
@@ -23,7 +25,7 @@ public class payment_method_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_method_page window = new payment_method_page();
+					payment_method_page window = new payment_method_page(total, discount);
 					window.frmPaymentMethod.setVisible(true);
 					window.frmPaymentMethod.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -36,7 +38,14 @@ public class payment_method_page {
 	/**
 	 * Create the application.
 	 */
-	public payment_method_page() {
+	public payment_method_page(double total) {
+		this.total = total;
+		initialize();
+	}
+
+	public payment_method_page(double total, double discount) {
+		this.discount = discount;
+		this.total = total;
 		initialize();
 	}
 
@@ -75,7 +84,7 @@ public class payment_method_page {
 		btnCash.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmPaymentMethod.setVisible(false);
-				payment_cash_page cash = new payment_cash_page();
+				payment_cash_page cash = new payment_cash_page(total);
 				cash.NewScreen();
 			}
 		});
@@ -92,7 +101,7 @@ public class payment_method_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmPaymentMethod.setVisible(false);
-				payment_summary_page summary = new payment_summary_page();
+				payment_summary_page summary = new payment_summary_page(discount);
 				summary.NewScreen();
 			}
 		});
@@ -101,7 +110,7 @@ public class payment_method_page {
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnCreditCard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				payment_credit_card_page credit = new payment_credit_card_page();
+				payment_credit_card_page credit = new payment_credit_card_page(total);
 				credit.NewScreen();
 				frmPaymentMethod.setVisible(false);
 			}
