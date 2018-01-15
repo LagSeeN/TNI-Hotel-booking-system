@@ -1,3 +1,4 @@
+package page;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -183,7 +184,7 @@ public class payment_summary_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
-				menu_page menu = new menu_page();
+				menu_check_in_page menu = new menu_check_in_page();
 				menu.NewScreen();
 			}
 		});
@@ -206,4 +207,42 @@ public class payment_summary_page {
 		summaryPane.add(btnCheck);
 		btnCheck.setFont(new Font("Tahoma", Font.PLAIN, 18));
 	}
+
+	// public double getTotal() {
+	// return total - discount;
+	// }
+	//
+	// public double getDiscount() {
+	// return discount;
+	// }
+	//
+	// public void setDiscount(double discount) {
+	// this.discount = discount;
+	// }
+	//
+	// public String getPricetoString() {
+	// return frm.format(price);
+	// }
+	//
+	// public String getTotaltoString() {
+	// return frm.format(getTotal());
+	// }
+	//
+	// public String getDiscounttoString() {
+	// return "-" + frm.format(discount);
+	// }
+	//
+	// public boolean checkCoupon(String coupon) {
+	// String[] coupon_list = { "FREE", "FREE1R", "40SELL" };
+	// int[] coupon_discount = { (int) price, 700, (int) ((int) (price * 40 / 100))
+	// };
+	// for (int i = 0; i < coupon_list.length; i++) {
+	// if (coupon.equalsIgnoreCase(coupon_list[i])) {
+	// discount = coupon_discount[i];
+	// return true;
+	// }
+	//
+	// }
+	// return false;
+	// }
 }

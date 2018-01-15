@@ -1,3 +1,4 @@
+package page;
 import java.awt.EventQueue;
 
 
@@ -22,7 +23,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 
-public class menu_page {
+public class menu_check_in_page {
 
 	private JFrame frmHotelBookingSystem;
 	private JLabel imgbanner;
@@ -36,7 +37,7 @@ public class menu_page {
 				try {
 					//เปลี่ยนธีม java เป็นแบบ  windows
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					menu_page window = new menu_page();
+					menu_check_in_page window = new menu_check_in_page();
 					window.frmHotelBookingSystem.setVisible(true);
 					window.frmHotelBookingSystem.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -49,7 +50,7 @@ public class menu_page {
 	/**
 	 * Create the application.
 	 */
-	public menu_page() {
+	public menu_check_in_page() {
 		initialize();
 	}
 

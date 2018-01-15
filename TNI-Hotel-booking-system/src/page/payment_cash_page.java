@@ -1,3 +1,4 @@
+package page;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,10 +18,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import core.Cash;
-
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.DecimalFormat;
 
 public class payment_cash_page {
 
@@ -31,7 +31,9 @@ public class payment_cash_page {
 	private JFormattedTextField accept_money;
 	private JButton btnAccept;
 
-	private double total;
+	private double price;
+
+	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
 	/**
 	 * Launch the application.
@@ -41,7 +43,7 @@ public class payment_cash_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_cash_page window = new payment_cash_page(total);
+					payment_cash_page window = new payment_cash_page(price);
 					window.frmCashHotel.setVisible(true);
 					window.frmCashHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -55,7 +57,7 @@ public class payment_cash_page {
 	 * Create the application.
 	 */
 	public payment_cash_page(double total) {
-		this.total = total;
+		price = total;
 		initialize();
 	}
 
@@ -63,20 +65,19 @@ public class payment_cash_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		Cash cash = new Cash(total);
 		frmCashHotel = new JFrame();
 		frmCashHotel.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent evt) {
 				if (accept_money.getText().isEmpty()) {
-					if (cash.checkMoney(0)) {
+					if (checkMoney(0)) {
 						accept_money.setText("Free");
 						accept_money.setEnabled(false);
 						lblTotalMoney.setText("Free");
 						lblChangeMoney.setText("Free");
 						btnAccept.setEnabled(true);
 					} else
-						lblTotalMoney.setText(cash.getPricetoString());
+						lblTotalMoney.setText(getPricetoString());
 				}
 			}
 		});
@@ -165,7 +166,7 @@ public class payment_cash_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCashHotel.setVisible(false);
-				payment_method_page payment = new payment_method_page(total);
+				payment_method_page payment = new payment_method_page(price);
 				payment.NewScreen();
 			}
 		});
@@ -204,11 +205,11 @@ public class payment_cash_page {
 				if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
 					if (accept_money.getText().isEmpty())
 						return;
-					else if (cash.checkMoney(Integer.parseInt(accept_money.getText()))) {
-						lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
+					else if (checkMoney(Integer.parseInt(accept_money.getText()))) {
+						lblChangeMoney.setText(getChangetoString(Integer.parseInt(accept_money.getText())));
 						btnAccept.setEnabled(true);
 					} else {
-						lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
+						lblChangeMoney.setText(getChangetoString(Integer.parseInt(accept_money.getText())));
 						btnAccept.setEnabled(false);
 					}
 				}
@@ -223,4 +224,17 @@ public class payment_cash_page {
 		accept_money.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		accept_money.setHorizontalAlignment(SwingConstants.RIGHT);
 	}
+
+	public String getPricetoString() {
+		return frm.format(price);
+	}
+
+	public boolean checkMoney(double money) {
+		return (money >= price);
+	}
+
+	public String getChangetoString(double money) {
+		return frm.format((money - price));
+	}
+
 }

@@ -1,3 +1,4 @@
+package page;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -113,7 +114,7 @@ public class login_page {
 														});
 												btnLogin.addActionListener(new ActionListener() {
 													public void actionPerformed(ActionEvent e) {
-														menu_page menu = new menu_page();
+														menu_check_in_page menu = new menu_check_in_page();
 														menu.NewScreen();
 														login.setVisible(false);
 
