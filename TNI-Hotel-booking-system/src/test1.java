@@ -27,7 +27,7 @@ public class test1 {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					test1 window = new test1();
 					window.frame.setVisible(true);
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,43 +50,42 @@ public class test1 {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JButton button = new JButton("5555");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(count1 < 100) {
+				if (count1 < 100) {
 					count1 += 10;
 					test1.setValue(count1);
-				}
-				else {
+				} else {
 					JOptionPane.showMessageDialog(null, "Noob");
-					count1=0;
-				test1.setValue(count1);
+					count1 = 0;
+					test1.setValue(count1);
 				}
 			}
 		});
 		button.setBounds(10, 11, 95, 25);
 		frame.getContentPane().add(button);
-		
+
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setIndeterminate(true);
 		progressBar.setBounds(115, 11, 297, 14);
 		frame.getContentPane().add(progressBar);
 		progressBar.setValue(50);
-		
+
 		JSlider slider = new JSlider();
 		slider.setBounds(212, 90, 200, 26);
 		frame.getContentPane().add(slider);
-		
+
 		JLabel img = new JLabel("");
 		img.setIcon(new ImageIcon(this.getClass().getResource("AFRO.jpg")));
 		img.setBounds(32, 76, 148, 174);
 		frame.getContentPane().add(img);
-		
+
 		test1 = new JProgressBar();
 		test1.setValue(count1);
 		test1.setBounds(115, 36, 297, 14);
 		frame.getContentPane().add(test1);
-		
+
 	}
 }

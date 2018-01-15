@@ -1,4 +1,3 @@
-import page.*;
 
 public class Start {
 

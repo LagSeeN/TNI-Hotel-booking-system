@@ -1,4 +1,4 @@
-package page;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 
@@ -56,66 +56,66 @@ public class customer_information_page {
 		frmCustomerInformation.setBounds(100, 100, 567, 335);
 		frmCustomerInformation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCustomerInformation.getContentPane().setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 50, 561, 260);
 		frmCustomerInformation.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		JLabel lblName = new JLabel("Name : ");
 		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblName.setBounds(10, 11, 143, 36);
 		panel.add(lblName);
-		
+
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		textField.setBounds(163, 11, 338, 36);
 		panel.add(textField);
 		textField.setColumns(10);
-		
+
 		JLabel lblIdOrPassport = new JLabel("ID Card :");
 		lblIdOrPassport.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblIdOrPassport.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblIdOrPassport.setBounds(10, 58, 143, 36);
 		panel.add(lblIdOrPassport);
-		
+
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		textField_1.setColumns(10);
 		textField_1.setBounds(163, 58, 338, 36);
 		panel.add(textField_1);
-		
+
 		JLabel lblLicensePlate = new JLabel("License Plate :");
 		lblLicensePlate.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblLicensePlate.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblLicensePlate.setBounds(10, 104, 143, 36);
 		panel.add(lblLicensePlate);
-		
+
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		textField_2.setColumns(10);
 		textField_2.setBounds(163, 105, 338, 36);
 		panel.add(textField_2);
-		
+
 		JLabel lblPhone = new JLabel("Phone :");
 		lblPhone.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPhone.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblPhone.setBounds(10, 151, 143, 36);
 		panel.add(lblPhone);
-		
+
 		textField_3 = new JTextField();
 		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		textField_3.setColumns(10);
 		textField_3.setBounds(163, 151, 338, 36);
 		panel.add(textField_3);
-		
+
 		JButton btnSave = new JButton("Save");
 		btnSave.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnSave.setBounds(304, 198, 121, 45);
 		panel.add(btnSave);
-		
+
 		JButton btnCacel = new JButton("Cancel");
 		btnCacel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -125,13 +125,13 @@ public class customer_information_page {
 		btnCacel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnCacel.setBounds(173, 198, 121, 45);
 		panel.add(btnCacel);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 0, 561, 50);
 		panel_1.setBackground(new Color(124, 180, 212));
 		frmCustomerInformation.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
-		
+
 		JLabel lblCustomerInformation = new JLabel("Customer Information");
 		lblCustomerInformation.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCustomerInformation.setForeground(new Color(0, 0, 0));
