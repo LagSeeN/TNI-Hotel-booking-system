@@ -297,7 +297,7 @@ public class menu_check_in_page {
 		lblStatus_02.setBounds(279, 438, 94, 20);
 		panel_roomlist.add(lblStatus_02);
 
-		JLabel lblroomid_get_02 = new JLabel("[ROOMID]");
+		lblroomid_get_02 = new JLabel("[ROOMID]");
 		lblroomid_get_02.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblroomid_get_02.setBounds(374, 363, 114, 20);
 		panel_roomlist.add(lblroomid_get_02);
@@ -346,7 +346,7 @@ public class menu_check_in_page {
 		lblStatus_03.setBounds(529, 438, 94, 20);
 		panel_roomlist.add(lblStatus_03);
 
-		JLabel lblroomid_get_03 = new JLabel("[ROOMID]");
+		lblroomid_get_03 = new JLabel("[ROOMID]");
 		lblroomid_get_03.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblroomid_get_03.setBounds(624, 363, 114, 20);
 		panel_roomlist.add(lblroomid_get_03);
@@ -395,7 +395,7 @@ public class menu_check_in_page {
 		lblStatus_04.setBounds(25, 575, 94, 20);
 		panel_roomlist.add(lblStatus_04);
 
-		JLabel lblroomid_get_04 = new JLabel("[ROOMID]");
+		lblroomid_get_04 = new JLabel("[ROOMID]");
 		lblroomid_get_04.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblroomid_get_04.setBounds(120, 500, 114, 20);
 		panel_roomlist.add(lblroomid_get_04);
@@ -444,7 +444,7 @@ public class menu_check_in_page {
 		lblStatus_05.setBounds(279, 575, 94, 20);
 		panel_roomlist.add(lblStatus_05);
 
-		JLabel lblroomid_get_05 = new JLabel("[ROOMID]");
+		lblroomid_get_05 = new JLabel("[ROOMID]");
 		lblroomid_get_05.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblroomid_get_05.setBounds(374, 500, 114, 20);
 		panel_roomlist.add(lblroomid_get_05);
@@ -493,7 +493,7 @@ public class menu_check_in_page {
 		lblStatus_06.setBounds(529, 575, 94, 20);
 		panel_roomlist.add(lblStatus_06);
 
-		JLabel lblroomid_get_06 = new JLabel("[ROOMID]");
+		lblroomid_get_06 = new JLabel("[ROOMID]");
 		lblroomid_get_06.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblroomid_get_06.setBounds(624, 500, 114, 20);
 		panel_roomlist.add(lblroomid_get_06);
@@ -566,7 +566,7 @@ public class menu_check_in_page {
 		boolean[] Status = new boolean[RoomSize];
 
 		for (int i = 0; i < RoomSize; i++) {
-			RoomID[i] = "" + 100 + (i + 1);
+			RoomID[i] = "" + (100 + (i + 1));
 			BedType[i] = "Double";
 			Price[i] = 500.00;
 			Status[i] = false;
