@@ -106,6 +106,8 @@ public class payment_credit_card_page {
 
 			@Override
 			public void keyReleased(KeyEvent evt) {
+				if (Name.getText().isEmpty() || CardNumber.getText().isEmpty() || CardNumber.getText().length() < 16)
+					btnPay.setEnabled(false);
 				if (CardNumber.getText().length() == 16) {
 					if (!(checkCard(CardNumber.getText()))) {
 						CardNumber.setBackground(new Color(255, 0, 51));
@@ -164,28 +166,19 @@ public class payment_credit_card_page {
 		Name.setColumns(10);
 
 		btnPay = new JButton("Pay");
+		btnPay.setEnabled(false);
 		btnPay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Pay
-				if (Name.getText().isEmpty() || CardNumber.getText().isEmpty()) {
-					if (CardNumber.getText().isEmpty())
-						JOptionPane.showMessageDialog(null, "Please enter Card", "Request Card",
-								JOptionPane.WARNING_MESSAGE);
-					else if (Name.getText().isEmpty())
-						JOptionPane.showMessageDialog(null, "Please enter Name", "Request Name",
-								JOptionPane.WARNING_MESSAGE);
-					else
-						JOptionPane.showMessageDialog(null, "Please enter Name or Card", "Request Name or Card",
-								JOptionPane.WARNING_MESSAGE);
-				} else if (!(checkName(Name.getText()))) {
+				if (!(checkName(Name.getText()))) {
 					JOptionPane.showMessageDialog(null, "Name is incorrect" + "\nPlease try again", "Name incoorect",
 							JOptionPane.WARNING_MESSAGE);
 					Name.setText(null);
 				} else
-					JOptionPane.showConfirmDialog(null,
-							"Total Price : " + (total) + "\nPlease continue at EDC machine.\n\nPayment success?",
-							"Please continue at EDC machine", JOptionPane.YES_NO_OPTION,
-							JOptionPane.INFORMATION_MESSAGE);
+					btnPay.setEnabled(true);
+				JOptionPane.showConfirmDialog(null,
+						"Total Price : " + (total) + "\nPlease continue at EDC machine.\n\nPayment success?",
+						"Please continue at EDC machine", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnPay.setBounds(259, 90, 130, 27);
@@ -256,7 +249,8 @@ public class payment_credit_card_page {
 		int length = card.length;
 		for (int i = 0; i < length; i++) {
 
-			// รับเลขบัตนจากหลังสุดมาหน้าสุด เช่น4024 0071 3481 3392 ก็จะเอา 2 มาคิดก่อน
+			// รับเลขบัตนจากหลังสุดมาหน้าสุด เช่น4024 0071 3481 3392 ก็จะเอา 2
+			// มาคิดก่อน
 			int digit = card[length - i - 1];
 
 			// เลขหลักคู่เอาไปคูณ2

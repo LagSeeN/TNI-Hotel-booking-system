@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class test1 {
 
@@ -47,7 +48,7 @@ public class test1 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 741, 517);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -74,18 +75,23 @@ public class test1 {
 		progressBar.setValue(50);
 
 		JSlider slider = new JSlider();
-		slider.setBounds(212, 90, 200, 26);
+		slider.setBounds(422, 11, 200, 26);
 		frame.getContentPane().add(slider);
-
-		JLabel img = new JLabel("");
-		img.setIcon(new ImageIcon(this.getClass().getResource("AFRO.jpg")));
-		img.setBounds(32, 76, 148, 174);
-		frame.getContentPane().add(img);
 
 		test1 = new JProgressBar();
 		test1.setValue(count1);
 		test1.setBounds(115, 36, 297, 14);
 		frame.getContentPane().add(test1);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(null, "Noob why you click");
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\TAI\\Desktop\\main_icon.png"));
+		btnNewButton.setBounds(54, 102, 250, 250);
+		frame.getContentPane().add(btnNewButton);
 
 	}
 }
