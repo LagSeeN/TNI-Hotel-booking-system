@@ -9,14 +9,19 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.awt.event.ActionEvent;
-import java.awt.Color;
+import java.awt.Font;
 
 public class test1 {
 
 	private JFrame frame;
 	private int count1;
 	private JProgressBar test1;
+	private JLabel Date;
+	private JLabel Time;
 
 	/**
 	 * Launch the application.
@@ -41,6 +46,7 @@ public class test1 {
 	 */
 	public test1() {
 		initialize();
+		clock();
 	}
 
 	/**
@@ -82,16 +88,54 @@ public class test1 {
 		test1.setValue(count1);
 		test1.setBounds(115, 36, 297, 14);
 		frame.getContentPane().add(test1);
-		
+
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane.showMessageDialog(null, "Noob why you click");
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\TAI\\Desktop\\main_icon.png"));
-		btnNewButton.setBounds(54, 102, 250, 250);
+		btnNewButton.setIcon(new ImageIcon(this.getClass().getResource("main_icon.png")));
+		btnNewButton.setBounds(10, 61, 250, 250);
 		frame.getContentPane().add(btnNewButton);
+
+		Date = new JLabel("");
+		Date.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		Date.setBounds(323, 85, 351, 25);
+		frame.getContentPane().add(Date);
+
+		Time = new JLabel("");
+		Time.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		Time.setBounds(323, 121, 351, 25);
+		frame.getContentPane().add(Time);
+
+	}
+
+	public void clock() {
+		DecimalFormat frm = new DecimalFormat("00");
+		Thread clock = new Thread() {
+			public void run() {
+				try {
+					for (;;) {
+						GregorianCalendar cal = new GregorianCalendar();
+						int day = cal.get(Calendar.DAY_OF_MONTH);
+						int month = cal.get(Calendar.MONTH) + 1;
+						int year = cal.get(Calendar.YEAR);
+
+						int sec = cal.get(Calendar.SECOND);
+						int min = cal.get(Calendar.MINUTE);
+						int hr = cal.get(Calendar.HOUR);
+						Date.setText(frm.format(day) + "/" + frm.format(month) + "/" + frm.format(year));
+						Time.setText(frm.format(hr) + ":" + frm.format(min) + ":" + frm.format(sec));
+
+						sleep(1000);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		};
+		clock.start();
 
 	}
 }
