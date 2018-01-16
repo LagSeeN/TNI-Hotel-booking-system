@@ -14,6 +14,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class test1 {
 
@@ -69,6 +71,7 @@ public class test1 {
 					count1 = 0;
 					test1.setValue(count1);
 				}
+
 			}
 		});
 		button.setBounds(10, 11, 95, 25);
@@ -85,6 +88,7 @@ public class test1 {
 		frame.getContentPane().add(slider);
 
 		test1 = new JProgressBar();
+		test1.setMaximum(60);
 		test1.setValue(count1);
 		test1.setBounds(115, 36, 297, 14);
 		frame.getContentPane().add(test1);
@@ -127,7 +131,10 @@ public class test1 {
 						int hr = cal.get(Calendar.HOUR);
 						Date.setText(frm.format(day) + "/" + frm.format(month) + "/" + frm.format(year));
 						Time.setText(frm.format(hr) + ":" + frm.format(min) + ":" + frm.format(sec));
-
+						if (cal.get(Calendar.SECOND) < 60)
+							test1.setValue(cal.get(Calendar.SECOND));
+						else if (cal.get(Calendar.SECOND) == 60)
+							test1.setValue(0);
 						sleep(1000);
 					}
 				} catch (Exception e) {
