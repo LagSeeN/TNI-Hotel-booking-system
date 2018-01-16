@@ -21,6 +21,7 @@ import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 public class menu_check_in_page {
 
@@ -58,6 +59,7 @@ public class menu_check_in_page {
 	 */
 	private void initialize() {
 		frmHotelBookingSystem = new JFrame();
+		frmHotelBookingSystem.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
 		frmHotelBookingSystem.setResizable(false);
 		frmHotelBookingSystem.setTitle("Hotel Booking System");
 		frmHotelBookingSystem.setBounds(100, 100, 1024, 768);
@@ -522,9 +524,15 @@ public class menu_check_in_page {
 		lblusername.setForeground(Color.WHITE);
 		lblusername.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.scrollbar);
-		panel.setBounds(0, 0, 250, 250);
-		frmHotelBookingSystem.getContentPane().add(panel);
+		JPanel panel_icon = new JPanel();
+		panel_icon.setBackground(SystemColor.scrollbar);
+		panel_icon.setBounds(0, 0, 250, 250);
+		frmHotelBookingSystem.getContentPane().add(panel_icon);
+		panel_icon.setLayout(null);
+
+		JLabel icon_hotel = new JLabel("");
+		icon_hotel.setIcon(new ImageIcon(this.getClass().getResource("main_icon.png")));
+		icon_hotel.setBounds(0, 0, 250, 250);
+		panel_icon.add(icon_hotel);
 	}
 }

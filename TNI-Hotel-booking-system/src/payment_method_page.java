@@ -111,8 +111,7 @@ public class payment_method_page {
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnCreditCard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				payment_credit_card_page credit = new payment_credit_card_page(total);
-				credit.NewScreen();
+				new payment_credit_card_page(total).NewScreen();
 				frmPaymentMethod.setVisible(false);
 			}
 		});
