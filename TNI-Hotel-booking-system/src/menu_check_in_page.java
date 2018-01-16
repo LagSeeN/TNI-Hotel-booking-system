@@ -22,11 +22,22 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class menu_check_in_page {
 
 	private JFrame frmHotelBookingSystem;
 	private JLabel imgbanner;
+	// Room Service
+	private JLabel[] lblroomid_get = new JLabel[6];
+	// End Room service
+	private JLabel lblroomid_get_01;
+	private JLabel lblroomid_get_02;
+	private JLabel lblroomid_get_03;
+	private JLabel lblroomid_get_04;
+	private JLabel lblroomid_get_05;
+	private JLabel lblroomid_get_06;
 
 	/**
 	 * Launch the application.
@@ -59,11 +70,22 @@ public class menu_check_in_page {
 	 */
 	private void initialize() {
 		frmHotelBookingSystem = new JFrame();
-		frmHotelBookingSystem.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
+		frmHotelBookingSystem.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent evt) {
+				Room();
+
+			}
+		});
+		frmHotelBookingSystem
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
 		frmHotelBookingSystem.setResizable(false);
 		frmHotelBookingSystem.setTitle("Hotel Booking System");
 		frmHotelBookingSystem.setBounds(100, 100, 1024, 768);
 		frmHotelBookingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// Room service
+		// End Room service
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -226,7 +248,7 @@ public class menu_check_in_page {
 		panel_roomlist.add(lblStatus_01);
 		lblStatus_01.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JLabel lblroomid_get_01 = new JLabel("[ROOMID]");
+		lblroomid_get_01 = new JLabel("[ROOMID]");
 		lblroomid_get_01.setBounds(120, 363, 114, 20);
 		panel_roomlist.add(lblroomid_get_01);
 		lblroomid_get_01.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -534,5 +556,27 @@ public class menu_check_in_page {
 		icon_hotel.setIcon(new ImageIcon(this.getClass().getResource("main_icon.png")));
 		icon_hotel.setBounds(0, 0, 250, 250);
 		panel_icon.add(icon_hotel);
+	}
+
+	private void Room() {
+		int RoomSize = 6;
+		String[] RoomID = new String[RoomSize];
+		String[] BedType = new String[RoomSize];
+		double[] Price = new double[RoomSize];
+		boolean[] Status = new boolean[RoomSize];
+
+		for (int i = 0; i < RoomSize; i++) {
+			RoomID[i] = "" + 100 + (i + 1);
+			BedType[i] = "Double";
+			Price[i] = 500.00;
+			Status[i] = false;
+		}
+		lblroomid_get_01.setText(RoomID[0]);
+		lblroomid_get_02.setText(RoomID[1]);
+		lblroomid_get_03.setText(RoomID[2]);
+		lblroomid_get_04.setText(RoomID[3]);
+		lblroomid_get_05.setText(RoomID[4]);
+		lblroomid_get_06.setText(RoomID[5]);
+
 	}
 }
