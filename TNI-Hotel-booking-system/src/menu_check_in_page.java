@@ -24,11 +24,14 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class menu_check_in_page {
 
 	private JFrame frmHotelBookingSystem;
 	private JLabel imgbanner;
+	private JComboBox comboBox;
 	// Room Service
 	private JLabel[] lblroomid_get = new JLabel[6];
 	// End Room service
@@ -196,7 +199,21 @@ public class menu_check_in_page {
 		imgbanner.setBounds(0, 0, 771, 304);
 		panel_banner.add(imgbanner);
 
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				if (comboBox.getSelectedIndex() == 0)
+					JOptionPane.showMessageDialog(null, "it is 1");
+				if (comboBox.getSelectedIndex() == 1)
+					JOptionPane.showMessageDialog(null, "it is 2");
+				if (comboBox.getSelectedIndex() == 2)
+					JOptionPane.showMessageDialog(null, "it is 3");
+				if (comboBox.getSelectedIndex() == 3)
+					JOptionPane.showMessageDialog(null, "it is 4");
+				if (comboBox.getSelectedIndex() == 4)
+					JOptionPane.showMessageDialog(null, "it is 5");
+			}
+		});
 		comboBox.setBounds(90, 315, 46, 20);
 		panel_roomlist.add(comboBox);
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
