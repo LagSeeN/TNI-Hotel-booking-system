@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class payment_method_page {
 
@@ -38,6 +39,7 @@ public class payment_method_page {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.constructor
 	 */
 	public payment_method_page(double total) {
 		this.total = total;
@@ -55,6 +57,7 @@ public class payment_method_page {
 	 */
 	private void initialize() {
 		frmPaymentMethod = new JFrame();
+		frmPaymentMethod.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
 		frmPaymentMethod.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		frmPaymentMethod.setResizable(false);
 		frmPaymentMethod.setTitle("Payment Method | Hotel Booking System");

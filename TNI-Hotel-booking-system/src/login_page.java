@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class login_page {
 
@@ -56,6 +57,7 @@ public class login_page {
 	 */
 	private void initialize() {
 		login = new JFrame();
+		login.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
 		login.setTitle("Login | Hotel Booking System");
 		login.setResizable(false);
 		login.getContentPane().setEnabled(false);
@@ -132,7 +134,6 @@ public class login_page {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new menu_check_in_page().NewScreen();
-				;
 				login.setVisible(false);
 
 			}

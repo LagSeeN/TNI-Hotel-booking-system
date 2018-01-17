@@ -19,6 +19,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.Toolkit;
 
 public class payment_credit_card_page {
 
@@ -67,6 +68,7 @@ public class payment_credit_card_page {
 	private void initialize() {
 
 		frmCreditCardPayment = new JFrame();
+		frmCreditCardPayment.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
 		frmCreditCardPayment.setResizable(false);
 		frmCreditCardPayment.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		frmCreditCardPayment.setTitle("Payment (Credit Card) | Hotel Booking System");

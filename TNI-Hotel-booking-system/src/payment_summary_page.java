@@ -18,6 +18,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.Toolkit;
 
 public class payment_summary_page {
 
@@ -48,6 +49,7 @@ public class payment_summary_page {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.constructor
 	 */
 	public payment_summary_page() {
 		initialize();
@@ -65,6 +67,7 @@ public class payment_summary_page {
 		Summary summary = new Summary(1400);
 
 		frmSummaryHotel = new JFrame();
+		frmSummaryHotel.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
 		frmSummaryHotel.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent evt) {

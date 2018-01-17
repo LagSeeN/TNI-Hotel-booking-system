@@ -21,6 +21,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.DecimalFormat;
+import java.awt.Toolkit;
 
 public class payment_cash_page {
 
@@ -66,6 +67,7 @@ public class payment_cash_page {
 	 */
 	private void initialize() {
 		frmCashHotel = new JFrame();
+		frmCashHotel.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
 		frmCashHotel.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent evt) {
