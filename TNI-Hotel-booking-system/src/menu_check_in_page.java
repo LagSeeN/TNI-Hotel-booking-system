@@ -34,6 +34,9 @@ public class menu_check_in_page {
 	private JComboBox comboBox;
 	// Room Service
 	private JLabel[] lblroomid_get_room = new JLabel[6];
+	private JLabel[] lblbedtype_get_type = new JLabel[6];
+	private JLabel[] lblprice_get_price = new JLabel[6];
+	private JLabel[] lblstatus_get_status = new JLabel[6];
 	// End Room service
 
 	/**
@@ -119,7 +122,7 @@ public class menu_check_in_page {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null,
 						"Develop by:" + "\n 60121002-4 Sec.2 Yossapon Jantarote"
-								+ "\n 60121053-7 Sec.2 Danupol Intranurux" + "\n 60121045-3 Sec.1 Thanapat Chanprasert"
+								+ "\n 60121045-3 Sec.1 Thanapat Chanprasert" + "\n 60121053-7 Sec.2 Danupol Intranurux"
 								+ "\n 60121075-0 Sec.2 Prachya Khongwichayakupe",
 						"About", JOptionPane.INFORMATION_MESSAGE);
 			}
@@ -264,10 +267,10 @@ public class menu_check_in_page {
 		panel_roomlist.add(lblroomid_get_room[0]);
 		lblroomid_get_room[0].setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JLabel lblbedtype_get_01 = new JLabel("[BEDTYPE]");
-		lblbedtype_get_01.setBounds(120, 388, 114, 20);
-		panel_roomlist.add(lblbedtype_get_01);
-		lblbedtype_get_01.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblbedtype_get_type[0] = new JLabel("[BEDTYPE]");
+		lblbedtype_get_type[0].setBounds(120, 388, 114, 20);
+		panel_roomlist.add(lblbedtype_get_type[0]);
+		lblbedtype_get_type[0].setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		JLabel lblprice_get_01 = new JLabel("[PRICE]");
 		lblprice_get_01.setBounds(120, 413, 114, 20);
@@ -313,10 +316,10 @@ public class menu_check_in_page {
 		lblroomid_get_room[1].setBounds(374, 363, 114, 20);
 		panel_roomlist.add(lblroomid_get_room[1]);
 
-		JLabel lblbedtype_get_02 = new JLabel("[BEDTYPE]");
-		lblbedtype_get_02.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblbedtype_get_02.setBounds(374, 388, 114, 20);
-		panel_roomlist.add(lblbedtype_get_02);
+		lblbedtype_get_type[1] = new JLabel("[BEDTYPE]");
+		lblbedtype_get_type[1].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblbedtype_get_type[1].setBounds(374, 388, 114, 20);
+		panel_roomlist.add(lblbedtype_get_type[1]);
 
 		JLabel lblprice_get_02 = new JLabel("[PRICE]");
 		lblprice_get_02.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -362,10 +365,10 @@ public class menu_check_in_page {
 		lblroomid_get_room[2].setBounds(624, 363, 114, 20);
 		panel_roomlist.add(lblroomid_get_room[2]);
 
-		JLabel lblbedtype_get_03 = new JLabel("[BEDTYPE]");
-		lblbedtype_get_03.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblbedtype_get_03.setBounds(624, 388, 114, 20);
-		panel_roomlist.add(lblbedtype_get_03);
+		lblbedtype_get_type[2] = new JLabel("[BEDTYPE]");
+		lblbedtype_get_type[2].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblbedtype_get_type[2].setBounds(624, 388, 114, 20);
+		panel_roomlist.add(lblbedtype_get_type[2]);
 
 		JLabel lblprice_get_03 = new JLabel("[PRICE]");
 		lblprice_get_03.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -411,10 +414,10 @@ public class menu_check_in_page {
 		lblroomid_get_room[3].setBounds(120, 500, 114, 20);
 		panel_roomlist.add(lblroomid_get_room[3]);
 
-		JLabel lblbedtype_get_04 = new JLabel("[BEDTYPE]");
-		lblbedtype_get_04.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblbedtype_get_04.setBounds(120, 525, 114, 20);
-		panel_roomlist.add(lblbedtype_get_04);
+		lblbedtype_get_type[3] = new JLabel("[BEDTYPE]");
+		lblbedtype_get_type[3].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblbedtype_get_type[3].setBounds(120, 525, 114, 20);
+		panel_roomlist.add(lblbedtype_get_type[3]);
 
 		JLabel lblprice_get_04 = new JLabel("[PRICE]");
 		lblprice_get_04.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -460,10 +463,10 @@ public class menu_check_in_page {
 		lblroomid_get_room[4].setBounds(374, 500, 114, 20);
 		panel_roomlist.add(lblroomid_get_room[4]);
 
-		JLabel lblbedtype_get_05 = new JLabel("[BEDTYPE]");
-		lblbedtype_get_05.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblbedtype_get_05.setBounds(374, 525, 114, 20);
-		panel_roomlist.add(lblbedtype_get_05);
+		lblbedtype_get_type[4] = new JLabel("[BEDTYPE]");
+		lblbedtype_get_type[4].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblbedtype_get_type[4].setBounds(374, 525, 114, 20);
+		panel_roomlist.add(lblbedtype_get_type[4]);
 
 		JLabel lblprice_get_05 = new JLabel("[PRICE]");
 		lblprice_get_05.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -509,10 +512,10 @@ public class menu_check_in_page {
 		lblroomid_get_room[5].setBounds(624, 500, 114, 20);
 		panel_roomlist.add(lblroomid_get_room[5]);
 
-		JLabel lblbedtype_get_06 = new JLabel("[BEDTYPE]");
-		lblbedtype_get_06.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblbedtype_get_06.setBounds(624, 525, 114, 20);
-		panel_roomlist.add(lblbedtype_get_06);
+		lblbedtype_get_type[5] = new JLabel("[BEDTYPE]");
+		lblbedtype_get_type[5].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblbedtype_get_type[5].setBounds(624, 525, 114, 20);
+		panel_roomlist.add(lblbedtype_get_type[5]);
 
 		JLabel lblprice_get_06 = new JLabel("[PRICE]");
 		lblprice_get_06.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -584,7 +587,11 @@ public class menu_check_in_page {
 		}
 		for (int i = 0; i < RoomSize; i++) {
 			lblroomid_get_room[i].setText(RoomID[i]);
+			lblbedtype_get_type[i].setText(BedType[i]);
+			lblprice_get_price[i].setText(""+ Price[i]);
+			lblstatus_get_status[i].setText(""+Status[i]);
 		}
+		
 
 	}
 }
