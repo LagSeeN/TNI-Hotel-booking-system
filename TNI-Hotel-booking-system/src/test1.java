@@ -131,10 +131,7 @@ public class test1 {
 						int hr = cal.get(Calendar.HOUR);
 						Date.setText(frm.format(day) + "/" + frm.format(month) + "/" + frm.format(year));
 						Time.setText(frm.format(hr) + ":" + frm.format(min) + ":" + frm.format(sec));
-						if (cal.get(Calendar.SECOND) < 60)
-							test1.setValue(cal.get(Calendar.SECOND));
-						else if (cal.get(Calendar.SECOND) == 60)
-							test1.setValue(0);
+						test1.setValue(cal.get(Calendar.SECOND));
 						sleep(1000);
 					}
 				} catch (Exception e) {

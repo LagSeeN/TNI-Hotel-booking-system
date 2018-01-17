@@ -33,14 +33,8 @@ public class menu_check_in_page {
 	private JLabel imgbanner;
 	private JComboBox comboBox;
 	// Room Service
-	private JLabel[] lblroomid_get = new JLabel[6];
+	private JLabel[] lblroomid_get_room = new JLabel[6];
 	// End Room service
-	private JLabel lblroomid_get_01;
-	private JLabel lblroomid_get_02;
-	private JLabel lblroomid_get_03;
-	private JLabel lblroomid_get_04;
-	private JLabel lblroomid_get_05;
-	private JLabel lblroomid_get_06;
 
 	/**
 	 * Launch the application.
@@ -76,7 +70,7 @@ public class menu_check_in_page {
 		frmHotelBookingSystem.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent evt) {
-				Room();
+				Room(100);
 
 			}
 		});
@@ -203,15 +197,15 @@ public class menu_check_in_page {
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (comboBox.getSelectedIndex() == 0)
-					JOptionPane.showMessageDialog(null, "it is 1");
+					Room(100);
 				if (comboBox.getSelectedIndex() == 1)
-					JOptionPane.showMessageDialog(null, "it is 2");
+					Room(200);
 				if (comboBox.getSelectedIndex() == 2)
-					JOptionPane.showMessageDialog(null, "it is 3");
+					Room(300);
 				if (comboBox.getSelectedIndex() == 3)
-					JOptionPane.showMessageDialog(null, "it is 4");
+					Room(400);
 				if (comboBox.getSelectedIndex() == 4)
-					JOptionPane.showMessageDialog(null, "it is 5");
+					Room(500);
 			}
 		});
 		comboBox.setBounds(90, 315, 46, 20);
@@ -265,10 +259,10 @@ public class menu_check_in_page {
 		panel_roomlist.add(lblStatus_01);
 		lblStatus_01.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		lblroomid_get_01 = new JLabel("[ROOMID]");
-		lblroomid_get_01.setBounds(120, 363, 114, 20);
-		panel_roomlist.add(lblroomid_get_01);
-		lblroomid_get_01.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblroomid_get_room[0] = new JLabel("[ROOMID]");
+		lblroomid_get_room[0].setBounds(120, 363, 114, 20);
+		panel_roomlist.add(lblroomid_get_room[0]);
+		lblroomid_get_room[0].setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		JLabel lblbedtype_get_01 = new JLabel("[BEDTYPE]");
 		lblbedtype_get_01.setBounds(120, 388, 114, 20);
@@ -314,10 +308,10 @@ public class menu_check_in_page {
 		lblStatus_02.setBounds(279, 438, 94, 20);
 		panel_roomlist.add(lblStatus_02);
 
-		lblroomid_get_02 = new JLabel("[ROOMID]");
-		lblroomid_get_02.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblroomid_get_02.setBounds(374, 363, 114, 20);
-		panel_roomlist.add(lblroomid_get_02);
+		lblroomid_get_room[1] = new JLabel("[ROOMID]");
+		lblroomid_get_room[1].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblroomid_get_room[1].setBounds(374, 363, 114, 20);
+		panel_roomlist.add(lblroomid_get_room[1]);
 
 		JLabel lblbedtype_get_02 = new JLabel("[BEDTYPE]");
 		lblbedtype_get_02.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -363,10 +357,10 @@ public class menu_check_in_page {
 		lblStatus_03.setBounds(529, 438, 94, 20);
 		panel_roomlist.add(lblStatus_03);
 
-		lblroomid_get_03 = new JLabel("[ROOMID]");
-		lblroomid_get_03.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblroomid_get_03.setBounds(624, 363, 114, 20);
-		panel_roomlist.add(lblroomid_get_03);
+		lblroomid_get_room[2] = new JLabel("[ROOMID]");
+		lblroomid_get_room[2].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblroomid_get_room[2].setBounds(624, 363, 114, 20);
+		panel_roomlist.add(lblroomid_get_room[2]);
 
 		JLabel lblbedtype_get_03 = new JLabel("[BEDTYPE]");
 		lblbedtype_get_03.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -412,10 +406,10 @@ public class menu_check_in_page {
 		lblStatus_04.setBounds(25, 575, 94, 20);
 		panel_roomlist.add(lblStatus_04);
 
-		lblroomid_get_04 = new JLabel("[ROOMID]");
-		lblroomid_get_04.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblroomid_get_04.setBounds(120, 500, 114, 20);
-		panel_roomlist.add(lblroomid_get_04);
+		lblroomid_get_room[3] = new JLabel("[ROOMID]");
+		lblroomid_get_room[3].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblroomid_get_room[3].setBounds(120, 500, 114, 20);
+		panel_roomlist.add(lblroomid_get_room[3]);
 
 		JLabel lblbedtype_get_04 = new JLabel("[BEDTYPE]");
 		lblbedtype_get_04.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -461,10 +455,10 @@ public class menu_check_in_page {
 		lblStatus_05.setBounds(279, 575, 94, 20);
 		panel_roomlist.add(lblStatus_05);
 
-		lblroomid_get_05 = new JLabel("[ROOMID]");
-		lblroomid_get_05.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblroomid_get_05.setBounds(374, 500, 114, 20);
-		panel_roomlist.add(lblroomid_get_05);
+		lblroomid_get_room[4] = new JLabel("[ROOMID]");
+		lblroomid_get_room[4].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblroomid_get_room[4].setBounds(374, 500, 114, 20);
+		panel_roomlist.add(lblroomid_get_room[4]);
 
 		JLabel lblbedtype_get_05 = new JLabel("[BEDTYPE]");
 		lblbedtype_get_05.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -510,10 +504,10 @@ public class menu_check_in_page {
 		lblStatus_06.setBounds(529, 575, 94, 20);
 		panel_roomlist.add(lblStatus_06);
 
-		lblroomid_get_06 = new JLabel("[ROOMID]");
-		lblroomid_get_06.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblroomid_get_06.setBounds(624, 500, 114, 20);
-		panel_roomlist.add(lblroomid_get_06);
+		lblroomid_get_room[5] = new JLabel("[ROOMID]");
+		lblroomid_get_room[5].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblroomid_get_room[5].setBounds(624, 500, 114, 20);
+		panel_roomlist.add(lblroomid_get_room[5]);
 
 		JLabel lblbedtype_get_06 = new JLabel("[BEDTYPE]");
 		lblbedtype_get_06.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -575,7 +569,7 @@ public class menu_check_in_page {
 		panel_icon.add(icon_hotel);
 	}
 
-	private void Room() {
+	private void Room(int room) {
 		int RoomSize = 6;
 		String[] RoomID = new String[RoomSize];
 		String[] BedType = new String[RoomSize];
@@ -583,17 +577,14 @@ public class menu_check_in_page {
 		boolean[] Status = new boolean[RoomSize];
 
 		for (int i = 0; i < RoomSize; i++) {
-			RoomID[i] = "" + (100 + (i + 1));
+			RoomID[i] = "" + (room + (i + 1));
 			BedType[i] = "Double";
 			Price[i] = 500.00;
 			Status[i] = false;
 		}
-		lblroomid_get_01.setText(RoomID[0]);
-		lblroomid_get_02.setText(RoomID[1]);
-		lblroomid_get_03.setText(RoomID[2]);
-		lblroomid_get_04.setText(RoomID[3]);
-		lblroomid_get_05.setText(RoomID[4]);
-		lblroomid_get_06.setText(RoomID[5]);
+		for (int i = 0; i < RoomSize; i++) {
+			lblroomid_get_room[i].setText(RoomID[i]);
+		}
 
 	}
 }
