@@ -35,6 +35,8 @@ public class payment_credit_card_page {
 	private JPanel card_input;
 	private JLabel lblCardError;
 	private double total;
+	
+	private String username;
 
 	/**
 	 * Launch the application.
@@ -44,7 +46,7 @@ public class payment_credit_card_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_credit_card_page window = new payment_credit_card_page(total);
+					payment_credit_card_page window = new payment_credit_card_page(total,username);
 					window.frmCreditCardPayment.setVisible(true);
 					window.frmCreditCardPayment.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -57,8 +59,9 @@ public class payment_credit_card_page {
 	/**
 	 * Create the application.
 	 */
-	public payment_credit_card_page(double total) {
+	public payment_credit_card_page(double total,String username) {
 		this.total = total;
+		this.username = username;
 		initialize();
 	}
 
@@ -199,7 +202,7 @@ public class payment_credit_card_page {
 
 			public void actionPerformed(ActionEvent e) {
 				frmCreditCardPayment.setVisible(false);
-				payment_method_page payment = new payment_method_page(total);
+				payment_method_page payment = new payment_method_page(total,username);
 				payment.NewScreen();
 			}
 		});

@@ -28,6 +28,8 @@ public class payment_summary_page {
 	private JLabel lblTotal;
 	private JLabel lblCouponStatus;
 	private double discount;
+	
+	private String username;
 
 	/**
 	 * Launch the application.
@@ -37,7 +39,7 @@ public class payment_summary_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_summary_page window = new payment_summary_page(discount);
+					payment_summary_page window = new payment_summary_page(discount,username);
 					window.frmSummaryHotel.setVisible(true);
 					window.frmSummaryHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -55,8 +57,9 @@ public class payment_summary_page {
 		initialize();
 	}
 
-	public payment_summary_page(double discount) {
+	public payment_summary_page(double discount,String username) {
 		this.discount = discount;
+		this.username = username;
 		initialize();
 	}
 
@@ -175,7 +178,7 @@ public class payment_summary_page {
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
-				payment_method_page payment = new payment_method_page(summary.getTotal(), summary.getDiscount());
+				payment_method_page payment = new payment_method_page(summary.getTotal(), summary.getDiscount(),username);
 				payment.NewScreen();
 			}
 		});
@@ -187,7 +190,7 @@ public class payment_summary_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
-				menu_check_in_page menu = new menu_check_in_page();
+				menu_check_in_page menu = new menu_check_in_page(username);
 				menu.NewScreen();
 			}
 		});

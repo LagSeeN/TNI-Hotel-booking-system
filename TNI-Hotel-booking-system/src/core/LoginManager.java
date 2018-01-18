@@ -5,24 +5,21 @@ import java.io.*;
 public class LoginManager {
 	private String username;
 	private String password;
-	private String username_database;
-	private String password_database;
+	private String[] username_database;
+	private String[] password_database;
 
 	public static File file = new File(
-			"D:\\git\\TNI-Hotel-booking-system\\TNI-Hotel-booking-system\\Database\\user_database.txt");
+			// "D:\\git\\TNI-Hotel-booking-system\\TNI-Hotel-booking-system\\Database\\user_database.txt");
+			"C:\\Users\\Yossapon Jantarote\\git\\TNI-Hotel-booking-system\\TNI-Hotel-booking-system\\Database\\user_database.txt");
 
 	public LoginManager() {
 		this.username = "";
 		this.password = "";
-		this.username_database = "";
-		this.password_database = "";
 	}
 
 	public LoginManager(String username, String password) {
 		this.username = username;
 		this.password = password;
-		this.username_database = "";
-		this.password_database = "";
 	}
 
 	public String getUsername() {
@@ -31,31 +28,47 @@ public class LoginManager {
 
 	public boolean LoginCheck() {
 		// Change in into files reader when is this system ok
+		DatabaseCount();
 		ReadData();
-		if (this.username.equalsIgnoreCase(this.username_database)
-				&& this.password.equalsIgnoreCase(this.password_database)) {
-			return true;
+		for (int i = 0; i < username_database.length; i++) {
+			if (this.username.equals(this.username_database[i]) && this.password.equals(this.password_database[i])) {
+				return true;
+			}
 		}
 		return false;
 	}
-
-	// public String getLoginStatus() {
-	// if (!LoginCheck()) {
-	// return "USERNAME or PASSWORD is wrong!";
-	// }
-	// return "Welcome" + getUsername();
-	// }
 
 	public void ReadData() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String line; // Read Data from database
+			int count = 0;
 			while ((line = br.readLine()) != null) {
 				String[] data = line.split(";");
-				this.username_database = data[0];
-				this.password_database = data[1];
+				for (int i = 0; i < username_database.length; i++) {
+					this.username_database[count] = data[0];
+					this.password_database[count] = data[1];
+				}
+				count++;
 			}
 			br.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void DatabaseCount() {
+		try {
+			int count = 0;
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			String line; // Read Data from database
+			while ((line = br.readLine()) != null) {
+				count++;
+			}
+			br.close();
+			username_database = new String[count];
+			password_database = new String[count];
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

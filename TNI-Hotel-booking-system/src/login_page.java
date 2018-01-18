@@ -37,7 +37,6 @@ public class login_page {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					login_page window = new login_page();
 					window.login.setVisible(true);
-					// windows set to centra
 					window.login.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -139,9 +138,9 @@ public class login_page {
 				String password = new String(passwordField.getPassword());
 				LoginManager LoginSys = new LoginManager(username, password);
 				if (!(LoginSys.LoginCheck())) {
-					JOptionPane.showMessageDialog(null, "555");
+					JOptionPane.showMessageDialog(null, "USERNAME or PASSWORD is WRONG.");
 				} else {
-					new menu_check_in_page().NewScreen();
+					new menu_check_in_page(LoginSys.getUsername()).NewScreen();
 					login.setVisible(false);
 				}
 			}

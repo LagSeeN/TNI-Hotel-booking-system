@@ -34,6 +34,8 @@ public class menu_check_in_page {
 	private JLabel imgbanner;
 	private JComboBox comboBox;
 	private JLabel lbltype;
+	// USERNAME Display.
+	private String username;
 	// Room Service
 	private JLabel[] lblroomid_get_room = new JLabel[6];
 	private JLabel[] lblbedtype_get_type = new JLabel[6];
@@ -50,7 +52,7 @@ public class menu_check_in_page {
 				try {
 					// เปลี่ยนธีม java เป็นแบบ windows
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					menu_check_in_page window = new menu_check_in_page();
+					menu_check_in_page window = new menu_check_in_page(username);
 					window.frmHotelBookingSystem.setVisible(true);
 					window.frmHotelBookingSystem.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -63,7 +65,8 @@ public class menu_check_in_page {
 	/**
 	 * Create the application.
 	 */
-	public menu_check_in_page() {
+	public menu_check_in_page(String username) {
+		this.username = username;
 		initialize();
 	}
 
@@ -171,7 +174,7 @@ public class menu_check_in_page {
 			public void actionPerformed(ActionEvent e) {
 				// เปลี่ยนรูปภาพ
 				imgbanner.setIcon(new ImageIcon(this.getClass().getResource("banner02.jpg")));
-				payment_summary_page summary = new payment_summary_page();
+				payment_summary_page summary = new payment_summary_page(0.0,username);
 				summary.NewScreen();
 				frmHotelBookingSystem.setVisible(false);
 
@@ -566,7 +569,7 @@ public class menu_check_in_page {
 		lblWelcome.setForeground(Color.WHITE);
 		lblWelcome.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JLabel lblusername = new JLabel("[username]");
+		JLabel lblusername = new JLabel(this.username);
 		lblusername.setBounds(108, 0, 163, 50);
 		panel_useracc.add(lblusername);
 		lblusername.setHorizontalAlignment(SwingConstants.LEFT);
