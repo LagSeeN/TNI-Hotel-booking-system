@@ -24,6 +24,7 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.DecimalFormat;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -75,7 +76,7 @@ public class menu_check_in_page {
 			@Override
 			public void windowActivated(WindowEvent evt) {
 				lbltype.setText("Normal");
-				Room(100);
+				Room(100, 500);
 
 			}
 		});
@@ -203,23 +204,23 @@ public class menu_check_in_page {
 			public void actionPerformed(ActionEvent evt) {
 				if (comboBox.getSelectedIndex() == 0) {
 					lbltype.setText("Normal");
-					Room(100);
+					Room(100, 500);
 				}
 				if (comboBox.getSelectedIndex() == 1) {
 					lbltype.setText("Normal");
-					Room(200);
+					Room(200, 500);
 				}
 				if (comboBox.getSelectedIndex() == 2) {
 					lbltype.setText("VIP");
-					Room(300);
+					Room(300, 1500);
 				}
 				if (comboBox.getSelectedIndex() == 3) {
 					lbltype.setText("VIP");
-					Room(400);
+					Room(400, 1500);
 				}
 				if (comboBox.getSelectedIndex() == 4) {
 					lbltype.setText("Deluxe");
-					Room(500);
+					Room(500, 15000);
 				}
 			}
 		});
@@ -584,7 +585,8 @@ public class menu_check_in_page {
 		panel_icon.add(icon_hotel);
 	}
 
-	private void Room(int room) {
+	private void Room(int room, double price) {
+		DecimalFormat frm = new DecimalFormat("#,##0.00");
 		int RoomSize = 6;
 		String[] RoomID = new String[RoomSize];
 		String[] BedType = new String[RoomSize];
@@ -594,13 +596,13 @@ public class menu_check_in_page {
 		for (int i = 0; i < RoomSize; i++) {
 			RoomID[i] = "" + (room + (i + 1));
 			BedType[i] = "Double";
-			Price[i] = 500.00;
+			Price[i] = price;
 			Status[i] = "ready";
 		}
 		for (int i = 0; i < RoomSize; i++) {
 			lblroomid_get_room[i].setText(RoomID[i]);
 			lblbedtype_get_type[i].setText(BedType[i]);
-			lblprice_get_price[i].setText(Double.toString(Price[i]));
+			lblprice_get_price[i].setText(frm.format(Price[i]));
 			lblstatus_get_status[i].setText(Status[i]);
 		}
 
