@@ -5,14 +5,15 @@ import java.io.*;
 public class LoginManager {
 	private String username;
 	private String password;
-	
-	public FileReader reader = new FileReader(".\\Database\\user_database.txt");
-	
+
+	public static File file = new File(
+			"D:\\git\\TNI-Hotel-booking-system\\TNI-Hotel-booking-system\\Database\\user_database.txt");
+
 	public LoginManager() {
 		this.username = "";
 		this.password = "";
 	}
-	
+
 	public LoginManager(String username, String password) {
 		this.username = username;
 		this.password = password;
@@ -35,7 +36,20 @@ public class LoginManager {
 		if (!LoginCheck()) {
 			return "USERNAME or PASSWORD is wrong!";
 		}
-		return "";
+		return "Welcome" + getUsername();
 	}
 
+	public static void main(String[] args) {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			String line;
+			while ((line = br.readLine()) != null) {
+				System.out.println(line);
+			}
+			br.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
