@@ -10,8 +10,11 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -156,15 +159,14 @@ public class login_page {
 			public void run() {
 				try {
 					for (;;) {
+						DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+						Date date = new Date();
 						GregorianCalendar cal = new GregorianCalendar();
 						int day = cal.get(Calendar.DAY_OF_MONTH);
 						int month = cal.get(Calendar.MONTH);
 						int year = cal.get(Calendar.YEAR);
-						int sec = cal.get(Calendar.SECOND);
-						int min = cal.get(Calendar.MINUTE);
-						int hr = cal.get(Calendar.HOUR);
 						lblTime.setText(frm.format(day) + "/" + months[month] + "/" + frm.format(year) + " "
-								+ frm.format(hr) + ":" + frm.format(min) + ":" + frm.format(sec));
+								+ dateFormat.format(date).toString());
 						sleep(1000);
 					}
 				} catch (Exception e) {
