@@ -1,6 +1,1 @@
-Yossapon get A
-Yossapon get B
-Yossapon get C
-Yossapon get D
-Yossapon get F
-Yossapon get W
+admin;password

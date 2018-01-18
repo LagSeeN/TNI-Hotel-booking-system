@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.JTextField;
@@ -17,11 +18,12 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Toolkit;
+import core.LoginManager;
 
 public class login_page {
 
 	private JFrame login;
-	private JTextField textField;
+	private JTextField text_username;
 	private JPasswordField passwordField;
 	private JLabel lblTime;
 
@@ -94,11 +96,11 @@ public class login_page {
 		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
 
-		textField = new JTextField();
-		textField.setBounds(175, 24, 155, 23);
-		loginpane.add(textField);
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textField.setColumns(10);
+		text_username = new JTextField();
+		text_username.setBounds(175, 24, 155, 23);
+		loginpane.add(text_username);
+		text_username.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		text_username.setColumns(10);
 
 		passwordField = new JPasswordField();
 		passwordField.setBounds(175, 55, 155, 20);
@@ -133,9 +135,16 @@ public class login_page {
 		});
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new menu_check_in_page().NewScreen();
-				login.setVisible(false);
-
+				String username = new String(text_username.getText());
+				String password = new String(passwordField.getPassword());
+				LoginManager LoginSys = new LoginManager(username,password);
+				if (!LoginSys.LoginCheck()) {
+					JOptionPane.showMessageDialog(null, LoginSys.getLoginStatus());
+				}
+				else {
+					new menu_check_in_page().NewScreen();
+					login.setVisible(false);
+				}
 			}
 		});
 		login.setBounds(100, 100, 400, 270);
