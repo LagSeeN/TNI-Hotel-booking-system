@@ -9,7 +9,7 @@ public class LoginManager {
 	private String password_database;
 
 	public static File file = new File(
-			"C:\\Users\\Yossapon Jantarote\\git\\TNI-Hotel-booking-system\\TNI-Hotel-booking-system\\Database\\user_database.txt");
+			"D:\\git\\TNI-Hotel-booking-system\\TNI-Hotel-booking-system\\Database\\user_database.txt");
 
 	public LoginManager() {
 		this.username = "";
@@ -24,32 +24,32 @@ public class LoginManager {
 		this.username_database = "";
 		this.password_database = "";
 	}
-	
+
 	public String getUsername() {
 		return this.username;
 	}
-	public boolean LoginCheck() { //Change in into files reader when is this system OK.
+
+	public boolean LoginCheck() {
+		// Change in into files reader when is this system ok
 		ReadData();
-		if (this.username != this.username_database) {
-			return false;
+		if (this.username.equalsIgnoreCase(this.username_database)
+				&& this.password.equalsIgnoreCase(this.password_database)) {
+			return true;
 		}
-		if (this.password != this.password_database) {
-			return false;
-		}
-		return true;
+		return false;
 	}
-	
-	public String getLoginStatus() {
-		if (!LoginCheck()) {
-			return "USERNAME or PASSWORD is wrong!";
-		}
-		return "Welcome" + getUsername();
-	}
+
+	// public String getLoginStatus() {
+	// if (!LoginCheck()) {
+	// return "USERNAME or PASSWORD is wrong!";
+	// }
+	// return "Welcome" + getUsername();
+	// }
 
 	public void ReadData() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));
-			String line; //Read Data from database
+			String line; // Read Data from database
 			while ((line = br.readLine()) != null) {
 				String[] data = line.split(";");
 				this.username_database = data[0];

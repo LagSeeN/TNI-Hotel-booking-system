@@ -137,11 +137,10 @@ public class login_page {
 			public void actionPerformed(ActionEvent e) {
 				String username = new String(text_username.getText());
 				String password = new String(passwordField.getPassword());
-				LoginManager LoginSys = new LoginManager(username,password);
-				if (!LoginSys.LoginCheck()) {
-					JOptionPane.showMessageDialog(null, LoginSys.getLoginStatus());
-				}
-				else {
+				LoginManager LoginSys = new LoginManager(username, password);
+				if (!(LoginSys.LoginCheck())) {
+					JOptionPane.showMessageDialog(null, "555");
+				} else {
 					new menu_check_in_page().NewScreen();
 					login.setVisible(false);
 				}
