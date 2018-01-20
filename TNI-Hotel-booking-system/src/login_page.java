@@ -11,17 +11,17 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.Locale;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Toolkit;
 import core.LoginManager;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class login_page {
 
@@ -99,15 +99,45 @@ public class login_page {
 		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		text_username = new JTextField();
+		text_username.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent evt) {
+				if (!(Character.isAlphabetic(evt.getKeyChar()) || (evt.getKeyChar() == KeyEvent.VK_DELETE)
+						|| (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)))
+					evt.consume();
+			}
+
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				if (!(Character.isAlphabetic(evt.getKeyChar()) || (evt.getKeyChar() == KeyEvent.VK_DELETE)
+						|| (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)))
+					evt.consume();
+			}
+		});
 		text_username.setBounds(175, 24, 155, 23);
 		loginpane.add(text_username);
-		text_username.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		text_username.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		text_username.setColumns(10);
 
 		passwordField = new JPasswordField();
+		passwordField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				if (!(Character.isAlphabetic(evt.getKeyChar()) || (Character.isDigit(evt.getKeyChar())
+						|| (evt.getKeyChar() == KeyEvent.VK_DELETE) || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE))))
+					evt.consume();
+			}
+
+			@Override
+			public void keyPressed(KeyEvent evt) {
+				if (!(Character.isAlphabetic(evt.getKeyChar()) || (Character.isDigit(evt.getKeyChar())
+						|| (evt.getKeyChar() == KeyEvent.VK_DELETE) || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE))))
+					evt.consume();
+			}
+		});
 		passwordField.setBounds(175, 55, 155, 20);
 		loginpane.add(passwordField);
-		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBounds(125, 95, 89, 24);
@@ -153,20 +183,13 @@ public class login_page {
 	}
 
 	public void time() {
-		DecimalFormat frm = new DecimalFormat("00");
-		String months[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 		Thread clock = new Thread() {
 			public void run() {
 				try {
 					for (;;) {
-						DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+						DateFormat dateFormat = new SimpleDateFormat("EEE/MMM/YYYY HH:mm:ss", Locale.ENGLISH);
 						Date date = new Date();
-						GregorianCalendar cal = new GregorianCalendar();
-						int day = cal.get(Calendar.DAY_OF_MONTH);
-						int month = cal.get(Calendar.MONTH);
-						int year = cal.get(Calendar.YEAR);
-						lblTime.setText(frm.format(day) + "/" + months[month] + "/" + frm.format(year) + " "
-								+ dateFormat.format(date).toString());
+						lblTime.setText(dateFormat.format(date).toString());
 						sleep(1000);
 					}
 				} catch (Exception e) {

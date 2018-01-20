@@ -1,20 +1,23 @@
 package core;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JOptionPane;
 
 public class LoginManager {
 	private String username;
 	private String password;
-	private String[] username_database;
-	private String[] password_database;
+	private List<String> username_database = new ArrayList<String>();
+	private List<String> password_database = new ArrayList<String>();
 
-	public static File file = new File(
-			// "D:\\git\\TNI-Hotel-booking-system\\TNI-Hotel-booking-system\\Database\\user_database.txt");
-			"C:\\Users\\LagSe\\git\\TNI-Hotel-booking-system\\TNI-Hotel-booking-system\\Database\\user_database.txt");
+	private File file = new File(getClass().getClassLoader().getResource("user_database.txt").getFile());
 
 	public LoginManager(String username, String password) {
+		ReadData();
 		this.username = username;
-		this.password = password;
+		this.password = password.toLowerCase();
 	}
 
 	public String getUsername() {
@@ -23,10 +26,10 @@ public class LoginManager {
 
 	public boolean LoginCheck() {
 		// Change in into files reader when is this system ok
-		DatabaseCount();
-		ReadData();
-		for (int i = 0; i < username_database.length; i++) {
-			if (this.username.equals(this.username_database[i]) && this.password.equals(this.password_database[i])) {
+		passwordDecode();
+		for (int i = 0; i < username_database.size(); i++) {
+			if (this.username.equals(this.username_database.get(i))
+					&& this.password.equals(this.password_database.get(i))) {
 				return true;
 			}
 		}
@@ -37,36 +40,33 @@ public class LoginManager {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String line; // Read Data from database
-			int count = 0;
 			while ((line = br.readLine()) != null) {
 				String[] data = line.split(";");
-				for (int i = 0; i < username_database.length; i++) {
-					this.username_database[count] = data[0];
-					this.password_database[count] = data[1];
-				}
-				count++;
+				this.username_database.add(data[0]);
+				this.password_database.add(data[1]);
 			}
 			br.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "File not found");
 		}
+
 	}
 
-	public void DatabaseCount() {
-		try {
-			int count = 0;
-			BufferedReader br = new BufferedReader(new FileReader(file));
-			String line; // Read Data from database
-			while ((line = br.readLine()) != null) {
-				count++;
+	public void passwordDecode() {
+		String enText = "";
+		int shift = 17;
+		for (int i = 0; i < password.length(); i++) {
+			if (Character.isDigit(password.charAt(i)))
+				enText += password.charAt(i);
+			else {
+				char c = (char) (password.charAt(i) + shift);
+				if (c > 'z')
+					enText += (char) (password.charAt(i) - (26 - shift));
+				else
+					enText += (char) (password.charAt(i) + shift);
 			}
-			br.close();
-			username_database = new String[count];
-			password_database = new String[count];
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		}
+		this.password = enText;
 	}
 }
