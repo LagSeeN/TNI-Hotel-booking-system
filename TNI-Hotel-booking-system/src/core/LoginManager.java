@@ -14,8 +14,12 @@ public class LoginManager {
 
 	private File file = new File(getClass().getClassLoader().getResource("user_database.txt").getFile());
 
+	public LoginManager() {
+		this.username = "";
+		this.password = "";
+	}
+
 	public LoginManager(String username, String password) {
-		ReadData();
 		this.username = username;
 		this.password = password.toLowerCase();
 	}
@@ -25,18 +29,23 @@ public class LoginManager {
 	}
 
 	public boolean LoginCheck() {
-		// Change in into files reader when is this system ok
-		passwordDecode();
-		for (int i = 0; i < username_database.size(); i++) {
-			if (this.username.equals(this.username_database.get(i))
-					&& this.password.equals(this.password_database.get(i))) {
-				return true;
+		if (ReadData()) {
+			PasswordDecode();
+			for (int i = 0; i < username_database.size(); i++) {
+				if (this.username.equals(this.username_database.get(i))
+						&& this.password.equals(this.password_database.get(i))) {
+					return true;
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "username or password is incorrect.","Message",JOptionPane.WARNING_MESSAGE);
+					return false;
+				}
 			}
 		}
 		return false;
 	}
 
-	public void ReadData() {
+	private boolean ReadData() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String line; // Read Data from database
@@ -46,13 +55,15 @@ public class LoginManager {
 				this.password_database.add(data[1]);
 			}
 			br.close();
+			return true;
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "File not found");
+			JOptionPane.showMessageDialog(null, "Database not found.","Error",JOptionPane.ERROR_MESSAGE);
+			return false;
 		}
 
 	}
 
-	public void passwordDecode() {
+	public void PasswordDecode() {
 		String enText = "";
 		int shift = 17;
 		for (int i = 0; i < password.length(); i++) {

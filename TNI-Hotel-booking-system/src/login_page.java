@@ -105,6 +105,9 @@ public class login_page {
 				if (!(Character.isAlphabetic(evt.getKeyChar()) || (evt.getKeyChar() == KeyEvent.VK_DELETE)
 						|| (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)))
 					evt.consume();
+				if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
+					passwordField.requestFocus();
+				}
 			}
 
 			@Override
@@ -133,6 +136,9 @@ public class login_page {
 				if (!(Character.isAlphabetic(evt.getKeyChar()) || (Character.isDigit(evt.getKeyChar())
 						|| (evt.getKeyChar() == KeyEvent.VK_DELETE) || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE))))
 					evt.consume();
+				if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
+					Login();
+				}
 			}
 		});
 		passwordField.setBounds(175, 55, 155, 20);
@@ -167,19 +173,21 @@ public class login_page {
 		});
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String username = new String(text_username.getText());
-				String password = new String(passwordField.getPassword());
-				LoginManager LoginSys = new LoginManager(username, password);
-				if (!(LoginSys.LoginCheck())) {
-					JOptionPane.showMessageDialog(null, "USERNAME or PASSWORD is WRONG.");
-				} else {
-					new menu_check_in_page(LoginSys.getUsername()).NewScreen();
-					login.setVisible(false);
-				}
+				Login();
 			}
 		});
 		login.setBounds(100, 100, 400, 270);
 		login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	private void Login() {
+		String username = new String(text_username.getText());
+		String password = new String(passwordField.getPassword());
+		LoginManager LoginSys = new LoginManager(username, password);
+		if ((LoginSys.LoginCheck())) {
+			new menu_check_in_page(LoginSys.getUsername()).NewScreen();
+			login.setVisible(false);
+		}
 	}
 
 	public void time() {
