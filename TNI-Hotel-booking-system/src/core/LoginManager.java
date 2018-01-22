@@ -54,7 +54,7 @@ public class LoginManager {
 
 	public void passwordDecode() {
 		String enText = "";
-		int shift = 17;
+		int shift = 8+9;
 		for (int i = 0; i < password.length(); i++) {
 			if (Character.isDigit(password.charAt(i)))
 				enText += password.charAt(i);

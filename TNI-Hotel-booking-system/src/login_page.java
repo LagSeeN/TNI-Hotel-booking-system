@@ -39,8 +39,8 @@ public class login_page {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					login_page window = new login_page();
-					window.login.setVisible(true);
 					window.login.setLocationRelativeTo(null);
+					window.login.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
