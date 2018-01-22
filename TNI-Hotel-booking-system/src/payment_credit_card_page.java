@@ -34,8 +34,8 @@ public class payment_credit_card_page {
 	private JLabel lblCreditCardInformation;
 	private JPanel card_input;
 	private JLabel lblCardError;
-	private double total;
 	
+	private double total;
 	private String username;
 
 	/**

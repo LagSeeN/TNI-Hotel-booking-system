@@ -24,10 +24,11 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.DecimalFormat;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 public class menu_check_in_page {
 
 	private JFrame frmHotelBookingSystem;
@@ -41,6 +42,7 @@ public class menu_check_in_page {
 	private JLabel[] lblbedtype_get_type = new JLabel[6];
 	private JLabel[] lblprice_get_price = new JLabel[6];
 	private JLabel[] lblstatus_get_status = new JLabel[6];
+	private JButton btn_checkin_01;
 	// End Room service
 
 	/**
@@ -79,7 +81,7 @@ public class menu_check_in_page {
 			@Override
 			public void windowActivated(WindowEvent evt) {
 				lbltype.setText("Normal");
-				Room(100, 500);
+				ReadRoom("F1");
 
 			}
 		});
@@ -126,11 +128,7 @@ public class menu_check_in_page {
 		JMenuItem mntmAbout = new JMenuItem("About");
 		mntmAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null,
-						"Develop by:" + "\n 60121002-4 Sec.2 Yossapon Jantarote"
-								+ "\n 60121045-3 Sec.1 Thanapat Chanprasert" + "\n 60121053-7 Sec.2 Danupol Intranurux"
-								+ "\n 60121075-0 Sec.2 Prachya Khongwichayakupe",
-						"About", JOptionPane.INFORMATION_MESSAGE);
+				new about_page().newScreen();
 			}
 		});
 		mnHelp.add(mntmAbout);
@@ -173,8 +171,7 @@ public class menu_check_in_page {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// เปลี่ยนรูปภาพ
-				imgbanner.setIcon(new ImageIcon(this.getClass().getResource("banner02.jpg")));
-				payment_summary_page summary = new payment_summary_page(0.0,username);
+				payment_summary_page summary = new payment_summary_page(0.0, username);
 				summary.NewScreen();
 				frmHotelBookingSystem.setVisible(false);
 
@@ -207,23 +204,23 @@ public class menu_check_in_page {
 			public void actionPerformed(ActionEvent evt) {
 				if (comboBox.getSelectedIndex() == 0) {
 					lbltype.setText("Normal");
-					Room(100, 500);
+					ReadRoom("F1");
 				}
 				if (comboBox.getSelectedIndex() == 1) {
 					lbltype.setText("Normal");
-					Room(200, 500);
+					ReadRoom("F2");
 				}
 				if (comboBox.getSelectedIndex() == 2) {
 					lbltype.setText("VIP");
-					Room(300, 1500);
+					ReadRoom("F3");
 				}
 				if (comboBox.getSelectedIndex() == 3) {
 					lbltype.setText("VIP");
-					Room(400, 1500);
+					ReadRoom("F4");
 				}
 				if (comboBox.getSelectedIndex() == 4) {
 					lbltype.setText("Deluxe");
-					Room(500, 15000);
+					ReadRoom("F5");
 				}
 			}
 		});
@@ -232,7 +229,7 @@ public class menu_check_in_page {
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
 
-		JButton btn_checkin_01 = new JButton("Check in");
+		btn_checkin_01 = new JButton("Check in");
 		btn_checkin_01.setBounds(25, 466, 209, 23);
 		panel_roomlist.add(btn_checkin_01);
 		btn_checkin_01.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -588,26 +585,42 @@ public class menu_check_in_page {
 		panel_icon.add(icon_hotel);
 	}
 
-	private void Room(int room, double price) {
+	public void ReadRoom(String floor) {
 		DecimalFormat frm = new DecimalFormat("#,##0.00");
 		int RoomSize = 6;
 		String[] RoomID = new String[RoomSize];
 		String[] BedType = new String[RoomSize];
 		double[] Price = new double[RoomSize];
 		String[] Status = new String[RoomSize];
-
-		for (int i = 0; i < RoomSize; i++) {
-			RoomID[i] = "" + (room + (i + 1));
-			BedType[i] = "Double";
-			Price[i] = price;
-			Status[i] = "ready";
+		File file = new File(getClass().getClassLoader().getResource("Floor/" + floor + ".txt").getFile());
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			String line; // Read Data from database
+			int i = 0;
+			while ((line = br.readLine()) != null) {
+				String[] data = line.split(";");
+				RoomID[i] = data[0];
+				BedType[i] = data[1];
+				Price[i] = Double.parseDouble(data[2]);
+				Status[i] = data[3];
+				i++;
+			}
+			br.close();
+			for (i = 0; i < RoomSize; i++) {
+				lblroomid_get_room[i].setText(RoomID[i]);
+				lblbedtype_get_type[i].setText(BedType[i]);
+				lblprice_get_price[i].setText(frm.format(Price[i]));
+				lblstatus_get_status[i].setText(Status[i]);
+				if(Status[i].equalsIgnoreCase("occupied")){
+					btn_checkin_01.setEnabled(false);
+				}
+				else {
+					btn_checkin_01.setEnabled(true);
+				}
+					
+			}
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "File not found");
 		}
-		for (int i = 0; i < RoomSize; i++) {
-			lblroomid_get_room[i].setText(RoomID[i]);
-			lblbedtype_get_type[i].setText(BedType[i]);
-			lblprice_get_price[i].setText(frm.format(Price[i]));
-			lblstatus_get_status[i].setText(Status[i]);
-		}
-
 	}
 }

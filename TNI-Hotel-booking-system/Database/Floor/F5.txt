@@ -1,0 +1,6 @@
+401;Single;1500;occupied
+402;Double;1500;open
+403;Single;1500;occupied
+404;Double;1500;occupied
+405;Single;1500;occupied
+406;Double;1500;occupied

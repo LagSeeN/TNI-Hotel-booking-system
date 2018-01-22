@@ -105,9 +105,6 @@ public class login_page {
 				if (!(Character.isAlphabetic(evt.getKeyChar()) || (evt.getKeyChar() == KeyEvent.VK_DELETE)
 						|| (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)))
 					evt.consume();
-				if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
-					passwordField.requestFocus();
-				}
 			}
 
 			@Override
@@ -136,9 +133,6 @@ public class login_page {
 				if (!(Character.isAlphabetic(evt.getKeyChar()) || (Character.isDigit(evt.getKeyChar())
 						|| (evt.getKeyChar() == KeyEvent.VK_DELETE) || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE))))
 					evt.consume();
-				if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
-					Login();
-				}
 			}
 		});
 		passwordField.setBounds(175, 55, 155, 20);
@@ -146,11 +140,31 @@ public class login_page {
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String username = new String(text_username.getText());
+				String password = new String(passwordField.getPassword());
+				LoginManager LoginSys = new LoginManager(username, password);
+				if (username.isEmpty() || password.isEmpty())
+					JOptionPane.showMessageDialog(null, "Please enter USERNAME or PASSWORD");
+				else if (!(LoginSys.LoginCheck())) {
+					JOptionPane.showMessageDialog(null, "USERNAME or PASSWORD is WRONG.");
+				} else {
+					new menu_check_in_page(LoginSys.getUsername()).NewScreen();
+					login.setVisible(false);
+				}
+			}
+		});
 		btnLogin.setBounds(125, 95, 89, 24);
 		loginpane.add(btnLogin);
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(JFrame.EXIT_ON_CLOSE);
+			}
+		});
 		btnExit.setBounds(221, 95, 89, 24);
 		loginpane.add(btnExit);
 		btnExit.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -166,28 +180,9 @@ public class login_page {
 		lblTime.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTime.setBounds(0, 0, 394, 54);
 		timepane.add(lblTime);
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(JFrame.EXIT_ON_CLOSE);
-			}
-		});
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Login();
-			}
-		});
+
 		login.setBounds(100, 100, 400, 270);
 		login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	
-	private void Login() {
-		String username = new String(text_username.getText());
-		String password = new String(passwordField.getPassword());
-		LoginManager LoginSys = new LoginManager(username, password);
-		if ((LoginSys.LoginCheck())) {
-			new menu_check_in_page(LoginSys.getUsername()).NewScreen();
-			login.setVisible(false);
-		}
 	}
 
 	public void time() {

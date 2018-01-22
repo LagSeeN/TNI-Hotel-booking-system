@@ -1,0 +1,6 @@
+201;Double;500;occupied
+202;Single;500;open
+203;Double;500;occupied
+204;Single;500;occupied
+205;Double;500;open
+206;Single;500;occupied

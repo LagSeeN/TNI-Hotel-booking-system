@@ -1,0 +1,6 @@
+301;Single;700;open
+302;Double;700;occupied
+303;Single;700;open
+304;Double;700;occupied
+305;Single;700;open
+306;Double;700;occupied
