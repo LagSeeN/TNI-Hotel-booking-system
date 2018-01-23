@@ -203,15 +203,10 @@ public class payment_summary_page {
 		lblCustomerName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		NameField = new JTextField();
-		NameField.setBounds(205, 20, 143, 27);
+		NameField.setBounds(205, 20, 296, 27);
 		summaryPane.add(NameField);
 		NameField.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		NameField.setColumns(10);
-
-		JButton btnCheck = new JButton("Check");
-		btnCheck.setBounds(358, 20, 143, 27);
-		summaryPane.add(btnCheck);
-		btnCheck.setFont(new Font("Tahoma", Font.PLAIN, 18));
 	}
 
 	// public double getTotal() {

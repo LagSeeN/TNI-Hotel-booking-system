@@ -21,13 +21,12 @@ public class LoginManager {
 	}
 
 	public String getUsername() {
-		return username;
+		return username.toUpperCase().charAt(0) + username.toLowerCase().substring(1);
 	}
 
 	public boolean LoginCheck() {
-		// Change in into files reader when is this system ok
 		for (int i = 0; i < username_database.size(); i++) {
-			if (this.username.equals(this.username_database.get(i))
+			if (this.username.equalsIgnoreCase(this.username_database.get(i))
 					&& this.password.equals(this.password_database.get(i))) {
 				return true;
 			}
@@ -35,23 +34,23 @@ public class LoginManager {
 		return false;
 	}
 
-	public void ReadData() {
+	private void ReadData() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String line; // Read Data from database
 			while ((line = br.readLine()) != null) {
 				String[] data = line.split(";");
 				this.username_database.add(data[0]);
-				this.password_database.add(passwordDecode(data[1], Integer.parseInt(data[2])));
+				this.password_database.add(PasswordDecode(data[1], Integer.parseInt(data[2])));
 			}
 			br.close();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "File not found");
+			JOptionPane.showMessageDialog(null, "Database not found.", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
 
-	public String passwordDecode(String password, int hash) {
+	private String PasswordDecode(String password, int hash) {
 		String deText = "";
 		for (int i = 0; i < password.length(); i++) {
 			if (Character.isDigit(password.charAt(i)))

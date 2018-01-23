@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.JComboBox;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -29,20 +30,24 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import javax.swing.JToggleButton;
+import javax.swing.JRadioButton;
+
 public class menu_check_in_page {
+
+	private int RoomSize = 6;
 
 	private JFrame frmHotelBookingSystem;
 	private JLabel imgbanner;
-	private JComboBox comboBox;
 	private JLabel lbltype;
 	// USERNAME Display.
 	private String username;
 	// Room Service
-	private JLabel[] lblroomid_get_room = new JLabel[6];
-	private JLabel[] lblbedtype_get_type = new JLabel[6];
-	private JLabel[] lblprice_get_price = new JLabel[6];
-	private JLabel[] lblstatus_get_status = new JLabel[6];
-	private JButton btn_checkin_01;
+	private JLabel[] lblroomid_get_room = new JLabel[RoomSize];
+	private JLabel[] lblbedtype_get_type = new JLabel[RoomSize];
+	private JLabel[] lblprice_get_price = new JLabel[RoomSize];
+	private JLabel[] lblstatus_get_status = new JLabel[RoomSize];
+	private JButton[] btn_action = new JButton[RoomSize];
 	// End Room service
 
 	/**
@@ -80,7 +85,7 @@ public class menu_check_in_page {
 		frmHotelBookingSystem.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent evt) {
-				lbltype.setText("Normal");
+				lbltype.setText("Standard");
 				ReadRoom("F1");
 
 			}
@@ -167,19 +172,19 @@ public class menu_check_in_page {
 		panel_roomlist_sum.add(lbltotalprice);
 		lbltotalprice.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JButton btnNewButton = new JButton("Pay");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnContinue = new JButton("Pay");
+		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// เปลี่ยนรูปภาพ
+				btnContinue.setEnabled(false);
 				payment_summary_page summary = new payment_summary_page(0.0, username);
 				summary.NewScreen();
 				frmHotelBookingSystem.setVisible(false);
 
 			}
 		});
-		btnNewButton.setBounds(25, 377, 198, 31);
-		panel_roomlist_sum.add(btnNewButton);
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnContinue.setBounds(25, 377, 198, 31);
+		panel_roomlist_sum.add(btnContinue);
+		btnContinue.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		JPanel panel_roomlist = new JPanel();
 		panel_roomlist.setBackground(Color.WHITE);
@@ -199,23 +204,23 @@ public class menu_check_in_page {
 		imgbanner.setBounds(0, 0, 771, 304);
 		panel_banner.add(imgbanner);
 
-		comboBox = new JComboBox();
+		JComboBox comboBox = new JComboBox();
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (comboBox.getSelectedIndex() == 0) {
-					lbltype.setText("Normal");
+					lbltype.setText("Standard");
 					ReadRoom("F1");
 				}
 				if (comboBox.getSelectedIndex() == 1) {
-					lbltype.setText("Normal");
+					lbltype.setText("Standard");
 					ReadRoom("F2");
 				}
 				if (comboBox.getSelectedIndex() == 2) {
-					lbltype.setText("VIP");
+					lbltype.setText("Superior");
 					ReadRoom("F3");
 				}
 				if (comboBox.getSelectedIndex() == 3) {
-					lbltype.setText("VIP");
+					lbltype.setText("Superior");
 					ReadRoom("F4");
 				}
 				if (comboBox.getSelectedIndex() == 4) {
@@ -229,10 +234,10 @@ public class menu_check_in_page {
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
 
-		btn_checkin_01 = new JButton("Check in");
-		btn_checkin_01.setBounds(25, 466, 209, 23);
-		panel_roomlist.add(btn_checkin_01);
-		btn_checkin_01.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_action[0] = new JButton("Check in");
+		btn_action[0].setBounds(25, 466, 209, 23);
+		panel_roomlist.add(btn_action[0]);
+		btn_action[0].setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		JLabel lblFloor = new JLabel("Floor : ");
 		lblFloor.setBounds(25, 315, 59, 20);
@@ -295,10 +300,10 @@ public class menu_check_in_page {
 		panel_roomlist.add(lblstatus_get_status[0]);
 		lblstatus_get_status[0].setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JButton btn_checkin_02 = new JButton("Check in");
-		btn_checkin_02.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btn_checkin_02.setBounds(279, 466, 209, 23);
-		panel_roomlist.add(btn_checkin_02);
+		btn_action[1] = new JButton("Check in");
+		btn_action[1].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_action[1].setBounds(279, 466, 209, 23);
+		panel_roomlist.add(btn_action[1]);
 
 		JLabel lblRoomId_02 = new JLabel("Room ID : ");
 		lblRoomId_02.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -344,10 +349,10 @@ public class menu_check_in_page {
 		lblstatus_get_status[1].setBounds(374, 438, 114, 20);
 		panel_roomlist.add(lblstatus_get_status[1]);
 
-		JButton btn_checkin_03 = new JButton("Check in");
-		btn_checkin_03.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btn_checkin_03.setBounds(529, 466, 209, 23);
-		panel_roomlist.add(btn_checkin_03);
+		btn_action[2] = new JButton("Check in");
+		btn_action[2].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_action[2].setBounds(529, 466, 209, 23);
+		panel_roomlist.add(btn_action[2]);
 
 		JLabel lblRoomId_03 = new JLabel("Room ID : ");
 		lblRoomId_03.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -393,10 +398,10 @@ public class menu_check_in_page {
 		lblstatus_get_status[2].setBounds(624, 438, 114, 20);
 		panel_roomlist.add(lblstatus_get_status[2]);
 
-		JButton btn_checkin_04 = new JButton("Check in");
-		btn_checkin_04.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btn_checkin_04.setBounds(25, 603, 209, 23);
-		panel_roomlist.add(btn_checkin_04);
+		btn_action[3] = new JButton("Check in");
+		btn_action[3].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_action[3].setBounds(25, 603, 209, 23);
+		panel_roomlist.add(btn_action[3]);
 
 		JLabel lblRoomId_04 = new JLabel("Room ID : ");
 		lblRoomId_04.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -442,10 +447,10 @@ public class menu_check_in_page {
 		lblstatus_get_status[3].setBounds(120, 575, 114, 20);
 		panel_roomlist.add(lblstatus_get_status[3]);
 
-		JButton btn_checkin_05 = new JButton("Check in");
-		btn_checkin_05.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btn_checkin_05.setBounds(279, 603, 209, 23);
-		panel_roomlist.add(btn_checkin_05);
+		btn_action[4] = new JButton("Check in");
+		btn_action[4].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_action[4].setBounds(279, 603, 209, 23);
+		panel_roomlist.add(btn_action[4]);
 
 		JLabel lblRoomId_05 = new JLabel("Room ID : ");
 		lblRoomId_05.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -491,10 +496,10 @@ public class menu_check_in_page {
 		lblstatus_get_status[4].setBounds(374, 575, 114, 20);
 		panel_roomlist.add(lblstatus_get_status[4]);
 
-		JButton btn_checkin_06 = new JButton("Check in");
-		btn_checkin_06.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btn_checkin_06.setBounds(529, 603, 209, 23);
-		panel_roomlist.add(btn_checkin_06);
+		btn_action[5] = new JButton("Check in");
+		btn_action[5].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_action[5].setBounds(529, 603, 209, 23);
+		panel_roomlist.add(btn_action[5]);
 
 		JLabel lblRoomId_06 = new JLabel("Room ID : ");
 		lblRoomId_06.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -539,6 +544,37 @@ public class menu_check_in_page {
 		lblstatus_get_status[5].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblstatus_get_status[5].setBounds(624, 575, 114, 20);
 		panel_roomlist.add(lblstatus_get_status[5]);
+		
+		JPanel panel_operation = new JPanel();
+		panel_operation.setBackground(Color.WHITE);
+		panel_operation.setBounds(374, 315, 387, 27);
+		panel_roomlist.add(panel_operation);
+		panel_operation.setLayout(null);
+		
+		JLabel lblOperationMode = new JLabel("Operation Mode :");
+		lblOperationMode.setBounds(0, 0, 138, 22);
+		panel_operation.add(lblOperationMode);
+		lblOperationMode.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblOperationMode.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
+		JRadioButton rdbtnCheckIn = new JRadioButton("Check in");
+		rdbtnCheckIn.setSelected(true);
+		rdbtnCheckIn.setBackground(Color.GREEN);
+		rdbtnCheckIn.setHorizontalAlignment(SwingConstants.LEFT);
+		rdbtnCheckIn.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		rdbtnCheckIn.setBounds(141, 0, 93, 23);
+		panel_operation.add(rdbtnCheckIn);
+		
+		JRadioButton rdbtnCheckOut = new JRadioButton("Check out");
+		rdbtnCheckOut.setBackground(Color.RED);
+		rdbtnCheckOut.setHorizontalAlignment(SwingConstants.LEFT);
+		rdbtnCheckOut.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		rdbtnCheckOut.setBounds(236, 0, 110, 23);
+		panel_operation.add(rdbtnCheckOut);
+	    
+		ButtonGroup Operation = new ButtonGroup();
+	    Operation.add(rdbtnCheckIn);
+	    Operation.add(rdbtnCheckOut);
 
 		JPanel panel_title = new JPanel();
 		panel_title.setLayout(null);
@@ -587,7 +623,6 @@ public class menu_check_in_page {
 
 	public void ReadRoom(String floor) {
 		DecimalFormat frm = new DecimalFormat("#,##0.00");
-		int RoomSize = 6;
 		String[] RoomID = new String[RoomSize];
 		String[] BedType = new String[RoomSize];
 		double[] Price = new double[RoomSize];
@@ -611,13 +646,15 @@ public class menu_check_in_page {
 				lblbedtype_get_type[i].setText(BedType[i]);
 				lblprice_get_price[i].setText(frm.format(Price[i]));
 				lblstatus_get_status[i].setText(Status[i]);
-				if(Status[i].equalsIgnoreCase("occupied")){
-					btn_checkin_01.setEnabled(false);
+				if (Status[i].equalsIgnoreCase("occupied")) {
+					btn_action[i].setText("Check out");
+					btn_action[i].setBackground(Color.RED);
+				} else {
+					btn_action[i].setText("Check in");
+					btn_action[i].setEnabled(true);
+					btn_action[i].setBackground(Color.GREEN);
 				}
-				else {
-					btn_checkin_01.setEnabled(true);
-				}
-					
+
 			}
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "File not found");

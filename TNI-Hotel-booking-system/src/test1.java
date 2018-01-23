@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.Color;
 
 public class test1 {
 
@@ -61,6 +62,8 @@ public class test1 {
 		frame.getContentPane().setLayout(null);
 
 		JButton button = new JButton("5555");
+		button.setForeground(Color.GREEN);
+		button.setBackground(Color.RED);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (count1 < 100) {

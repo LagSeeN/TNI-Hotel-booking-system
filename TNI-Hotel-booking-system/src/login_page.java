@@ -176,7 +176,7 @@ public class login_page {
 		timepane.setLayout(null);
 
 		lblTime = new JLabel("");
-		lblTime.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblTime.setFont(new Font("Sitka Display", Font.PLAIN, 22));
 		lblTime.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTime.setBounds(0, 0, 394, 54);
 		timepane.add(lblTime);
