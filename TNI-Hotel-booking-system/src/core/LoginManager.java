@@ -26,7 +26,6 @@ public class LoginManager {
 
 	public boolean LoginCheck() {
 		// Change in into files reader when is this system ok
-		passwordDecode();
 		for (int i = 0; i < username_database.size(); i++) {
 			if (this.username.equals(this.username_database.get(i))
 					&& this.password.equals(this.password_database.get(i))) {
@@ -43,7 +42,7 @@ public class LoginManager {
 			while ((line = br.readLine()) != null) {
 				String[] data = line.split(";");
 				this.username_database.add(data[0]);
-				this.password_database.add(data[1]);
+				this.password_database.add(passwordDecode(data[1], Integer.parseInt(data[2])));
 			}
 			br.close();
 		} catch (IOException e) {
@@ -52,21 +51,20 @@ public class LoginManager {
 
 	}
 
-	public void passwordDecode() {
-		String enText = "";
-		int shift = (254 % 6) + (458 % 14) + 5;
+	public String passwordDecode(String password, int hash) {
+		String deText = "";
 		for (int i = 0; i < password.length(); i++) {
 			if (Character.isDigit(password.charAt(i)))
-				enText += password.charAt(i);
+				deText += password.charAt(i);
 			else {
-				char c = (char) (password.charAt(i) + shift);
-				if (c > 'z')
-					enText += (char) (password.charAt(i) - (26 - shift));
+				char c = (char) (password.charAt(i) - hash);
+				if (c < 'a')
+					deText += (char) (password.charAt(i) + (26 - hash));
 				else
-					enText += (char) (password.charAt(i) + shift);
+					deText += (char) (password.charAt(i) - hash);
 			}
 
 		}
-		this.password = enText;
+		return deText;
 	}
 }

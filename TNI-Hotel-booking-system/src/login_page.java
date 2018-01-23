@@ -146,9 +146,9 @@ public class login_page {
 				String password = new String(passwordField.getPassword());
 				LoginManager LoginSys = new LoginManager(username, password);
 				if (username.isEmpty() || password.isEmpty())
-					JOptionPane.showMessageDialog(null, "Please enter USERNAME or PASSWORD");
+					JOptionPane.showMessageDialog(null, "please enter username or password","Message",JOptionPane.WARNING_MESSAGE);
 				else if (!(LoginSys.LoginCheck())) {
-					JOptionPane.showMessageDialog(null, "USERNAME or PASSWORD is WRONG.");
+					JOptionPane.showMessageDialog(null, "username or password is incorrect.","Message",JOptionPane.WARNING_MESSAGE);
 				} else {
 					new menu_check_in_page(LoginSys.getUsername()).NewScreen();
 					login.setVisible(false);
