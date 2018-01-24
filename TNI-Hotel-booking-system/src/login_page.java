@@ -22,6 +22,8 @@ import java.awt.Toolkit;
 import core.LoginManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
 
 public class login_page {
 
@@ -146,9 +148,11 @@ public class login_page {
 				String password = new String(passwordField.getPassword());
 				LoginManager LoginSys = new LoginManager(username, password);
 				if (username.isEmpty() || password.isEmpty())
-					JOptionPane.showMessageDialog(null, "please enter username or password","Message",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "please enter username or password", "Message",
+							JOptionPane.WARNING_MESSAGE);
 				else if (!(LoginSys.LoginCheck())) {
-					JOptionPane.showMessageDialog(null, "username or password is incorrect.","Message",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "username or password is incorrect.", "Message",
+							JOptionPane.WARNING_MESSAGE);
 				} else {
 					new menu_check_in_page(LoginSys.getUsername()).NewScreen();
 					login.setVisible(false);
@@ -189,9 +193,15 @@ public class login_page {
 		Thread clock = new Thread() {
 			public void run() {
 				try {
+					Font digital = Font
+							.createFont(Font.TRUETYPE_FONT,
+									new FileInputStream(
+											new File(this.getClass().getResource("digital-7.ttf").getFile())))
+							.deriveFont(Font.PLAIN, 22);
 					for (;;) {
 						DateFormat dateFormat = new SimpleDateFormat("EEE/MMM/YYYY HH:mm:ss", Locale.ENGLISH);
 						Date date = new Date();
+						lblTime.setFont(digital);
 						lblTime.setText(dateFormat.format(date).toString());
 						sleep(1000);
 					}
