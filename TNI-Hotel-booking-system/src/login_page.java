@@ -198,10 +198,10 @@ public class login_page {
 									new FileInputStream(
 											new File(this.getClass().getResource("digital-7.ttf").getFile())))
 							.deriveFont(Font.PLAIN, 22);
+					lblTime.setFont(digital);
 					for (;;) {
 						DateFormat dateFormat = new SimpleDateFormat("EEE/MMM/YYYY HH:mm:ss", Locale.ENGLISH);
 						Date date = new Date();
-						lblTime.setFont(digital);
 						lblTime.setText(dateFormat.format(date).toString());
 						sleep(1000);
 					}
