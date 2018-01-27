@@ -34,7 +34,7 @@ public class payment_credit_card_page {
 	private JLabel lblCreditCardInformation;
 	private JPanel card_input;
 	private JLabel lblCardError;
-	
+
 	private double total;
 	private String username;
 
@@ -46,7 +46,7 @@ public class payment_credit_card_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_credit_card_page window = new payment_credit_card_page(total,username);
+					payment_credit_card_page window = new payment_credit_card_page(total, username);
 					window.frmCreditCardPayment.setVisible(true);
 					window.frmCreditCardPayment.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -59,7 +59,7 @@ public class payment_credit_card_page {
 	/**
 	 * Create the application.
 	 */
-	public payment_credit_card_page(double total,String username) {
+	public payment_credit_card_page(double total, String username) {
 		this.total = total;
 		this.username = username;
 		initialize();
@@ -71,7 +71,8 @@ public class payment_credit_card_page {
 	private void initialize() {
 
 		frmCreditCardPayment = new JFrame();
-		frmCreditCardPayment.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
+		frmCreditCardPayment
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
 		frmCreditCardPayment.setResizable(false);
 		frmCreditCardPayment.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		frmCreditCardPayment.setTitle("Payment (Credit Card) | Hotel Booking System");
@@ -186,6 +187,13 @@ public class payment_credit_card_page {
 					JOptionPane.showMessageDialog(null, "Name is incorrect" + "\nPlease try again", "Name incoorect",
 							JOptionPane.WARNING_MESSAGE);
 					Name.setText(null);
+				} else if (!CardNumber.getText().startsWith("4") || CardNumber.getText().startsWith("51")
+						|| CardNumber.getText().startsWith("52") || CardNumber.getText().startsWith("53")
+						|| CardNumber.getText().startsWith("54") || CardNumber.getText().startsWith("55")) {
+					JOptionPane.showMessageDialog(null, "Card type wrong");
+					CardNumber.setText("");
+					CardNumber.setBackground(new Color(255, 255, 255));
+
 				} else
 					JOptionPane.showConfirmDialog(null,
 							"Total Price : " + (total) + "\nPlease continue at EDC machine.\n\nPayment success?",
@@ -202,7 +210,7 @@ public class payment_credit_card_page {
 
 			public void actionPerformed(ActionEvent e) {
 				frmCreditCardPayment.setVisible(false);
-				payment_method_page payment = new payment_method_page(total,username);
+				payment_method_page payment = new payment_method_page(total, username);
 				payment.NewScreen();
 			}
 		});
