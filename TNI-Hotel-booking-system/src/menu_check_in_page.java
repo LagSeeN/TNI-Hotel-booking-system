@@ -200,7 +200,7 @@ public class menu_check_in_page {
 
 		imgbanner = new JLabel("");
 		imgbanner.setHorizontalAlignment(SwingConstants.CENTER);
-		imgbanner.setIcon(new ImageIcon(this.getClass().getResource("banner01.jpg")));
+		imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room01.jpg")));
 		imgbanner.setBounds(0, 0, 771, 304);
 		panel_banner.add(imgbanner);
 
@@ -209,22 +209,27 @@ public class menu_check_in_page {
 			public void actionPerformed(ActionEvent evt) {
 				if (comboBox.getSelectedIndex() == 0) {
 					lbltype.setText("Standard");
+					imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room01.jpg")));
 					ReadRoom("F1");
 				}
 				if (comboBox.getSelectedIndex() == 1) {
 					lbltype.setText("Standard");
+					imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room01.jpg")));
 					ReadRoom("F2");
 				}
 				if (comboBox.getSelectedIndex() == 2) {
 					lbltype.setText("Superior");
+					imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room02.jpg")));
 					ReadRoom("F3");
 				}
 				if (comboBox.getSelectedIndex() == 3) {
 					lbltype.setText("Superior");
+					imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room02.jpg")));
 					ReadRoom("F4");
 				}
 				if (comboBox.getSelectedIndex() == 4) {
 					lbltype.setText("Deluxe");
+					imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room03.jpg")));
 					ReadRoom("F5");
 				}
 			}
@@ -544,19 +549,19 @@ public class menu_check_in_page {
 		lblstatus_get_status[5].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblstatus_get_status[5].setBounds(624, 575, 114, 20);
 		panel_roomlist.add(lblstatus_get_status[5]);
-		
+
 		JPanel panel_operation = new JPanel();
 		panel_operation.setBackground(Color.WHITE);
 		panel_operation.setBounds(374, 315, 387, 27);
 		panel_roomlist.add(panel_operation);
 		panel_operation.setLayout(null);
-		
+
 		JLabel lblOperationMode = new JLabel("Operation Mode :");
 		lblOperationMode.setBounds(0, 0, 138, 22);
 		panel_operation.add(lblOperationMode);
 		lblOperationMode.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblOperationMode.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		
+
 		JRadioButton rdbtnCheckIn = new JRadioButton("Check in");
 		rdbtnCheckIn.setSelected(true);
 		rdbtnCheckIn.setBackground(Color.GREEN);
@@ -564,17 +569,17 @@ public class menu_check_in_page {
 		rdbtnCheckIn.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		rdbtnCheckIn.setBounds(141, 0, 93, 23);
 		panel_operation.add(rdbtnCheckIn);
-		
+
 		JRadioButton rdbtnCheckOut = new JRadioButton("Check out");
 		rdbtnCheckOut.setBackground(Color.RED);
 		rdbtnCheckOut.setHorizontalAlignment(SwingConstants.LEFT);
 		rdbtnCheckOut.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		rdbtnCheckOut.setBounds(236, 0, 110, 23);
 		panel_operation.add(rdbtnCheckOut);
-	    
+
 		ButtonGroup Operation = new ButtonGroup();
-	    Operation.add(rdbtnCheckIn);
-	    Operation.add(rdbtnCheckOut);
+		Operation.add(rdbtnCheckIn);
+		Operation.add(rdbtnCheckOut);
 
 		JPanel panel_title = new JPanel();
 		panel_title.setLayout(null);
