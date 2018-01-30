@@ -33,7 +33,7 @@ import java.text.DecimalFormat;
 import javax.swing.JToggleButton;
 import javax.swing.JRadioButton;
 
-public class menu_check_in_page {
+public class main_hotel_page {
 
 	private int RoomSize = 6;
 
@@ -62,9 +62,8 @@ public class menu_check_in_page {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					// เปลี่ยนธีม java เป็นแบบ windows
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					menu_check_in_page window = new menu_check_in_page(username);
+					main_hotel_page window = new main_hotel_page(username);
 					window.frmHotelBookingSystem.setVisible(true);
 					window.frmHotelBookingSystem.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -77,7 +76,7 @@ public class menu_check_in_page {
 	/**
 	 * Create the application.
 	 */
-	public menu_check_in_page(String username) {
+	public main_hotel_page(String username) {
 		this.username = username;
 		initialize();
 	}
@@ -89,13 +88,12 @@ public class menu_check_in_page {
 		frmHotelBookingSystem = new JFrame();
 		frmHotelBookingSystem.addWindowListener(new WindowAdapter() {
 			@Override
-			public void windowActivated(WindowEvent evt) {
+			public void windowOpened(WindowEvent e) {
 				lbltype.setText("Standard");
 				ReadRoom("F1");
 				if (rdbtnCheckIn.isSelected()) {
 					OperationMode();
 				}
-
 			}
 		});
 		frmHotelBookingSystem
@@ -129,8 +127,7 @@ public class menu_check_in_page {
 		JMenuItem mntmAddCustomer = new JMenuItem("Manage");
 		mntmAddCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				customer_information_page customer = new customer_information_page();
-				customer.NewScreen();
+				new customer_information_page().NewScreen();
 			}
 		});
 		mnRoom.add(mntmAddCustomer);
@@ -185,8 +182,7 @@ public class menu_check_in_page {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnCheckIn.isSelected()) {
 					btnContinue.setEnabled(false);
-					payment_summary_page summary = new payment_summary_page(0.0, username);
-					summary.NewScreen();
+					new payment_summary_page(7500, 0, username).NewScreen();
 					frmHotelBookingSystem.setVisible(false);
 				}
 				if (rdbtnCheckOut.isSelected()) {

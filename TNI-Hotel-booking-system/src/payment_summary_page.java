@@ -7,8 +7,6 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
-import core.Summary;
-
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -18,6 +16,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.DecimalFormat;
 import java.awt.Toolkit;
 
 public class payment_summary_page {
@@ -28,7 +27,9 @@ public class payment_summary_page {
 	private JLabel lblTotal;
 	private JLabel lblCouponStatus;
 	private double discount;
-	
+	private double price;
+	private double total;
+
 	private String username;
 
 	/**
@@ -39,7 +40,7 @@ public class payment_summary_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_summary_page window = new payment_summary_page(discount,username);
+					payment_summary_page window = new payment_summary_page(price, discount, username);
 					window.frmSummaryHotel.setVisible(true);
 					window.frmSummaryHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -51,13 +52,11 @@ public class payment_summary_page {
 
 	/**
 	 * Create the application.
+	 * 
 	 * @wbp.parser.constructor
 	 */
-	public payment_summary_page() {
-		initialize();
-	}
-
-	public payment_summary_page(double discount,String username) {
+	public payment_summary_page(double price, double discount, String username) {
+		this.price = price;
 		this.discount = discount;
 		this.username = username;
 		initialize();
@@ -67,21 +66,19 @@ public class payment_summary_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		Summary summary = new Summary(1400);
-
 		frmSummaryHotel = new JFrame();
 		frmSummaryHotel.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
 		frmSummaryHotel.addWindowListener(new WindowAdapter() {
 			@Override
-			public void windowActivated(WindowEvent evt) {
+			public void windowOpened(WindowEvent evt) {
 				if (discount == 0) {
-					lblPrice.setText(summary.getPricetoString());
+					lblPrice.setText(getPricetoString());
 				} else {
-					summary.setDiscount(discount);
-					lblPrice.setText(summary.getPricetoString());
-					lblCouponStatus.setText(summary.getDiscounttoString());
+					setDiscount(discount);
+					lblPrice.setText(getPricetoString());
+					lblCouponStatus.setText(getDiscounttoString());
 				}
-				lblTotal.setText(summary.getTotaltoString());
+				lblTotal.setText(getTotaltoString());
 			}
 		});
 		frmSummaryHotel.setResizable(false);
@@ -161,9 +158,9 @@ public class payment_summary_page {
 		summaryPane.add(btnUseCoupon);
 		btnUseCoupon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (summary.checkCoupon(JOptionPane.showInputDialog("Input Coupon Code :"))) {
-					lblTotal.setText(summary.getTotaltoString());
-					lblCouponStatus.setText(summary.getDiscounttoString());
+				if (checkCoupon(JOptionPane.showInputDialog("Input Coupon Code :"))) {
+					lblTotal.setText(getTotaltoString());
+					lblCouponStatus.setText(getDiscounttoString());
 				} else
 					JOptionPane.showMessageDialog(null, "Coupon invalid", "Coupon invalid",
 							JOptionPane.WARNING_MESSAGE);
@@ -178,7 +175,7 @@ public class payment_summary_page {
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
-				payment_method_page payment = new payment_method_page(summary.getTotal(), summary.getDiscount(),username);
+				payment_method_page payment = new payment_method_page(getTotal(), getDiscount(), username);
 				payment.NewScreen();
 			}
 		});
@@ -190,7 +187,7 @@ public class payment_summary_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
-				menu_check_in_page menu = new menu_check_in_page(username);
+				main_hotel_page menu = new main_hotel_page(username);
 				menu.NewScreen();
 			}
 		});
@@ -209,41 +206,42 @@ public class payment_summary_page {
 		NameField.setColumns(10);
 	}
 
-	// public double getTotal() {
-	// return total - discount;
-	// }
-	//
-	// public double getDiscount() {
-	// return discount;
-	// }
-	//
-	// public void setDiscount(double discount) {
-	// this.discount = discount;
-	// }
-	//
-	// public String getPricetoString() {
-	// return frm.format(price);
-	// }
-	//
-	// public String getTotaltoString() {
-	// return frm.format(getTotal());
-	// }
-	//
-	// public String getDiscounttoString() {
-	// return "-" + frm.format(discount);
-	// }
-	//
-	// public boolean checkCoupon(String coupon) {
-	// String[] coupon_list = { "FREE", "FREE1R", "40SELL" };
-	// int[] coupon_discount = { (int) price, 700, (int) ((int) (price * 40 / 100))
-	// };
-	// for (int i = 0; i < coupon_list.length; i++) {
-	// if (coupon.equalsIgnoreCase(coupon_list[i])) {
-	// discount = coupon_discount[i];
-	// return true;
-	// }
-	//
-	// }
-	// return false;
-	// }
+	DecimalFormat frm = new DecimalFormat("#,##0.00");
+
+	public double getTotal() {
+		return total - discount;
+	}
+
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+	public String getPricetoString() {
+		return frm.format(price);
+	}
+
+	public String getTotaltoString() {
+		return frm.format(getTotal());
+	}
+
+	public String getDiscounttoString() {
+		return "-" + frm.format(discount);
+	}
+
+	public boolean checkCoupon(String coupon) {
+		String[] coupon_list = { "FREE", "FREE1R", "40SELL" };
+		int[] coupon_discount = { (int) price, 700, (int) ((int) (price * 40 / 100)) };
+		for (int i = 0; i < coupon_list.length; i++) {
+			if (coupon.equalsIgnoreCase(coupon_list[i])) {
+				discount = coupon_discount[i];
+				return true;
+			}
+
+		}
+		return false;
+	}
 }

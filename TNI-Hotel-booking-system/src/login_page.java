@@ -154,7 +154,7 @@ public class login_page {
 					JOptionPane.showMessageDialog(null, "username or password is incorrect.", "Message",
 							JOptionPane.WARNING_MESSAGE);
 				} else {
-					new menu_check_in_page(LoginSys.getUsername()).NewScreen();
+					new main_hotel_page(LoginSys.getUsername()).NewScreen();
 					login.setVisible(false);
 				}
 			}
