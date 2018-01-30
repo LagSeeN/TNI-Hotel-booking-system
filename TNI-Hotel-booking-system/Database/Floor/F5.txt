@@ -1,6 +1,6 @@
-501;Single;1500;occupied
-502;Double;1500;open
-503;Single;1500;occupied
-504;Double;1500;occupied
-505;Single;1500;occupied
-506;Double;1500;occupied
+501;Single;1500;0
+502;Double;1500;1
+503;Single;1500;0
+504;Double;1500;0
+505;Single;1500;0
+506;Double;1500;0

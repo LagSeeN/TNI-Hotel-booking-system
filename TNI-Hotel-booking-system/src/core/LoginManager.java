@@ -12,7 +12,7 @@ public class LoginManager {
 	private List<String> username_database = new ArrayList<String>();
 	private List<String> password_database = new ArrayList<String>();
 
-	private File file = new File(getClass().getClassLoader().getResource("user_database.txt").getFile());
+	private File file;
 
 	public LoginManager(String username, String password) {
 		ReadData();
@@ -36,6 +36,7 @@ public class LoginManager {
 
 	private void ReadData() {
 		try {
+			file = new File(getClass().getClassLoader().getResource("user_database.txt").getFile());
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String line; // Read Data from database
 			while ((line = br.readLine()) != null) {
@@ -44,8 +45,10 @@ public class LoginManager {
 				this.password_database.add(PasswordDecode(data[1], Integer.parseInt(data[2])));
 			}
 			br.close();
-		} catch (IOException e) {
+		} catch (FileNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Database not found.", "Error", JOptionPane.ERROR_MESSAGE);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
 	}

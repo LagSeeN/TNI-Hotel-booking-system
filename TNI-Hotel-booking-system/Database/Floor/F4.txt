@@ -1,6 +1,6 @@
-401;Double;700;occupied
-402;Single;700;open
-403;Double;700;occupied
-404;Single;700;open
-405;Double;700;open
-406;Single;700;occupied
+401;Double;700;0
+402;Single;700;1
+403;Double;700;1
+404;Single;700;1
+405;Double;700;1
+406;Single;700;0
