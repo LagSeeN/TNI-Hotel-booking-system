@@ -30,6 +30,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JRadioButton;
 import javax.swing.JRadioButtonMenuItem;
 
@@ -42,7 +44,7 @@ public class main_hotel_page {
 	private JLabel lbltype;
 	// USERNAME Display.
 	private String username;
-	// Room Service
+	// ***Room Service***
 	private JLabel[] lblroomid_get_room = new JLabel[RoomSize];
 	private JLabel[] lblbedtype_get_type = new JLabel[RoomSize];
 	private JLabel[] lblprice_get_price = new JLabel[RoomSize];
@@ -50,6 +52,10 @@ public class main_hotel_page {
 	private JButton[] btn_action = new JButton[RoomSize];
 	private int[] Status = new int[RoomSize];
 
+	private ArrayList<String> RoomList = new ArrayList<String>();
+	private ArrayList<Double> RoomPrice = new ArrayList<Double>();
+
+	//// Operation Text for Display
 	private JLabel lbloperationmode_text;
 
 	private JRadioButton rdbtnCheckIn;
@@ -57,7 +63,7 @@ public class main_hotel_page {
 	private JRadioButtonMenuItem rdbtnmntmMaintenance;
 	private JButton btnContinue;
 	private String fileroom;
-	// End Room service
+	// ***End Room service***
 
 	/**
 	 * Launch the application.
@@ -274,6 +280,11 @@ public class main_hotel_page {
 		btn_action[0].setBounds(25, 391, 209, 23);
 		panel_roomlist.add(btn_action[0]);
 		btn_action[0].setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_action[0].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RoomService(lblroomid_get_room[0].getText(),Double.parseDouble(lblprice_get_price[0].getText()));
+			}
+		});
 
 		JLabel lblFloor = new JLabel("Floor : ");
 		lblFloor.setBounds(25, 215, 59, 20);
@@ -340,6 +351,11 @@ public class main_hotel_page {
 		btn_action[1].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_action[1].setBounds(279, 391, 209, 23);
 		panel_roomlist.add(btn_action[1]);
+		btn_action[1].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RoomService(lblroomid_get_room[1].getText(),Double.parseDouble(lblprice_get_price[1].getText()));
+			}
+		});
 
 		JLabel lblRoomId_02 = new JLabel("Room ID : ");
 		lblRoomId_02.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -389,6 +405,11 @@ public class main_hotel_page {
 		btn_action[2].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_action[2].setBounds(529, 391, 209, 23);
 		panel_roomlist.add(btn_action[2]);
+		btn_action[2].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RoomService(lblroomid_get_room[2].getText(),Double.parseDouble(lblprice_get_price[2].getText()));
+			}
+		});
 
 		JLabel lblRoomId_03 = new JLabel("Room ID : ");
 		lblRoomId_03.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -438,6 +459,11 @@ public class main_hotel_page {
 		btn_action[3].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_action[3].setBounds(25, 573, 209, 23);
 		panel_roomlist.add(btn_action[3]);
+		btn_action[3].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RoomService(lblroomid_get_room[3].getText(),Double.parseDouble(lblprice_get_price[3].getText()));
+			}
+		});
 
 		JLabel lblRoomId_04 = new JLabel("Room ID : ");
 		lblRoomId_04.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -487,6 +513,11 @@ public class main_hotel_page {
 		btn_action[4].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_action[4].setBounds(279, 573, 209, 23);
 		panel_roomlist.add(btn_action[4]);
+		btn_action[4].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RoomService(lblroomid_get_room[4].getText(),Double.parseDouble(lblprice_get_price[4].getText()));
+			}
+		});
 
 		JLabel lblRoomId_05 = new JLabel("Room ID : ");
 		lblRoomId_05.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -536,6 +567,11 @@ public class main_hotel_page {
 		btn_action[5].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_action[5].setBounds(529, 573, 209, 23);
 		panel_roomlist.add(btn_action[5]);
+		btn_action[5].addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RoomService(lblroomid_get_room[5].getText(),Double.parseDouble(lblprice_get_price[5].getText()));
+			}
+		});
 
 		JLabel lblRoomId_06 = new JLabel("Room ID : ");
 		lblRoomId_06.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -776,5 +812,11 @@ public class main_hotel_page {
 				}
 			}
 		}
+	}
+
+	private void RoomService(String RoomID,double RoomPrice) {
+		RoomList.add(RoomID);
+		this.RoomPrice.add(RoomPrice);
+		JOptionPane.showMessageDialog(null, "DEMO:\nROOM ID : " + RoomID + "\nPRICE : " + RoomPrice);
 	}
 }
