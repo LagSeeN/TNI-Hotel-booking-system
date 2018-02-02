@@ -51,7 +51,11 @@ public class main_hotel_page {
 	private JLabel[] lblstatus_get_status = new JLabel[RoomSize];
 	private JButton[] btn_action = new JButton[RoomSize];
 	private int[] Status = new int[RoomSize];
-
+	////File Reader Service
+	String[] RoomID;
+	String[] BedType;
+	double[] Price;
+	////Action Button
 	private ArrayList<String> RoomList = new ArrayList<String>();
 	private ArrayList<Double> RoomPrice = new ArrayList<Double>();
 
@@ -282,7 +286,7 @@ public class main_hotel_page {
 		btn_action[0].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_action[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(lblroomid_get_room[0].getText(),Double.parseDouble(lblprice_get_price[0].getText()));
+				RoomService(RoomID[0],Price[0]);
 			}
 		});
 
@@ -353,7 +357,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[1]);
 		btn_action[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(lblroomid_get_room[1].getText(),Double.parseDouble(lblprice_get_price[1].getText()));
+				RoomService(RoomID[1],Price[1]);
 			}
 		});
 
@@ -407,7 +411,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[2]);
 		btn_action[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(lblroomid_get_room[2].getText(),Double.parseDouble(lblprice_get_price[2].getText()));
+				RoomService(RoomID[2],Price[2]);
 			}
 		});
 
@@ -461,7 +465,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[3]);
 		btn_action[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(lblroomid_get_room[3].getText(),Double.parseDouble(lblprice_get_price[3].getText()));
+				RoomService(RoomID[3],Price[3]);
 			}
 		});
 
@@ -515,7 +519,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[4]);
 		btn_action[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(lblroomid_get_room[4].getText(),Double.parseDouble(lblprice_get_price[4].getText()));
+				RoomService(RoomID[4],Price[4]);
 			}
 		});
 
@@ -569,7 +573,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[5]);
 		btn_action[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(lblroomid_get_room[5].getText(),Double.parseDouble(lblprice_get_price[5].getText()));
+				RoomService(RoomID[5],Price[5]);
 			}
 		});
 
@@ -713,9 +717,9 @@ public class main_hotel_page {
 
 	public void ReadRoom(String floor) {
 		DecimalFormat frm = new DecimalFormat("#,##0.00");
-		String[] RoomID = new String[RoomSize];
-		String[] BedType = new String[RoomSize];
-		double[] Price = new double[RoomSize];
+		RoomID = new String[RoomSize];
+		BedType = new String[RoomSize];
+		Price = new double[RoomSize];
 		File file = new File(getClass().getClassLoader().getResource("Floor/" + floor + ".txt").getFile());
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));

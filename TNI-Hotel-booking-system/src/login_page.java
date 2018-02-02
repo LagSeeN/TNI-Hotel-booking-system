@@ -114,6 +114,9 @@ public class login_page {
 				if (!(Character.isAlphabetic(evt.getKeyChar()) || (evt.getKeyChar() == KeyEvent.VK_DELETE)
 						|| (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)))
 					evt.consume();
+				if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
+					passwordField.requestFocus();
+				}
 			}
 		});
 		text_username.setBounds(175, 24, 155, 23);
@@ -135,6 +138,9 @@ public class login_page {
 				if (!(Character.isAlphabetic(evt.getKeyChar()) || (Character.isDigit(evt.getKeyChar())
 						|| (evt.getKeyChar() == KeyEvent.VK_DELETE) || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE))))
 					evt.consume();
+				if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
+					Login();
+				}
 			}
 		});
 		passwordField.setBounds(175, 55, 155, 20);
@@ -144,19 +150,7 @@ public class login_page {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String username = new String(text_username.getText());
-				String password = new String(passwordField.getPassword());
-				LoginManager LoginSys = new LoginManager(username, password);
-				if (username.isEmpty() || password.isEmpty())
-					JOptionPane.showMessageDialog(null, "please enter username or password", "Message",
-							JOptionPane.WARNING_MESSAGE);
-				else if (!(LoginSys.LoginCheck())) {
-					JOptionPane.showMessageDialog(null, "username or password is incorrect.", "Message",
-							JOptionPane.WARNING_MESSAGE);
-				} else {
-					new main_hotel_page(LoginSys.getUsername()).NewScreen();
-					login.setVisible(false);
-				}
+				Login();
 			}
 		});
 		btnLogin.setBounds(125, 95, 89, 24);
@@ -187,6 +181,22 @@ public class login_page {
 
 		login.setBounds(100, 100, 400, 270);
 		login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public void Login() {
+		String username = new String(text_username.getText());
+		String password = new String(passwordField.getPassword());
+		LoginManager LoginSys = new LoginManager(username, password);
+		if (username.isEmpty() || password.isEmpty())
+			JOptionPane.showMessageDialog(null, "please enter username or password", "Message",
+					JOptionPane.WARNING_MESSAGE);
+		else if (!(LoginSys.LoginCheck())) {
+			JOptionPane.showMessageDialog(null, "username or password is incorrect.", "Message",
+					JOptionPane.WARNING_MESSAGE);
+		} else {
+			new main_hotel_page(LoginSys.getUsername()).NewScreen();
+			login.setVisible(false);
+		}
 	}
 
 	public void time() {
