@@ -104,7 +104,7 @@ public class payment_method_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmPaymentMethod.setVisible(false);
-				new payment_summary_page(0, discount, username).NewScreen();
+				new payment_summary_page(total, discount, username).NewScreen();
 
 			}
 		});

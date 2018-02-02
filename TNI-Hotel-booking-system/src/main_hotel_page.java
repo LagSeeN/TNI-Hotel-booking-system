@@ -53,11 +53,11 @@ public class main_hotel_page {
 	private JLabel[] lblstatus_get_status = new JLabel[RoomSize];
 	private JButton[] btn_action = new JButton[RoomSize];
 	private int[] Status = new int[RoomSize];
-	////File Reader Service
+	//// File Reader Service
 	String[] RoomID;
 	String[] BedType;
 	double[] Price;
-	////Action Button zone
+	//// Action Button zone
 	private JLabel lblTotalRoom_get;
 	private JLabel lblTotalPrice_get;
 	private ArrayList<String> RoomList = new ArrayList<String>();
@@ -214,7 +214,7 @@ public class main_hotel_page {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnCheckIn.isSelected()) {
 					btnContinue.setEnabled(false);
-					new payment_summary_page(7500, 0, username).NewScreen();
+					new payment_summary_page(TotalPrice, 0, username).NewScreen();
 					frmHotelBookingSystem.setVisible(false);
 				}
 				if (rdbtnCheckOut.isSelected()) {
@@ -296,7 +296,7 @@ public class main_hotel_page {
 		btn_action[0].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_action[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[0],Price[0]);
+				RoomService(RoomID[0], Price[0]);
 			}
 		});
 
@@ -367,7 +367,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[1]);
 		btn_action[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[1],Price[1]);
+				RoomService(RoomID[1], Price[1]);
 			}
 		});
 
@@ -421,7 +421,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[2]);
 		btn_action[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[2],Price[2]);
+				RoomService(RoomID[2], Price[2]);
 			}
 		});
 
@@ -475,7 +475,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[3]);
 		btn_action[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[3],Price[3]);
+				RoomService(RoomID[3], Price[3]);
 			}
 		});
 
@@ -529,7 +529,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[4]);
 		btn_action[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[4],Price[4]);
+				RoomService(RoomID[4], Price[4]);
 			}
 		});
 
@@ -583,7 +583,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[5]);
 		btn_action[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[5],Price[5]);
+				RoomService(RoomID[5], Price[5]);
 			}
 		});
 
@@ -827,10 +827,11 @@ public class main_hotel_page {
 		}
 	}
 
-	private void RoomService(String RoomID,double RoomPrice) {
+	private void RoomService(String RoomID, double RoomPrice) {
 		RoomList.add(RoomID);
 		this.RoomPrice.add(RoomPrice);
-		//JOptionPane.showMessageDialog(null, "DEMO:\nROOM ID : " + RoomID + "\nPRICE : " + RoomPrice);
+		// JOptionPane.showMessageDialog(null, "DEMO:\nROOM ID : " + RoomID + "\nPRICE :
+		// " + RoomPrice);
 		TotalRoom++;
 		lblTotalRoom_get.setText(String.valueOf(TotalRoom));
 		TotalPrice += RoomPrice;

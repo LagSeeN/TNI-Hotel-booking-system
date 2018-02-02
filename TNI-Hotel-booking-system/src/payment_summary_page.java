@@ -209,7 +209,7 @@ public class payment_summary_page {
 	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
 	public double getTotal() {
-		return total - discount;
+		return (discount == 0) ? price : total - discount;
 	}
 
 	public double getDiscount() {
