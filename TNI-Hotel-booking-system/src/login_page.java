@@ -187,12 +187,14 @@ public class login_page {
 		String username = new String(text_username.getText());
 		String password = new String(passwordField.getPassword());
 		LoginManager LoginSys = new LoginManager(username, password);
-		if (username.isEmpty() || password.isEmpty())
+		if (username.isEmpty() || password.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "please enter username or password", "Message",
 					JOptionPane.WARNING_MESSAGE);
-		else if (!(LoginSys.LoginCheck())) {
+			text_username.requestFocus();
+		} else if (!(LoginSys.LoginCheck())) {
 			JOptionPane.showMessageDialog(null, "username or password is incorrect.", "Message",
 					JOptionPane.WARNING_MESSAGE);
+			text_username.requestFocus();
 		} else {
 			new main_hotel_page(LoginSys.getUsername()).NewScreen();
 			login.setVisible(false);

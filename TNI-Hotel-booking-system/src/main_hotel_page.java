@@ -44,6 +44,8 @@ public class main_hotel_page {
 	private JLabel lbltype;
 	// USERNAME Display.
 	private String username;
+	// Format
+	private DecimalFormat frm = new DecimalFormat("#,##0.00");
 	// ***Room Service***
 	private JLabel[] lblroomid_get_room = new JLabel[RoomSize];
 	private JLabel[] lblbedtype_get_type = new JLabel[RoomSize];
@@ -55,9 +57,13 @@ public class main_hotel_page {
 	String[] RoomID;
 	String[] BedType;
 	double[] Price;
-	////Action Button
+	////Action Button zone
+	private JLabel lblTotalRoom_get;
+	private JLabel lblTotalPrice_get;
 	private ArrayList<String> RoomList = new ArrayList<String>();
 	private ArrayList<Double> RoomPrice = new ArrayList<Double>();
+	private Double TotalPrice;
+	private int TotalRoom;
 
 	//// Operation Text for Display
 	private JLabel lbloperationmode_text;
@@ -103,6 +109,10 @@ public class main_hotel_page {
 		frmHotelBookingSystem.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowOpened(WindowEvent e) {
+				TotalPrice = 0.0;
+				TotalRoom = 0;
+				lblTotalRoom_get.setText(String.valueOf(TotalRoom));
+				lblTotalPrice_get.setText(frm.format(TotalPrice));
 				lbltype.setText("Standard");
 				ReadRoom("F1");
 				if (rdbtnCheckIn.isSelected()) {
@@ -177,11 +187,11 @@ public class main_hotel_page {
 		panel_roomlist_sum.add(lblTotalRoom);
 		lblTotalRoom.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JLabel lbltotalroom = new JLabel("[TOTALROOM]");
-		lbltotalroom.setHorizontalAlignment(SwingConstants.RIGHT);
-		lbltotalroom.setBounds(25, 290, 117, 23);
-		panel_roomlist_sum.add(lbltotalroom);
-		lbltotalroom.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblTotalRoom_get = new JLabel("[TOTALROOM]");
+		lblTotalRoom_get.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblTotalRoom_get.setBounds(25, 290, 117, 23);
+		panel_roomlist_sum.add(lblTotalRoom_get);
+		lblTotalRoom_get.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		JLabel lblRooms = new JLabel("Room(s)");
 		lblRooms.setBounds(152, 290, 71, 23);
@@ -193,11 +203,11 @@ public class main_hotel_page {
 		panel_roomlist_sum.add(lblBaht);
 		lblBaht.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JLabel lbltotalprice = new JLabel("[TOTALPRICE]");
-		lbltotalprice.setHorizontalAlignment(SwingConstants.RIGHT);
-		lbltotalprice.setBounds(25, 315, 117, 23);
-		panel_roomlist_sum.add(lbltotalprice);
-		lbltotalprice.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblTotalPrice_get = new JLabel("[TOTALPRICE]");
+		lblTotalPrice_get.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblTotalPrice_get.setBounds(25, 315, 117, 23);
+		panel_roomlist_sum.add(lblTotalPrice_get);
+		lblTotalPrice_get.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		btnContinue = new JButton("Pay");
 		btnContinue.addActionListener(new ActionListener() {
@@ -716,7 +726,6 @@ public class main_hotel_page {
 	}
 
 	public void ReadRoom(String floor) {
-		DecimalFormat frm = new DecimalFormat("#,##0.00");
 		RoomID = new String[RoomSize];
 		BedType = new String[RoomSize];
 		Price = new double[RoomSize];
@@ -821,6 +830,10 @@ public class main_hotel_page {
 	private void RoomService(String RoomID,double RoomPrice) {
 		RoomList.add(RoomID);
 		this.RoomPrice.add(RoomPrice);
-		JOptionPane.showMessageDialog(null, "DEMO:\nROOM ID : " + RoomID + "\nPRICE : " + RoomPrice);
+		//JOptionPane.showMessageDialog(null, "DEMO:\nROOM ID : " + RoomID + "\nPRICE : " + RoomPrice);
+		TotalRoom++;
+		lblTotalRoom_get.setText(String.valueOf(TotalRoom));
+		TotalPrice += RoomPrice;
+		lblTotalPrice_get.setText(frm.format(TotalPrice));
 	}
 }
