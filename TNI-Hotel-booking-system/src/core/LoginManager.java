@@ -25,12 +25,20 @@ public class LoginManager {
 	}
 
 	public boolean LoginCheck() {
+		if (username.isEmpty() && password.isEmpty()){
+			JOptionPane.showMessageDialog(null, "please enter username or password", "Message",
+					JOptionPane.WARNING_MESSAGE);
+			return false;
+		}
+		
 		for (int i = 0; i < username_database.size(); i++) {
 			if (this.username.equalsIgnoreCase(this.username_database.get(i))
 					&& this.password.equals(this.password_database.get(i))) {
 				return true;
 			}
 		}
+		JOptionPane.showMessageDialog(null, "username or password is incorrect.", "Message",
+				JOptionPane.WARNING_MESSAGE);
 		return false;
 	}
 
