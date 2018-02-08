@@ -7,7 +7,6 @@ public class RoomService{
 	private int RoomSize;
 	private double RoomPrice;
 	
-	
 	public void setRoomsize(int RoomSize){
 		this.RoomSize = RoomSize;
 	}

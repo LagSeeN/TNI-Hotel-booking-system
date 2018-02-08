@@ -7,7 +7,11 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
+import core.Summary;
+
 import java.awt.Font;
+import java.awt.HeadlessException;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -16,6 +20,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.awt.Toolkit;
 
@@ -66,19 +71,20 @@ public class payment_summary_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		Summary sum = new Summary(price);
 		frmSummaryHotel = new JFrame();
 		frmSummaryHotel.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
 		frmSummaryHotel.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowOpened(WindowEvent evt) {
 				if (discount == 0) {
-					lblPrice.setText(getPricetoString());
+					lblPrice.setText(sum.getPricetoString());
 				} else {
-					setDiscount(discount);
-					lblPrice.setText(getPricetoString());
-					lblCouponStatus.setText(getDiscounttoString());
+					sum.setDiscount(discount);
+					lblPrice.setText(sum.getPricetoString());
+					lblCouponStatus.setText(sum.getDiscounttoString());
 				}
-				lblTotal.setText(getTotaltoString());
+				lblTotal.setText(sum.getTotaltoString());
 			}
 		});
 		frmSummaryHotel.setResizable(false);
@@ -158,13 +164,29 @@ public class payment_summary_page {
 		summaryPane.add(btnUseCoupon);
 		btnUseCoupon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (checkCoupon(JOptionPane.showInputDialog("Input Coupon Code :"))) {
-					lblTotal.setText(getTotaltoString());
-					lblCouponStatus.setText(getDiscounttoString());
-				} else
-					JOptionPane.showMessageDialog(null, "Coupon invalid", "Coupon invalid",
-							JOptionPane.WARNING_MESSAGE);
-
+				boolean CouponUsed = true;
+				if (CouponUsed) {
+					try {
+						if (sum.checkCoupon(JOptionPane.showInputDialog("Input Coupon Code :"))) {
+							lblTotal.setText(sum.getTotaltoString());
+							lblCouponStatus.setText(sum.getDiscounttoString());
+							CouponUsed = false;
+							btnUseCoupon.setText("Remove");
+						} else
+							JOptionPane.showMessageDialog(null, "Coupon invalid", "Coupon invalid",
+									JOptionPane.WARNING_MESSAGE);
+					} catch (HeadlessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}	
+				}
+				else{
+					total = price;
+					btnUseCoupon.setText("Add");
+				}
 			}
 		});
 		btnUseCoupon.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -175,7 +197,7 @@ public class payment_summary_page {
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
-				payment_method_page payment = new payment_method_page(getTotal(), getDiscount(), username);
+				payment_method_page payment = new payment_method_page(sum.getTotal(), sum.getDiscount(), username);
 				payment.NewScreen();
 			}
 		});
@@ -204,44 +226,5 @@ public class payment_summary_page {
 		summaryPane.add(NameField);
 		NameField.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		NameField.setColumns(10);
-	}
-
-	DecimalFormat frm = new DecimalFormat("#,##0.00");
-
-	public double getTotal() {
-		return (discount == 0) ? price : total - discount;
-	}
-
-	public double getDiscount() {
-		return discount;
-	}
-
-	public void setDiscount(double discount) {
-		this.discount = discount;
-	}
-
-	public String getPricetoString() {
-		return frm.format(price);
-	}
-
-	public String getTotaltoString() {
-		return frm.format(getTotal());
-	}
-
-	public String getDiscounttoString() {
-		return "-" + frm.format(discount);
-	}
-
-	public boolean checkCoupon(String coupon) {
-		String[] coupon_list = { "FREE", "FREE1R", "40SELL" };
-		int[] coupon_discount = { (int) price, 700, (int) ((int) (price * 40 / 100)) };
-		for (int i = 0; i < coupon_list.length; i++) {
-			if (coupon.equalsIgnoreCase(coupon_list[i])) {
-				discount = coupon_discount[i];
-				return true;
-			}
-
-		}
-		return false;
 	}
 }

@@ -1,5 +1,6 @@
 package core;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class Summary {
@@ -44,16 +45,26 @@ public class Summary {
 		return "-" + frm.format(discount);
 	}
 
-	public boolean checkCoupon(String coupon) {
-		String[] coupon_list = { "FREE", "FREE1R", "40SELL" };
-		int[] coupon_discount = { (int) price, 700, (int) ((int) (price * 40 / 100)) };
-		for (int i = 0; i < coupon_list.length; i++) {
-			if (coupon.equalsIgnoreCase(coupon_list[i])) {
-				discount = coupon_discount[i];
-				return true;
-			}
-
+	public boolean checkCoupon(String coupon) throws IOException {
+		CouponService CouponSys = new CouponService(coupon);
+		if (CouponSys.CouponReader().isEmpty()) {
+			return false;
+		} else {
+			String coupon_corret = CouponSys.CouponReader();
+			String[] coupon_check = coupon_corret.split(";");
+			discount = price * Integer.parseInt(coupon_check[1]) / 100;
+			return true;
 		}
-		return false;
+		// String[] coupon_list = { "FREE", "FREE1R", "40SELL" };
+		// int[] coupon_discount = { (int) price, 700, (int) ((int) (price * 40
+		// / 100)) };
+		// for (int i = 0; i < coupon_list.length; i++) {
+		// if (coupon.equalsIgnoreCase(coupon_list[i])) {
+		// discount = coupon_discount[i];
+		// return true;
+		// }
+		//
+		// }
+		// return false;
 	}
 }
