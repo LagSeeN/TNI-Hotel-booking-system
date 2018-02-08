@@ -69,7 +69,7 @@ public class payment_cash_page {
 	 */
 	private void initialize() {
 		frmCashHotel = new JFrame();
-		frmCashHotel.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
+		frmCashHotel.setIconImage(Toolkit.getDefaultToolkit().getImage(payment_cash_page.class.getResource("/img/icon1.png")));
 		frmCashHotel.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent evt) {

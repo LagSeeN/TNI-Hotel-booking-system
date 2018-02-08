@@ -121,7 +121,7 @@ public class main_hotel_page {
 			}
 		});
 		frmHotelBookingSystem
-				.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(main_hotel_page.class.getResource("/img/icon1.png")));
 		frmHotelBookingSystem.setResizable(false);
 		frmHotelBookingSystem.setTitle("Hotel Booking System");
 		frmHotelBookingSystem.setBounds(100, 100, 1024, 768);
@@ -246,7 +246,7 @@ public class main_hotel_page {
 
 		imgbanner = new JLabel("");
 		imgbanner.setHorizontalAlignment(SwingConstants.CENTER);
-		imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room01.jpg")));
+		imgbanner.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/room01.jpg")));
 		imgbanner.setBounds(0, 0, 771, 200);
 		panel_banner.add(imgbanner);
 
@@ -255,31 +255,31 @@ public class main_hotel_page {
 			public void actionPerformed(ActionEvent evt) {
 				if (comboBox.getSelectedIndex() == 0) {
 					lbltype.setText("Standard");
-					imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room01.jpg")));
+					imgbanner.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/room01.jpg")));
 					fileroom = "F1";
 					ReadRoom(fileroom);
 				}
 				if (comboBox.getSelectedIndex() == 1) {
 					lbltype.setText("Standard");
-					imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room01.jpg")));
+					imgbanner.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/room01.jpg")));
 					fileroom = "F2";
 					ReadRoom(fileroom);
 				}
 				if (comboBox.getSelectedIndex() == 2) {
 					lbltype.setText("Superior");
-					imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room02.jpg")));
+					imgbanner.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/room02.jpg")));
 					fileroom = "F3";
 					ReadRoom(fileroom);
 				}
 				if (comboBox.getSelectedIndex() == 3) {
 					lbltype.setText("Superior");
-					imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room02.jpg")));
+					imgbanner.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/room02.jpg")));
 					fileroom = "F4";
 					ReadRoom(fileroom);
 				}
 				if (comboBox.getSelectedIndex() == 4) {
 					lbltype.setText("Deluxe");
-					imgbanner.setIcon(new ImageIcon(this.getClass().getResource("room03.jpg")));
+					imgbanner.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/room03.jpg")));
 					fileroom = "F5";
 					ReadRoom(fileroom);
 				}
@@ -720,7 +720,7 @@ public class main_hotel_page {
 		panel_icon.setLayout(null);
 
 		JLabel icon_hotel = new JLabel("");
-		icon_hotel.setIcon(new ImageIcon(this.getClass().getResource("main_icon.png")));
+		icon_hotel.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/main_icon.png")));
 		icon_hotel.setBounds(0, 0, 250, 250);
 		panel_icon.add(icon_hotel);
 	}
@@ -729,9 +729,8 @@ public class main_hotel_page {
 		RoomID = new String[RoomSize];
 		BedType = new String[RoomSize];
 		Price = new double[RoomSize];
-		File file = new File(getClass().getClassLoader().getResource("Floor/" + floor + ".txt").getFile());
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(file));
+			BufferedReader br = new BufferedReader(new FileReader("res//Database//Floor//" + floor + ".txt"));
 			String line; // Read Data from database
 			int i = 0;
 			while ((line = br.readLine()) != null) {

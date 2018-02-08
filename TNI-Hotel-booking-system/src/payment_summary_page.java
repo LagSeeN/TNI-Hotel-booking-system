@@ -58,7 +58,6 @@ public class payment_summary_page {
 	/**
 	 * Create the application.
 	 * 
-	 * @wbp.parser.constructor
 	 */
 	public payment_summary_page(double price, double discount, String username) {
 		this.price = price;
@@ -73,7 +72,7 @@ public class payment_summary_page {
 	private void initialize() {
 		Summary sum = new Summary(price);
 		frmSummaryHotel = new JFrame();
-		frmSummaryHotel.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
+		frmSummaryHotel.setIconImage(Toolkit.getDefaultToolkit().getImage(payment_summary_page.class.getResource("/img/icon1.png")));
 		frmSummaryHotel.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowOpened(WindowEvent evt) {

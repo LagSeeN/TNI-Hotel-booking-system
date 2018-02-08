@@ -72,7 +72,7 @@ public class payment_credit_card_page {
 
 		frmCreditCardPayment = new JFrame();
 		frmCreditCardPayment
-				.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(payment_credit_card_page.class.getResource("/img/icon1.png")));
 		frmCreditCardPayment.setResizable(false);
 		frmCreditCardPayment.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		frmCreditCardPayment.setTitle("Payment (Credit Card) | Hotel Booking System");
@@ -132,13 +132,13 @@ public class payment_credit_card_page {
 					lblCardicon.setVisible(false);
 				if (CardNumber.getText().startsWith("4")) {
 					lblCardicon.setVisible(true);
-					lblCardicon.setIcon(new ImageIcon(this.getClass().getResource("visa.png")));
+					lblCardicon.setIcon(new ImageIcon(payment_credit_card_page.class.getResource("/img/visa.png")));
 				}
 				if (CardNumber.getText().startsWith("51") || CardNumber.getText().startsWith("52")
 						|| CardNumber.getText().startsWith("53") || CardNumber.getText().startsWith("54")
 						|| CardNumber.getText().startsWith("55")) {
 					lblCardicon.setVisible(true);
-					lblCardicon.setIcon(new ImageIcon(this.getClass().getResource("master.png")));
+					lblCardicon.setIcon(new ImageIcon(payment_credit_card_page.class.getResource("/img/master.png")));
 				}
 			}
 

@@ -56,7 +56,7 @@ public class payment_method_page {
 	 */
 	private void initialize() {
 		frmPaymentMethod = new JFrame();
-		frmPaymentMethod.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
+		frmPaymentMethod.setIconImage(Toolkit.getDefaultToolkit().getImage(payment_method_page.class.getResource("/img/icon1.png")));
 		frmPaymentMethod.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		frmPaymentMethod.setResizable(false);
 		frmPaymentMethod.setTitle("Payment Method | Hotel Booking System");

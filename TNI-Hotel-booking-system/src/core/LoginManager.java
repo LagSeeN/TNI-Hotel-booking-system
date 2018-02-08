@@ -12,12 +12,14 @@ public class LoginManager {
 	private List<String> username_database = new ArrayList<String>();
 	private List<String> password_database = new ArrayList<String>();
 
-	private File file;
-
 	public LoginManager(String username, String password) {
-		ReadData();
 		this.username = username;
 		this.password = password.toLowerCase();
+	}
+
+	public LoginManager() {
+		this.username = "";
+		this.password = "";
 	}
 
 	public String getUsername() {
@@ -25,12 +27,13 @@ public class LoginManager {
 	}
 
 	public boolean LoginCheck() {
-		if (username.isEmpty() && password.isEmpty()){
+		ReadData();
+		if (username.isEmpty() && password.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "please enter username or password", "Message",
 					JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
-		
+
 		for (int i = 0; i < username_database.size(); i++) {
 			if (this.username.equalsIgnoreCase(this.username_database.get(i))
 					&& this.password.equals(this.password_database.get(i))) {
@@ -42,10 +45,9 @@ public class LoginManager {
 		return false;
 	}
 
-	private void ReadData() {
+	public void ReadData() {
 		try {
-			file = new File(getClass().getClassLoader().getResource("user_database.txt").getFile());
-			BufferedReader br = new BufferedReader(new FileReader(file));
+			BufferedReader br = new BufferedReader(new FileReader("res//Database//user_database.txt"));
 			String line; // Read Data from database
 			while ((line = br.readLine()) != null) {
 				String[] data = line.split(";");

@@ -45,7 +45,7 @@ public class about_page {
 	private void initialize() {
 		about = new JFrame();
 		about.setAlwaysOnTop(true);
-		about.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
+		about.setIconImage(Toolkit.getDefaultToolkit().getImage(about_page.class.getResource("/img/icon1.png")));
 		about.setResizable(false);
 		about.setBounds(100, 100, 450, 265);
 		about.getContentPane().setLayout(null);
@@ -57,7 +57,7 @@ public class about_page {
 		panel.setLayout(null);
 		
 		JLabel ICON = new JLabel("");
-		ICON.setIcon(new ImageIcon(this.getClass().getResource("about_icon.png")));
+		ICON.setIcon(new ImageIcon(about_page.class.getResource("/img/about_icon.png")));
 		ICON.setBounds(354, 0, 90, 90);
 		panel.add(ICON);
 		

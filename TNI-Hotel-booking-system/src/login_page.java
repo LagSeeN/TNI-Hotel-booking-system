@@ -16,14 +16,18 @@ import java.util.Date;
 import java.util.Locale;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.FontFormatException;
+
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Toolkit;
 import core.LoginManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class login_page {
 
@@ -31,6 +35,7 @@ public class login_page {
 	private JTextField text_username;
 	private JPasswordField passwordField;
 	private JLabel lblTime;
+	private Font digital = null;
 
 	/**
 	 * Launch the application.
@@ -55,7 +60,6 @@ public class login_page {
 	 */
 	public login_page() {
 		initialize();
-		time();
 	}
 
 	/**
@@ -63,7 +67,23 @@ public class login_page {
 	 */
 	private void initialize() {
 		login = new JFrame();
-		login.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("icon1.png")));
+		login.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+				try {
+					digital = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("res//Font//digital-7.ttf"))
+							.deriveFont(Font.PLAIN, 22);
+					time();
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Font not foud", "ERROR", JOptionPane.ERROR_MESSAGE);
+				} catch (FontFormatException e) {
+					JOptionPane.showMessageDialog(null, "Font Format ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
+				}
+				new LoginManager().ReadData();
+
+			}
+		});
+		login.setIconImage(Toolkit.getDefaultToolkit().getImage(login_page.class.getResource("/img/icon1.png")));
 		login.setTitle("Login | Hotel Booking System");
 		login.setResizable(false);
 		login.getContentPane().setEnabled(false);
@@ -199,11 +219,6 @@ public class login_page {
 		Thread clock = new Thread() {
 			public void run() {
 				try {
-					Font digital = Font
-							.createFont(Font.TRUETYPE_FONT,
-									new FileInputStream(
-											new File(this.getClass().getResource("digital-7.ttf").getFile())))
-							.deriveFont(Font.PLAIN, 22);
 					lblTime.setFont(digital);
 					for (;;) {
 						DateFormat dateFormat = new SimpleDateFormat("EEE/MMM/YYYY HH:mm:ss", Locale.ENGLISH);
