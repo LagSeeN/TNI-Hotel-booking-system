@@ -7,7 +7,7 @@ public class Summary {
 
 	private double price;
 	private double total;
-	private double discount;
+	private String discount;
 
 	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
@@ -22,15 +22,7 @@ public class Summary {
 	}
 
 	public double getTotal() {
-		return total - discount;
-	}
-
-	public double getDiscount() {
-		return discount;
-	}
-
-	public void setDiscount(double discount) {
-		this.discount = discount;
+		return total;
 	}
 
 	public String getPricetoString() {
@@ -42,7 +34,7 @@ public class Summary {
 	}
 
 	public String getDiscounttoString() {
-		return "-" + frm.format(discount);
+		return discount;
 	}
 
 	public boolean checkCoupon(String coupon) throws IOException {
@@ -52,7 +44,8 @@ public class Summary {
 		} else {
 			String coupon_corret = CouponSys.CouponReader();
 			String[] coupon_check = coupon_corret.split(";");
-			discount = price * Integer.parseInt(coupon_check[1]) / 100;
+			total -= price * Integer.parseInt(coupon_check[1]) / 100;
+			discount = coupon_check[2];
 			return true;
 		}
 		// String[] coupon_list = { "FREE", "FREE1R", "40SELL" };

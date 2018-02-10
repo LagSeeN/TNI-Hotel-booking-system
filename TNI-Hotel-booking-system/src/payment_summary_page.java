@@ -34,6 +34,7 @@ public class payment_summary_page {
 	private double discount;
 	private double price;
 	private double total;
+	private boolean CouponUsed = true;
 
 	private String username;
 
@@ -72,14 +73,14 @@ public class payment_summary_page {
 	private void initialize() {
 		Summary sum = new Summary(price);
 		frmSummaryHotel = new JFrame();
-		frmSummaryHotel.setIconImage(Toolkit.getDefaultToolkit().getImage(payment_summary_page.class.getResource("/img/icon1.png")));
+		frmSummaryHotel.setIconImage(
+				Toolkit.getDefaultToolkit().getImage(payment_summary_page.class.getResource("/img/icon1.png")));
 		frmSummaryHotel.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowOpened(WindowEvent evt) {
 				if (discount == 0) {
 					lblPrice.setText(sum.getPricetoString());
 				} else {
-					sum.setDiscount(discount);
 					lblPrice.setText(sum.getPricetoString());
 					lblCouponStatus.setText(sum.getDiscounttoString());
 				}
@@ -163,7 +164,6 @@ public class payment_summary_page {
 		summaryPane.add(btnUseCoupon);
 		btnUseCoupon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boolean CouponUsed = true;
 				if (CouponUsed) {
 					try {
 						if (sum.checkCoupon(JOptionPane.showInputDialog("Input Coupon Code :"))) {
@@ -180,11 +180,11 @@ public class payment_summary_page {
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					}	
-				}
-				else{
+					}
+				} else {
 					total = price;
 					btnUseCoupon.setText("Add");
+					CouponUsed = true;
 				}
 			}
 		});
@@ -196,7 +196,7 @@ public class payment_summary_page {
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
-				payment_method_page payment = new payment_method_page(sum.getTotal(), sum.getDiscount(), username);
+				payment_method_page payment = new payment_method_page(sum.getTotal(), 0, username);
 				payment.NewScreen();
 			}
 		});
