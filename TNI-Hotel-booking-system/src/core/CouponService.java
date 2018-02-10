@@ -10,8 +10,7 @@ public class CouponService {
 	}
 
 	public String CouponReader() throws IOException {
-		BufferedReader CouponReader = new BufferedReader(
-				new FileReader(new File(getClass().getClassLoader().getResource("coupon_database.txt").getFile())));
+		BufferedReader CouponReader = new BufferedReader(new FileReader("res//Database//coupon_database.txt"));
 		String temp = "";
 		while ((temp = CouponReader.readLine()) != null) {
 			String[] data = temp.split(";");
