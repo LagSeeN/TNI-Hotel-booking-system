@@ -1,9 +1,9 @@
 package core;
 
-import java.io.*;
+//import java.io.*;
 
 public class RoomService{
-	private File file;
+	// private File file;
 	private int RoomSize;
 	private double RoomPrice;
 	

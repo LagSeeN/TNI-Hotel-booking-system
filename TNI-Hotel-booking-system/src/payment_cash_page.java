@@ -8,6 +8,9 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
+
+import core.Cash;
+
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import java.awt.Window.Type;
@@ -20,7 +23,6 @@ import java.awt.event.KeyEvent;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.text.DecimalFormat;
 import java.awt.Toolkit;
 
 public class payment_cash_page {
@@ -33,9 +35,8 @@ public class payment_cash_page {
 	private JButton btnAccept;
 
 	private double price;
+	private double total;
 	private String username;
-
-	DecimalFormat frm = new DecimalFormat("#,##0.00");
 
 	/**
 	 * Launch the application.
@@ -45,7 +46,7 @@ public class payment_cash_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_cash_page window = new payment_cash_page(price, username);
+					payment_cash_page window = new payment_cash_page(price, total, username);
 					window.frmCashHotel.setVisible(true);
 					window.frmCashHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -58,8 +59,9 @@ public class payment_cash_page {
 	/**
 	 * Create the application.
 	 */
-	public payment_cash_page(double total, String username) {
-		price = total;
+	public payment_cash_page(double price, double total, String username) {
+		this.price = price;
+		this.total = total;
 		this.username = username;
 		initialize();
 	}
@@ -68,23 +70,25 @@ public class payment_cash_page {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		Cash cash = new Cash(total);
 		frmCashHotel = new JFrame();
-		frmCashHotel.setIconImage(Toolkit.getDefaultToolkit().getImage(payment_cash_page.class.getResource("/img/icon1.png")));
 		frmCashHotel.addWindowListener(new WindowAdapter() {
 			@Override
-			public void windowActivated(WindowEvent evt) {
+			public void windowOpened(WindowEvent e) {
 				if (accept_money.getText().isEmpty()) {
-					if (checkMoney(0)) {
+					if (cash.checkMoney(0)) {
 						accept_money.setText("Free");
 						accept_money.setEnabled(false);
 						lblTotalMoney.setText("Free");
 						lblChangeMoney.setText("Free");
 						btnAccept.setEnabled(true);
 					} else
-						lblTotalMoney.setText(getPricetoString());
+						lblTotalMoney.setText(cash.getPricetoString());
 				}
 			}
 		});
+		frmCashHotel.setIconImage(
+				Toolkit.getDefaultToolkit().getImage(payment_cash_page.class.getResource("/img/icon1.png")));
 		frmCashHotel.setType(Type.POPUP);
 		frmCashHotel.setTitle("Payment (Cash) | Hotel Booking System");
 		frmCashHotel.setResizable(false);
@@ -170,7 +174,7 @@ public class payment_cash_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCashHotel.setVisible(false);
-				new payment_method_page(price, price, username).NewScreen();
+				new payment_method_page(price, total, username).NewScreen();
 			}
 		});
 		btnCancel.setBounds(45, 116, 151, 27);
@@ -208,11 +212,11 @@ public class payment_cash_page {
 				if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
 					if (accept_money.getText().isEmpty())
 						return;
-					else if (checkMoney(Integer.parseInt(accept_money.getText()))) {
-						lblChangeMoney.setText(getChangetoString(Integer.parseInt(accept_money.getText())));
+					else if (cash.checkMoney(Integer.parseInt(accept_money.getText()))) {
+						lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
 						btnAccept.setEnabled(true);
 					} else {
-						lblChangeMoney.setText(getChangetoString(Integer.parseInt(accept_money.getText())));
+						lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
 						btnAccept.setEnabled(false);
 					}
 				}
@@ -226,18 +230,6 @@ public class payment_cash_page {
 		btnAccept.setEnabled(false);
 		accept_money.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		accept_money.setHorizontalAlignment(SwingConstants.RIGHT);
-	}
-
-	public String getPricetoString() {
-		return frm.format(price);
-	}
-
-	public boolean checkMoney(double money) {
-		return (money >= price);
-	}
-
-	public String getChangetoString(double money) {
-		return frm.format((money - price));
 	}
 
 }

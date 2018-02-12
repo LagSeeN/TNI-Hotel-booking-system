@@ -10,7 +10,6 @@ import javax.swing.UIManager;
 import core.Summary;
 
 import java.awt.Font;
-import java.awt.HeadlessException;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -21,7 +20,6 @@ import javax.swing.JPanel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.awt.Toolkit;
 
 public class payment_summary_page {
@@ -33,7 +31,6 @@ public class payment_summary_page {
 	private JLabel lblCouponStatus;
 	private double discount;
 	private double price;
-	private double total;
 	private boolean CouponUsed = true;
 
 	private String username;
@@ -57,12 +54,21 @@ public class payment_summary_page {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the application.\
+	 * 
+	 * @wbp.parser.constructor
 	 * 
 	 */
 	public payment_summary_page(double price, double discount, String username) {
 		this.price = price;
 		this.discount = discount;
+		this.username = username;
+		initialize();
+	}
+
+	public payment_summary_page(double price, String username) {
+		this.price = price;
+		this.discount = 0;
 		this.username = username;
 		initialize();
 	}
@@ -78,12 +84,7 @@ public class payment_summary_page {
 		frmSummaryHotel.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowOpened(WindowEvent evt) {
-				if (discount == 0) {
-					lblPrice.setText(sum.getPricetoString());
-				} else {
-					lblPrice.setText(sum.getPricetoString());
-					lblCouponStatus.setText(sum.getDiscounttoString());
-				}
+				lblPrice.setText(sum.getPricetoString());
 				lblTotal.setText(sum.getTotaltoString());
 			}
 		});
@@ -171,19 +172,16 @@ public class payment_summary_page {
 							lblCouponStatus.setText(sum.getDiscounttoString());
 							CouponUsed = false;
 							btnUseCoupon.setText("Remove");
-						} else
-							JOptionPane.showMessageDialog(null, "Coupon invalid", "Coupon invalid",
-									JOptionPane.WARNING_MESSAGE);
-					} catch (HeadlessException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						}
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						JOptionPane.showMessageDialog(null, "File error");
+					} catch (NullPointerException e1) {
+						return;
 					}
 				} else {
-					total = price;
+					lblTotal.setText(sum.getPricetoString());
 					btnUseCoupon.setText("Add");
+					lblCouponStatus.setText("(not use)");
 					CouponUsed = true;
 				}
 			}
@@ -196,8 +194,7 @@ public class payment_summary_page {
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
-				payment_method_page payment = new payment_method_page(sum.getTotal(), 0, username);
-				payment.NewScreen();
+				new payment_method_page(price, sum.getTotal(), username).NewScreen();
 			}
 		});
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));

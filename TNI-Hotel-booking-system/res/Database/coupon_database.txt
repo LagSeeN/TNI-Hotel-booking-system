@@ -4,4 +4,4 @@ DIS15;15;Discount 15%
 DIS20;20;Discount 20%
 DIS25;25;Discount 25%
 DIS50;50;Discount 50%
-DISFREE;100;Discount 100% (FREE)
+DISFREE;100;Discount 100%

@@ -17,7 +17,7 @@ public class payment_method_page {
 
 	private JFrame frmPaymentMethod;
 	private double total;
-	private double discount;
+	private double price;
 
 	private String username;
 
@@ -29,7 +29,7 @@ public class payment_method_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_method_page window = new payment_method_page(total, discount, username);
+					payment_method_page window = new payment_method_page(price, total, username);
 					window.frmPaymentMethod.setVisible(true);
 					window.frmPaymentMethod.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -42,10 +42,9 @@ public class payment_method_page {
 	/**
 	 * Create the application.
 	 * 
-	 * @wbp.parser.constructor
 	 */
-	public payment_method_page(double total, double discount, String username) {
-		this.discount = discount;
+	public payment_method_page(double price, double total, String username) {
+		this.price = price;
 		this.total = total;
 		this.username = username;
 		initialize();
@@ -56,7 +55,8 @@ public class payment_method_page {
 	 */
 	private void initialize() {
 		frmPaymentMethod = new JFrame();
-		frmPaymentMethod.setIconImage(Toolkit.getDefaultToolkit().getImage(payment_method_page.class.getResource("/img/icon1.png")));
+		frmPaymentMethod.setIconImage(
+				Toolkit.getDefaultToolkit().getImage(payment_method_page.class.getResource("/img/icon1.png")));
 		frmPaymentMethod.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		frmPaymentMethod.setResizable(false);
 		frmPaymentMethod.setTitle("Payment Method | Hotel Booking System");
@@ -87,8 +87,7 @@ public class payment_method_page {
 		btnCash.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmPaymentMethod.setVisible(false);
-				payment_cash_page cash = new payment_cash_page(total, username);
-				cash.NewScreen();
+				new payment_cash_page(price, total, username).NewScreen();
 			}
 		});
 		btnCash.setBounds(10, 11, 169, 27);
@@ -104,7 +103,7 @@ public class payment_method_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmPaymentMethod.setVisible(false);
-				new payment_summary_page(total, discount, username).NewScreen();
+				new payment_summary_page(price, username).NewScreen();
 
 			}
 		});
@@ -113,8 +112,8 @@ public class payment_method_page {
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnCreditCard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new payment_credit_card_page(total, username).NewScreen();
 				frmPaymentMethod.setVisible(false);
+				new payment_credit_card_page(price, total, username).NewScreen();
 			}
 		});
 	}

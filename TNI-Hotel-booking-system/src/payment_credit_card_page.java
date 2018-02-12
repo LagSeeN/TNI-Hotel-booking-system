@@ -36,6 +36,7 @@ public class payment_credit_card_page {
 	private JLabel lblCardError;
 
 	private double total;
+	private double price;
 	private String username;
 
 	/**
@@ -46,7 +47,7 @@ public class payment_credit_card_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_credit_card_page window = new payment_credit_card_page(total, username);
+					payment_credit_card_page window = new payment_credit_card_page(price, total, username);
 					window.frmCreditCardPayment.setVisible(true);
 					window.frmCreditCardPayment.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -59,7 +60,8 @@ public class payment_credit_card_page {
 	/**
 	 * Create the application.
 	 */
-	public payment_credit_card_page(double total, String username) {
+	public payment_credit_card_page(double price, double total, String username) {
+		this.price = price;
 		this.total = total;
 		this.username = username;
 		initialize();
@@ -193,7 +195,7 @@ public class payment_credit_card_page {
 
 			public void actionPerformed(ActionEvent e) {
 				frmCreditCardPayment.setVisible(false);
-				new payment_method_page(total, total, username).NewScreen();
+				new payment_method_page(price, total, username).NewScreen();
 			}
 		});
 		btnCancel.setBounds(116, 90, 130, 27);

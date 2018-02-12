@@ -26,12 +26,10 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JRadioButton;
 import javax.swing.JRadioButtonMenuItem;
 
@@ -120,8 +118,8 @@ public class main_hotel_page {
 				}
 			}
 		});
-		frmHotelBookingSystem
-				.setIconImage(Toolkit.getDefaultToolkit().getImage(main_hotel_page.class.getResource("/img/icon1.png")));
+		frmHotelBookingSystem.setIconImage(
+				Toolkit.getDefaultToolkit().getImage(main_hotel_page.class.getResource("/img/icon1.png")));
 		frmHotelBookingSystem.setResizable(false);
 		frmHotelBookingSystem.setTitle("Hotel Booking System");
 		frmHotelBookingSystem.setBounds(100, 100, 1024, 768);
@@ -250,7 +248,7 @@ public class main_hotel_page {
 		imgbanner.setBounds(0, 0, 771, 200);
 		panel_banner.add(imgbanner);
 
-		JComboBox comboBox = new JComboBox();
+		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				if (comboBox.getSelectedIndex() == 0) {
@@ -288,7 +286,7 @@ public class main_hotel_page {
 		comboBox.setBounds(90, 215, 46, 20);
 		panel_roomlist.add(comboBox);
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] { "1", "2", "3", "4", "5" }));
 
 		btn_action[0] = new JButton("Check in");
 		btn_action[0].setBounds(25, 391, 209, 23);

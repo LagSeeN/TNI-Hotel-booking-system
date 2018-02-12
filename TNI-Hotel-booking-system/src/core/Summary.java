@@ -3,6 +3,8 @@ package core;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
+import javax.swing.JOptionPane;
+
 public class Summary {
 
 	private double price;
@@ -39,7 +41,10 @@ public class Summary {
 
 	public boolean checkCoupon(String coupon) throws IOException {
 		CouponService CouponSys = new CouponService(coupon);
+		if (coupon.isEmpty())
+			return false;
 		if (CouponSys.CouponReader().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Coupon invalid", "Coupon invalid", JOptionPane.WARNING_MESSAGE);
 			return false;
 		} else {
 			String coupon_corret = CouponSys.CouponReader();
