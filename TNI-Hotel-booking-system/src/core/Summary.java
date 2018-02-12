@@ -23,6 +23,10 @@ public class Summary {
 		this.total = price;
 	}
 
+	public void setPrice(double price) {
+		this.total = price;
+	}
+
 	public double getTotal() {
 		return total;
 	}
@@ -49,7 +53,7 @@ public class Summary {
 		} else {
 			String coupon_corret = CouponSys.CouponReader();
 			String[] coupon_check = coupon_corret.split(";");
-			total -= price * Integer.parseInt(coupon_check[1]) / 100;
+			total -= (price * Integer.parseInt(coupon_check[1])) / 100;
 			discount = coupon_check[2];
 			return true;
 		}

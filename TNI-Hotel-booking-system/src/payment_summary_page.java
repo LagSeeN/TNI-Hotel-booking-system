@@ -179,6 +179,7 @@ public class payment_summary_page {
 						return;
 					}
 				} else {
+					sum.setPrice(price);
 					lblTotal.setText(sum.getPricetoString());
 					btnUseCoupon.setText("Add");
 					lblCouponStatus.setText("(not use)");
