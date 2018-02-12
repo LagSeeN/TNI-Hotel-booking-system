@@ -14,8 +14,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.awt.Color;
 
 public class test1 {
