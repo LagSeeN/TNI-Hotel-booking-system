@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
-import core.CardCheck;
+import Core.CardCheck;
 
 import java.awt.Font;
 import javax.swing.JPanel;

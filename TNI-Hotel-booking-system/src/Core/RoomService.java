@@ -1,12 +1,13 @@
-package core;
+package Core;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-public class RoomServicebyDanupol {
+public class RoomService {
 
 	private String[] RoomID = new String[6];
 	private String[] BedType = new String[6];
@@ -26,6 +27,7 @@ public class RoomServicebyDanupol {
 				Status[i] = Integer.parseInt(data[3]);
 				i++;
 			}
+			br.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(null, "File not found");
@@ -47,6 +49,36 @@ public class RoomServicebyDanupol {
 
 	public int[] getStatus() {
 		return this.Status;
+	}
+
+	public String getStatusToString(int index) {
+		if (Status[index] == 0)
+			return "Occupied";
+		if (Status[index] == 1)
+			return "Open";
+		return "Maintenance";
+	}
+
+	public String getButtonToString(int index) {
+		if (Status[index] == 0)
+			return "Check Out";
+		if (Status[index] == 1)
+			return "Check In";
+		return "Not available";
+	}
+
+	public Color getColor(int index) {
+		if (Status[index] == 0)
+			return new Color(255, 0, 0);
+		if (Status[index] == 1)
+			return new Color(0, 255, 0);
+		return new Color(0, 0, 0);
+
+	}
+
+	public boolean checkButton(int index) {
+		return (Status[index] == 0 || Status[index] == 1) ? true : false;
+
 	}
 
 }

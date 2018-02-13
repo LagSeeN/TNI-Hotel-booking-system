@@ -5,8 +5,6 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -19,15 +17,14 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
+import Core.RoomService;
+
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JRadioButton;
@@ -50,11 +47,6 @@ public class main_hotel_page {
 	private JLabel[] lblprice_get_price = new JLabel[RoomSize];
 	private JLabel[] lblstatus_get_status = new JLabel[RoomSize];
 	private JButton[] btn_action = new JButton[RoomSize];
-	private int[] Status = new int[RoomSize];
-	//// File Reader Service
-	private String[] RoomID = new String[RoomSize];
-	private String[] BedType = new String[RoomSize];
-	private double[] Price = new double[RoomSize];
 	//// Action Button zone
 	private JLabel lblTotalRoom_get;
 	private JLabel lblTotalPrice_get;
@@ -72,6 +64,7 @@ public class main_hotel_page {
 	private JButton btnContinue;
 	private String fileroom;
 	// ***End Room service***
+	private RoomService room = new RoomService();
 
 	/**
 	 * Launch the application.
@@ -109,10 +102,11 @@ public class main_hotel_page {
 			public void windowOpened(WindowEvent e) {
 				TotalPrice = 0.0;
 				TotalRoom = 0;
+				fileroom = "F1";
 				lblTotalRoom_get.setText(String.valueOf(TotalRoom));
 				lblTotalPrice_get.setText(frm.format(TotalPrice));
 				lbltype.setText("Standard");
-				ReadRoom("F1");
+				ReadRoom(fileroom);
 				if (rdbtnCheckIn.isSelected()) {
 					OperationMode();
 				}
@@ -294,7 +288,7 @@ public class main_hotel_page {
 		btn_action[0].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_action[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[0], Price[0]);
+				RoomService(room.getRoomID()[0], room.getPrice()[0]);
 			}
 		});
 
@@ -365,7 +359,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[1]);
 		btn_action[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[1], Price[1]);
+				RoomService(room.getRoomID()[1], room.getPrice()[1]);
 			}
 		});
 
@@ -419,7 +413,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[2]);
 		btn_action[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[2], Price[2]);
+				RoomService(room.getRoomID()[2], room.getPrice()[2]);
 			}
 		});
 
@@ -473,7 +467,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[3]);
 		btn_action[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[3], Price[3]);
+				RoomService(room.getRoomID()[3], room.getPrice()[3]);
 			}
 		});
 
@@ -527,7 +521,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[4]);
 		btn_action[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[4], Price[4]);
+				RoomService(room.getRoomID()[4], room.getPrice()[4]);
 			}
 		});
 
@@ -581,7 +575,7 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[5]);
 		btn_action[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(RoomID[5], Price[5]);
+				RoomService(room.getRoomID()[5], room.getPrice()[5]);
 			}
 		});
 
@@ -724,49 +718,16 @@ public class main_hotel_page {
 	}
 
 	public void ReadRoom(String floor) {
-
-		try {
-			BufferedReader br = new BufferedReader(new FileReader("res//Database//Floor//" + floor + ".txt"));
-			String line; // Read Data from database
-			int i = 0;
-			while ((line = br.readLine()) != null) {
-				String[] data = line.split(";");
-				RoomID[i] = data[0];
-				BedType[i] = data[1];
-				Price[i] = Double.parseDouble(data[2]);
-				Status[i] = Integer.parseInt(data[3]);
-				i++;
-			}
-			br.close();
-			for (i = 0; i < RoomSize; i++) {
-				switch (Status[i]) {
-				// if status 0 = Occupied, 1 = Open, 2 = M/A
-				case 0:
-					lblstatus_get_status[i].setText("Occupied");
-					btn_action[i].setText("Check Out");
-					btn_action[i].setBackground(Color.RED);
-					btn_action[i].setEnabled(true);
-					break;
-				case 1:
-					lblstatus_get_status[i].setText("Open");
-					btn_action[i].setText("Check In");
-					btn_action[i].setBackground(Color.GREEN);
-					btn_action[i].setEnabled(true);
-					break;
-				case 2:
-					lblstatus_get_status[i].setText("Maintenance");
-					btn_action[i].setText("Not available");
-					btn_action[i].setBackground(Color.BLACK);
-					btn_action[i].setEnabled(false);
-					break;
-				}
-				lblroomid_get_room[i].setText(RoomID[i]);
-				lblbedtype_get_type[i].setText(BedType[i]);
-				lblprice_get_price[i].setText(frm.format(Price[i]));
-				OperationMode();
-			}
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "File not found");
+		room.readFile(floor);
+		for (int i = 0; i < RoomSize; i++) {
+			lblstatus_get_status[i].setText(room.getStatusToString(i));
+			btn_action[i].setText(room.getButtonToString(i));
+			btn_action[i].setBackground(room.getColor(i));
+			btn_action[i].setEnabled(room.checkButton(i));
+			lblroomid_get_room[i].setText(room.getRoomID()[i]);
+			lblbedtype_get_type[i].setText(room.getBedType()[i]);
+			lblprice_get_price[i].setText(frm.format(room.getPrice()[i]));
+			OperationMode();
 		}
 	}
 
@@ -778,7 +739,7 @@ public class main_hotel_page {
 			rdbtnCheckOut.setVisible(true);
 			lbloperationmode_text.setVisible(false);
 			for (int i = 0; i < RoomSize; i++) {
-				if (Status[i] != 1) {
+				if (room.getStatus()[i] != 1) {
 					btn_action[i].setEnabled(false);
 				} else {
 					btn_action[i].setEnabled(true);
@@ -793,7 +754,7 @@ public class main_hotel_page {
 			rdbtnCheckOut.setVisible(true);
 			lbloperationmode_text.setVisible(false);
 			for (int i = 0; i < RoomSize; i++) {
-				if (Status[i] != 0) {
+				if (room.getStatus()[i] != 0) {
 					btn_action[i].setEnabled(false);
 				} else {
 					btn_action[i].setEnabled(true);
@@ -809,9 +770,9 @@ public class main_hotel_page {
 			lbloperationmode_text.setVisible(true);
 			lbloperationmode_text.setText("Maintenance");
 			for (int i = 0; i < RoomSize; i++) {
-				if (Status[i] == 0) {
+				if (room.getStatus()[i] == 0) {
 					btn_action[i].setEnabled(false);
-				} else if (Status[i] == 1) {
+				} else if (room.getStatus()[i] == 1) {
 					btn_action[i].setEnabled(true);
 					btn_action[i].setText("Send to Maintenance");
 				} else {

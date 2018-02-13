@@ -9,7 +9,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
-import core.Cash;
+import Core.Cash;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;

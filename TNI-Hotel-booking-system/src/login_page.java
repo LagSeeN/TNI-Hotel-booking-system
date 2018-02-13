@@ -6,6 +6,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
+
+import Core.LoginManager;
+
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -21,7 +24,6 @@ import java.awt.FontFormatException;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Toolkit;
-import core.LoginManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;

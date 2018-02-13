@@ -1,8 +1,8 @@
-package core;
+package Core;
 
 import javax.swing.JOptionPane;
 
-public class CardCheck {
+public class CardCheck implements Interface.CardCheck{
 	private int[] card = new int[16];
 	private String cardnumber;
 	private String name;
@@ -16,6 +16,7 @@ public class CardCheck {
 		this.cardnumber = card;
 	}
 
+	@Override
 	public boolean checkCard() {
 		if (!cardnumber.startsWith("4") || cardnumber.startsWith("51") || cardnumber.startsWith("52")
 				|| cardnumber.startsWith("53") || cardnumber.startsWith("54") || cardnumber.startsWith("55"))
@@ -35,6 +36,7 @@ public class CardCheck {
 		return sum % 10 == 0;
 	}
 
+	@Override
 	public boolean checkName() {
 		int space_bar = 0;
 		for (int i = 0; i < name.length(); i++)

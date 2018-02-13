@@ -1,4 +1,4 @@
-package core;
+package Core;
 
 import java.awt.Color;
 import java.io.BufferedReader;
@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-public class RoomService {
+public class RoomServicebyYossapon {
 	// private File file;
 	private int RoomSize;
 	private int Floor;

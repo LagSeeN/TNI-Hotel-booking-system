@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
-import core.Summary;
+import Core.Summary;
 
 import java.awt.Font;
 
