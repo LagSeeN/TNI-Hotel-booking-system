@@ -52,9 +52,9 @@ public class main_hotel_page {
 	private JButton[] btn_action = new JButton[RoomSize];
 	private int[] Status = new int[RoomSize];
 	//// File Reader Service
-	String[] RoomID;
-	String[] BedType;
-	double[] Price;
+	private String[] RoomID = new String[RoomSize];
+	private String[] BedType = new String[RoomSize];
+	private double[] Price = new double[RoomSize];
 	//// Action Button zone
 	private JLabel lblTotalRoom_get;
 	private JLabel lblTotalPrice_get;
@@ -724,9 +724,7 @@ public class main_hotel_page {
 	}
 
 	public void ReadRoom(String floor) {
-		RoomID = new String[RoomSize];
-		BedType = new String[RoomSize];
-		Price = new double[RoomSize];
+
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("res//Database//Floor//" + floor + ".txt"));
 			String line; // Read Data from database

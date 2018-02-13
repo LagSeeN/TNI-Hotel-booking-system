@@ -7,8 +7,6 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-//import java.io.*;
-
 public class RoomService {
 	// private File file;
 	private int RoomSize;
@@ -30,7 +28,7 @@ public class RoomService {
 	public int getRoomsize() {
 		return RoomSize;
 	}
-	
+
 	private void setRoomPrice(double RoomPrice) {
 		this.RoomPrice = RoomPrice;
 	}
