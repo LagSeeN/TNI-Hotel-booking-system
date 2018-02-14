@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
+import Core.CardCheck;
 import Core.Summary;
 
 import java.awt.Font;
@@ -21,6 +22,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.awt.Toolkit;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class payment_summary_page {
 
@@ -194,8 +197,12 @@ public class payment_summary_page {
 		summaryPane.add(btnNext);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmSummaryHotel.setVisible(false);
-				new payment_method_page(price, sum.getTotal(), username).NewScreen();
+				CardCheck name = new CardCheck();
+				name.setName(NameField.getText());
+				if (name.checkName()) {
+					frmSummaryHotel.setVisible(false);
+					new payment_method_page(price, sum.getTotal(), username, NameField.getText()).NewScreen();
+				}
 			}
 		});
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -206,8 +213,7 @@ public class payment_summary_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmSummaryHotel.setVisible(false);
-				main_hotel_page menu = new main_hotel_page(username);
-				menu.NewScreen();
+				new main_hotel_page(username).NewScreen();
 			}
 		});
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -219,6 +225,15 @@ public class payment_summary_page {
 		lblCustomerName.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		NameField = new JTextField();
+		NameField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				if (!(Character.isAlphabetic(evt.getKeyChar()) || (evt.getKeyChar() == KeyEvent.VK_SPACE)
+						|| (evt.getKeyChar() == KeyEvent.VK_DELETE) || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE))) {
+					evt.consume();
+				}
+			}
+		});
 		NameField.setBounds(205, 20, 296, 27);
 		summaryPane.add(NameField);
 		NameField.setFont(new Font("Tahoma", Font.PLAIN, 18));

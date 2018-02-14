@@ -2,10 +2,15 @@ package Core;
 
 import javax.swing.JOptionPane;
 
-public class CardCheck implements Interface.CardCheck{
+public class CardCheck implements Interface.CardCheck {
 	private int[] card = new int[16];
 	private String cardnumber;
 	private String name;
+
+	public CardCheck() {
+		this.cardnumber = "";
+		this.name = "";
+	}
 
 	public CardCheck(String name, String card) {
 		this.cardnumber = card;
@@ -14,6 +19,10 @@ public class CardCheck implements Interface.CardCheck{
 
 	public CardCheck(String card) {
 		this.cardnumber = card;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override

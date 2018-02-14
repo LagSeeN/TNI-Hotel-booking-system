@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
+import Core.CheckOut;
 import Core.RoomService;
 
 import java.awt.Color;
@@ -65,6 +66,7 @@ public class main_hotel_page {
 	private String fileroom;
 	// ***End Room service***
 	private RoomService room = new RoomService();
+	private CheckOut roomCheckOut = new CheckOut();
 
 	/**
 	 * Launch the application.
@@ -210,12 +212,17 @@ public class main_hotel_page {
 					frmHotelBookingSystem.setVisible(false);
 				}
 				if (rdbtnCheckOut.isSelected()) {
-					System.out.println("Check out!");
+					roomCheckOut.checkOutFile();
+					ReadRoom(fileroom);
+					roomCheckOut.removeRoomALL();
+					rdbtnCheckIn.setSelected(true);
+					OperationMode();
 				}
 				if (rdbtnmntmMaintenance.isSelected()) {
 					rdbtnCheckIn.setSelected(true);
 					OperationMode();
 					ReadRoom(fileroom);
+					room.readFile(fileroom);
 				}
 
 			}
@@ -288,7 +295,10 @@ public class main_hotel_page {
 		btn_action[0].setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_action[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(room.getRoomID()[0], room.getPrice()[0]);
+				if (rdbtnCheckIn.isSelected())
+					RoomService(room.getRoomID()[0], room.getPrice()[0]);
+				if (rdbtnCheckOut.isSelected())
+					roomCheckOut.setRoomCheckOut(fileroom + ",01");
 			}
 		});
 
@@ -359,7 +369,10 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[1]);
 		btn_action[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(room.getRoomID()[1], room.getPrice()[1]);
+				if (rdbtnCheckIn.isSelected())
+					RoomService(room.getRoomID()[1], room.getPrice()[1]);
+				if (rdbtnCheckOut.isSelected())
+					roomCheckOut.setRoomCheckOut(fileroom + ",02");
 			}
 		});
 
@@ -413,7 +426,10 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[2]);
 		btn_action[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(room.getRoomID()[2], room.getPrice()[2]);
+				if (rdbtnCheckIn.isSelected())
+					RoomService(room.getRoomID()[2], room.getPrice()[2]);
+				if (rdbtnCheckOut.isSelected())
+					roomCheckOut.setRoomCheckOut(fileroom + ",03");
 			}
 		});
 
@@ -467,7 +483,10 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[3]);
 		btn_action[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(room.getRoomID()[3], room.getPrice()[3]);
+				if (rdbtnCheckIn.isSelected())
+					RoomService(room.getRoomID()[3], room.getPrice()[3]);
+				if (rdbtnCheckOut.isSelected())
+					roomCheckOut.setRoomCheckOut(fileroom + ",04");
 			}
 		});
 
@@ -521,7 +540,10 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[4]);
 		btn_action[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(room.getRoomID()[4], room.getPrice()[4]);
+				if (rdbtnCheckIn.isSelected())
+					RoomService(room.getRoomID()[4], room.getPrice()[4]);
+				if (rdbtnCheckOut.isSelected())
+					roomCheckOut.setRoomCheckOut(fileroom + ",05");
 			}
 		});
 
@@ -575,7 +597,10 @@ public class main_hotel_page {
 		panel_roomlist.add(btn_action[5]);
 		btn_action[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RoomService(room.getRoomID()[5], room.getPrice()[5]);
+				if (rdbtnCheckIn.isSelected())
+					RoomService(room.getRoomID()[5], room.getPrice()[5]);
+				if (rdbtnCheckOut.isSelected())
+					roomCheckOut.setRoomCheckOut(fileroom + ",06");
 			}
 		});
 

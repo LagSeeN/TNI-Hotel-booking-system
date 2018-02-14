@@ -20,6 +20,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class payment_credit_card_page {
 
@@ -38,6 +40,7 @@ public class payment_credit_card_page {
 	private double total;
 	private double price;
 	private String username;
+	private String name;
 
 	/**
 	 * Launch the application.
@@ -47,7 +50,7 @@ public class payment_credit_card_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_credit_card_page window = new payment_credit_card_page(price, total, username);
+					payment_credit_card_page window = new payment_credit_card_page(price, total, username, name);
 					window.frmCreditCardPayment.setVisible(true);
 					window.frmCreditCardPayment.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -60,10 +63,11 @@ public class payment_credit_card_page {
 	/**
 	 * Create the application.
 	 */
-	public payment_credit_card_page(double price, double total, String username) {
+	public payment_credit_card_page(double price, double total, String username, String name) {
 		this.price = price;
 		this.total = total;
 		this.username = username;
+		this.name = name;
 		initialize();
 	}
 
@@ -73,6 +77,12 @@ public class payment_credit_card_page {
 	private void initialize() {
 
 		frmCreditCardPayment = new JFrame();
+		frmCreditCardPayment.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+				Name.setText(name);
+			}
+		});
 		frmCreditCardPayment.setIconImage(
 				Toolkit.getDefaultToolkit().getImage(payment_credit_card_page.class.getResource("/img/icon1.png")));
 		frmCreditCardPayment.setResizable(false);
@@ -195,7 +205,7 @@ public class payment_credit_card_page {
 
 			public void actionPerformed(ActionEvent e) {
 				frmCreditCardPayment.setVisible(false);
-				new payment_method_page(price, total, username).NewScreen();
+				new payment_method_page(price, total, username, name).NewScreen();
 			}
 		});
 		btnCancel.setBounds(116, 90, 130, 27);

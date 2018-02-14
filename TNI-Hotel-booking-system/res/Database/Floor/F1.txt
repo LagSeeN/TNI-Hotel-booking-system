@@ -1,6 +1,6 @@
-101;Single;500;0
-102;Double;500;1
-103;Single;500;0
-104;Double;500;1
-105;Single;500;1
-106;Double;500;0
+101;Single;500.0;1
+102;Double;500.0;1
+103;Single;500.0;0
+104;Double;500.0;0
+105;Single;500.0;0
+106;Double;500.0;0

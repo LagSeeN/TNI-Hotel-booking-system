@@ -3,31 +3,24 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 import Core.LoginManager;
+import Core.TimeSystem;
 
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import java.awt.FontFormatException;
 
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -37,7 +30,7 @@ public class login_page {
 	private JTextField text_username;
 	private JPasswordField passwordField;
 	private JLabel lblTime;
-	private Font digital = null;
+	private Font digital;
 
 	/**
 	 * Launch the application.
@@ -72,15 +65,8 @@ public class login_page {
 		login.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowOpened(WindowEvent arg0) {
-				try {
-					digital = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("res//Font//digital-7.ttf"))
-							.deriveFont(Font.PLAIN, 22);
-					time();
-				} catch (IOException e) {
-					JOptionPane.showMessageDialog(null, "Font not foud", "ERROR", JOptionPane.ERROR_MESSAGE);
-				} catch (FontFormatException e) {
-					JOptionPane.showMessageDialog(null, "Font Format ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
-				}
+				digital = new TimeSystem().getFont();
+				time();
 				new LoginManager().ReadData();
 
 			}
@@ -223,9 +209,7 @@ public class login_page {
 				try {
 					lblTime.setFont(digital);
 					for (;;) {
-						DateFormat dateFormat = new SimpleDateFormat("EEE/MMM/YYYY HH:mm:ss", Locale.ENGLISH);
-						Date date = new Date();
-						lblTime.setText(dateFormat.format(date).toString());
+						lblTime.setText(new TimeSystem().getDate());
 						sleep(1000);
 					}
 				} catch (Exception e) {
