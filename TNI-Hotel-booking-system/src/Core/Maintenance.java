@@ -8,27 +8,29 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-public class CheckOut extends RoomService {
-	private List<String> roomCheckout = new ArrayList<String>();
-
-	public void setRoomCheckOut(String room) {
-		this.roomCheckout.add(room);
+public class Maintenance extends RoomService {
+	private List<String> roomMaintenance = new ArrayList<String>();
+	
+	
+	public void setRoomMaintenance(String room) {
+		this.roomMaintenance.add(room);
 	}
 
+	
 	public void removeRoomALL() {
-		this.roomCheckout.removeAll(roomCheckout);
+		this.roomMaintenance.clear();
 	}
-
-	public void checkOutFile() {
-		for (int i = 0; i < roomCheckout.size(); i++) {
-			String[] data = roomCheckout.get(i).split(",");
+	
+	public void maintenanceFile() {
+		for (int i = 0; i < roomMaintenance.size(); i++) {
+			String[] data = roomMaintenance.get(i).split(",");
 			super.readFile(data[0]);
 			try {
 				String message = "";
 				for (int j = 0; j < super.getRoomID().length; j++) {
 					if (super.getRoomID()[j].substring(1).equalsIgnoreCase(data[1]))
 						message += super.getRoomID()[j] + ";" + super.getBedType()[j] + ";" + super.getPrice()[j] + ";"
-								+ "1\n";
+								+ "2\n";
 					else
 						message += super.getRoomID()[j] + ";" + super.getBedType()[j] + ";" + super.getPrice()[j] + ";"
 								+ super.getStatus()[j] + "\n";
@@ -38,10 +40,11 @@ public class CheckOut extends RoomService {
 				print.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				JOptionPane.showMessageDialog(null, "Check Out Fail!!!", "Fail Check Out", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Set to Maintanance fail!", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Check Out Complete", "Check Out Complete", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Set to Maintanance Complete", "Maintanance", JOptionPane.INFORMATION_MESSAGE);
 
 	}
+
 }

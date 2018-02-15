@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 import Core.CheckOut;
+import Core.Maintenance;
 import Core.RoomService;
 
 import java.awt.Color;
@@ -67,6 +68,7 @@ public class main_hotel_page {
 	// ***End Room service***
 	private RoomService room = new RoomService();
 	private CheckOut roomCheckOut = new CheckOut();
+	private Maintenance roomMaintenance = new Maintenance();
 
 	/**
 	 * Launch the application.
@@ -219,7 +221,9 @@ public class main_hotel_page {
 					OperationMode();
 				}
 				if (rdbtnmntmMaintenance.isSelected()) {
+					roomMaintenance.maintenanceFile();
 					rdbtnCheckIn.setSelected(true);
+					roomMaintenance.removeRoomALL();
 					OperationMode();
 					ReadRoom(fileroom);
 					room.readFile(fileroom);
@@ -299,6 +303,8 @@ public class main_hotel_page {
 					RoomService(room.getRoomID()[0], room.getPrice()[0]);
 				if (rdbtnCheckOut.isSelected())
 					roomCheckOut.setRoomCheckOut(fileroom + ",01");
+				if (rdbtnmntmMaintenance.isSelected())
+					roomMaintenance.setRoomMaintenance(fileroom + ",01");
 			}
 		});
 
@@ -373,6 +379,8 @@ public class main_hotel_page {
 					RoomService(room.getRoomID()[1], room.getPrice()[1]);
 				if (rdbtnCheckOut.isSelected())
 					roomCheckOut.setRoomCheckOut(fileroom + ",02");
+				if (rdbtnmntmMaintenance.isSelected())
+					roomMaintenance.setRoomMaintenance(fileroom + ",02");
 			}
 		});
 
@@ -430,6 +438,8 @@ public class main_hotel_page {
 					RoomService(room.getRoomID()[2], room.getPrice()[2]);
 				if (rdbtnCheckOut.isSelected())
 					roomCheckOut.setRoomCheckOut(fileroom + ",03");
+				if (rdbtnmntmMaintenance.isSelected())
+					roomMaintenance.setRoomMaintenance(fileroom + ",03");
 			}
 		});
 
@@ -487,6 +497,8 @@ public class main_hotel_page {
 					RoomService(room.getRoomID()[3], room.getPrice()[3]);
 				if (rdbtnCheckOut.isSelected())
 					roomCheckOut.setRoomCheckOut(fileroom + ",04");
+				if (rdbtnmntmMaintenance.isSelected())
+					roomMaintenance.setRoomMaintenance(fileroom + ",04");
 			}
 		});
 
@@ -544,6 +556,8 @@ public class main_hotel_page {
 					RoomService(room.getRoomID()[4], room.getPrice()[4]);
 				if (rdbtnCheckOut.isSelected())
 					roomCheckOut.setRoomCheckOut(fileroom + ",05");
+				if (rdbtnmntmMaintenance.isSelected())
+					roomMaintenance.setRoomMaintenance(fileroom + ",05");
 			}
 		});
 
@@ -601,6 +615,8 @@ public class main_hotel_page {
 					RoomService(room.getRoomID()[5], room.getPrice()[5]);
 				if (rdbtnCheckOut.isSelected())
 					roomCheckOut.setRoomCheckOut(fileroom + ",06");
+				if (rdbtnmntmMaintenance.isSelected())
+					roomMaintenance.setRoomMaintenance(fileroom + ",06");
 			}
 		});
 
