@@ -10,32 +10,36 @@ import javax.swing.JOptionPane;
 
 public class Maintenance extends RoomService {
 	private List<String> roomMaintenance = new ArrayList<String>();
-	
-	
+
 	public void setRoomMaintenance(String room) {
 		this.roomMaintenance.add(room);
 	}
 
-	
+	//ล้างตัวแปร array list
 	public void removeRoomALL() {
 		this.roomMaintenance.clear();
 	}
-	
+
 	public void maintenanceFile() {
 		for (int i = 0; i < roomMaintenance.size(); i++) {
 			String[] data = roomMaintenance.get(i).split(",");
-			super.readFile(data[0]);
+			String filename = data[0];
+			String room = data[1];
+			super.readFile(filename);
 			try {
 				String message = "";
 				for (int j = 0; j < super.getRoomID().length; j++) {
-					if (super.getRoomID()[j].substring(1).equalsIgnoreCase(data[1]))
+					if (super.getRoomID()[j].substring(1).equals(room) && super.getStatus()[j] == 1)
 						message += super.getRoomID()[j] + ";" + super.getBedType()[j] + ";" + super.getPrice()[j] + ";"
 								+ "2\n";
+					else if (super.getRoomID()[j].substring(1).equals(room) && super.getStatus()[j] == 2)
+						message += super.getRoomID()[j] + ";" + super.getBedType()[j] + ";" + super.getPrice()[j] + ";"
+								+ "1\n";
 					else
 						message += super.getRoomID()[j] + ";" + super.getBedType()[j] + ";" + super.getPrice()[j] + ";"
 								+ super.getStatus()[j] + "\n";
 				}
-				PrintWriter print = new PrintWriter(new FileWriter("res//Database//Floor//" + data[0] + ".txt"));
+				PrintWriter print = new PrintWriter(new FileWriter("res//Database//Floor//" + filename + ".txt"));
 				print.print(message);
 				print.close();
 			} catch (IOException e) {
@@ -43,7 +47,8 @@ public class Maintenance extends RoomService {
 				JOptionPane.showMessageDialog(null, "Set to Maintanance fail!", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Set to Maintanance Complete", "Maintanance", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Set to Maintanance Complete", "Maintanance",
+				JOptionPane.INFORMATION_MESSAGE);
 
 	}
 
