@@ -16,6 +16,7 @@ public class TimeSystem {
 	public Font getFont() {
 		Font digital = null;
 		try {
+			// เรียก Font ขึ้นมา
 			digital = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("res//Font//digital-7.ttf"))
 					.deriveFont(Font.PLAIN, 22);
 		} catch (IOException e) {
@@ -27,7 +28,9 @@ public class TimeSystem {
 	}
 
 	public String getDate() {
+		// รูปแบบเวลา
 		DateFormat dateFormat = new SimpleDateFormat("EEE/MMM/YYYY HH:mm:ss", Locale.ENGLISH);
+		// ประกาศ obj เวลา
 		Date date = new Date();
 		return dateFormat.format(date).toString();
 	}

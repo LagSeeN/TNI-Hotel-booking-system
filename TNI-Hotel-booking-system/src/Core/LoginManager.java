@@ -51,14 +51,17 @@ public class LoginManager {
 			String line; // Read Data from database
 			while ((line = br.readLine()) != null) {
 				String[] data = line.split(";");
-				this.username_database.add(data[0]);
-				this.password_database.add(PasswordDecode(data[1], Integer.parseInt(data[2])));
+				String username = data[0];
+				String password = data[1];
+				int hash = Integer.parseInt(data[2]);
+				this.username_database.add(username);
+				this.password_database.add(PasswordDecode(password, hash));
 			}
 			br.close();
 		} catch (FileNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Database not found.", "Error", JOptionPane.ERROR_MESSAGE);
 		} catch (IOException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Database error", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
@@ -66,16 +69,18 @@ public class LoginManager {
 	private String PasswordDecode(String password, int hash) {
 		String deText = "";
 		for (int i = 0; i < password.length(); i++) {
+			// ถ้าเป็นตัวเลขจะข้าม
 			if (Character.isDigit(password.charAt(i)))
 				deText += password.charAt(i);
 			else {
+				// ทำการลองแปลงตัวอักษร
 				char c = (char) (password.charAt(i) - hash);
+				// ถ้าแปลงแล้วตัวอักษรน้อยกว่า a เอาตัวอักษรนั้น + (26-hash)
 				if (c < 'a')
 					deText += (char) (password.charAt(i) + (26 - hash));
 				else
 					deText += (char) (password.charAt(i) - hash);
 			}
-
 		}
 		return deText;
 	}

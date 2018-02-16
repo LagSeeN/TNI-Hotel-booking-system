@@ -57,16 +57,5 @@ public class Summary {
 			discount = coupon_check[2];
 			return true;
 		}
-		// String[] coupon_list = { "FREE", "FREE1R", "40SELL" };
-		// int[] coupon_discount = { (int) price, 700, (int) ((int) (price * 40
-		// / 100)) };
-		// for (int i = 0; i < coupon_list.length; i++) {
-		// if (coupon.equalsIgnoreCase(coupon_list[i])) {
-		// discount = coupon_discount[i];
-		// return true;
-		// }
-		//
-		// }
-		// return false;
 	}
 }
