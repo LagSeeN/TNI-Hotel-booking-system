@@ -47,9 +47,21 @@ public class Maintenance extends RoomService {
 				JOptionPane.showMessageDialog(null, "Set to Maintanance fail!", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Set to Maintanance Complete", "Maintanance",
+		JOptionPane.showMessageDialog(null, "Maintanance setting complete", "Maintanance",
 				JOptionPane.INFORMATION_MESSAGE);
 
+	}
+	
+	public void maintenanceCheckList() {
+		if (!this.roomMaintenance.isEmpty()) {
+			int Select = JOptionPane.showConfirmDialog(null, "Status of room in list will change : " + roomMaintenance.toString() + "\nPlease recheck before click \"Yes\"", "Confirm your Opeation", JOptionPane.YES_NO_OPTION);
+			if (Select == 0) {
+				maintenanceFile();
+			}
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "You didn't select any room, It's have no any effect.");
+		}
 	}
 
 }
