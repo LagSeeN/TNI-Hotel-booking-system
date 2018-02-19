@@ -41,10 +41,10 @@ public class CheckOut extends RoomService {
 				print.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				JOptionPane.showMessageDialog(null, "Check Out Fail!!!", "Fail Check Out", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Failed to Check Out.", "Message", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Check Out Complete", "Check Out Complete",
+		JOptionPane.showMessageDialog(null, "Check Out complete", "Message",
 				JOptionPane.INFORMATION_MESSAGE);
 
 	}

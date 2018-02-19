@@ -60,7 +60,7 @@ public class Maintenance extends RoomService {
 			}
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "You didn't select any room, It's have no any effect.");
+			JOptionPane.showMessageDialog(null, "You didn't select any room, It's have no any effect.", "Message", JOptionPane.WARNING_MESSAGE);
 		}
 	}
 
