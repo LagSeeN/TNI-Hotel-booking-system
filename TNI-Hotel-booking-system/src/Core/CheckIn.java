@@ -11,17 +11,20 @@ import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
 
-public class CheckIn extends RoomService {
+public class CheckIn extends RoomService implements Interface.RoomAction {
 	private List<String> roomCheckin = new ArrayList<String>();
 
+	@Override
 	public void setRoom(String room) {
 		this.roomCheckin.add(room);
 	}
-
+	
+	@Override
 	public void removeRoomAll() {
 		this.roomCheckin.clear();
 	}
 
+	@Override
 	public void writeFile() throws IOException {
 		BufferedReader tempReader = new BufferedReader(new FileReader("res//Database//temp//CheckIn.txt"));
 		String temp = "";

@@ -8,18 +8,21 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-public class CheckOut extends RoomService {
+public class CheckOut extends RoomService implements Interface.RoomAction {
 	private List<String> roomCheckout = new ArrayList<String>();
 
+	@Override
 	public void setRoom(String room) {
 		this.roomCheckout.add(room);
 	}
 
 	// ล้างตัวแปร array list
-	public void removeRoomALL() {
+	@Override
+	public void removeRoomAll() {
 		this.roomCheckout.removeAll(roomCheckout);
 	}
 
+	@Override
 	public void writeFile() {
 		for (int i = 0; i < roomCheckout.size(); i++) {
 			String[] data = roomCheckout.get(i).split(",");
@@ -44,8 +47,7 @@ public class CheckOut extends RoomService {
 				JOptionPane.showMessageDialog(null, "Failed to Check Out.", "Message", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Check Out complete", "Message",
-				JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Check Out complete", "Message", JOptionPane.INFORMATION_MESSAGE);
 
 	}
 }
