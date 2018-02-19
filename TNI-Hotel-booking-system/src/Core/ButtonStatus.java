@@ -4,15 +4,20 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class ButtonStatus {
 	private boolean[][] Click;
-	
-	public ButtonStatus() throws IOException {
+
+	public ButtonStatus(){
+		try {
 		this.Click = new boolean [getX()] [getY()];
-		StatusReset();
+		StatusReset();}
+		catch (IOException e){
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Message", JOptionPane.ERROR_MESSAGE);
+		}
 	}
-	
-	
+
 	public void StatusReset() throws IOException {
 		for (int i = 0; i < getX(); i++) {
 			for (int j = 0; j < getY(); j++) {
@@ -20,20 +25,19 @@ public class ButtonStatus {
 			}
 		}
 	}
-	
+
 	public void setStatus(String Floor, String ShortRoomID) {
 		if (Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID)] != true) {
 			Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID)] = true;
-		}
-		else {
+		} else {
 			Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID)] = false;
 		}
 	}
-	
+
 	public boolean getStatus(String Floor, String ShortRoomID) {
 		return Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID)];
 	}
-	
+
 	private int getX() throws IOException {
 		int Floor = 0;
 		while (new File("res//Database//Floor//F" + Floor + ".txt").exists()) {
@@ -41,7 +45,7 @@ public class ButtonStatus {
 		}
 		return Floor;
 	}
-	
+
 	private int getY() throws IOException {
 		int Room = 0;
 		Scanner scan = new Scanner(new File("res//Database//Floor//F1.txt"));
