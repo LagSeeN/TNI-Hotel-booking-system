@@ -19,6 +19,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
+import Core.ButtonStatus;
 import Core.CheckIn;
 import Core.CheckOut;
 import Core.Maintenance;
