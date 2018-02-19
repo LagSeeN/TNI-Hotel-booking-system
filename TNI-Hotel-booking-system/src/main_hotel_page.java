@@ -233,14 +233,14 @@ public class main_hotel_page {
 				if (rdbtnCheckOut.isSelected()) {
 					roomCheckOut.writeFile();
 					ReadRoom(fileroom);
-					roomCheckOut.removeRoomALL();
+					roomCheckOut.removeRoomAll();
 					rdbtnCheckIn.setSelected(true);
 					OperationMode();
 				}
 				if (rdbtnmntmMaintenance.isSelected()) {
 					roomMaintenance.maintenanceCheckList();
 					rdbtnCheckIn.setSelected(true);
-					roomMaintenance.removeRoomALL();
+					roomMaintenance.removeRoomAll();
 					OperationMode();
 					ReadRoom(fileroom);
 					room.readFile(fileroom);

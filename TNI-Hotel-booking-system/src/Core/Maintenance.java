@@ -8,18 +8,21 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-public class Maintenance extends RoomService {
+public class Maintenance extends RoomService implements Interface.RoomAction {
 	private List<String> roomMaintenance = new ArrayList<String>();
 
+	@Override
 	public void setRoom(String room) {
 		this.roomMaintenance.add(room);
 	}
 
-	//ล้างตัวแปร array list
-	public void removeRoomALL() {
+	// ล้างตัวแปร array list
+	@Override
+	public void removeRoomAll() {
 		this.roomMaintenance.clear();
 	}
 
+	@Override
 	public void writeFile() {
 		for (int i = 0; i < roomMaintenance.size(); i++) {
 			String[] data = roomMaintenance.get(i).split(",");
@@ -51,16 +54,19 @@ public class Maintenance extends RoomService {
 				JOptionPane.INFORMATION_MESSAGE);
 
 	}
-	
+
 	public void maintenanceCheckList() {
 		if (!this.roomMaintenance.isEmpty()) {
-			int Select = JOptionPane.showConfirmDialog(null, "Status of room in list will change : " + roomMaintenance.toString() + "\nPlease recheck before click \"Yes\"", "Confirm your Opeation", JOptionPane.YES_NO_OPTION);
+			int Select = JOptionPane.showConfirmDialog(null,
+					"Status of room in list will change : " + roomMaintenance.toString()
+							+ "\nPlease recheck before click \"Yes\"",
+					"Confirm your Opeation", JOptionPane.YES_NO_OPTION);
 			if (Select == 0) {
 				writeFile();
 			}
-		}
-		else {
-			JOptionPane.showMessageDialog(null, "You didn't select any room, It's have no any effect.", "Message", JOptionPane.WARNING_MESSAGE);
+		} else {
+			JOptionPane.showMessageDialog(null, "You didn't select any room, It's have no any effect.", "Message",
+					JOptionPane.WARNING_MESSAGE);
 		}
 	}
 
