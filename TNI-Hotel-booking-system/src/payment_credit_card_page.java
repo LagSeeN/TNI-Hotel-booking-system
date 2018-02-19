@@ -11,6 +11,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 import Core.CardCheck;
+import Core.CheckIn;
 
 import java.awt.Font;
 import javax.swing.JPanel;
@@ -22,6 +23,7 @@ import java.awt.event.KeyEvent;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 public class payment_credit_card_page {
 
@@ -187,11 +189,22 @@ public class payment_credit_card_page {
 			public void actionPerformed(ActionEvent arg0) {
 				// Pay
 				CardCheck name = new CardCheck(Name.getText(), CardNumber.getText());
+				int Success = 0;
 				if (name.checkName()) {
-					JOptionPane.showConfirmDialog(null,
+					Success = JOptionPane.showConfirmDialog(null,
 							"Total Price : " + (total) + "\nPlease continue at EDC machine.\n\nPayment success?",
 							"Please continue at EDC machine", JOptionPane.YES_NO_OPTION,
 							JOptionPane.INFORMATION_MESSAGE);
+					if (Success == 0) {
+						try {
+							new CheckIn().checkinFile();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+						}
+						frmCreditCardPayment.setVisible(false);
+						new main_hotel_page(username).NewScreen();
+					}
 				}
 			}
 		});

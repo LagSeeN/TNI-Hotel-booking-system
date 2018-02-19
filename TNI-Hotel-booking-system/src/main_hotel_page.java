@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -28,6 +30,7 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import javax.swing.JRadioButton;
 import javax.swing.JRadioButtonMenuItem;
@@ -52,8 +55,7 @@ public class main_hotel_page {
 	//// Action Button zone
 	private JLabel lblTotalRoom_get;
 	private JLabel lblTotalPrice_get;
-	// private ArrayList<String> RoomList = new ArrayList<String>();
-	// private ArrayList<Double> RoomPrice = new ArrayList<Double>();
+	private JLabel lblBaht;
 	private Double TotalPrice;
 	private int TotalRoom;
 
@@ -195,7 +197,7 @@ public class main_hotel_page {
 		panel_roomlist_sum.add(lblRooms);
 		lblRooms.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JLabel lblBaht = new JLabel("Baht.");
+		lblBaht = new JLabel("Baht.");
 		lblBaht.setBounds(152, 315, 46, 23);
 		panel_roomlist_sum.add(lblBaht);
 		lblBaht.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -212,6 +214,12 @@ public class main_hotel_page {
 				if (rdbtnCheckIn.isSelected()) {
 					// btnContinue.setEnabled(false);
 					if (roomCheckIn.CheckinCheckList()) {
+						try {
+							roomCheckIn.CheckinWrtter();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							JOptionPane.showMessageDialog(null, e1.getMessage(), "File writer failed.", JOptionPane.ERROR_MESSAGE);
+						}
 						new payment_summary_page(roomCheckIn.CalPrice(), 0, username).NewScreen();
 						frmHotelBookingSystem.setVisible(false);
 					} else {
@@ -804,6 +812,8 @@ public class main_hotel_page {
 			btnContinue.setBackground(Color.GREEN);
 			rdbtnCheckIn.setVisible(true);
 			rdbtnCheckOut.setVisible(true);
+			lblTotalPrice_get.setVisible(true);
+			lblBaht.setVisible(true);
 			lbloperationmode_text.setVisible(false);
 			for (int i = 0; i < RoomSize; i++) {
 				if (room.getStatus()[i] != 1) {
@@ -819,6 +829,8 @@ public class main_hotel_page {
 			btnContinue.setBackground(Color.RED);
 			rdbtnCheckIn.setVisible(true);
 			rdbtnCheckOut.setVisible(true);
+			lblTotalPrice_get.setVisible(false);
+			lblBaht.setVisible(false);
 			lbloperationmode_text.setVisible(false);
 			for (int i = 0; i < RoomSize; i++) {
 				if (room.getStatus()[i] != 0) {
@@ -834,6 +846,8 @@ public class main_hotel_page {
 			btnContinue.setBackground(Color.BLACK);
 			rdbtnCheckIn.setVisible(false);
 			rdbtnCheckOut.setVisible(false);
+			lblTotalPrice_get.setVisible(false);
+			lblBaht.setVisible(false);
 			lbloperationmode_text.setVisible(true);
 			lbloperationmode_text.setText("Maintenance");
 			for (int i = 0; i < RoomSize; i++) {
@@ -849,16 +863,4 @@ public class main_hotel_page {
 			}
 		}
 	}
-
-	// private void RoomService(String RoomID, double RoomPrice) {
-	// RoomList.add(RoomID);
-	// this.RoomPrice.add(RoomPrice);
-	// // JOptionPane.showMessageDialog(null, "DEMO:\nROOM ID : " + RoomID +
-	// "\nPRICE :
-	// // " + RoomPrice);
-	// TotalRoom++;
-	// lblTotalRoom_get.setText(String.valueOf(TotalRoom));
-	// TotalPrice += RoomPrice;
-	// lblTotalPrice_get.setText(frm.format(TotalPrice));
-	// }
 }

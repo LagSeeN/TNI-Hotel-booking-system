@@ -10,6 +10,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 import Core.Cash;
+import Core.CheckIn;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -23,6 +24,7 @@ import java.awt.event.KeyEvent;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.awt.Toolkit;
 
 public class payment_cash_page {
@@ -165,7 +167,14 @@ public class payment_cash_page {
 		btnAccept = new JButton("Accept");
 		btnAccept.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(null, "Pass");
+				try {
+					new CheckIn().checkinFile();
+					frmCashHotel.setVisible(false);
+					new main_hotel_page(username).NewScreen();
+					} catch (IOException e) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		btnAccept.setBounds(206, 116, 151, 27);
