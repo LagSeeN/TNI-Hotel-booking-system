@@ -75,7 +75,7 @@ public class CheckIn extends RoomService {
 		DecimalFormat fml = new DecimalFormat("#,###.00");
 		if (!this.roomCheckin.isEmpty()) {
 			int Select = JOptionPane.showConfirmDialog(null,
-					"Room in list will set to check in : " + roomCheckin.toString() + "\nTotal Price : "
+					"Room in list will set to check in : " + roomSelectList() + "\nTotal Price : "
 							+ fml.format(CalPrice()) + "\nPlease recheck before click \"Yes\"",
 					"Confirm your Opeation", JOptionPane.YES_NO_OPTION);
 			if (Select == 0) {
@@ -95,6 +95,15 @@ public class CheckIn extends RoomService {
 			temp.println(roomCheckin.get(i));
 		}
 		temp.close();
+	}
+
+	public String roomSelectList() {
+		String message = "[";
+		for (String room : roomCheckin)
+			message += room.substring(1).replaceAll(",", "") + ",";
+		message = message.substring(0, (message.length() - 1));
+		message += "]";
+		return message;
 	}
 
 }
