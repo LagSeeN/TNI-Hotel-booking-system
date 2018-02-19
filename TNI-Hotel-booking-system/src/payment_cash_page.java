@@ -168,7 +168,7 @@ public class payment_cash_page {
 		btnAccept.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					new CheckIn().checkinFile();
+					new CheckIn().writeFile();
 					frmCashHotel.setVisible(false);
 					new main_hotel_page(username).NewScreen();
 				} catch (IOException e) {

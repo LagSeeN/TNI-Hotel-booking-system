@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class Maintenance extends RoomService {
 	private List<String> roomMaintenance = new ArrayList<String>();
 
-	public void setRoomMaintenance(String room) {
+	public void setRoom(String room) {
 		this.roomMaintenance.add(room);
 	}
 
@@ -20,7 +20,7 @@ public class Maintenance extends RoomService {
 		this.roomMaintenance.clear();
 	}
 
-	public void maintenanceFile() {
+	public void writeFile() {
 		for (int i = 0; i < roomMaintenance.size(); i++) {
 			String[] data = roomMaintenance.get(i).split(",");
 			String filename = data[0];
@@ -56,7 +56,7 @@ public class Maintenance extends RoomService {
 		if (!this.roomMaintenance.isEmpty()) {
 			int Select = JOptionPane.showConfirmDialog(null, "Status of room in list will change : " + roomMaintenance.toString() + "\nPlease recheck before click \"Yes\"", "Confirm your Opeation", JOptionPane.YES_NO_OPTION);
 			if (Select == 0) {
-				maintenanceFile();
+				writeFile();
 			}
 		}
 		else {

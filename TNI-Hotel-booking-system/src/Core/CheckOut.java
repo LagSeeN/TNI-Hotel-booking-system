@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class CheckOut extends RoomService {
 	private List<String> roomCheckout = new ArrayList<String>();
 
-	public void setRoomCheckOut(String room) {
+	public void setRoom(String room) {
 		this.roomCheckout.add(room);
 	}
 
@@ -20,7 +20,7 @@ public class CheckOut extends RoomService {
 		this.roomCheckout.removeAll(roomCheckout);
 	}
 
-	public void checkOutFile() {
+	public void writeFile() {
 		for (int i = 0; i < roomCheckout.size(); i++) {
 			String[] data = roomCheckout.get(i).split(",");
 			String filename = data[0];

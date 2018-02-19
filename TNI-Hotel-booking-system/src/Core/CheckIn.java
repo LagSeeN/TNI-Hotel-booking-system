@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class CheckIn extends RoomService {
 	private List<String> roomCheckin = new ArrayList<String>();
 
-	public void setRoomCheckin(String room) {
+	public void setRoom(String room) {
 		this.roomCheckin.add(room);
 	}
 
@@ -22,7 +22,7 @@ public class CheckIn extends RoomService {
 		this.roomCheckin.clear();
 	}
 
-	public void checkinFile() throws IOException {
+	public void writeFile() throws IOException {
 		BufferedReader tempReader = new BufferedReader(new FileReader("res//Database//temp//CheckIn.txt"));
 		String temp = "";
 		while ((temp = tempReader.readLine()) != null) {
