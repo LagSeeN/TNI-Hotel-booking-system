@@ -171,7 +171,7 @@ public class payment_cash_page {
 					new CheckIn().checkinFile();
 					frmCashHotel.setVisible(false);
 					new main_hotel_page(username).NewScreen();
-					} catch (IOException e) {
+				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
@@ -199,6 +199,7 @@ public class payment_cash_page {
 				if (!(Character.isDigit(evt.getKeyChar()) || (evt.getKeyChar() == KeyEvent.VK_DELETE)
 						|| (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)))
 					evt.consume();
+
 				if (accept_money.getText().length() == 9)
 					evt.consume();
 				if (accept_money.getText().startsWith("0"))
@@ -215,22 +216,19 @@ public class payment_cash_page {
 					lblChangeMoney.setText("0.00");
 					accept_money.setText("");
 				}
-
+				if (accept_money.getText().isEmpty())
+					return;
+				else if (cash.checkMoney(Integer.parseInt(accept_money.getText()))) {
+					lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
+					btnAccept.setEnabled(true);
+				} else {
+					lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
+					btnAccept.setEnabled(false);
+				}
 			}
 
 			@Override
 			public void keyPressed(KeyEvent evt) {
-				if (evt.getKeyChar() == KeyEvent.VK_ENTER) {
-					if (accept_money.getText().isEmpty())
-						return;
-					else if (cash.checkMoney(Integer.parseInt(accept_money.getText()))) {
-						lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
-						btnAccept.setEnabled(true);
-					} else {
-						lblChangeMoney.setText(cash.getChangetoString(Integer.parseInt(accept_money.getText())));
-						btnAccept.setEnabled(false);
-					}
-				}
 				if (!(Character.isDigit(evt.getKeyChar()) || (evt.getKeyChar() == KeyEvent.VK_DELETE)
 						|| (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)))
 					evt.consume();
