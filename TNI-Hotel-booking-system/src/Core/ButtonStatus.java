@@ -27,7 +27,7 @@ public class ButtonStatus extends RoomService {
 					print.println(super.getBtnStatus()[i]);
 				}
 			}
-
+			print.close();
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Button Status Error", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
