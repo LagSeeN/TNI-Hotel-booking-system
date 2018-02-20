@@ -73,7 +73,7 @@ public class main_hotel_page {
 	private CheckOut roomCheckOut = new CheckOut();
 	private CheckIn roomCheckIn = new CheckIn();
 	private Maintenance roomMaintenance = new Maintenance();
-	private ButtonStatus btnStatus = new ButtonStatus();
+	//private ButtonStatus btnStatus = new ButtonStatus();
 
 	/**
 	 * Launch the application.
@@ -823,10 +823,14 @@ public class main_hotel_page {
 					btn_action[i].setEnabled(false);
 				} else {
 					btn_action[i].setEnabled(true);
-					if (btnStatus.getStatus(fileroom, String.valueOf(i)) == false)
-						btn_action[i].setText("Check In");
-					else
-						btn_action[i].setText("Check In (X)");
+					try {
+						//if (btnStatus.getButton(fileroom, String.valueOf(i)) == false)
+							btn_action[i].setText("Check In");
+						//else
+						//	btn_action[i].setText("Check In (X)");
+					} catch (Exception e) {
+						JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+					}
 				}
 			}
 		}
