@@ -27,10 +27,10 @@ public class ButtonStatus {
 	}
 
 	public void setStatus(String Floor, String ShortRoomID) {
-		if (Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID)] != true) {
-			Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID)] = true;
+		if (Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID.substring(1))] != true) {
+			Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID.substring(1))] = true;
 		} else {
-			Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID)] = false;
+			Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID.substring(1))] = false;
 		}
 	}
 
@@ -39,21 +39,23 @@ public class ButtonStatus {
 	}
 
 	private int getX() throws IOException {
-		int Floor = 0;
-		while (new File("res//Database//Floor//F" + Floor + ".txt").exists()) {
-			Floor++;
-		}
-		return Floor;
+//		int Floor = 0;
+//		while (new File("res//Database//Floor//F" + Floor + ".txt").exists()) {
+//			Floor++;
+//		}
+//		return Floor;
+		return 5;
 	}
 
 	private int getY() throws IOException {
-		int Room = 0;
-		Scanner scan = new Scanner(new File("res//Database//Floor//F1.txt"));
-		while (scan.hasNextLine()) {
-			Room++;
-		}
-		scan.close();
-		return Room;
+//		int Room = 0;
+//		Scanner scan = new Scanner(new File("res//Database//Floor//F1.txt"));
+//		while (scan.hasNextLine()) {
+//			Room++;
+//		}
+//		scan.close();
+//		return Room;
+		return 6;
 	}
 
 }
