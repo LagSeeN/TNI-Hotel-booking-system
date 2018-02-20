@@ -647,7 +647,6 @@ public class main_hotel_page {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnCheckIn.isSelected()) {
 					roomCheckIn.setRoom(fileroom + ",06");
-					btnStatus.setStatus(fileroom, ",06");
 					lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice()));
 					lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 				}

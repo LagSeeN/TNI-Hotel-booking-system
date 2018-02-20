@@ -2,60 +2,39 @@ package Core;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.PrintStream;
 
 import javax.swing.JOptionPane;
 
-public class ButtonStatus {
-	private boolean[][] Click;
+public class ButtonStatus extends RoomService {
 
-	public ButtonStatus(){
+	public ButtonStatus() {
+
+	}
+
+	public void setButton(String fileroom, String RoomID) throws IOException {
 		try {
-		this.Click = new boolean [getX()] [getY()];
-		StatusReset();}
-		catch (IOException e){
-			JOptionPane.showMessageDialog(null, e.getMessage(), "Message", JOptionPane.ERROR_MESSAGE);
-		}
-	}
-
-	public void StatusReset() throws IOException {
-		for (int i = 0; i < getX(); i++) {
-			for (int j = 0; j < getY(); j++) {
-				Click[i][j] = false;
+			super.readBtnStatus(fileroom);
+			PrintStream print = new PrintStream(new File("res//Database//Floor//boolean_" + fileroom + ".txt"));
+			for (int i = 0; i < super.getBtnStatus().length; i++) {
+				if (i == Integer.parseInt(RoomID.substring(1))) {
+					if (super.getBtnStatus()[i] == true)
+						print.println(false);
+					else
+						print.println(true);
+				}
+				else {
+					print.println(super.getBtnStatus()[i]);
+				}
 			}
+
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Button Status Error", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
-	public void setStatus(String Floor, String ShortRoomID) {
-		if (Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID.substring(1))] != true) {
-			Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID.substring(1))] = true;
-		} else {
-			Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID.substring(1))] = false;
-		}
+	public boolean getButton() {
+		super.getBtnStatus();
+		return true;
 	}
-
-	public boolean getStatus(String Floor, String ShortRoomID) {
-		return Click[Integer.parseInt(Floor.substring(1))][Integer.parseInt(ShortRoomID)];
-	}
-
-	private int getX() throws IOException {
-//		int Floor = 0;
-//		while (new File("res//Database//Floor//F" + Floor + ".txt").exists()) {
-//			Floor++;
-//		}
-//		return Floor;
-		return 5;
-	}
-
-	private int getY() throws IOException {
-//		int Room = 0;
-//		Scanner scan = new Scanner(new File("res//Database//Floor//F1.txt"));
-//		while (scan.hasNextLine()) {
-//			Room++;
-//		}
-//		scan.close();
-//		return Room;
-		return 6;
-	}
-
 }

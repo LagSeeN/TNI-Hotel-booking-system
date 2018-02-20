@@ -13,6 +13,7 @@ public class RoomService {
 	private String[] BedType = new String[6];
 	private double[] Price = new double[6];
 	private int[] Status = new int[6];
+	private boolean[] Click = new boolean[6];
 
 	public void readFile(String floor) {
 		try {
@@ -32,7 +33,19 @@ public class RoomService {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(null, "File not found");
 		}
-
+	}
+	
+	public void readBtnStatus(String floor) {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("res//Database//Floor//boolean_" + floor + ".txt"));
+			int i = 0;
+			while (Click[i] = br.readLine() != null) {
+				i++;
+			}
+			br.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "File not found");
+		}
 	}
 
 	public String[] getRoomID() {
@@ -49,6 +62,10 @@ public class RoomService {
 
 	public int[] getStatus() {
 		return this.Status;
+	}
+	
+	public boolean[] getBtnStatus() {
+		return this.Click;
 	}
 
 	public String getStatusToString(int index) {
