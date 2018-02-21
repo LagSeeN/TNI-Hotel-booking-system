@@ -34,6 +34,7 @@ public class payment_summary_page {
 	private JLabel lblCouponStatus;
 	private double discount;
 	private double price;
+	private int day;
 	private boolean CouponUsed = true;
 
 	private String username;
@@ -46,7 +47,7 @@ public class payment_summary_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_summary_page window = new payment_summary_page(price, discount, username);
+					payment_summary_page window = new payment_summary_page(day, price, discount, username);
 					window.frmSummaryHotel.setVisible(true);
 					window.frmSummaryHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -62,14 +63,16 @@ public class payment_summary_page {
 	 * @wbp.parser.constructor
 	 * 
 	 */
-	public payment_summary_page(double price, double discount, String username) {
+	public payment_summary_page(int day, double price, double discount, String username) {
+		this.day = day;
 		this.price = price;
 		this.discount = discount;
 		this.username = username;
 		initialize();
 	}
 
-	public payment_summary_page(double price, String username) {
+	public payment_summary_page(int day, double price, String username) {
+		this.day = day;
 		this.price = price;
 		this.discount = 0;
 		this.username = username;
@@ -201,7 +204,7 @@ public class payment_summary_page {
 				name.setName(NameField.getText());
 				if (name.checkName()) {
 					frmSummaryHotel.setVisible(false);
-					new payment_method_page(price, sum.getTotal(), username, NameField.getText()).NewScreen();
+					new payment_method_page(day, price, sum.getTotal(), username, NameField.getText()).NewScreen();
 				}
 			}
 		});

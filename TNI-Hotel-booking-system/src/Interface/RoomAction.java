@@ -9,6 +9,6 @@ public interface RoomAction {
 
 	public void writeFile() throws IOException;
 	
-	//public void PrintLogs() throws IOException;
+	//public void PrintLogs(String username, int day) throws IOException;
 
 }

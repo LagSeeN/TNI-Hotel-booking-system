@@ -229,7 +229,7 @@ public class main_hotel_page {
 							JOptionPane.showMessageDialog(null, e1.getMessage(), "File writer failed.",
 									JOptionPane.ERROR_MESSAGE);
 						}
-						new payment_summary_page(roomCheckIn.CalPrice(day), 0, username).NewScreen();
+						new payment_summary_page(day, roomCheckIn.CalPrice(day), 0, username).NewScreen();
 						frmHotelBookingSystem.setVisible(false);
 					} else {
 						roomcheck = room.setDefault(roomcheck);
@@ -240,6 +240,7 @@ public class main_hotel_page {
 					OperationMode();
 				}
 				if (rdbtnCheckOut.isSelected()) {
+					roomCheckOut.setUsername(username);
 					roomCheckOut.writeFile();
 					ReadRoom(fileroom);
 					roomCheckOut.removeRoomAll();
@@ -249,7 +250,7 @@ public class main_hotel_page {
 					setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 				}
 				if (rdbtnmntmMaintenance.isSelected()) {
-					roomMaintenance.maintenanceCheckList();
+					roomMaintenance.maintenanceCheckList(username);
 					rdbtnCheckIn.setSelected(true);
 					roomMaintenance.removeRoomAll();
 					OperationMode();

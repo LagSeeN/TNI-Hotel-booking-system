@@ -19,6 +19,7 @@ public class payment_method_page {
 	private double total;
 	private double price;
 	private String name;
+	private int day;
 
 	private String username;
 
@@ -30,7 +31,7 @@ public class payment_method_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_method_page window = new payment_method_page(price, total, username, name);
+					payment_method_page window = new payment_method_page(day, price, total, username, name);
 					window.frmPaymentMethod.setVisible(true);
 					window.frmPaymentMethod.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -44,7 +45,8 @@ public class payment_method_page {
 	 * Create the application.
 	 * 
 	 */
-	public payment_method_page(double price, double total, String username, String name) {
+	public payment_method_page(int day, double price, double total, String username, String name) {
+		this.day = day;
 		this.price = price;
 		this.total = total;
 		this.username = username;
@@ -89,7 +91,7 @@ public class payment_method_page {
 		btnCash.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmPaymentMethod.setVisible(false);
-				new payment_cash_page(price, total, username, name).NewScreen();
+				new payment_cash_page(day, price, total, username, name).NewScreen();
 			}
 		});
 		btnCash.setBounds(10, 11, 169, 27);
@@ -105,7 +107,7 @@ public class payment_method_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmPaymentMethod.setVisible(false);
-				new payment_summary_page(price, username).NewScreen();
+				new payment_summary_page(day, price, username).NewScreen();
 
 			}
 		});
@@ -115,7 +117,7 @@ public class payment_method_page {
 		btnCreditCard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmPaymentMethod.setVisible(false);
-				new payment_credit_card_page(price, total, username, name).NewScreen();
+				new payment_credit_card_page(day, price, total, username, name).NewScreen();
 			}
 		});
 	}

@@ -55,13 +55,18 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 
 	}
 
-	public void maintenanceCheckList() {
+	public void maintenanceCheckList(String username) {
 		if (!this.roomMaintenance.isEmpty()) {
 			int Select = JOptionPane.showConfirmDialog(null,
 					"Status of room in list will change : " + roomSelectList()
 							+ "\nPlease recheck before click \"Yes\"",
 					"Confirm your Opeation", JOptionPane.YES_NO_OPTION);
 			if (Select == 0) {
+				try {
+					PrintLogs(username);
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage(), "Message", JOptionPane.ERROR_MESSAGE);
+				}
 				writeFile();
 			}
 		} else {
@@ -88,6 +93,12 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 	
 	public int CalRoom() {
 		return this.roomMaintenance.size();
+	}
+
+	private void PrintLogs(String username) throws IOException {
+			PrintWriter print = new PrintWriter(new FileWriter("res//Logs//RoomService//Logs.txt",true));
+			print.println(new TimeSystem().getDate() + " [Mainrenance] Rooms : " + roomMaintenance.toString() + " has Set Maintenance/Send to Service by @" + username);
+			print.close();
 	}
 
 }

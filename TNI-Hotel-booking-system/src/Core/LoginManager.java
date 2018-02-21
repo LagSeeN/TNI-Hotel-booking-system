@@ -29,7 +29,7 @@ public class LoginManager {
 	public boolean LoginCheck() {
 		ReadData();
 		if (username.isEmpty() && password.isEmpty()) {
-			JOptionPane.showMessageDialog(null, "please enter username or password", "Message",
+			JOptionPane.showMessageDialog(null, "Please enter username or password", "Message",
 					JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
@@ -96,7 +96,7 @@ public class LoginManager {
 				print.println(new TimeSystem().getDate() + " username \"" + getUsername() + "\" Fail to Login");
 			print.close();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Wirte logs fail", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Write logs fail", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 

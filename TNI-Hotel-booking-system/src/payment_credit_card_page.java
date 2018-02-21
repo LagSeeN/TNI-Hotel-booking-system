@@ -43,6 +43,7 @@ public class payment_credit_card_page {
 	private double price;
 	private String username;
 	private String name;
+	private int day;
 
 	/**
 	 * Launch the application.
@@ -52,7 +53,7 @@ public class payment_credit_card_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_credit_card_page window = new payment_credit_card_page(price, total, username, name);
+					payment_credit_card_page window = new payment_credit_card_page(day, price, total, username, name);
 					window.frmCreditCardPayment.setVisible(true);
 					window.frmCreditCardPayment.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -65,7 +66,8 @@ public class payment_credit_card_page {
 	/**
 	 * Create the application.
 	 */
-	public payment_credit_card_page(double price, double total, String username, String name) {
+	public payment_credit_card_page(int day, double price, double total, String username, String name) {
+		this.day = day;
 		this.price = price;
 		this.total = total;
 		this.username = username;
@@ -196,6 +198,13 @@ public class payment_credit_card_page {
 							"Please continue at EDC machine", JOptionPane.YES_NO_OPTION,
 							JOptionPane.INFORMATION_MESSAGE);
 					if (Success == 0) {
+						
+						try {
+							new CheckIn().PrintLogs(username,day);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+						}
 						try {
 							new CheckIn().writeFile();
 						} catch (IOException e) {
@@ -218,7 +227,7 @@ public class payment_credit_card_page {
 
 			public void actionPerformed(ActionEvent e) {
 				frmCreditCardPayment.setVisible(false);
-				new payment_method_page(price, total, username, name).NewScreen();
+				new payment_method_page(day, price, total, username, name).NewScreen();
 			}
 		});
 		btnCancel.setBounds(116, 90, 130, 27);

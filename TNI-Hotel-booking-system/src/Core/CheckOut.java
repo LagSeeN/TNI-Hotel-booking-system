@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 public class CheckOut extends RoomService implements Interface.RoomAction {
 	private List<String> roomCheckout = new ArrayList<String>();
+	private String username;
 
 	@Override
 	public void setRoom(String room) {
@@ -42,11 +43,17 @@ public class CheckOut extends RoomService implements Interface.RoomAction {
 				PrintWriter print = new PrintWriter(new FileWriter("res//Database//Floor//" + filename + ".txt"));
 				print.print(message);
 				print.close();
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				JOptionPane.showMessageDialog(null, "Failed to Check Out.", "Message", JOptionPane.ERROR_MESSAGE);
 			}
 		}
+		try {
+					PrintLogs(this.username);
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage(), "Message", JOptionPane.ERROR_MESSAGE);
+				}
 		JOptionPane.showMessageDialog(null, "Check Out complete", "Message", JOptionPane.INFORMATION_MESSAGE);
 
 	}
@@ -59,5 +66,16 @@ public class CheckOut extends RoomService implements Interface.RoomAction {
 	
 	public int CalRoom() {
 		return this.roomCheckout.size();
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void PrintLogs(String username) throws IOException {
+		PrintWriter print = new PrintWriter(new FileWriter("res//Logs//RoomService//Logs.txt",true));
+		print.println(new TimeSystem().getDate() + " [CheckOut]     Rooms : " + roomCheckout.toString() + " has Checked Out by @" + username);
+		print.close();
+		
 	}
 }

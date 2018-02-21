@@ -40,6 +40,7 @@ public class payment_cash_page {
 	private double total;
 	private String username;
 	private String name;
+	private int day;
 
 	/**
 	 * Launch the application.
@@ -49,7 +50,7 @@ public class payment_cash_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_cash_page window = new payment_cash_page(price, total, username, name);
+					payment_cash_page window = new payment_cash_page(day, price, total, username, name);
 					window.frmCashHotel.setVisible(true);
 					window.frmCashHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -62,7 +63,8 @@ public class payment_cash_page {
 	/**
 	 * Create the application.
 	 */
-	public payment_cash_page(double price, double total, String username, String name) {
+	public payment_cash_page(int day, double price, double total, String username, String name) {
+		this.day = day;
 		this.price = price;
 		this.total = total;
 		this.username = username;
@@ -169,6 +171,7 @@ public class payment_cash_page {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					new CheckIn().writeFile();
+					new CheckIn().PrintLogs(username,day);
 					frmCashHotel.setVisible(false);
 					new main_hotel_page(username).NewScreen();
 				} catch (IOException e) {
@@ -185,7 +188,7 @@ public class payment_cash_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCashHotel.setVisible(false);
-				new payment_method_page(price, total, username, name).NewScreen();
+				new payment_method_page(day, price, total, username, name).NewScreen();
 			}
 		});
 		btnCancel.setBounds(45, 116, 151, 27);
