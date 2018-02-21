@@ -361,11 +361,11 @@ public class main_hotel_page {
 		btn_action[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnCheckIn.isSelected()) {
-					if (roomcheck[Integer.parseInt(fileroom.substring(1))][0] == false) {
+					if (roomcheck[Integer.parseInt(fileroom.substring(1))-1][0] == false) {
 						roomCheckIn.setRoom(fileroom + ",01");
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
-						roomcheck[Integer.parseInt(fileroom.substring(1))][0] = true;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][0] = true;
 						btn_action[0]
 								.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/checkmark_icon.png")));
 					} else {
@@ -373,7 +373,7 @@ public class main_hotel_page {
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 						btn_action[0].setIcon(null);
-						roomcheck[Integer.parseInt(fileroom.substring(1))][0] = false;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][0] = false;
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
@@ -451,11 +451,11 @@ public class main_hotel_page {
 		btn_action[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnCheckIn.isSelected()) {
-					if (roomcheck[Integer.parseInt(fileroom.substring(1))][1] == false) {
+					if (roomcheck[Integer.parseInt(fileroom.substring(1))-1][1] == false) {
 						roomCheckIn.setRoom(fileroom + ",02");
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
-						roomcheck[Integer.parseInt(fileroom.substring(1))][1] = true;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][1] = true;
 						btn_action[1]
 								.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/checkmark_icon.png")));
 					} else {
@@ -463,7 +463,7 @@ public class main_hotel_page {
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 						btn_action[1].setIcon(null);
-						roomcheck[Integer.parseInt(fileroom.substring(1))][1] = false;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][1] = false;
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
@@ -524,11 +524,11 @@ public class main_hotel_page {
 		btn_action[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnCheckIn.isSelected()) {
-					if (roomcheck[Integer.parseInt(fileroom.substring(1))][2] == false) {
+					if (roomcheck[Integer.parseInt(fileroom.substring(1))-1][2] == false) {
 						roomCheckIn.setRoom(fileroom + ",03");
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
-						roomcheck[Integer.parseInt(fileroom.substring(1))][2] = true;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][2] = true;
 						btn_action[2]
 								.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/checkmark_icon.png")));
 					} else {
@@ -536,7 +536,7 @@ public class main_hotel_page {
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 						btn_action[2].setIcon(null);
-						roomcheck[Integer.parseInt(fileroom.substring(1))][2] = false;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][2] = false;
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
@@ -597,11 +597,11 @@ public class main_hotel_page {
 		btn_action[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnCheckIn.isSelected()) {
-					if (roomcheck[Integer.parseInt(fileroom.substring(1))][3] == false) {
+					if (roomcheck[Integer.parseInt(fileroom.substring(1))-1][3] == false) {
 						roomCheckIn.setRoom(fileroom + ",04");
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
-						roomcheck[Integer.parseInt(fileroom.substring(1))][3] = true;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][3] = true;
 						btn_action[3]
 								.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/checkmark_icon.png")));
 					} else {
@@ -609,7 +609,7 @@ public class main_hotel_page {
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 						btn_action[3].setIcon(null);
-						roomcheck[Integer.parseInt(fileroom.substring(1))][3] = false;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][3] = false;
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
@@ -670,11 +670,11 @@ public class main_hotel_page {
 		btn_action[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnCheckIn.isSelected()) {
-					if (roomcheck[Integer.parseInt(fileroom.substring(1))][4] == false) {
+					if (roomcheck[Integer.parseInt(fileroom.substring(1))-1][4] == false) {
 						roomCheckIn.setRoom(fileroom + ",05");
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
-						roomcheck[Integer.parseInt(fileroom.substring(1))][4] = true;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][4] = true;
 						btn_action[4]
 								.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/checkmark_icon.png")));
 					} else {
@@ -682,7 +682,7 @@ public class main_hotel_page {
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 						btn_action[4].setIcon(null);
-						roomcheck[Integer.parseInt(fileroom.substring(1))][4] = false;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][4] = false;
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
@@ -743,11 +743,11 @@ public class main_hotel_page {
 		btn_action[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnCheckIn.isSelected()) {
-					if (roomcheck[Integer.parseInt(fileroom.substring(1))][5] == false) {
+					if (roomcheck[Integer.parseInt(fileroom.substring(1))-1][5] == false) {
 						roomCheckIn.setRoom(fileroom + ",06");
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
-						roomcheck[Integer.parseInt(fileroom.substring(1))][5] = true;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][5] = true;
 						btn_action[5]
 								.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/checkmark_icon.png")));
 					} else {
@@ -755,7 +755,7 @@ public class main_hotel_page {
 						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 						btn_action[5].setIcon(null);
-						roomcheck[Integer.parseInt(fileroom.substring(1))][5] = false;
+						roomcheck[Integer.parseInt(fileroom.substring(1))-1][5] = false;
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
