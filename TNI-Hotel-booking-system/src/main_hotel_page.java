@@ -984,7 +984,7 @@ public class main_hotel_page {
 	public void setIcon(int floor) {
 		for (int i = 0; i < this.RoomSize; i++) {
 			if (roomcheck[floor][i] == true)
-				btn_action[i].setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/checkmark_icon.png")));
+				btn_action[i].setIcon(room.getIcon());
 			else
 				btn_action[i].setIcon(null);
 		}

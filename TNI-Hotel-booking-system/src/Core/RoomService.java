@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class RoomService {
@@ -106,4 +107,9 @@ public class RoomService {
 		return roomcheck;
 	}
 
+	public ImageIcon getIcon() {
+		ImageIcon icon = new ImageIcon(RoomService.class.getResource("/img/checkmark_icon.png"));
+		return icon;
+
+	}
 }
