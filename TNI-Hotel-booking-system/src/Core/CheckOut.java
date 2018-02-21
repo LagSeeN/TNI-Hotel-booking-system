@@ -56,4 +56,8 @@ public class CheckOut extends RoomService implements Interface.RoomAction {
 				roomCheckout.remove(i);
 
 	}
+	
+	public int CalRoom() {
+		return this.roomCheckout.size();
+	}
 }

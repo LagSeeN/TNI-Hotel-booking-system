@@ -85,5 +85,9 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 				roomMaintenance.remove(i);
 
 	}
+	
+	public int CalRoom() {
+		return this.roomMaintenance.size();
+	}
 
 }
