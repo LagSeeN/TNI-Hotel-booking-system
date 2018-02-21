@@ -50,4 +50,10 @@ public class CheckOut extends RoomService implements Interface.RoomAction {
 		JOptionPane.showMessageDialog(null, "Check Out complete", "Message", JOptionPane.INFORMATION_MESSAGE);
 
 	}
+	public void removeRoom(String room) {
+		for (int i = 0; i < roomCheckout.size(); i++)
+			if (roomCheckout.get(i).equals(room))
+				roomCheckout.remove(i);
+
+	}
 }

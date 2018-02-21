@@ -243,6 +243,8 @@ public class main_hotel_page {
 					roomCheckOut.removeRoomAll();
 					rdbtnCheckIn.setSelected(true);
 					OperationMode();
+					roomcheck = room.setDefault(roomcheck);
+					setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 				}
 				if (rdbtnmntmMaintenance.isSelected()) {
 					roomMaintenance.maintenanceCheckList();
@@ -251,6 +253,8 @@ public class main_hotel_page {
 					OperationMode();
 					ReadRoom(fileroom);
 					room.readFile(fileroom);
+					roomcheck = room.setDefault(roomcheck);
+					setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 				}
 
 			}
@@ -382,9 +386,29 @@ public class main_hotel_page {
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
-					roomCheckOut.setRoom(fileroom + ",01");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][0] == false) {
+						roomCheckOut.setRoom(fileroom + ",01");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][0] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomCheckOut.removeRoom(fileroom + ",01");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][0] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 				if (rdbtnmntmMaintenance.isSelected())
-					roomMaintenance.setRoom(fileroom + ",01");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][0] == false) {
+						roomMaintenance.setRoom(fileroom + ",01");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][0] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomMaintenance.removeRoom(fileroom + ",01");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][0] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 			}
 		});
 
@@ -471,9 +495,29 @@ public class main_hotel_page {
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
-					roomCheckOut.setRoom(fileroom + ",02");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][1] == false) {
+						roomCheckOut.setRoom(fileroom + ",02");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][1] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomCheckOut.removeRoom(fileroom + ",02");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][1] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 				if (rdbtnmntmMaintenance.isSelected())
-					roomMaintenance.setRoom(fileroom + ",02");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][1] == false) {
+						roomMaintenance.setRoom(fileroom + ",02");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][1] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomMaintenance.removeRoom(fileroom + ",02");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][1] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 			}
 		});
 
@@ -543,9 +587,29 @@ public class main_hotel_page {
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
-					roomCheckOut.setRoom(fileroom + ",03");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][2] == false) {
+						roomCheckOut.setRoom(fileroom + ",03");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][2] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomCheckOut.removeRoom(fileroom + ",03");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][2] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 				if (rdbtnmntmMaintenance.isSelected())
-					roomMaintenance.setRoom(fileroom + ",03");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][2] == false) {
+						roomMaintenance.setRoom(fileroom + ",03");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][2] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomMaintenance.removeRoom(fileroom + ",03");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][2] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 			}
 		});
 
@@ -615,9 +679,29 @@ public class main_hotel_page {
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
-					roomCheckOut.setRoom(fileroom + ",04");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][3] == false) {
+						roomCheckOut.setRoom(fileroom + ",04");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][3] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomCheckOut.removeRoom(fileroom + ",04");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][3] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 				if (rdbtnmntmMaintenance.isSelected())
-					roomMaintenance.setRoom(fileroom + ",04");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][3] == false) {
+						roomMaintenance.setRoom(fileroom + ",04");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][3] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomMaintenance.removeRoom(fileroom + ",04");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][3] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 			}
 		});
 
@@ -687,9 +771,29 @@ public class main_hotel_page {
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
-					roomCheckOut.setRoom(fileroom + ",05");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][4] == false) {
+						roomCheckOut.setRoom(fileroom + ",05");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][4] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomCheckOut.removeRoom(fileroom + ",05");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][4] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 				if (rdbtnmntmMaintenance.isSelected())
-					roomMaintenance.setRoom(fileroom + ",05");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][4] == false) {
+						roomMaintenance.setRoom(fileroom + ",05");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][4] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomMaintenance.removeRoom(fileroom + ",05");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][4] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 			}
 		});
 
@@ -759,9 +863,29 @@ public class main_hotel_page {
 					}
 				}
 				if (rdbtnCheckOut.isSelected())
-					roomCheckOut.setRoom(fileroom + ",06");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][5] == false) {
+						roomCheckOut.setRoom(fileroom + ",06");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][5] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomCheckOut.removeRoom(fileroom + ",06");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][5] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 				if (rdbtnmntmMaintenance.isSelected())
-					roomMaintenance.setRoom(fileroom + ",06");
+					if (roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][5] == false) {
+						roomMaintenance.setRoom(fileroom + ",06");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][5] = true;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					} else {
+						roomMaintenance.removeRoom(fileroom + ",06");
+						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][5] = false;
+						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					}
 			}
 		});
 

@@ -37,11 +37,13 @@ public class LoginManager {
 		for (int i = 0; i < username_database.size(); i++) {
 			if (this.username.equalsIgnoreCase(this.username_database.get(i))
 					&& this.password.equals(this.password_database.get(i))) {
+				writelog(true);
 				return true;
 			}
 		}
 		JOptionPane.showMessageDialog(null, "username or password is incorrect.", "Message",
 				JOptionPane.WARNING_MESSAGE);
+		writelog(false);
 		return false;
 	}
 
@@ -83,6 +85,20 @@ public class LoginManager {
 			}
 		}
 		return deText;
+	}
+
+	private void writelog(boolean check) {
+		try {
+			PrintWriter print = new PrintWriter(new FileWriter("res//Logs//Login//logs.txt", true));
+			if (check)
+				print.println(new TimeSystem().getDate() + " username \"" + getUsername() + "\" Login Success");
+			else
+				print.println(new TimeSystem().getDate() + " username \"" + getUsername() + "\" Fail to Login");
+			print.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

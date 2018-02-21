@@ -58,7 +58,7 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 	public void maintenanceCheckList() {
 		if (!this.roomMaintenance.isEmpty()) {
 			int Select = JOptionPane.showConfirmDialog(null,
-					"Status of room in list will change : " + roomMaintenance.toString()
+					"Status of room in list will change : " + roomSelectList()
 							+ "\nPlease recheck before click \"Yes\"",
 					"Confirm your Opeation", JOptionPane.YES_NO_OPTION);
 			if (Select == 0) {
@@ -68,6 +68,22 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 			JOptionPane.showMessageDialog(null, "You didn't select any room, It's have no any effect.", "Message",
 					JOptionPane.WARNING_MESSAGE);
 		}
+	}
+
+	public String roomSelectList() {
+		String message = "[";
+		for (String room : roomMaintenance)
+			message += room.substring(1).replaceAll(",", "") + ",";
+		message = message.substring(0, (message.length() - 1));
+		message += "]";
+		return message;
+	}
+
+	public void removeRoom(String room) {
+		for (int i = 0; i < roomMaintenance.size(); i++)
+			if (roomMaintenance.get(i).equals(room))
+				roomMaintenance.remove(i);
+
 	}
 
 }
