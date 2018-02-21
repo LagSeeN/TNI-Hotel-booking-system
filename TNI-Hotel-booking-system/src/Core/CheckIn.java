@@ -120,7 +120,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 		BufferedReader tempReader = new BufferedReader(new FileReader("res//Database//temp//CheckIn.txt"));
 		String temp = "", RoomList = "[";
 		while ((temp = tempReader.readLine()) != null) {
-			RoomList = RoomList + temp;
+			RoomList = RoomList + temp + ",";
 		}
 		RoomList = RoomList + "]";
 		tempReader.close();
