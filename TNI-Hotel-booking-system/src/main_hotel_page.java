@@ -54,11 +54,13 @@ public class main_hotel_page {
 	private JLabel[] lblstatus_get_status = new JLabel[RoomSize];
 	private JButton[] btn_action = new JButton[RoomSize];
 	private boolean[][] roomcheck = new boolean[floor][RoomSize];
+	private JComboBox<String> day_selecter;
 	private int day;
 	//// Action Button zone
 	private JLabel lblTotalRoom_get;
 	private JLabel lblTotalPrice_get;
 	private JLabel lblBaht;
+	private JLabel lblDays;
 	private Double TotalPrice;
 	private int TotalRoom;
 
@@ -256,12 +258,12 @@ public class main_hotel_page {
 		panel_roomlist_sum.add(btnContinue);
 		btnContinue.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JLabel lblDays = new JLabel("Days : ");
+		lblDays = new JLabel("Days : ");
 		lblDays.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDays.setBounds(25, 230, 63, 23);
 		panel_roomlist_sum.add(lblDays);
 
-		JComboBox<String> day_selecter = new JComboBox<String>();
+		day_selecter = new JComboBox<String>();
 		day_selecter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (day_selecter.getSelectedIndex() == 0) {
@@ -923,6 +925,8 @@ public class main_hotel_page {
 			rdbtnCheckOut.setVisible(true);
 			lblTotalPrice_get.setVisible(true);
 			lblBaht.setVisible(true);
+			lblDays.setVisible(true);
+			day_selecter.setVisible(true);
 			lbloperationmode_text.setVisible(false);
 			for (int i = 0; i < RoomSize; i++) {
 				if (room.getStatus()[i] != 1) {
@@ -940,6 +944,8 @@ public class main_hotel_page {
 			rdbtnCheckOut.setVisible(true);
 			lblTotalPrice_get.setVisible(false);
 			lblBaht.setVisible(false);
+			lblDays.setVisible(false);
+			day_selecter.setVisible(false);
 			lbloperationmode_text.setVisible(false);
 			for (int i = 0; i < RoomSize; i++) {
 				if (room.getStatus()[i] != 0) {
@@ -957,6 +963,8 @@ public class main_hotel_page {
 			rdbtnCheckOut.setVisible(false);
 			lblTotalPrice_get.setVisible(false);
 			lblBaht.setVisible(false);
+			lblDays.setVisible(false);
+			day_selecter.setVisible(false);
 			lbloperationmode_text.setVisible(true);
 			lbloperationmode_text.setText("Maintenance");
 			for (int i = 0; i < RoomSize; i++) {
