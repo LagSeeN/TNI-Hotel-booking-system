@@ -8,5 +8,7 @@ public interface RoomAction {
 	public void removeRoomAll();
 
 	public void writeFile() throws IOException;
+	
+	//public void PrintLogs() throws IOException;
 
 }
