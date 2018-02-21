@@ -96,8 +96,7 @@ public class LoginManager {
 				print.println(new TimeSystem().getDate() + " username \"" + getUsername() + "\" Fail to Login");
 			print.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Wirte logs fail", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
