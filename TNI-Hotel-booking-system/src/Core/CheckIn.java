@@ -18,7 +18,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 	public void setRoom(String room) {
 		this.roomCheckin.add(room);
 	}
-	
+
 	@Override
 	public void removeRoomAll() {
 		this.roomCheckin.clear();
@@ -55,7 +55,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 		tempReader.close();
 	}
 
-	public double CalPrice() {
+	public double CalPrice(int day) {
 		double Price = 0.0;
 		for (int i = 0; i < roomCheckin.size(); i++) {
 			String[] data = roomCheckin.get(i).split(",");
@@ -67,19 +67,19 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 					Price += super.getPrice()[j];
 			}
 		}
-		return Price;
+		return Price * day;
 	}
 
 	public int CalRoom() {
 		return this.roomCheckin.size();
 	}
 
-	public boolean CheckinCheckList() {
+	public boolean CheckinCheckList(int day) {
 		DecimalFormat fml = new DecimalFormat("#,###.00");
 		if (!this.roomCheckin.isEmpty()) {
 			int Select = JOptionPane.showConfirmDialog(null,
 					"Room in list will set to check in : " + roomSelectList() + "\nTotal Price : "
-							+ fml.format(CalPrice()) + "\nPlease recheck before click \"Yes\"",
+							+ fml.format(CalPrice(day)) + "\nPlease recheck before click \"Yes\"",
 					"Confirm your Opeation", JOptionPane.YES_NO_OPTION);
 			if (Select == 0) {
 				return true;
@@ -107,6 +107,13 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 		message = message.substring(0, (message.length() - 1));
 		message += "]";
 		return message;
+	}
+
+	public void removeRoom(String room) {
+		for (int i = 0; i < roomCheckin.size(); i++)
+			if (roomCheckin.get(i).equals(room))
+				roomCheckin.remove(i);
+
 	}
 
 }

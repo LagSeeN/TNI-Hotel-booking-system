@@ -34,7 +34,7 @@ public class RoomService {
 			JOptionPane.showMessageDialog(null, "File not found");
 		}
 	}
-	
+
 	public void readBtnStatus(String floor) {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("res//Database//Floor//boolean_" + floor + ".txt"));
@@ -63,7 +63,7 @@ public class RoomService {
 	public int[] getStatus() {
 		return this.Status;
 	}
-	
+
 	public boolean[] getBtnStatus() {
 		return this.Click;
 	}
@@ -96,6 +96,14 @@ public class RoomService {
 	public boolean checkButton(int index) {
 		return (Status[index] == 0 || Status[index] == 1) ? true : false;
 
+	}
+
+	public boolean[][] setDefault(boolean[][] roomcheck) {
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 6; j++)
+				roomcheck[i][j] = false;
+		}
+		return roomcheck;
 	}
 
 }
