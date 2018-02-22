@@ -1,4 +1,4 @@
-DIS05;5;Discount 5%
+DIS5;5;Discount 5%
 DIS10;10;Discount 10%
 DIS15;15;Discount 15%
 DIS20;20;Discount 20%
