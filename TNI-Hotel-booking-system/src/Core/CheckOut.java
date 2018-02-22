@@ -43,39 +43,50 @@ public class CheckOut extends RoomService implements Interface.RoomAction {
 				PrintWriter print = new PrintWriter(new FileWriter("res//Database//Floor//" + filename + ".txt"));
 				print.print(message);
 				print.close();
-				
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				JOptionPane.showMessageDialog(null, "Failed to Check Out.", "Message", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		try {
-					PrintLogs(this.username);
-				} catch (IOException e) {
-					JOptionPane.showMessageDialog(null, e.getMessage(), "Message", JOptionPane.ERROR_MESSAGE);
-				}
+			PrintLogs(this.username);
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Message", JOptionPane.ERROR_MESSAGE);
+		}
 		JOptionPane.showMessageDialog(null, "Check Out complete", "Message", JOptionPane.INFORMATION_MESSAGE);
 
 	}
+
 	public void removeRoom(String room) {
 		for (int i = 0; i < roomCheckout.size(); i++)
 			if (roomCheckout.get(i).equals(room))
 				roomCheckout.remove(i);
 
 	}
-	
+
 	public int CalRoom() {
 		return this.roomCheckout.size();
 	}
-	
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
+	public String roomSelectList() {
+		String message = "[";
+		for (String room : roomCheckout)
+			message += room.substring(1).replaceAll(",", "") + ",";
+		message = message.substring(0, (message.length() - 1));
+		message += "]";
+		return message;
+	}
+
 	public void PrintLogs(String username) throws IOException {
-		PrintWriter print = new PrintWriter(new FileWriter("res//Logs//RoomService//Logs.txt",true));
-		print.println(new TimeSystem().getDate() + " [CheckOut]     Rooms : " + roomCheckout.toString() + " has Checked Out by @" + username);
+		PrintWriter print = new PrintWriter(new FileWriter("res//Logs//RoomService//logs.txt", true));
+		print.println(new TimeSystem().getDate() + " [CheckOut]      Rooms : " + roomSelectList()
+				+ " has Checked Out by @" + username);
 		print.close();
-		
+
 	}
 }

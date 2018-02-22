@@ -153,23 +153,16 @@ public class main_hotel_page {
 		JMenu mnRoom = new JMenu("Room");
 		menuBar.add(mnRoom);
 
-		JMenuItem mntmAddCustomer = new JMenuItem("Manage");
-		mntmAddCustomer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new customer_information_page().NewScreen();
-			}
-		});
-
 		rdbtnmntmMaintenance = new JRadioButtonMenuItem("Maintenance");
 		rdbtnmntmMaintenance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				roomcheck = room.setDefault(roomcheck);
 				setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+				lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 				OperationMode();
 			}
 		});
 		mnRoom.add(rdbtnmntmMaintenance);
-		mnRoom.add(mntmAddCustomer);
 
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
@@ -248,6 +241,7 @@ public class main_hotel_page {
 					OperationMode();
 					roomcheck = room.setDefault(roomcheck);
 					setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 				}
 				if (rdbtnmntmMaintenance.isSelected()) {
 					roomMaintenance.maintenanceCheckList(username);
@@ -258,6 +252,7 @@ public class main_hotel_page {
 					room.readFile(fileroom);
 					roomcheck = room.setDefault(roomcheck);
 					setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+					lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 				}
 
 			}
@@ -954,6 +949,7 @@ public class main_hotel_page {
 			public void actionPerformed(ActionEvent e) {
 				roomcheck = room.setDefault(roomcheck);
 				setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+				lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 				OperationMode();
 			}
 		});
@@ -969,6 +965,7 @@ public class main_hotel_page {
 			public void actionPerformed(ActionEvent e) {
 				roomcheck = room.setDefault(roomcheck);
 				setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+				lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 				OperationMode();
 			}
 		});

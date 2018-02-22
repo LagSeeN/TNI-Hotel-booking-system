@@ -120,12 +120,14 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 		BufferedReader tempReader = new BufferedReader(new FileReader("res//Database//temp//CheckIn.txt"));
 		String temp = "", RoomList = "[";
 		while ((temp = tempReader.readLine()) != null) {
-			RoomList = RoomList + temp + ",";
+			RoomList += temp.substring(1).replaceAll(",", "") + ",";
 		}
-		RoomList = RoomList + "]";
+		RoomList = RoomList.substring(0, RoomList.length() - 1);
+		RoomList += "]";
 		tempReader.close();
-		PrintWriter print = new PrintWriter(new FileWriter("res//Logs//RoomService//Logs.txt",true));
-		print.println(new TimeSystem().getDate() + " [CheckIn]       Rooms : " + RoomList + " has Checked in by @" + username + " for " + day + " Day(s)");
+		PrintWriter print = new PrintWriter(new FileWriter("res//Logs//RoomService//logs.txt", true));
+		print.println(new TimeSystem().getDate() + " [CheckIn]       Rooms : " + RoomList + " has Checked in by @"
+				+ username + " for " + day + " Day(s)");
 		print.close();
 	}
 
