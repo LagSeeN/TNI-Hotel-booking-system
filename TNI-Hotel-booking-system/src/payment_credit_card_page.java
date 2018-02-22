@@ -202,13 +202,11 @@ public class payment_credit_card_page {
 						try {
 							new CheckIn().PrintLogs(username, day, Name.getText());
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 						}
 						try {
 							new CheckIn().writeFile();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 						}
 						frmCreditCardPayment.setVisible(false);

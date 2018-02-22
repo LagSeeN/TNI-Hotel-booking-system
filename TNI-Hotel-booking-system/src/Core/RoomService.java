@@ -31,7 +31,6 @@ public class RoomService {
 			}
 			br.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(null, "File not found");
 		}
 	}

@@ -45,7 +45,6 @@ public class CheckOut extends RoomService implements Interface.RoomAction {
 				print.close();
 
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				JOptionPane.showMessageDialog(null, "Failed to Check Out.", "Message", JOptionPane.ERROR_MESSAGE);
 			}
 		}

@@ -46,7 +46,6 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 				print.print(message);
 				print.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				JOptionPane.showMessageDialog(null, "Set to Maintanance fail!", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 		}

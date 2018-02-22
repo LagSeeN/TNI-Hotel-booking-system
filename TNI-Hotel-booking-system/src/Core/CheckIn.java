@@ -48,7 +48,6 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 				print.close();
 
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				JOptionPane.showMessageDialog(null, "Checkin Error", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 		}

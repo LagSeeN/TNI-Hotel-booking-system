@@ -176,7 +176,6 @@ public class payment_cash_page {
 					JOptionPane.showMessageDialog(null, "Check In Complete.", "Message", JOptionPane.INFORMATION_MESSAGE);
 					new main_hotel_page(username).NewScreen();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
 			}
