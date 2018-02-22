@@ -15,3 +15,4 @@ Thu/Feb/2018 20:35:01 [CheckIn]       Rooms : [401,405,406] has Checked in by @A
 Thu/Feb/2018 20:35:46 [CheckIn]       Rooms : [501,502] has Checked in by @Akachan for 1 Day(s) Booking by #John Cena
 Thu/Feb/2018 23:03:59 [Maintenance]   Rooms : [101,106] has Set Maintenance/Send to Service by @Yossapon
 Thu/Feb/2018 23:05:55 [CheckIn]       Rooms : [404,506] has Checked in by @Yossapon for 7 Day(s) Booking by #Malee Aroina
+Fri/Feb/2018 06:45:12 [CheckIn]       Rooms : [306] has Checked in by @Yossapon for 6 Day(s) Booking by #Kirigaya Katsuto
