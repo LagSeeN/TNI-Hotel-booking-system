@@ -158,6 +158,7 @@ public class main_hotel_page {
 			public void actionPerformed(ActionEvent e) {
 				roomcheck = room.setDefault(roomcheck);
 				setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+				roomMaintenance.removeRoomAll();
 				lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 				OperationMode();
 			}
@@ -218,7 +219,6 @@ public class main_hotel_page {
 						try {
 							roomCheckIn.CheckinWrtter();
 						} catch (IOException e1) {
-							// TODO Auto-generated catch block
 							JOptionPane.showMessageDialog(null, e1.getMessage(), "File writer failed.",
 									JOptionPane.ERROR_MESSAGE);
 						}
@@ -949,7 +949,9 @@ public class main_hotel_page {
 			public void actionPerformed(ActionEvent e) {
 				roomcheck = room.setDefault(roomcheck);
 				setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
+				roomCheckIn.removeRoomAll();
 				lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+				lblTotalPrice_get.setText(String.valueOf(roomCheckIn.CalPrice(day)));
 				OperationMode();
 			}
 		});
@@ -965,7 +967,8 @@ public class main_hotel_page {
 			public void actionPerformed(ActionEvent e) {
 				roomcheck = room.setDefault(roomcheck);
 				setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
-				lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+				roomCheckOut.removeRoomAll();
+				lblTotalRoom_get.setText(String.valueOf(roomCheckOut.CalRoom()));
 				OperationMode();
 			}
 		});

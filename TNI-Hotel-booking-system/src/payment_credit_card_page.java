@@ -198,9 +198,9 @@ public class payment_credit_card_page {
 							"Please continue at EDC machine", JOptionPane.YES_NO_OPTION,
 							JOptionPane.INFORMATION_MESSAGE);
 					if (Success == 0) {
-						
+
 						try {
-							new CheckIn().PrintLogs(username,day);
+							new CheckIn().PrintLogs(username, day, Name.getText());
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);

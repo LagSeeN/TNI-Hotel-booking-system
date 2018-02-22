@@ -171,7 +171,7 @@ public class payment_cash_page {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					new CheckIn().writeFile();
-					new CheckIn().PrintLogs(username,day);
+					new CheckIn().PrintLogs(username, day, name);
 					frmCashHotel.setVisible(false);
 					new main_hotel_page(username).NewScreen();
 				} catch (IOException e) {
