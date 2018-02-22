@@ -42,7 +42,7 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 						message += super.getRoomID()[j] + ";" + super.getBedType()[j] + ";" + super.getPrice()[j] + ";"
 								+ super.getStatus()[j] + "\n";
 				}
-				PrintWriter print = new PrintWriter(new FileWriter("res//Database//Floor//" + filename + ".txt"));
+				PrintWriter print = new PrintWriter(new FileWriter("Database//Floor//" + filename + ".txt"));
 				print.print(message);
 				print.close();
 			} catch (IOException e) {
@@ -96,7 +96,7 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 	}
 
 	private void PrintLogs(String username) throws IOException {
-		PrintWriter print = new PrintWriter(new FileWriter("res//Logs//RoomService//logs.txt", true));
+		PrintWriter print = new PrintWriter(new FileWriter("Logs//RoomService//logs.txt", true));
 		print.println(new TimeSystem().getDate() + " [Maintenance]   Rooms : " + roomSelectList()
 				+ " has Set Maintenance/Send to Service by @" + username);
 		print.close();

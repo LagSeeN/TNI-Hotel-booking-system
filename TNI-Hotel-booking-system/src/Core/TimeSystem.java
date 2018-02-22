@@ -17,7 +17,7 @@ public class TimeSystem {
 		Font digital = null;
 		try {
 			// เรียก Font ขึ้นมา
-			digital = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("res//Font//digital-7.ttf"))
+			digital = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("Font//digital-7.ttf"))
 					.deriveFont(Font.PLAIN, 22);
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Font not foud", "ERROR", JOptionPane.ERROR_MESSAGE);

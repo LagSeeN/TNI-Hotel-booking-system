@@ -18,7 +18,7 @@ public class RoomService {
 
 	public void readFile(String floor) {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("res//Database//Floor//" + floor + ".txt"));
+			BufferedReader br = new BufferedReader(new FileReader("Database//Floor//" + floor + ".txt"));
 			String line; // Read Data from database
 			int i = 0;
 			while ((line = br.readLine()) != null) {
@@ -38,7 +38,7 @@ public class RoomService {
 
 	public void readBtnStatus(String floor) {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("res//Database//Floor//boolean_" + floor + ".txt"));
+			BufferedReader br = new BufferedReader(new FileReader("Database//Floor//boolean_" + floor + ".txt"));
 			int i = 0;
 			while (Click[i] = br.readLine() != null) {
 				i++;

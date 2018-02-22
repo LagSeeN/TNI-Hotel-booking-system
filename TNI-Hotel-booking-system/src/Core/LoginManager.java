@@ -49,7 +49,7 @@ public class LoginManager {
 
 	public void ReadData() {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("res//Database//user_database.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("Database//user_database.txt"));
 			String line; // Read Data from database
 			while ((line = br.readLine()) != null) {
 				String[] data = line.split(";");
@@ -89,7 +89,7 @@ public class LoginManager {
 
 	private void writelog(boolean check) {
 		try {
-			PrintWriter print = new PrintWriter(new FileWriter("res//Logs//Login//logs.txt", true));
+			PrintWriter print = new PrintWriter(new FileWriter("Logs//Login//logs.txt", true));
 			if (check)
 				print.println(new TimeSystem().getDate() + " username \"" + getUsername() + "\" Login Success");
 			else

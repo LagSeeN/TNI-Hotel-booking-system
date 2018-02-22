@@ -26,7 +26,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 
 	@Override
 	public void writeFile() throws IOException {
-		BufferedReader tempReader = new BufferedReader(new FileReader("res//Database//temp//CheckIn.txt"));
+		BufferedReader tempReader = new BufferedReader(new FileReader("Database//temp//CheckIn.txt"));
 		String temp = "";
 		while ((temp = tempReader.readLine()) != null) {
 			try {
@@ -43,7 +43,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 						message += super.getRoomID()[j] + ";" + super.getBedType()[j] + ";" + super.getPrice()[j] + ";"
 								+ super.getStatus()[j] + "\n";
 				}
-				PrintWriter print = new PrintWriter(new FileWriter("res//Database//Floor//" + filename + ".txt"));
+				PrintWriter print = new PrintWriter(new FileWriter("Database//Floor//" + filename + ".txt"));
 				print.print(message);
 				print.close();
 
@@ -93,7 +93,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 	}
 
 	public void CheckinWrtter() throws IOException {
-		PrintWriter temp = new PrintWriter(new FileWriter("res//Database//temp//CheckIn.txt"));
+		PrintWriter temp = new PrintWriter(new FileWriter("Database//temp//CheckIn.txt"));
 		for (int i = 0; i < roomCheckin.size(); i++) {
 			temp.println(roomCheckin.get(i));
 		}
@@ -117,7 +117,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 	}
 
 	public void PrintLogs(String username, int day, String name) throws IOException {
-		BufferedReader tempReader = new BufferedReader(new FileReader("res//Database//temp//CheckIn.txt"));
+		BufferedReader tempReader = new BufferedReader(new FileReader("Database//temp//CheckIn.txt"));
 		String temp = "", RoomList = "[";
 		while ((temp = tempReader.readLine()) != null) {
 			RoomList += temp.substring(1).replaceAll(",", "") + ",";
@@ -125,7 +125,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 		RoomList = RoomList.substring(0, RoomList.length() - 1);
 		RoomList += "]";
 		tempReader.close();
-		PrintWriter print = new PrintWriter(new FileWriter("res//Logs//RoomService//logs.txt", true));
+		PrintWriter print = new PrintWriter(new FileWriter("Logs//RoomService//logs.txt", true));
 		print.println(new TimeSystem().getDate() + " [CheckIn]       Rooms : " + RoomList + " has Checked in by @"
 				+ username + " for " + day + " Day(s)" + " Booking by " + name);
 		print.close();

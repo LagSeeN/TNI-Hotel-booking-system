@@ -73,7 +73,7 @@ public class about_page {
 		lblNewLabel_1.setBounds(10, 31, 414, 28);
 		panel.add(lblNewLabel_1);
 
-		JLabel lblBuild = new JLabel("Build 1.50");
+		JLabel lblBuild = new JLabel("Build 1.91");
 		lblBuild.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblBuild.setBounds(10, 57, 414, 28);
 		panel.add(lblBuild);
