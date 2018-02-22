@@ -209,11 +209,11 @@ public class main_hotel_page {
 		panel_roomlist_sum.add(lblTotalPrice_get);
 		lblTotalPrice_get.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		btnContinue = new JButton("Pay");
+		btnContinue = new JButton("[btnContinue]");
+		btnContinue.setIcon(null);
 		btnContinue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (rdbtnCheckIn.isSelected()) {
-					// btnContinue.setEnabled(false);
 					if (roomCheckIn.CheckinCheckList(day)) {
 						try {
 							roomCheckIn.CheckinWrtter();
@@ -1047,8 +1047,9 @@ public class main_hotel_page {
 
 	public void OperationMode() {
 		if (rdbtnCheckIn.isSelected()) {
-			btnContinue.setText("Pay");
+			btnContinue.setText(" Booking");
 			btnContinue.setBackground(Color.GREEN);
+			btnContinue.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/clipboard_icon.png")));
 			rdbtnCheckIn.setVisible(true);
 			rdbtnCheckOut.setVisible(true);
 			lblTotalPrice_get.setVisible(true);
@@ -1066,8 +1067,9 @@ public class main_hotel_page {
 			}
 		}
 		if (rdbtnCheckOut.isSelected()) {
-			btnContinue.setText("Done");
+			btnContinue.setText(" Done");
 			btnContinue.setBackground(Color.RED);
+			btnContinue.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/draw_icon.png")));
 			rdbtnCheckIn.setVisible(true);
 			rdbtnCheckOut.setVisible(true);
 			lblTotalPrice_get.setVisible(false);
@@ -1085,8 +1087,9 @@ public class main_hotel_page {
 			}
 		}
 		if (rdbtnmntmMaintenance.isSelected()) {
-			btnContinue.setText("Save");
+			btnContinue.setText(" Save");
 			btnContinue.setBackground(Color.BLACK);
+			btnContinue.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/save_icon.png")));
 			rdbtnCheckIn.setVisible(false);
 			rdbtnCheckOut.setVisible(false);
 			lblTotalPrice_get.setVisible(false);
