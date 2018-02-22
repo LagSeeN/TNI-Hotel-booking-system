@@ -173,6 +173,7 @@ public class payment_cash_page {
 					new CheckIn().writeFile();
 					new CheckIn().PrintLogs(username, day, name);
 					frmCashHotel.setVisible(false);
+					JOptionPane.showMessageDialog(null, "Check In Complete.", "Message", JOptionPane.INFORMATION_MESSAGE);
 					new main_hotel_page(username).NewScreen();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
