@@ -1,15 +1,15 @@
-Wed/Feb/2018 22:40:57 [CheckIn]       Rooms : [102,103] has Checked in by @Yossapon for 6 Day(s) Boooking by Yossapon Jatarote
-Thu/Feb/2018 10:43:47 [CheckIn]       Rooms : [304] has Checked in by @Akachan for 1 Day(s) Boooking by Yossapon Jatarote
-Thu/Feb/2018 10:49:51 [CheckIn]       Rooms : [101,104,105] has Checked in by @Thanapat for 1 Day(s) Boooking by Yossapon Jatarote
+Wed/Feb/2018 22:40:57 [CheckIn]       Rooms : [102,103] has Checked in by @Yossapon for 6 Day(s) Boooking by #Yossapon Jantarote
+Thu/Feb/2018 10:43:47 [CheckIn]       Rooms : [304] has Checked in by @Akachan for 1 Day(s) Boooking by #Yossapon Jantarote
+Thu/Feb/2018 10:49:51 [CheckIn]       Rooms : [101,104,105] has Checked in by @Thanapat for 1 Day(s) Boooking by #Yossapon Jantarote
 Thu/Feb/2018 10:50:11 [CheckOut]      Rooms : [104,105,102,101] has Checked Out by @Thanapat
-Thu/Feb/2018 10:54:22 [CheckIn]       Rooms : [101,104] has Checked in by @Akachan for 1 Day(s) Boooking by Yossapon Jatarote
+Thu/Feb/2018 10:54:22 [CheckIn]       Rooms : [101,104] has Checked in by @Akachan for 1 Day(s) Boooking by #Yossapon Jantarote
 Thu/Feb/2018 10:56:58 [Maintenance]   Rooms : [102,105] has Set Maintenance/Send to Service by @Akachan
 Thu/Feb/2018 10:57:36 [Maintenance]   Rooms : [102,106] has Set Maintenance/Send to Service by @Akachan
 Thu/Feb/2018 10:58:51 [CheckOut]      Rooms : [101,103] has Checked Out by @Akachan
 Thu/Feb/2018 10:59:20 [Maintenance]   Rooms : [101,105] has Set Maintenance/Send to Service by @Akachan
 Thu/Feb/2018 11:02:57 [CheckOut]      Rooms : [104] has Checked Out by @Akachan
 Thu/Feb/2018 18:09:58 [Maintenance]   Rooms : [102] has Set Maintenance/Send to Service by @Akachan
-Thu/Feb/2018 18:10:20 [CheckIn]       Rooms : [104,105] has Checked in by @Akachan for 7 Day(s) Boooking by Yossapon Jatarote
-Thu/Feb/2018 20:31:34 [CheckIn]       Rooms : [103] has Checked in by @Yossapon for 6 Day(s) Booking by Yossapon Jantarote
-Thu/Feb/2018 20:35:01 [CheckIn]       Rooms : [401,405,406] has Checked in by @Akachan for 4 Day(s) Booking by Danupol Intranurux
-Thu/Feb/2018 20:35:46 [CheckIn]       Rooms : [501,502] has Checked in by @Akachan for 1 Day(s) Booking by John Cena
+Thu/Feb/2018 18:10:20 [CheckIn]       Rooms : [104,105] has Checked in by @Akachan for 7 Day(s) Boooking by #Yossapon Jantarote
+Thu/Feb/2018 20:31:34 [CheckIn]       Rooms : [103] has Checked in by @Yossapon for 6 Day(s) Booking by #Yossapon Jantarote
+Thu/Feb/2018 20:35:01 [CheckIn]       Rooms : [401,405,406] has Checked in by @Akachan for 4 Day(s) Booking by #Danupol Intranurux
+Thu/Feb/2018 20:35:46 [CheckIn]       Rooms : [501,502] has Checked in by @Akachan for 1 Day(s) Booking by #John Cena

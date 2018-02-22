@@ -127,7 +127,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 		tempReader.close();
 		PrintWriter print = new PrintWriter(new FileWriter("Logs//RoomService//logs.txt", true));
 		print.println(new TimeSystem().getDate() + " [CheckIn]       Rooms : " + RoomList + " has Checked in by @"
-				+ username + " for " + day + " Day(s)" + " Booking by " + name);
+				+ username + " for " + day + " Day(s)" + " Booking by #" + name);
 		print.close();
 	}
 
