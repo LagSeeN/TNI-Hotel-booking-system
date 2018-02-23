@@ -145,6 +145,7 @@ public class main_hotel_page {
 		JMenuItem mntmLogout = new JMenuItem("Logout");
 		mntmLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frmHotelBookingSystem.setVisible(false);
 				new login_page().NewScreen();
 			}
 		});
