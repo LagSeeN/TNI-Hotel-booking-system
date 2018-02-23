@@ -45,6 +45,7 @@ public class about_page {
 	 */
 	private void initialize() {
 		about = new JFrame();
+		about.setTitle("About | TNI Hotel Booking System 2.00");
 		about.setAlwaysOnTop(true);
 		about.setIconImage(Toolkit.getDefaultToolkit().getImage(about_page.class.getResource("/img/icon1.png")));
 		about.setResizable(false);
@@ -73,7 +74,7 @@ public class about_page {
 		lblNewLabel_1.setBounds(10, 31, 414, 28);
 		panel.add(lblNewLabel_1);
 
-		JLabel lblBuild = new JLabel("Build 1.91");
+		JLabel lblBuild = new JLabel("Build 2.00");
 		lblBuild.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblBuild.setBounds(10, 57, 414, 28);
 		panel.add(lblBuild);
