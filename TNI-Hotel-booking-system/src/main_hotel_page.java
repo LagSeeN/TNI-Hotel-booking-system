@@ -140,9 +140,11 @@ public class main_hotel_page {
 		frmHotelBookingSystem.setJMenuBar(menuBar);
 
 		JMenu mnMenu = new JMenu("Menu");
+		mnMenu.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/menu_icon.png")));
 		menuBar.add(mnMenu);
 
 		JMenuItem mntmLogout = new JMenuItem("Logout");
+		mntmLogout.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/lock_icon.png")));
 		mntmLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmHotelBookingSystem.setVisible(false);
@@ -152,9 +154,11 @@ public class main_hotel_page {
 		mnMenu.add(mntmLogout);
 
 		JMenu mnRoom = new JMenu("Room");
+		mnRoom.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/room_icon.png")));
 		menuBar.add(mnRoom);
 
 		rdbtnmntmMaintenance = new JRadioButtonMenuItem("Maintenance");
+		rdbtnmntmMaintenance.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/maintenance_icon.png")));
 		rdbtnmntmMaintenance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				roomcheck = room.setDefault(roomcheck);
@@ -167,9 +171,11 @@ public class main_hotel_page {
 		mnRoom.add(rdbtnmntmMaintenance);
 
 		JMenu mnHelp = new JMenu("Help");
+		mnHelp.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/help_icon.png")));
 		menuBar.add(mnHelp);
 
 		JMenuItem mntmAbout = new JMenuItem("About");
+		mntmAbout.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/info_icon.png")));
 		mntmAbout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new about_page().newScreen();

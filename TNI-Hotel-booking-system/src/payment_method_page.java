@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -95,11 +96,13 @@ public class payment_method_page {
 			}
 		});
 		btnCash.setBounds(10, 11, 169, 27);
+		btnCash.setIcon(new ImageIcon(payment_method_page.class.getResource("/img/cash_icon.png")));
 		panel_1.add(btnCash);
 		btnCash.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		JButton btnCreditCard = new JButton("Credit Card");
 		btnCreditCard.setBounds(195, 11, 169, 27);
+		btnCreditCard.setIcon(new ImageIcon(payment_method_page.class.getResource("/img/creditcard_icon.png")));
 		panel_1.add(btnCreditCard);
 		btnCreditCard.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
@@ -112,6 +115,7 @@ public class payment_method_page {
 			}
 		});
 		btnCancel.setBounds(10, 45, 354, 27);
+		btnCancel.setIcon(new ImageIcon(payment_method_page.class.getResource("/img/cancel_icon.png")));
 		panel_1.add(btnCancel);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnCreditCard.addActionListener(new ActionListener() {

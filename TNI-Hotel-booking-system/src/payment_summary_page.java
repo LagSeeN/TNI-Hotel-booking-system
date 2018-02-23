@@ -12,6 +12,7 @@ import Core.Summary;
 
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -168,6 +169,7 @@ public class payment_summary_page {
 
 		JButton btnUseCoupon = new JButton("Add");
 		btnUseCoupon.setBounds(358, 98, 143, 27);
+		btnUseCoupon.setIcon(new ImageIcon(payment_summary_page.class.getResource("/img/coupon_add_icon.png")));
 		summaryPane.add(btnUseCoupon);
 		btnUseCoupon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -178,6 +180,7 @@ public class payment_summary_page {
 							lblCouponStatus.setText(sum.getDiscounttoString());
 							CouponUsed = false;
 							btnUseCoupon.setText("Remove");
+							btnUseCoupon.setIcon(new ImageIcon(payment_summary_page.class.getResource("/img/coupon_remove_icon.png")));
 						}
 					} catch (IOException e1) {
 						JOptionPane.showMessageDialog(null, "File error");
@@ -188,6 +191,7 @@ public class payment_summary_page {
 					sum.setPrice(price);
 					lblTotal.setText(sum.getPricetoString());
 					btnUseCoupon.setText("Add");
+					btnUseCoupon.setIcon(new ImageIcon(payment_summary_page.class.getResource("/img/coupon_add_icon.png")));
 					lblCouponStatus.setText("(not use)");
 					CouponUsed = true;
 				}
@@ -197,6 +201,7 @@ public class payment_summary_page {
 
 		JButton btnNext = new JButton("Next");
 		btnNext.setBounds(358, 172, 143, 27);
+		btnNext.setIcon(new ImageIcon(payment_summary_page.class.getResource("/img/checkmark_icon.png")));
 		summaryPane.add(btnNext);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -209,9 +214,11 @@ public class payment_summary_page {
 			}
 		});
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
 
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(52, 172, 143, 27);
+		btnCancel.setIcon(new ImageIcon(payment_summary_page.class.getResource("/img/cancel_icon.png")));
 		summaryPane.add(btnCancel);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -220,6 +227,7 @@ public class payment_summary_page {
 			}
 		});
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
 
 		JLabel lblCustomerName = new JLabel("Customer Name : ");
 		lblCustomerName.setBounds(10, 20, 185, 27);

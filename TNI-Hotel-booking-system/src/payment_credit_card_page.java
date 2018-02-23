@@ -217,6 +217,7 @@ public class payment_credit_card_page {
 			}
 		});
 		btnPay.setBounds(259, 90, 130, 27);
+		btnPay.setIcon(new ImageIcon(payment_credit_card_page.class.getResource("/img/pay_creditcard_icon.png")));
 		btnPay.setEnabled(false);
 		card_input.add(btnPay);
 		btnPay.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -230,11 +231,12 @@ public class payment_credit_card_page {
 			}
 		});
 		btnCancel.setBounds(116, 90, 130, 27);
+		btnCancel.setIcon(new ImageIcon(payment_credit_card_page.class.getResource("/img/cancel_icon.png")));
 		card_input.add(btnCancel);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		lblCardicon = new JLabel("");
-		lblCardicon.setBounds(399, 11, 50, 28);
+		lblCardicon.setBounds(399, 13, 50, 28);
 		card_input.add(lblCardicon);
 		lblCardicon.setVisible(false);
 		lblCardicon.setFont(new Font("Tahoma", Font.PLAIN, 22));

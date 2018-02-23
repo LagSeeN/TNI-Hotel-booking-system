@@ -12,6 +12,7 @@ import javax.swing.UIManager;
 import Core.Cash;
 import Core.CheckIn;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import java.awt.Window.Type;
@@ -181,6 +182,7 @@ public class payment_cash_page {
 			}
 		});
 		btnAccept.setBounds(206, 116, 151, 27);
+		btnAccept.setIcon(new ImageIcon(payment_cash_page.class.getResource("/img/pay_cash_icon.png")));
 		cashPanel.add(btnAccept);
 		btnAccept.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
@@ -192,6 +194,7 @@ public class payment_cash_page {
 			}
 		});
 		btnCancel.setBounds(45, 116, 151, 27);
+		btnCancel.setIcon(new ImageIcon(payment_cash_page.class.getResource("/img/cancel_icon.png")));
 		cashPanel.add(btnCancel);
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 

@@ -11,6 +11,7 @@ import Core.TimeSystem;
 
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -151,7 +152,7 @@ public class login_page {
 				}
 			}
 		});
-		passwordField.setBounds(175, 55, 155, 20);
+		passwordField.setBounds(175, 55, 155, 23);
 		loginpane.add(passwordField);
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
@@ -161,7 +162,8 @@ public class login_page {
 				Login();
 			}
 		});
-		btnLogin.setBounds(125, 95, 89, 24);
+		btnLogin.setBounds(119, 95, 95, 24);
+		btnLogin.setIcon(new ImageIcon(login_page.class.getResource("/img/lock_icon.png")));
 		loginpane.add(btnLogin);
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
@@ -171,7 +173,8 @@ public class login_page {
 				System.exit(JFrame.EXIT_ON_CLOSE);
 			}
 		});
-		btnExit.setBounds(221, 95, 89, 24);
+		btnExit.setBounds(221, 95, 95, 24);
+		btnExit.setIcon(new ImageIcon(login_page.class.getResource("/img/cancel_icon.png")));
 		loginpane.add(btnExit);
 		btnExit.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
