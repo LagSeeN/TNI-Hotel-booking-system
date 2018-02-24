@@ -53,7 +53,7 @@ public class CheckOut extends RoomService implements Interface.RoomAction {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
-		JOptionPane.showMessageDialog(null, "Check Out Complete.", "Check Out | Hotel Booking System",
+		JOptionPane.showMessageDialog(null, "Check Out completed.", "Check Out | Hotel Booking System",
 				JOptionPane.INFORMATION_MESSAGE);
 
 	}
