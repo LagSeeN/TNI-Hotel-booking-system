@@ -116,7 +116,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 
 	}
 
-	public void PrintLogs(String username, int day, String name) throws IOException {
+	public void PrintLogs(String username, int day, String name, String pay) throws IOException {
 		BufferedReader tempReader = new BufferedReader(new FileReader("Database//temp//CheckIn.txt"));
 		String temp = "", RoomList = "[";
 		while ((temp = tempReader.readLine()) != null) {
@@ -127,7 +127,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 		tempReader.close();
 		PrintWriter print = new PrintWriter(new FileWriter("Logs//RoomService//logs.txt", true));
 		print.println(new TimeSystem().getDate() + " [CheckIn]       Rooms : " + RoomList + " has Checked in by @"
-				+ username + " for " + day + " Day(s)" + " Booking by #" + name);
+				+ username + " for " + day + " Day(s)" + " Booking by #" + name + " $Pay by " + pay);
 		print.close();
 	}
 

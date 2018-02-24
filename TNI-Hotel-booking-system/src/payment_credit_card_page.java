@@ -200,7 +200,8 @@ public class payment_credit_card_page {
 					if (Success == 0) {
 
 						try {
-							new CheckIn().PrintLogs(username, day, Name.getText());
+							new CheckIn().PrintLogs(username, day, Name.getText(),
+									"Credit Card " + CardNumber.getText().substring(12));
 						} catch (IOException e) {
 							JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 						}
@@ -210,7 +211,8 @@ public class payment_credit_card_page {
 							JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 						}
 						frmCreditCardPayment.setVisible(false);
-						JOptionPane.showMessageDialog(null, "Check In completed.", "Check In | Hotel Booking System", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Check In completed.", "Check In | Hotel Booking System",
+								JOptionPane.INFORMATION_MESSAGE);
 						new main_hotel_page(username).NewScreen();
 					}
 				}

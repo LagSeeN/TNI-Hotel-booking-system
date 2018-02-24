@@ -45,7 +45,7 @@ public class about_page {
 	 */
 	private void initialize() {
 		about = new JFrame();
-		about.setTitle("About | TNI Hotel Booking System 2.07");
+		about.setTitle("About | TNI Hotel Booking System 2.21");
 		about.setAlwaysOnTop(true);
 		about.setIconImage(Toolkit.getDefaultToolkit().getImage(about_page.class.getResource("/img/icon1.png")));
 		about.setResizable(false);

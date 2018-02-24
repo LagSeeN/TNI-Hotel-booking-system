@@ -1,21 +1,38 @@
-(Wed) /21/Feb/2018 22:40:57 [CheckIn]       Rooms : [102,103] has Checked in by @Yossapon for 6 Day(s) Booking by #Yossapon Jantarote
-(Thu) /22/Feb/2018 10:43:47 [CheckIn]       Rooms : [304] has Checked in by @Akachan for 1 Day(s) Booking by #Yossapon Jantarote
-(Thu) /22/Feb/2018 10:49:51 [CheckIn]       Rooms : [101,104,105] has Checked in by @Thanapat for 1 Day(s) Boooking by #Yossapon Jantarote
-(Thu) /22/Feb/2018 10:50:11 [CheckOut]      Rooms : [104,105,102,101] has Checked Out by @Thanapat
-(Thu) /22/Feb/2018 10:54:22 [CheckIn]       Rooms : [101,104] has Checked in by @Akachan for 1 Day(s) Booking by #Yossapon Jantarote
-(Thu) /22/Feb/2018 10:56:58 [Maintenance]   Rooms : [102,105] has Set Maintenance/Send to Service by @Akachan
-(Thu) /22/Feb/2018 10:57:36 [Maintenance]   Rooms : [102,106] has Set Maintenance/Send to Service by @Akachan
-(Thu) /22/Feb/2018 10:58:51 [CheckOut]      Rooms : [101,103] has Checked Out by @Akachan
-(Thu) /22/Feb/2018 10:59:20 [Maintenance]   Rooms : [101,105] has Set Maintenance/Send to Service by @Akachan
-(Thu) /22/Feb/2018 11:02:57 [CheckOut]      Rooms : [104] has Checked Out by @Akachan
-(Thu) /22/Feb/2018 18:09:58 [Maintenance]   Rooms : [102] has Set Maintenance/Send to Service by @Akachan
-(Thu) /22/Feb/2018 18:10:20 [CheckIn]       Rooms : [104,105] has Checked in by @Akachan for 7 Day(s) Booking by #Yossapon Jantarote
-(Thu) /22/Feb/2018 20:31:34 [CheckIn]       Rooms : [103] has Checked in by @Yossapon for 6 Day(s) Booking by #Yossapon Jantarote
-(Thu) /22/Feb/2018 20:35:01 [CheckIn]       Rooms : [401,405,406] has Checked in by @Akachan for 4 Day(s) Booking by #Danupol Intranurux
-(Thu) /22/Feb/2018 20:35:46 [CheckIn]       Rooms : [501,502] has Checked in by @Akachan for 1 Day(s) Booking by #John Cena
-(Thu) /22/Feb/2018 23:03:59 [Maintenance]   Rooms : [101,106] has Set Maintenance/Send to Service by @Yossapon
-(Thu) /22/Feb/2018 23:05:55 [CheckIn]       Rooms : [404,506] has Checked in by @Yossapon for 7 Day(s) Booking by #Malee Aroina
-(Fri) /23/Feb/2018 06:45:12 [CheckIn]       Rooms : [306] has Checked in by @Yossapon for 6 Day(s) Booking by #Kirigaya Katsuto
-(Fri) /23/Feb/2018 18:25:48 [CheckIn]       Rooms : [302] has Checked in by @Akachan for 1 Day(s) Booking by #masaru kung
-(Fri) /23/Feb/2018 21:38:26 [CheckOut]      Rooms : [103] has Checked Out by @Yossapon
-(Sat) /24/Feb/2018 10:09:41 [CheckOut]      Rooms : [105] has Checked Out by @Yossapon
+(Wed) 21/Feb/2018 22:40:57 [CheckIn]       Rooms : [102,103] has Checked in by @Yossapon for 6 Day(s) Booking by #Yossapon Jantarote $Pay by Credit Card 4284
+(Thu) 22/Feb/2018 10:43:47 [CheckIn]       Rooms : [304] has Checked in by @Akachan for 1 Day(s) Booking by #Yossapon Jantarote $Pay by Credit Card 4284
+(Thu) 22/Feb/2018 10:49:51 [CheckIn]       Rooms : [101,104,105] has Checked in by @Thanapat for 1 Day(s) Boooking by #Yossapon Jantarote $Pay by Cash 4500 Baht
+(Thu) 22/Feb/2018 10:50:11 [CheckOut]      Rooms : [104,105,102,101] has Checked Out by @Thanapat
+(Thu) 22/Feb/2018 10:54:22 [CheckIn]       Rooms : [101,104] has Checked in by @Akachan for 1 Day(s) Booking by #Yossapon Jantarote $Pay by Credit Card 4284
+(Thu) 22/Feb/2018 10:56:58 [Maintenance]   Rooms : [102,105] has Set Maintenance/Send to Service by @Akachan
+(Thu) 22/Feb/2018 10:57:36 [Maintenance]   Rooms : [102,106] has Set Maintenance/Send to Service by @Akachan
+(Thu) 22/Feb/2018 10:58:51 [CheckOut]      Rooms : [101,103] has Checked Out by @Akachan
+(Thu) 22/Feb/2018 10:59:20 [Maintenance]   Rooms : [101,105] has Set Maintenance/Send to Service by @Akachan
+(Thu) 22/Feb/2018 11:02:57 [CheckOut]      Rooms : [104] has Checked Out by @Akachan
+(Thu) 22/Feb/2018 18:09:58 [Maintenance]   Rooms : [102] has Set Maintenance/Send to Service by @Akachan
+(Thu) 22/Feb/2018 18:10:20 [CheckIn]       Rooms : [104,105] has Checked in by @Akachan for 7 Day(s) Booking by #Yossapon Jantarote $Pay by Credit Card 4284
+(Thu) 22/Feb/2018 20:31:34 [CheckIn]       Rooms : [103] has Checked in by @Yossapon for 6 Day(s) Booking by #Yossapon Jantarote $Pay by Cash 5000 Baht
+(Thu) 22/Feb/2018 20:35:01 [CheckIn]       Rooms : [401,405,406] has Checked in by @Akachan for 4 Day(s) Booking by #Danupol Intranurux $Pay by Credit Card 9464
+(Thu) 22/Feb/2018 20:35:46 [CheckIn]       Rooms : [501,502] has Checked in by @Akachan for 1 Day(s) Booking by #John Cena $Pay by Cash 8000 Baht
+(Thu) 22/Feb/2018 23:03:59 [Maintenance]   Rooms : [101,106] has Set Maintenance/Send to Service by @Yossapon
+(Thu) 22/Feb/2018 23:05:55 [CheckIn]       Rooms : [404,506] has Checked in by @Yossapon for 7 Day(s) Booking by #Malee Aroina $Pay by Credit Card 0086
+(Fri) 23/Feb/2018 06:45:12 [CheckIn]       Rooms : [306] has Checked in by @Yossapon for 6 Day(s) Booking by #Kirigaya Katsuto $Pay by Free by Coupon
+(Fri) 23/Feb/2018 18:25:48 [CheckIn]       Rooms : [302] has Checked in by @Akachan for 1 Day(s) Booking by #masaru kung $Pay by Free by Coupon
+(Fri) 23/Feb/2018 21:38:26 [CheckOut]      Rooms : [103] has Checked Out by @Yossapon
+(Sat) 24/Feb/2018 10:09:41 [CheckOut]      Rooms : [105] has Checked Out by @Yossapon
+(Sat) 24/Feb/2018 22:27:59 [Maintenance]   Rooms : [102,103,106,105] has Set Maintenance/Send to Service by @Akachan
+(Sat) 24/Feb/2018 22:29:36 [CheckIn]       Rooms : [101] has Checked in by @Akachan for 5 Day(s) Booking by #masaru kung
+(Sat) 24/Feb/2018 22:38:17 [CheckIn]       Rooms : [301] has Checked in by @Akachan for 5 Day(s) Booking by #Akachan Master $Pay by Free by Coupon
+(Sat) 24/Feb/2018 22:40:52 [CheckIn]       Rooms : [403] has Checked in by @Akachan for 1 Day(s) Booking by #Akachan Master $Pay by Cash 2000 Baht
+(Sat) 24/Feb/2018 22:41:58 [CheckIn]       Rooms : [203] has Checked in by @Akachan for 3 Day(s) Booking by #Akachan Master $Pay by Credit Card 4882
+(Sat) 24/Feb/2018 22:47:49 [Maintenance]   Rooms : [103,106,105] has Set Maintenance/Send to Service by @Akachan
+(Sat) 24/Feb/2018 22:53:31 [CheckOut]      Rooms : [501,502,506] has Checked Out by @Danupol
+(Sat) 24/Feb/2018 22:53:52 [CheckOut]      Rooms : [101,104] has Checked Out by @Danupol
+(Sat) 24/Feb/2018 22:54:08 [CheckOut]      Rooms : [203] has Checked Out by @Danupol
+(Sat) 24/Feb/2018 22:55:01 [CheckIn]       Rooms : [501,502,503,506,505,504] has Checked in by @Danupol for 7 Day(s) Booking by #Yossapon Jantarote $Pay by Cash 200000 Baht
+(Sat) 24/Feb/2018 22:57:56 [CheckOut]      Rooms : [205] has Checked Out by @Danupol
+(Sat) 24/Feb/2018 22:59:42 [CheckOut]      Rooms : [301] has Checked Out by @Akachan
+(Sat) 24/Feb/2018 23:01:05 [CheckIn]       Rooms : [101,102,103] has Checked in by @Akachan for 1 Day(s) Booking by #Danupol Intranurux $Pay by Cash 2100 Baht
+(Sat) 24/Feb/2018 23:01:11 [CheckOut]      Rooms : [101] has Checked Out by @Akachan
+(Sat) 24/Feb/2018 23:02:09 [CheckOut]      Rooms : [103] has Checked Out by @Akachan
+(Sat) 24/Feb/2018 23:02:58 [CheckOut]      Rooms : [102] has Checked Out by @Akachan
+(Sat) 24/Feb/2018 23:03:09 [CheckOut]      Rooms : [302] has Checked Out by @Akachan

@@ -46,7 +46,7 @@ public class main_hotel_page {
 	// USERNAME Display.
 	private String username;
 	// Format
-	private DecimalFormat frm = new DecimalFormat("#,##0.00");
+	private DecimalFormat frm = new DecimalFormat("#,##0");
 	// ***Room Service***
 	private JLabel[] lblroomid_get_room = new JLabel[RoomSize];
 	private JLabel[] lblbedtype_get_type = new JLabel[RoomSize];
@@ -234,7 +234,7 @@ public class main_hotel_page {
 					} else {
 						roomcheck = room.setDefault(roomcheck);
 						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
-						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(0)));
+						lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 						lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
 					}
 					OperationMode();
@@ -243,23 +243,29 @@ public class main_hotel_page {
 					roomCheckOut.setUsername(username);
 					roomCheckOut.writeFile();
 					ReadRoom(fileroom);
+					roomMaintenance.removeRoomAll();
 					roomCheckOut.removeRoomAll();
+					roomCheckIn.removeRoomAll();
 					rdbtnCheckIn.setSelected(true);
-					OperationMode();
 					roomcheck = room.setDefault(roomcheck);
 					setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 					lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+					lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
+					OperationMode();
 				}
 				if (rdbtnmntmMaintenance.isSelected()) {
 					roomMaintenance.maintenanceCheckList(username);
 					rdbtnCheckIn.setSelected(true);
 					roomMaintenance.removeRoomAll();
-					OperationMode();
+					roomCheckIn.removeRoomAll();
+					roomCheckOut.removeRoomAll();
 					ReadRoom(fileroom);
 					room.readFile(fileroom);
 					roomcheck = room.setDefault(roomcheck);
 					setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 					lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+					lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
+					OperationMode();
 				}
 
 			}
@@ -414,6 +420,7 @@ public class main_hotel_page {
 						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][0] = false;
 						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 					}
+				OperationMode();
 			}
 		});
 
@@ -523,6 +530,7 @@ public class main_hotel_page {
 						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][1] = false;
 						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 					}
+				OperationMode();
 			}
 		});
 
@@ -615,6 +623,7 @@ public class main_hotel_page {
 						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][2] = false;
 						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 					}
+				OperationMode();
 			}
 		});
 
@@ -707,6 +716,7 @@ public class main_hotel_page {
 						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][3] = false;
 						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 					}
+				OperationMode();
 			}
 		});
 
@@ -799,6 +809,7 @@ public class main_hotel_page {
 						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][4] = false;
 						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 					}
+				OperationMode();
 			}
 		});
 
@@ -891,6 +902,7 @@ public class main_hotel_page {
 						roomcheck[Integer.parseInt(fileroom.substring(1)) - 1][5] = false;
 						setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 					}
+				OperationMode();
 			}
 		});
 
@@ -958,7 +970,7 @@ public class main_hotel_page {
 				setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 				roomCheckIn.removeRoomAll();
 				lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
-				lblTotalPrice_get.setText(String.valueOf(roomCheckIn.CalPrice(day)));
+				lblTotalPrice_get.setText(frm.format(roomCheckIn.CalPrice(day)));
 				OperationMode();
 			}
 		});
@@ -1097,9 +1109,11 @@ public class main_hotel_page {
 			}
 		}
 		if (rdbtnmntmMaintenance.isSelected()) {
-			btnContinue.setText(" Save");
+			btnContinue.setText((roomMaintenance.CalRoom() == 0) ? " Cancel" : " Save");
 			btnContinue.setBackground(Color.BLACK);
-			btnContinue.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/save_icon.png")));
+			btnContinue.setIcon((roomMaintenance.CalRoom() == 0)
+					? new ImageIcon(main_hotel_page.class.getResource("/img/cancel_icon.png"))
+					: new ImageIcon(main_hotel_page.class.getResource("/img/save_icon.png")));
 			rdbtnCheckIn.setVisible(false);
 			rdbtnCheckOut.setVisible(false);
 			lblTotalPrice_get.setVisible(false);

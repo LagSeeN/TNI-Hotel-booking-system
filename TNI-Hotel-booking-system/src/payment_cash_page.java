@@ -172,9 +172,11 @@ public class payment_cash_page {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					new CheckIn().writeFile();
-					new CheckIn().PrintLogs(username, day, name);
+					new CheckIn().PrintLogs(username, day, name,
+							((total == 0) ? "Free by Coupon" : "Cash " + accept_money.getText() + " Baht"));
 					frmCashHotel.setVisible(false);
-					JOptionPane.showMessageDialog(null, "Check In completed.", "Check In | Hotel Booking System", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Check In completed.", "Check In | Hotel Booking System",
+							JOptionPane.INFORMATION_MESSAGE);
 					new main_hotel_page(username).NewScreen();
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);

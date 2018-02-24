@@ -66,9 +66,6 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 				}
 				writeFile();
 			}
-		} else {
-			JOptionPane.showMessageDialog(null, "You didn't select any room, It's have no any effect.", "Message",
-					JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
