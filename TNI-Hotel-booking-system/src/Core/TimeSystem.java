@@ -16,21 +16,21 @@ public class TimeSystem {
 	public Font getFont() {
 		Font digital = null;
 		try {
-			// àÃÕÂ¡ Font ¢Öé¹ÁÒ
+			// ร ร�ร•ร�ยก Font ยขร–รฉยนร�ร’
 			digital = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("Font//digital-7.ttf"))
 					.deriveFont(Font.PLAIN, 22);
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Font not foud", "ERROR", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Font not foud.", "Error", JOptionPane.ERROR_MESSAGE);
 		} catch (FontFormatException e) {
-			JOptionPane.showMessageDialog(null, "Font Format ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Font Format Error.", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		return digital;
 	}
 
 	public String getDate() {
-		// ÃÙ»áººàÇÅÒ
-		DateFormat dateFormat = new SimpleDateFormat("EEE/dd/MMM/YYYY HH:mm:ss", Locale.ENGLISH);
-		// »ÃÐ¡ÒÈ obj àÇÅÒ
+		// ร�ร�ยปรกยบยบร ร�ร…ร’
+		DateFormat dateFormat = new SimpleDateFormat("(EEE) dd/MMM/YYYY HH:mm:ss", Locale.ENGLISH);
+		// ยปร�ร�ยกร’ร� obj ร ร�ร…ร’
 		Date date = new Date();
 		return dateFormat.format(date).toString();
 	}

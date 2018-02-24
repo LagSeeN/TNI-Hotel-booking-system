@@ -29,7 +29,7 @@ public class LoginManager {
 	public boolean LoginCheck() {
 		ReadData();
 		if (username.isEmpty() && password.isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Please enter username or password", "Message",
+			JOptionPane.showMessageDialog(null, "Please enter username and password.", "Warning",
 					JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
@@ -41,7 +41,7 @@ public class LoginManager {
 				return true;
 			}
 		}
-		JOptionPane.showMessageDialog(null, "username or password is incorrect.", "Message",
+		JOptionPane.showMessageDialog(null, "username or password is incorrect.", "Warning",
 				JOptionPane.WARNING_MESSAGE);
 		writelog(false);
 		return false;

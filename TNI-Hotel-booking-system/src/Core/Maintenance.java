@@ -46,10 +46,10 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 				print.print(message);
 				print.close();
 			} catch (IOException e) {
-				JOptionPane.showMessageDialog(null, "Set to Maintanance fail!", "ERROR", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Maintanance setting failed.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Maintanance setting complete", "Maintanance",
+		JOptionPane.showMessageDialog(null, "Maintanance setting complete.", "Maintanance",
 				JOptionPane.INFORMATION_MESSAGE);
 
 	}
@@ -64,13 +64,13 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 				try {
 					PrintLogs(username);
 				} catch (IOException e) {
-					JOptionPane.showMessageDialog(null, e.getMessage(), "Message", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 				}
 				writeFile();
 			}
 		} else {
 			JOptionPane.showMessageDialog(null, "You didn't select any room, It's have no any effect.", "Message",
-					JOptionPane.WARNING_MESSAGE);
+					JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 

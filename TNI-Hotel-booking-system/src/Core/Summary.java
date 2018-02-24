@@ -48,7 +48,7 @@ public class Summary {
 		if (coupon.isEmpty())
 			return false;
 		if (CouponSys.CouponReader().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Coupon invalid", "Coupon invalid", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Coupon invalid", "Warning", JOptionPane.WARNING_MESSAGE);
 			return false;
 		} else {
 			String coupon_corret = CouponSys.CouponReader();

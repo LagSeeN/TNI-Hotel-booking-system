@@ -48,7 +48,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 				print.close();
 
 			} catch (IOException e) {
-				JOptionPane.showMessageDialog(null, "Checkin Error", "ERROR", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Failed to Check In.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		tempReader.close();
@@ -86,7 +86,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 				removeRoomAll();
 			}
 		} else {
-			JOptionPane.showMessageDialog(null, "You didn't select any room.", "Message", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "You didn't select any room.", "Warning", JOptionPane.WARNING_MESSAGE);
 		}
 		return false;
 	}

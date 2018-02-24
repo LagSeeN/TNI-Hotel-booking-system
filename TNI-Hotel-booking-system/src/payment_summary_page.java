@@ -183,7 +183,7 @@ public class payment_summary_page {
 							btnUseCoupon.setIcon(new ImageIcon(payment_summary_page.class.getResource("/img/coupon_remove_icon.png")));
 						}
 					} catch (IOException e1) {
-						JOptionPane.showMessageDialog(null, "File error");
+						JOptionPane.showMessageDialog(null, "Coupon System Failed.", "Error", JOptionPane.ERROR_MESSAGE);
 					} catch (NullPointerException e1) {
 						return;
 					}

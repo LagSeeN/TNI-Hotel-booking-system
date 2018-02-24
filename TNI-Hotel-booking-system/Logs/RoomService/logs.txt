@@ -18,3 +18,4 @@ Thu/22/Feb/2018 23:05:55 [CheckIn]       Rooms : [404,506] has Checked in by @Yo
 Fri/23/Feb/2018 06:45:12 [CheckIn]       Rooms : [306] has Checked in by @Yossapon for 6 Day(s) Booking by #Kirigaya Katsuto
 Fri/23/Feb/2018 18:25:48 [CheckIn]       Rooms : [302] has Checked in by @Akachan for 1 Day(s) Booking by #masaru kung
 Fri/23/Feb/2018 21:38:26 [CheckOut]      Rooms : [103] has Checked Out by @Yossapon
+Sat/24/Feb/2018 10:09:41 [CheckOut]      Rooms : [105] has Checked Out by @Yossapon

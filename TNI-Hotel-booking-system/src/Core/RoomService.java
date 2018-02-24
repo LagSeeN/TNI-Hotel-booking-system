@@ -31,7 +31,7 @@ public class RoomService {
 			}
 			br.close();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "File not found");
+			JOptionPane.showMessageDialog(null, "Database not found", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
@@ -44,7 +44,7 @@ public class RoomService {
 			}
 			br.close();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "File not found");
+			JOptionPane.showMessageDialog(null, "ButtonStatus reader failed. (File not found)", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 

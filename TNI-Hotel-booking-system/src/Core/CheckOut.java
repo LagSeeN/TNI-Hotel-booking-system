@@ -45,15 +45,15 @@ public class CheckOut extends RoomService implements Interface.RoomAction {
 				print.close();
 
 			} catch (IOException e) {
-				JOptionPane.showMessageDialog(null, "Failed to Check Out.", "Message", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Failed to Check Out.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		try {
 			PrintLogs(this.username);
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, e.getMessage(), "Message", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
-		JOptionPane.showMessageDialog(null, "Check Out complete", "Message", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Check Out Complete.", "Check Out | Hotel Booking System", JOptionPane.INFORMATION_MESSAGE);
 
 	}
 
