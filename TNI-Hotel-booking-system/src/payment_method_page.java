@@ -13,6 +13,8 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class payment_method_page {
 
@@ -21,6 +23,8 @@ public class payment_method_page {
 	private double price;
 	private String name;
 	private int day;
+
+	private JButton btnCreditCard;
 
 	private String username;
 
@@ -60,6 +64,13 @@ public class payment_method_page {
 	 */
 	private void initialize() {
 		frmPaymentMethod = new JFrame();
+		frmPaymentMethod.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+				if (total == 0)
+					btnCreditCard.setEnabled(false);
+			}
+		});
 		frmPaymentMethod.setIconImage(
 				Toolkit.getDefaultToolkit().getImage(payment_method_page.class.getResource("/img/icon1.png")));
 		frmPaymentMethod.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -100,7 +111,7 @@ public class payment_method_page {
 		panel_1.add(btnCash);
 		btnCash.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		JButton btnCreditCard = new JButton("Credit Card");
+		btnCreditCard = new JButton("Credit Card");
 		btnCreditCard.setBounds(195, 11, 169, 27);
 		btnCreditCard.setIcon(new ImageIcon(payment_method_page.class.getResource("/img/creditcard_icon.png")));
 		panel_1.add(btnCreditCard);
