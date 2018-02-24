@@ -99,6 +99,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 		temp.close();
 	}
 
+	@Override
 	public String roomSelectList() {
 		String message = "[";
 		for (String room : roomCheckin)
@@ -108,6 +109,7 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 		return message;
 	}
 
+	@Override
 	public void removeRoom(String room) {
 		for (int i = 0; i < roomCheckin.size(); i++)
 			if (roomCheckin.get(i).equals(room))

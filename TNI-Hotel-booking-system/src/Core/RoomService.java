@@ -44,7 +44,8 @@ public class RoomService {
 			}
 			br.close();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "ButtonStatus reader failed. (File not found)", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ButtonStatus reader failed. (File not found)", "Error",
+					JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
@@ -107,8 +108,7 @@ public class RoomService {
 	}
 
 	public ImageIcon getIcon() {
-		ImageIcon icon = new ImageIcon(RoomService.class.getResource("/img/checkmark_icon.png"));
-		return icon;
+		return new ImageIcon(RoomService.class.getResource("/img/checkmark_icon.png"));
 
 	}
 }

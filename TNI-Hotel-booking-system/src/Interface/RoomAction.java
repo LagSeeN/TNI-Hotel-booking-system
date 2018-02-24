@@ -9,4 +9,8 @@ public interface RoomAction {
 
 	public void writeFile() throws IOException;
 
+	public void removeRoom(String room);
+
+	public String roomSelectList() ;
+
 }
