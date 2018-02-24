@@ -49,16 +49,14 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 				JOptionPane.showMessageDialog(null, "Maintanance setting failed.", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Maintanance setting complete.", "Maintanance",
+		JOptionPane.showMessageDialog(null, "Maintanance setting completed.", "Maintanance",
 				JOptionPane.INFORMATION_MESSAGE);
 
 	}
 
 	public void maintenanceCheckList(String username) {
 		if (!this.roomMaintenance.isEmpty()) {
-			int Select = JOptionPane.showConfirmDialog(null,
-					"Status of room in list will change : " + roomSelectList()
-							+ "\nPlease recheck before click \"Yes\"",
+			int Select = JOptionPane.showConfirmDialog(null, "Status of room in list will change : " + roomSelectList(),
 					"Confirm your Opeation", JOptionPane.YES_NO_OPTION);
 			if (Select == 0) {
 				try {

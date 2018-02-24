@@ -76,10 +76,9 @@ public class CheckIn extends RoomService implements Interface.RoomAction {
 	public boolean CheckinCheckList(int day) {
 		DecimalFormat fml = new DecimalFormat("#,###.00");
 		if (!this.roomCheckin.isEmpty()) {
-			int Select = JOptionPane.showConfirmDialog(null,
-					"Room in list will set to check in : " + roomSelectList() + "\nTotal Price : "
-							+ fml.format(CalPrice(day)) + "\nPlease recheck before click \"Yes\"",
-					"Confirm your Opeation", JOptionPane.YES_NO_OPTION);
+			int Select = JOptionPane.showConfirmDialog(null, "Room in list will set to check in : " + roomSelectList()
+					+ "\nTotal Price : " + fml.format(CalPrice(day)), "Confirm your Opeation",
+					JOptionPane.YES_NO_OPTION);
 			if (Select == 0) {
 				return true;
 			} else {

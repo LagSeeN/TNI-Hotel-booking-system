@@ -143,7 +143,7 @@ public class main_hotel_page {
 		mnMenu.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/menu_icon.png")));
 		menuBar.add(mnMenu);
 
-		JMenuItem mntmLogout = new JMenuItem("Logout");
+		JMenuItem mntmLogout = new JMenuItem("Log out");
 		mntmLogout.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/lock_icon.png")));
 		mntmLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -170,9 +170,9 @@ public class main_hotel_page {
 		});
 		mnRoom.add(rdbtnmntmMaintenance);
 
-		JMenu mnHelp = new JMenu("Help");
-		mnHelp.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/help_icon.png")));
-		menuBar.add(mnHelp);
+		JMenu mnAbout = new JMenu("About");
+		mnAbout.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/help_icon.png")));
+		menuBar.add(mnAbout);
 
 		JMenuItem mntmAbout = new JMenuItem("About");
 		mntmAbout.setIcon(new ImageIcon(main_hotel_page.class.getResource("/img/info_icon.png")));
@@ -181,7 +181,7 @@ public class main_hotel_page {
 				new about_page().newScreen();
 			}
 		});
-		mnHelp.add(mntmAbout);
+		mnAbout.add(mntmAbout);
 		frmHotelBookingSystem.getContentPane().setLayout(null);
 
 		JPanel panel_roomlist_sum = new JPanel();
