@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+<class-diagram version="1.2.2" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="Core.LoginManager" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Core/LoginManager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="194" x="38" y="-170"/>    
+    <position height="261" width="194" x="-89" y="-193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <interface id="2" language="java" name="Interface.CardCheck" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Interface/CardCheck.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="131" x="3345" y="527"/>    
+    <position height="99" width="131" x="914" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </interface>  
   <class id="3" language="java" name="Core.Maintenance" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Core/Maintenance.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="193" x="3220" y="972"/>    
+    <position height="243" width="193" x="237" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="Core.RoomService" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Core/RoomService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="405" width="186" x="2847" y="527"/>    
+    <position height="405" width="186" x="673" y="-193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,239 +39,117 @@
   </class>  
   <interface id="5" language="java" name="Interface.RoomAction" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Interface/RoomAction.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="132" x="3005" y="1291"/>    
+    <position height="153" width="148" x="470" y="571"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <package id="6" language="java" name="Interface" project="TNI-Hotel-booking-system" 
-    file="/TNI-Hotel-booking-system/src/Interface" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="101" x="272" y="-170"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="7" language="java" name="payment_method_page" project="TNI-Hotel-booking-system" 
-    file="/TNI-Hotel-booking-system/src/payment_method_page.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="289" x="413" y="-170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="payment_credit_card_page" project="TNI-Hotel-booking-system" 
-    file="/TNI-Hotel-booking-system/src/payment_credit_card_page.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="405" width="309" x="742" y="-170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="about_page" project="TNI-Hotel-booking-system" 
-    file="/TNI-Hotel-booking-system/src/about_page.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="114" x="1091" y="-170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="Core.TimeSystem" project="TNI-Hotel-booking-system" 
+  <class id="6" language="java" name="Core.TimeSystem" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Core/TimeSystem.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="102" x="1245" y="-170"/>    
+    <position height="117" width="102" x="145" y="-193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="Core.CheckIn" project="TNI-Hotel-booking-system" 
+  <class id="7" language="java" name="Core.CheckIn" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Core/CheckIn.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="175" x="3005" y="972"/>    
+    <position height="279" width="206" x="470" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="Core.Summary" project="TNI-Hotel-booking-system" 
+  <class id="8" language="java" name="Core.Summary" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Core/Summary.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="169" x="1387" y="-170"/>    
+    <position height="279" width="169" x="287" y="-193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="Start" project="TNI-Hotel-booking-system" 
-    file="/TNI-Hotel-booking-system/src/Start.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="1596" y="-170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="14" language="java" name="Core.CouponService" project="TNI-Hotel-booking-system" 
+  <class id="9" language="java" name="Core.CouponService" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Core/CouponService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="137" x="1749" y="-170"/>    
+    <position height="117" width="137" x="496" y="-193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="payment_cash_page" project="TNI-Hotel-booking-system" 
-    file="/TNI-Hotel-booking-system/src/payment_cash_page.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="315" width="278" x="1926" y="-170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="16" language="java" name="Interface.Cash" project="TNI-Hotel-booking-system" 
+  <interface id="10" language="java" name="Interface.Cash" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Interface/Cash.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="186" x="3531" y="527"/>    
+    <position height="117" width="186" x="1085" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="17" language="java" name="main_hotel_page" project="TNI-Hotel-booking-system" 
-    file="/TNI-Hotel-booking-system/src/main_hotel_page.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="657" width="251" x="3054" y="-170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <package id="18" language="java" name="Core" project="TNI-Hotel-booking-system" 
-    file="/TNI-Hotel-booking-system/src/Core" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="101" x="2244" y="-170"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <package id="19" language="java" name="" project="TNI-Hotel-booking-system" file="/TNI-Hotel-booking-system/src" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="50" width="101" x="2385" y="-170"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="20" language="java" name="Core.CardCheck" project="TNI-Hotel-booking-system" 
+  <class id="11" language="java" name="Core.CardCheck" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Core/CardCheck.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="146" x="3345" y="-170"/>    
+    <position height="225" width="146" x="899" y="-193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="payment_summary_page" project="TNI-Hotel-booking-system" 
-    file="/TNI-Hotel-booking-system/src/payment_summary_page.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="315" width="267" x="2526" y="-170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="22" language="java" name="Core.Cash" project="TNI-Hotel-booking-system" 
+  <class id="12" language="java" name="Core.Cash" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Core/Cash.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="186" x="3531" y="-170"/>    
+    <position height="171" width="186" x="1085" y="-193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="login_page" project="TNI-Hotel-booking-system" 
-    file="/TNI-Hotel-booking-system/src/login_page.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="181" x="2833" y="-170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="24" language="java" name="Core.CheckOut" project="TNI-Hotel-booking-system" 
+  <class id="13" language="java" name="Core.CheckOut" project="TNI-Hotel-booking-system" 
     file="/TNI-Hotel-booking-system/src/Core/CheckOut.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="158" x="2807" y="972"/>    
+    <position height="261" width="158" x="716" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="25">    
-    <end type="SOURCE" refId="24"/>    
-    <end type="TARGET" refId="5"/>  
+  <realization id="14">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="10"/>  
   </realization>  
-  <association id="26">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="27" name="room"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="29">    
-    <bendpoint x="3063" y="527"/>    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="30" name="roomCheckIn"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="24"/>    
+  <generalization id="15">    
+    <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <association id="33">    
-    <bendpoint x="3146" y="527"/>    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="34" name="roomMaintenance"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="36">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="16"/>  
-  </realization>  
-  <realization id="37">    
-    <end type="SOURCE" refId="11"/>    
+  <generalization id="16">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <realization id="17">    
+    <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="5"/>  
   </realization>  
-  <realization id="38">    
-    <end type="SOURCE" refId="20"/>    
+  <realization id="18">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <realization id="19">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <realization id="20">    
+    <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
-  <generalization id="39">    
-    <end type="SOURCE" refId="3"/>    
+  <generalization id="21">    
+    <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <generalization id="40">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <realization id="41">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </realization>  
-  <association id="42">    
-    <bendpoint x="2816" y="527"/>    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="43" name="roomCheckOut"/>      
-      <multiplicity id="44" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
