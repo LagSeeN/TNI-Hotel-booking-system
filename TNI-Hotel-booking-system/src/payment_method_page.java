@@ -121,7 +121,7 @@ public class payment_method_page {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmPaymentMethod.setVisible(false);
-				new payment_summary_page(day, price, username).NewScreen();
+				new payment_summary_page(day, price, username, name).NewScreen();
 
 			}
 		});

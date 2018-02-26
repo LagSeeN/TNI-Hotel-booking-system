@@ -52,16 +52,15 @@ public class CardCheck implements Interface.CardCheck {
 		for (int i = 0; i < name.length(); i++)
 			if (name.charAt(i) == ' ')
 				space_bar++;
-		if (!(space_bar > 1 || space_bar == 0 || name.startsWith(" ") || name.endsWith(" ")))
+		if (!(space_bar > 2 || space_bar == 0 || name.startsWith(" ") || name.endsWith(" ")))
 			return true;
 		if (name.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Please enter customer name.", "Request Name",
 					JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
-		JOptionPane.showMessageDialog(null,
-				"Name is incorrect format"
-						+ "\nPlease input customer name like \"fristname(space)lastname\" and try again.",
+		JOptionPane.showMessageDialog(null, "Name is incorrect format"
+				+ "\nPlease input customer name like \"fristname(space)lastname or fristname(space)midname(space)lastname\" and try again.",
 				"Warning", JOptionPane.WARNING_MESSAGE);
 		return false;
 

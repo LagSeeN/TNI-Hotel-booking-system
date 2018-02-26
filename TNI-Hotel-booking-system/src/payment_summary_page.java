@@ -36,6 +36,7 @@ public class payment_summary_page {
 	private double discount;
 	private double price;
 	private int day;
+	private String name;
 	private boolean CouponUsed = true;
 
 	private String username;
@@ -48,7 +49,7 @@ public class payment_summary_page {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					payment_summary_page window = new payment_summary_page(day, price, discount, username);
+					payment_summary_page window = new payment_summary_page(day, price, discount, username, name);
 					window.frmSummaryHotel.setVisible(true);
 					window.frmSummaryHotel.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -64,19 +65,21 @@ public class payment_summary_page {
 	 * @wbp.parser.constructor
 	 * 
 	 */
-	public payment_summary_page(int day, double price, double discount, String username) {
+	public payment_summary_page(int day, double price, double discount, String username, String name) {
 		this.day = day;
 		this.price = price;
 		this.discount = discount;
 		this.username = username;
+		this.name = name;
 		initialize();
 	}
 
-	public payment_summary_page(int day, double price, String username) {
+	public payment_summary_page(int day, double price, String username, String name) {
 		this.day = day;
 		this.price = price;
 		this.discount = 0;
 		this.username = username;
+		this.name = name;
 		initialize();
 	}
 
@@ -93,6 +96,7 @@ public class payment_summary_page {
 			public void windowOpened(WindowEvent evt) {
 				lblPrice.setText(sum.getPricetoString());
 				lblTotal.setText(sum.getTotaltoString());
+				NameField.setText(name);
 			}
 		});
 		frmSummaryHotel.setResizable(false);
@@ -180,10 +184,12 @@ public class payment_summary_page {
 							lblCouponStatus.setText(sum.getDiscounttoString());
 							CouponUsed = false;
 							btnUseCoupon.setText("Remove");
-							btnUseCoupon.setIcon(new ImageIcon(payment_summary_page.class.getResource("/img/coupon_remove_icon.png")));
+							btnUseCoupon.setIcon(new ImageIcon(
+									payment_summary_page.class.getResource("/img/coupon_remove_icon.png")));
 						}
 					} catch (IOException e1) {
-						JOptionPane.showMessageDialog(null, "Coupon System Failed.", "Error", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Coupon System Failed.", "Error",
+								JOptionPane.ERROR_MESSAGE);
 					} catch (NullPointerException e1) {
 						return;
 					}
@@ -191,7 +197,8 @@ public class payment_summary_page {
 					sum.setPrice(price);
 					lblTotal.setText(sum.getPricetoString());
 					btnUseCoupon.setText("Add");
-					btnUseCoupon.setIcon(new ImageIcon(payment_summary_page.class.getResource("/img/coupon_add_icon.png")));
+					btnUseCoupon
+							.setIcon(new ImageIcon(payment_summary_page.class.getResource("/img/coupon_add_icon.png")));
 					lblCouponStatus.setText("(not use)");
 					CouponUsed = true;
 				}
@@ -214,7 +221,6 @@ public class payment_summary_page {
 			}
 		});
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		
 
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(52, 172, 143, 27);
@@ -227,7 +233,6 @@ public class payment_summary_page {
 			}
 		});
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		
 
 		JLabel lblCustomerName = new JLabel("Customer Name : ");
 		lblCustomerName.setBounds(10, 20, 185, 27);

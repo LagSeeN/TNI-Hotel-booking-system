@@ -229,7 +229,7 @@ public class main_hotel_page {
 							JOptionPane.showMessageDialog(null, e1.getMessage(), "File writer failed.",
 									JOptionPane.ERROR_MESSAGE);
 						}
-						new payment_summary_page(day, roomCheckIn.CalPrice(day), 0, username).NewScreen();
+						new payment_summary_page(day, roomCheckIn.CalPrice(day), 0, username, "").NewScreen();
 						frmHotelBookingSystem.setVisible(false);
 					} else {
 						roomcheck = room.setDefault(roomcheck);
