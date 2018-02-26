@@ -99,3 +99,4 @@ public class Maintenance extends RoomService implements Interface.RoomAction {
 	}
 
 }
+//อ่อนแอก็แพ้ไป byTaitai

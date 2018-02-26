@@ -36,3 +36,15 @@
 (Sat) 24/Feb/2018 23:02:09 [CheckOut]      Rooms : [103] has Checked Out by @Akachan
 (Sat) 24/Feb/2018 23:02:58 [CheckOut]      Rooms : [102] has Checked Out by @Akachan
 (Sat) 24/Feb/2018 23:03:09 [CheckOut]      Rooms : [302] has Checked Out by @Akachan
+(Mon) 26/Feb/2018 13:25:06 [CheckIn]       Rooms : [301,302] has Checked in by @Yossapon for 5 Day(s) Booking by #Danupol Book $Pay by Credit Card 3839
+(Mon) 26/Feb/2018 13:25:36 [CheckOut]      Rooms : [301,302] has Checked Out by @Yossapon
+(Mon) 26/Feb/2018 13:25:56 [Maintenance]   Rooms : [302] has Set Maintenance/Send to Service by @Yossapon
+(Mon) 26/Feb/2018 13:26:07 [Maintenance]   Rooms : [302] has Set Maintenance/Send to Service by @Yossapon
+(Mon) 26/Feb/2018 13:38:16 [CheckIn]       Rooms : [302,101] has Checked in by @Yossapon for 5 Day(s) Booking by #Malee Aroina $Pay by Credit Card 3839
+(Mon) 26/Feb/2018 13:39:06 [CheckOut]      Rooms : [101,302] has Checked Out by @Yossapon
+(Mon) 26/Feb/2018 13:39:50 [Maintenance]   Rooms : [101] has Set Maintenance/Send to Service by @Yossapon
+(Mon) 26/Feb/2018 13:40:11 [Maintenance]   Rooms : [101] has Set Maintenance/Send to Service by @Yossapon
+(Mon) 26/Feb/2018 14:17:01 [Maintenance]   Rooms : [201,204] has Set Maintenance/Send to Service by @Thanapat
+(Mon) 26/Feb/2018 14:17:22 [CheckOut]      Rooms : [304,306,401,404,405,406,403] has Checked Out by @Thanapat
+(Mon) 26/Feb/2018 14:17:34 [CheckOut]      Rooms : [501,502,503] has Checked Out by @Thanapat
+(Mon) 26/Feb/2018 14:21:03 [CheckIn]       Rooms : [501,502,503] has Checked in by @Thanapat for 1 Day(s) Booking by #TaLaLy Eiei $Pay by Cash 6250 Baht
