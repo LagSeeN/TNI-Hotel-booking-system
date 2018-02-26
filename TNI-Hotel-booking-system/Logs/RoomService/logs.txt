@@ -49,3 +49,4 @@
 (Mon) 26/Feb/2018 14:17:34 [CheckOut]      Rooms : [501,502,503] has Checked Out by @Thanapat
 (Mon) 26/Feb/2018 14:21:03 [CheckIn]       Rooms : [501,502,503] has Checked in by @Thanapat for 1 Day(s) Booking by #TaLaLy Eiei $Pay by Cash 6250 Baht
 (Mon) 26/Feb/2018 19:28:34 [CheckIn]       Rooms : [101,103] has Checked in by @Akachan for 1 Day(s) Booking by #Lalita Na Bangkok $Pay by Cash 700 Baht
+(Mon) 26/Feb/2018 20:01:12 [CheckIn]       Rooms : [102] has Checked in by @Yossapon for 7 Day(s) Booking by #Yossapon Mos Jantaroteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee $Pay by Credit Card 1111
