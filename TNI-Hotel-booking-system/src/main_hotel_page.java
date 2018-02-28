@@ -164,7 +164,7 @@ public class main_hotel_page {
 				roomcheck = room.setDefault(roomcheck);
 				setIcon(Integer.parseInt(fileroom.substring(1)) - 1);
 				roomMaintenance.removeRoomAll();
-				lblTotalRoom_get.setText(String.valueOf(roomCheckIn.CalRoom()));
+				lblTotalRoom_get.setText(String.valueOf(roomMaintenance.CalRoom()));
 				OperationMode();
 			}
 		});

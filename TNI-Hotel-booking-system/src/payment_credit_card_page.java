@@ -24,6 +24,7 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class payment_credit_card_page {
 
@@ -190,11 +191,13 @@ public class payment_credit_card_page {
 		btnPay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// Pay
+				DecimalFormat frm = new DecimalFormat("#,##0.00");
 				CardCheck name = new CardCheck(Name.getText(), CardNumber.getText());
 				int Success = 0;
 				if (name.checkName()) {
 					Success = JOptionPane.showConfirmDialog(null,
-							"Total Price : " + (total) + "\nPlease continue at EDC machine.\n\nPayment success?",
+							"Total Price : " + (frm.format(total))
+									+ "\nPlease continue at EDC machine.\n\nPayment success?",
 							"Please continue at EDC machine", JOptionPane.YES_NO_OPTION,
 							JOptionPane.INFORMATION_MESSAGE);
 					if (Success == 0) {
