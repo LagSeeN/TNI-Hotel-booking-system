@@ -56,3 +56,4 @@
 (Wed) 28/Feb/2018 21:15:51 [CheckIn]       Rooms : [201,205] has Checked in by @Danupol for 5 Day(s) Booking by #Marr Jung $Pay by Credit Card 4444
 (Wed) 28/Feb/2018 21:15:59 [CheckOut]      Rooms : [501,504,505,502] has Checked Out by @Danupol
 (Wed) 28/Feb/2018 21:16:37 [CheckIn]       Rooms : [501] has Checked in by @Danupol for 5 Day(s) Booking by #Kooh kung $Pay by Free by Coupon
+(Sun) 04/Mar/2018 19:10:02 [CheckIn]       Rooms : [104,105] has Checked in by @Yossapon for 6 Day(s) Booking by #Malee Aroina $Pay by Credit Card 5744
