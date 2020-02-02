@@ -1,5 +1,11 @@
 # TNI Hotel booking system
+โปรเจควิชา INT-104	Object-Oriented Programming Laboratory
 ระบบจองโรงแรมแบบครบวงจรโดยทีมงานคุณภาพ
+
+ตัวอย่างภาพโปรแกรม
+![ภาพโปรแกรม](https://imgur.com/nlxmAOI)
+
+
 
 ตัวย่อในการอ่านไฟล์ commit
 
