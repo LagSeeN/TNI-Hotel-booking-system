@@ -1,22 +1,30 @@
 # TNI Hotel booking system
 โปรเจควิชา INT-104	Object-Oriented Programming Laboratory
-ระบบจองโรงแรมแบบครบวงจรโดยทีมงานคุณภาพ
+ระบบจองโรงแรม
 
-ตัวอย่างภาพโปรแกรม
-![ภาพโปรแกรม](https://i.imgur.com/nlxmAOI.png)
+## Requirements
 
+Java
 
+## Screenshot
 
-ตัวย่อในการอ่านไฟล์ commit
+MainScreen
 
-'+' คือ เพิ่ม
+![](https://i.imgur.com/LGzj270l.png)
 
-'-' คือ เอาออก
+Credit Card Validator
 
-'*' คือ แก้บัค
+![](https://i.imgur.com/POIaI9Tl.png)
+![](https://i.imgur.com/PhnlK5Pl.png)
 
-การส่งไฟล์ commint ที่ดี
+Log file
 
-![Imgur](https://i.imgur.com/4R7SyYv.png)
+![](https://i.imgur.com/AOzmC3Ml.png)
 
-[คู่มือเพิ่มเติม](https://docs.google.com/document/d/1w1tp3k2J3PQOZZdyXZgLaQMrVKxS7L5ePZoYjKVyZBI/edit?usp=sharing)
+## Team
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/LagSeeN"><img src="https://avatars1.githubusercontent.com/u/19259262?v=4" width="100px;" alt=""/><br /><sub><b>LagSeeN</b></sub></a><br />Danupol Intranurux</td>
+    <td align="center"><a href="https://github.com/ONMITSU"><img src="https://avatars1.githubusercontent.com/u/34770624?v=4" width="100px;" alt=""/><br /><sub><b>ONMITSU</b></sub></a><br />Yossapon Jantarote</td>
+    <td align="center"><a href="https://github.com/taifurn44"><img src="https://avatars1.githubusercontent.com/u/35262042?v=4" width="100px;" alt=""/><br /><sub><b>Thanapat</b></sub></a><br />Thanapat Chanprasert</td></td>
+</table>
